@@ -1,0 +1,51 @@
+[
+  {
+    "n": 71310241,
+    "min_u": 11,
+    "parametric": false,
+    "j_target": 2,
+    "time": 6.985664367675781e-05
+  },
+  {
+    "n": 318545761,
+    "min_u": 11,
+    "parametric": false,
+    "j_target": 2,
+    "time": 0.00016617774963378906
+  },
+  {
+    "n": 340912609,
+    "min_u": 15,
+    "parametric": true,
+    "j_target": 1,
+    "time": 0.00010395050048828125
+  },
+  {
+    "n": 360055609,
+    "min_u": 27,
+    "parametric": false,
+    "j_target": 1,
+    "time": 0.0002009868621826172
+  },
+  {
+    "n": 524792461,
+    "min_u": 3,
+    "parametric": true,
+    "j_target": 0,
+    "time": 2.288818359375e-05
+  },
+  {
+    "n": 550027501,
+    "min_u": 3,
+    "parametric": true,
+    "j_target": 0,
+    "time": 2.193450927734375e-05
+  },
+  {
+    "n": 923573401,
+    "min_u": 31,
+    "parametric": false,
+    "j_target": 2,
+    "time": 0.00030994415283203125
+  }
+]

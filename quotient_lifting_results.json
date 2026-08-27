@@ -1,0 +1,8 @@
+{
+  "description": "Quotient group lifting analysis for Erd\u0151s-Straus Problem #8",
+  "total_cases": 395,
+  "properties_verified": false,
+  "rescue_summary": {
+    "nm_in_stab_rescue": 395
+  }
+}

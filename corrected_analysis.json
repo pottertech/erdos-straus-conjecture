@@ -1,0 +1,540 @@
+{
+  "description": "Corrected Erd\u0151s-Straus solution search with proper verification",
+  "method": "Direct search for m\u00b2 = t(tA\u00b2 - B) with 4/n = 1/x + 1/y + 1/z verification",
+  "results": {
+    "49": {
+      "7": {
+        "found": true,
+        "x": 14,
+        "y": 784,
+        "z": 112,
+        "t": 64,
+        "m": 336,
+        "k": -220,
+        "verified": true,
+        "lhs": "4/49",
+        "rhs": "4/49"
+      },
+      "11": {
+        "found": true,
+        "x": 15,
+        "y": 210,
+        "z": 98,
+        "t": 14,
+        "m": 56,
+        "k": -1218,
+        "verified": true,
+        "lhs": "4/49",
+        "rhs": "4/49"
+      },
+      "15": {
+        "found": true,
+        "x": 16,
+        "y": 112,
+        "z": 98,
+        "t": 7,
+        "m": 7,
+        "k": -1442,
+        "verified": true,
+        "lhs": "4/49",
+        "rhs": "4/49"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "73": {
+      "7": {
+        "found": true,
+        "x": 20,
+        "y": 730,
+        "z": 292,
+        "t": 73,
+        "m": 219,
+        "k": -1606,
+        "verified": true,
+        "lhs": "4/73",
+        "rhs": "4/73"
+      },
+      "11": {
+        "found": true,
+        "x": 21,
+        "y": 3066,
+        "z": 146,
+        "t": 146,
+        "m": 1460,
+        "k": -438,
+        "verified": true,
+        "lhs": "4/73",
+        "rhs": "4/73"
+      },
+      "15": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "169": {
+      "7": {
+        "found": true,
+        "x": 44,
+        "y": 2860,
+        "z": 1690,
+        "t": 325,
+        "m": 585,
+        "k": -9022,
+        "verified": true,
+        "lhs": "4/169",
+        "rhs": "4/169"
+      },
+      "11": {
+        "found": true,
+        "x": 45,
+        "y": 1690,
+        "z": 1170,
+        "t": 130,
+        "m": 260,
+        "k": -12870,
+        "verified": true,
+        "lhs": "4/169",
+        "rhs": "4/169"
+      },
+      "15": {
+        "found": true,
+        "x": 46,
+        "y": 155480,
+        "z": 520,
+        "t": 5200,
+        "m": 77480,
+        "k": 78052,
+        "verified": true,
+        "lhs": "4/169",
+        "rhs": "4/169"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "193": {
+      "7": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "11": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "15": {
+        "found": true,
+        "x": 52,
+        "y": 5018,
+        "z": 772,
+        "t": 193,
+        "m": 2123,
+        "k": -16598,
+        "verified": true,
+        "lhs": "4/193",
+        "rhs": "4/193"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "241": {
+      "7": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "11": {
+        "found": true,
+        "x": 63,
+        "y": 30366,
+        "z": 1446,
+        "t": 1446,
+        "m": 14460,
+        "k": -4338,
+        "verified": true,
+        "lhs": "4/241",
+        "rhs": "4/241"
+      },
+      "15": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "313": {
+      "7": {
+        "found": true,
+        "x": 80,
+        "y": 12520,
+        "z": 5008,
+        "t": 1252,
+        "m": 3756,
+        "k": -27544,
+        "verified": true,
+        "lhs": "4/313",
+        "rhs": "4/313"
+      },
+      "11": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "15": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": true,
+        "x": 84,
+        "y": 13146,
+        "z": 1252,
+        "t": 313,
+        "m": 5947,
+        "k": -46950,
+        "verified": true,
+        "lhs": "4/313",
+        "rhs": "4/313"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "361": {
+      "7": {
+        "found": true,
+        "x": 92,
+        "y": 10488,
+        "z": 8664,
+        "t": 1368,
+        "m": 912,
+        "k": -41800,
+        "verified": true,
+        "lhs": "4/361",
+        "rhs": "4/361"
+      },
+      "11": {
+        "found": true,
+        "x": 93,
+        "y": 8664,
+        "z": 4712,
+        "t": 608,
+        "m": 1976,
+        "k": -56202,
+        "verified": true,
+        "lhs": "4/361",
+        "rhs": "4/361"
+      },
+      "15": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "19": {
+        "found": true,
+        "x": 95,
+        "y": 8664,
+        "z": 2280,
+        "t": 288,
+        "m": 3192,
+        "k": -63406,
+        "verified": true,
+        "lhs": "4/361",
+        "rhs": "4/361"
+      },
+      "23": {
+        "found": true,
+        "x": 96,
+        "y": 8664,
+        "z": 1824,
+        "t": 228,
+        "m": 3420,
+        "k": -65208,
+        "verified": true,
+        "lhs": "4/361",
+        "rhs": "4/361"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "409": {
+      "7": {
+        "found": true,
+        "x": 104,
+        "y": 85072,
+        "z": 6544,
+        "t": 6544,
+        "m": 39264,
+        "k": 32720,
+        "verified": true,
+        "lhs": "4/409",
+        "rhs": "4/409"
+      },
+      "11": {
+        "found": true,
+        "x": 105,
+        "y": 12270,
+        "z": 5726,
+        "t": 818,
+        "m": 3272,
+        "k": -71166,
+        "verified": true,
+        "lhs": "4/409",
+        "rhs": "4/409"
+      },
+      "15": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "433": {
+      "7": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "11": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "15": {
+        "found": true,
+        "x": 112,
+        "y": 6928,
+        "z": 6062,
+        "t": 433,
+        "m": 433,
+        "k": -89198,
+        "verified": true,
+        "lhs": "4/433",
+        "rhs": "4/433"
+      },
+      "19": {
+        "found": true,
+        "x": 113,
+        "y": 293574,
+        "z": 2598,
+        "t": 7794,
+        "m": 145488,
+        "k": 42434,
+        "verified": true,
+        "lhs": "4/433",
+        "rhs": "4/433"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": true,
+        "x": 116,
+        "y": 25114,
+        "z": 1732,
+        "t": 433,
+        "m": 11691,
+        "k": -92662,
+        "verified": true,
+        "lhs": "4/433",
+        "rhs": "4/433"
+      }
+    },
+    "601": {
+      "7": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "11": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "15": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    },
+    "673": {
+      "7": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "11": {
+        "found": true,
+        "x": 171,
+        "y": 76722,
+        "z": 12114,
+        "t": 4038,
+        "m": 32304,
+        "k": -157482,
+        "verified": true,
+        "lhs": "4/673",
+        "rhs": "4/673"
+      },
+      "15": {
+        "found": true,
+        "x": 172,
+        "y": 173634,
+        "z": 8076,
+        "t": 6057,
+        "m": 82779,
+        "k": -122486,
+        "verified": true,
+        "lhs": "4/673",
+        "rhs": "4/673"
+      },
+      "19": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "23": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "27": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      },
+      "31": {
+        "found": false,
+        "reason": "no t found up to 10000"
+      }
+    }
+  },
+  "summary": {
+    "total_pairs": 77,
+    "solutions_found": 23,
+    "n_with_solution": [
+      49,
+      73,
+      169,
+      193,
+      241,
+      313,
+      361,
+      409,
+      433,
+      673
+    ],
+    "n_without_solution": [
+      601
+    ],
+    "all_verified": true
+  }
+}

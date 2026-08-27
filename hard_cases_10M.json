@@ -1,0 +1,10 @@
+{
+  "total_qr_all_primes": 4975,
+  "max_A_found": 7,
+  "A_distribution": {
+    "3": 3831,
+    "7": 1144
+  },
+  "hard_cases": [],
+  "no_solution": []
+}

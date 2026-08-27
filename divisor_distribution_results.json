@@ -1,0 +1,22 @@
+{
+  "analysis": "Divisor distribution and deterministic coverage bounds",
+  "pigeonhole_bounds": {
+    "3": 1,
+    "7": 2,
+    "11": 3,
+    "19": 3,
+    "23": 3,
+    "31": 4,
+    "43": 4,
+    "47": 4,
+    "59": 4,
+    "67": 4,
+    "71": 4,
+    "79": 4,
+    "83": 5,
+    "103": 5,
+    "107": 5,
+    "127": 5
+  },
+  "deterministic_bounds": {}
+}

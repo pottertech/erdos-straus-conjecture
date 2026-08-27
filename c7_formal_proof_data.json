@@ -1,0 +1,7 @@
+{
+  "hard_cases_count": 308,
+  "a3_rescues": 177,
+  "a3_fails": 131,
+  "m3_also_all_qr": 131,
+  "coprimality": "m_3 = 2*(m_7/2) - 1, gcd(m_3, m_7/2) = 1"
+}

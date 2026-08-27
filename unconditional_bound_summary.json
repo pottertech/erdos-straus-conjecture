@@ -1,0 +1,9 @@
+{
+  "tier1_burgess": "A = O(n^{1/(4\u221ae)+\u03b5}) \u2248 O(n^{0.152})",
+  "tier2_computational": "A \u2264 127 for n \u2264 10^8 (being extended to 10^9)",
+  "tier3_probabilistic": "A \u2264 n^{0.152} with P(failure) < 10^{-5} for n > 10^{12}",
+  "tier4_grh": "A = O((log n)\u00b2) under GRH",
+  "sampling": "A \u2264 7 for 36 samples from 10^{10} to 10^{21}",
+  "gap": "[10^9, 10^{12}]: ~2 expected failures (probabilistic)",
+  "cleanest_claim": "A = O(n^{0.152+\u03b5}) unconditional + A \u2264 127 computational to 10^8"
+}

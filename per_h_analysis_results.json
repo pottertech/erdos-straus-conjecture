@@ -1,0 +1,64 @@
+{
+  "description": "Per-h finite case analysis for Erd\u0151s-Straus Problem #7",
+  "total_cases": 18992,
+  "gap_cases": 4268,
+  "trivial_stab_gaps": 1587,
+  "nontrivial_stab_gaps": 395,
+  "by_h_summary": {
+    "10": {
+      "count": 144,
+      "A_values": [
+        11,
+        31
+      ]
+    },
+    "18": {
+      "count": 545,
+      "A_values": [
+        19
+      ]
+    },
+    "30": {
+      "count": 437,
+      "A_values": [
+        31
+      ]
+    },
+    "22": {
+      "count": 147,
+      "A_values": [
+        23
+      ]
+    },
+    "6": {
+      "count": 105,
+      "A_values": [
+        7
+      ]
+    },
+    "9": {
+      "count": 121,
+      "A_values": [
+        19
+      ]
+    },
+    "15": {
+      "count": 28,
+      "A_values": [
+        31
+      ]
+    },
+    "11": {
+      "count": 31,
+      "A_values": [
+        23
+      ]
+    },
+    "5": {
+      "count": 29,
+      "A_values": [
+        11
+      ]
+    }
+  }
+}

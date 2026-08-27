@@ -1,0 +1,34 @@
+# Lean build artifacts (27GB of Mathlib builds)
+.lake/
+build/
+*.olean
+*.ilean
+*.trace
+*.ir
+*.c
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (kept locally, not in repo)
+problem3_omega2_measurement.json
+results/layer4_certificates.jsonl
+a3_analysis.json
+prime_verification_10m.json
+unresolved_or_exceptional_cases.json
+search_results.json
+verification_1m.json
+centered_analysis_results.json
+positivity_analysis.json
+problem3_failure_analysis.json
+fail_cases_min_A_100k.json
+*.log
+
+# PDFs (build locally)
+*.pdf

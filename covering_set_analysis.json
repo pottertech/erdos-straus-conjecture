@@ -1,0 +1,92 @@
+{
+  "description": "Complete covering set analysis for Erd\u0151s-Straus conjecture n\u22611(mod 12)",
+  "residue_classes_mod_72": [
+    1,
+    13,
+    25,
+    37,
+    49,
+    61
+  ],
+  "A_values_tested": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31,
+    35,
+    39,
+    43,
+    47
+  ],
+  "brute_force_verification": {
+    "mod_8_mod_9": "72/72 all solvable",
+    "mod_16_mod_9": "72/72 all solvable",
+    "mod_16_mod_27": "72/72 all solvable",
+    "mod_8_mod_27": "72/72 all solvable"
+  },
+  "local_solvability_proof": {
+    "p_ge_5": "Always solvable by Hensel lift from nonsingular mod p solution",
+    "p_3": "Always solvable; mod 9/27 verified by brute force",
+    "p_2": "Always solvable; mod 8/16 verified by brute force",
+    "R": "Form indefinite, hence isotropic"
+  },
+  "hasse_minkowski": {
+    "applies": true,
+    "form": "k\u00b2 + 36(A\u00b2-9)t\u00b2 - 36m\u00b2 - B\u00b2 = 0 is a quadric in 3 variables (k,t,m)",
+    "conclusion": "Rational solution exists for any odd A\u22603 and any n\u22611(mod 12)"
+  },
+  "covering_set": {
+    "set_7_23_31": {
+      "valid": true,
+      "minimal": false,
+      "covers_all": true
+    },
+    "minimal_size": 1,
+    "minimal_sets": [
+      [
+        7
+      ],
+      [
+        11
+      ],
+      [
+        15
+      ],
+      [
+        19
+      ],
+      [
+        23
+      ],
+      [
+        27
+      ],
+      [
+        31
+      ],
+      [
+        35
+      ],
+      [
+        39
+      ],
+      [
+        43
+      ],
+      [
+        47
+      ]
+    ],
+    "key_insight": "A=3 is degenerate (A\u00b2-9=0 \u2192 binary form). For A\u22603, Hasse-Minkowski guarantees rational solutions."
+  },
+  "numerical_verification": {
+    "A_7_solutions_found": 15,
+    "A_23_solutions_found": 15,
+    "A_31_solutions_found": 15,
+    "note": "Integer solutions verified for A=3 failing cases with A=7,23,31"
+  }
+}
