@@ -46,6 +46,7 @@ We present a conditional proof of the Erd\H{o}s--Straus Conjecture---the asserti
 \end{abstract}
 
 \tableofcontents
+\clearpage
 
 \section{Introduction}
 
@@ -91,6 +92,7 @@ For $75\%$ of prime hard cases (those with $n \not\equiv 1 \pmod{120}$), $A \leq
 Under the Generalized Riemann Hypothesis, $A = O((\log n)^2)$ for all hard cases.
 \end{corollary}
 
+\clearpage
 \section{Preliminaries}
 
 \subsection{Notation}
@@ -205,6 +207,7 @@ If $n$ is a quadratic non-residue modulo a prime $u \equiv 3 \pmod{4}$, then $x 
 We have $x \equiv n \cdot 4^{-1} \pmod{u}$. Since $4 = 2^2$, $4^{-1}$ is a quadratic residue. The product of a QNR and a QR is a QNR.
 \end{proof}
 
+\clearpage
 \section{Modular Identities}\label{sec:modular}
 
 Six of the seven residue classes in \Cref{prop:partition} are resolved by explicit, unconditional constructions. These identities are verified in Lean 4.
@@ -223,6 +226,7 @@ The Erd\H{o}s--Straus Conjecture holds unconditionally for $n$ in each of the fo
 
 Each identity is verified by the Lean 4 module \texttt{Identities.lean} (6 theorems, 0 errors). The seventh case---$n \equiv 1 \pmod{12}$ with $n \not\equiv 0 \pmod{5}$---is the hard case analyzed in the remainder of this paper.
 
+\clearpage
 \section{The \texorpdfstring{$z = my$}{z=my} Parametrization and IFF Condition}
 
 The \Cref{lem:iff} provides an exact characterization of when the $z = my$ parametrization succeeds. Two obstruction types can prevent $A$ from working:
@@ -239,6 +243,7 @@ QNR prime factors exist in $D$, but all divisors $m \equiv -1 \pmod{A}$ are even
 The IFF condition was verified computationally against all 200 hard cases with $n \leq 10{,}000$ for $A \in \{7, 11, 15, 19, 23, 31, 43, 47\}$, with zero violations.
 \end{remark}
 
+\clearpage
 \section{Hard Case Analysis}
 
 We partition hard cases by the number of distinct prime factors $\omega(n)$.
@@ -366,6 +371,7 @@ By \Cref{lem:qnr}, $x = (n+u)/4$ is QNR mod $u$, so $x$ has at least one QNR pri
 \textbf{Part 3: GRH.} Under GRH, Hooley \cite{Hooley1967} and Lamzouri--Li--Soundararajan \cite{LLS2015} give the least QNR prime $u \equiv 3 \pmod{4}$ as $O((\log n)^2)$.
 \end{proof}
 
+\clearpage
 \section{The Divisor Distribution Lemma}
 
 The divisor distribution lemma was the last remaining barrier between our computational verification and a full unconditional proof. We show it is a consequence of the multi-level Chebotarev density theorem.
@@ -403,6 +409,7 @@ For $n > 10^{10}$ ($N \geq 6$): $P < 10^{-14}$. For $n > 10^{12}$ ($N \geq 25$):
 For $n \leq 10^8$: exhaustive computation confirms 0 failures. For $n \in (10^8, 10^{10}]$: expected failures $< 2 \times 10^{-8}$. For $n > 10^{12}$: $P(\text{any failure}) < 10^{-60}$.
 \end{corollary}
 
+\clearpage
 \section{Deterministic Cascade for Prime Hard Cases}
 
 \subsection{CRT Coverage}
@@ -440,6 +447,7 @@ Splitting into 4,003 sub-classes modulo $120120 = \mathrm{lcm}(8, 12, 20, 28, 44
 
 The 91 uncovered classes are addressed by the Burgess bridge (\Cref{thm:b4}) and the divisor distribution lemma (\Cref{lem:divisor-dist}).
 
+\clearpage
 \section{Non-Parametric Cases and 2-Adic Lifting}
 
 \begin{definition}[Non-Parametric Case]
@@ -472,6 +480,7 @@ Since $u \equiv 3 \pmod{4}$, $u$ is odd ($v_2(u) = 0$). The divisibility conditi
 \textbf{No 2-adic obstruction.} The earlier 2-adic concern was an artifact of the BPS framework's $D = n(n+A)$, which could have $v_2(D) < v_2(u)$. With the general $u$-method and $u \equiv 3 \pmod{4}$ ($v_2(u) = 0$), this obstruction does not exist.
 \end{proof}
 
+\clearpage
 \section{Computational Verification}
 
 \subsection{Exhaustive Verification to \texorpdfstring{$10^9$}{10^9}}
@@ -532,6 +541,7 @@ $10^{10}$--$10^{21}$ (sampling) & 0 & 36 \\
 \caption{Non-parametric case counts.}
 \end{table}
 
+\clearpage
 \section{Lean 4 Formalization}
 
 We formalize the proof structure in Lean 4 (Mathlib v4.33.1), consisting of 10 modules with 62 theorems, compiling with 0 errors, 0 \texttt{sorry}s, and 0 \texttt{admit}s.
@@ -577,6 +587,7 @@ The three axioms represent proven mathematical theorems not yet in Mathlib:
 
 Formalizing these axioms in Lean would convert the conditional proof to unconditional. This is a Mathlib community effort estimated at 1--2 years.
 
+\clearpage
 \section{Per-\texorpdfstring{$h$}{h} Gap Analysis and Quotient Group Lifting}
 
 For prime $n \leq 100{,}000$, a complete analysis of the bounded divisor-residue set $D_A$ in each group $(\mathbb{Z}/h\mathbb{Z})$ (where $h = (A-1)/2$ is the group order) reveals two obstruction types:
@@ -603,6 +614,7 @@ Two obstruction types are classified:
 All 395 non-trivial-stabilizer gap cases are rescued. The obstruction cannot persist because the 6 primes produce 9 distinct group orders $h \in \{2, 5, 6, 9, 10, 11, 15, 18, 22, 30\}$, and the coset/parity obstruction at one $h$ is structurally incompatible with the group at $h' = 2$.
 \end{proof}
 
+\clearpage
 \section{Conclusion and Open Problems}
 
 \subsection{Summary}
