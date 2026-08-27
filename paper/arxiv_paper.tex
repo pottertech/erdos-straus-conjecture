@@ -27,7 +27,7 @@
 
 \numberwithin{equation}{section}
 
-\title{A Conditional Proof of the Erd\H{o}s--Straus Conjecture via Divisor Distribution and the Burgess Bound}
+\title{Computational and Structural Analysis of Bounded-Parameter Decompositions for the Erd\H{o}s--Straus Conjecture}
 
 \author{
   Skip Potter\thanks{Potter's Quill Publishing.}
@@ -42,7 +42,7 @@
 \maketitle
 
 \begin{abstract}
-We present a conditional proof of the Erd\H{o}s--Straus Conjecture---the assertion that for every integer $n \geq 2$ there exist positive integers $x, y, z$ with $4/n = 1/x + 1/y + 1/z$---conditional on the Chebotarev Density Theorem. The proof reduces the problem to the ``hard case'' family ($n \equiv 1 \pmod{12}$, $n \not\equiv 0 \pmod{5}$, all odd prime factors of $n(n+3)/4$ congruent to $1 \pmod{3}$), comprising approximately $1/7$ of all residue classes. For these cases, we establish $A$-boundedness: the parameter $A = 4x - n$ satisfies $A \leq 11$ when $\omega(n) \geq 3$, $A = O(\log n)$ with $\limsup A/\log n \leq 1$ when $\omega(n) = 2$, and $A \leq 127$ for prime $n$ (verified to $10^8$), with the unconditional Burgess bound giving $A = O(n^{0.152})$ for all $n$. A deterministic CRT cascade resolves $75\%$ of prime hard cases with $A \leq 23$. The divisor distribution lemma---the last barrier to a fully unconditional argument---is closed via a multi-level Chebotarev density argument. Computational verification confirms $3{,}194{,}231$ hard cases to $10^9$ with zero failures, and sampling to $10^{21}$ yields $A \leq 7$. The proof is formalized in Lean 4 with 62 theorems and 3 axioms (Chebotarev, Linnik, and their corollary).
+We present structural analysis and computational evidence for $A$-boundedness of the Erd\H{o}s--Straus Conjecture---the assertion that for every integer $n \geq 2$ there exist positive integers $x, y, z$ with $4/n = 1/x + 1/y + 1/z$. The analysis reduces the problem to the ``hard case'' family ($n \equiv 1 \pmod{12}$, $n \not\equiv 0 \pmod{5}$, all odd prime factors of $n(n+3)/4$ congruent to $1 \pmod{3}$), comprising approximately $1/7$ of all residue classes. For these cases, we study $A$-boundedness: the parameter $A = 4x - n$ satisfies $A \leq 11$ when $\omega(n) \geq 3$, $A = O(\log n)$ with $\limsup A/\log n \leq 1$ when $\omega(n) = 2$, and $A \leq 127$ for prime $n$ (verified to $10^8$), with the unconditional Burgess bound giving $A = O(n^{0.152})$ for all $n$. A deterministic CRT cascade resolves $87.5\%$ of prime hard cases with $A \leq 23$. The divisor distribution conjecture---the primary gap between the current work and a full proof---is supported by a multi-level Chebotarev density argument giving failure probability less than $10^{-60}$, but this probabilistic evidence does not constitute a deterministic proof. Computational verification confirms $3{,}194{,}231$ hard cases to $10^9$ with zero failures, and sampling to $10^{21}$ yields $A \leq 7$. The algebraic framework is formalized in Lean 4 with 62 theorems and no uses of \texttt{sorry} or \texttt{admit}.
 \end{abstract}
 
 \clearpage
@@ -60,33 +60,31 @@ For every integer $n \geq 2$, there exist positive integers $x, y, z$ such that
 \end{equation}
 \end{conjecture}
 
-The conjecture dates to at least 1967, when Mordell mentioned it in his monograph \cite{Mordell1967}. Despite its deceptively simple statement, it has resisted proof for over half a century. Extensive computational verification has confirmed the conjecture: Elsholtz, Tao, and others verified it to $10^{14}$, and subsequent sampling has pushed verification to $10^{21}$.
+The conjecture is attributed to Paul Erd\H{o}s and Ernst G.~Straus, dating to 1948. Mordell mentioned it in his 1967 monograph \cite{Mordell1967}. Despite its deceptively simple statement, it has resisted proof for over seven decades. Extensive computational verification has confirmed the conjecture: Elsholtz, Tao, and others verified it to $10^{14}$, and subsequent sampling has pushed verification to $10^{21}$.
 
-The difficulty is concentrated in a specific family of $n$ values---the ``hard cases''---where standard parametrizations fail. For the remaining cases, elementary modular identities provide explicit constructions. Our approach systematically classifies and resolves the hard cases by the number of distinct prime factors $\omega(n)$, establishing boundedness of a key parameter $A$ in each regime.
+The difficulty is concentrated in a specific family of $n$ values---the ``hard cases''---where standard parametrizations fail. For the remaining cases, elementary modular identities provide explicit constructions. Our approach systematically classifies and analyzes the hard cases by the number of distinct prime factors $\omega(n)$, studying boundedness of a key parameter $A$ in each regime.
 
 The main tool is the \emph{$z = my$ parametrization} and its generalization, the \emph{$u$-method}. For $A \equiv 3 \pmod{4}$, setting $x = (n+A)/4$ reduces the problem to finding a divisor $m$ of $D = n(n+A)$ with $m \equiv -1 \pmod{A}$. The general $u$-method works with $D = n^2 x^2$ and a three-target congruence condition, providing substantially more divisors and tighter bounds.
 
-Our proof is \emph{conditional on the Chebotarev Density Theorem} \cite{Chebotarev1926}, a standard and widely accepted result in algebraic number theory. The conditional nature arises because the independence of quadratic residue symbols across different moduli---a consequence of Chebotarev---has not yet been formalized in Lean 4 / Mathlib. Under the Generalized Riemann Hypothesis (GRH), the bounds improve dramatically to $A = O((\log n)^2)$.
+We reduce the problem to hard cases and provide strong evidence for $A$-boundedness, with deterministic results for $87.5\%$ of prime hard cases and a hybrid argument for the remainder. The Chebotarev Density Theorem \cite{Chebotarev1926} is a proven theorem in algebraic number theory, and our arguments use it correctly. However, the Lean 4 formalization is conditional: certain consequences of Chebotarev (specifically, the independence of quadratic residue symbols across different moduli) have not yet been formalized in Mathlib, so the Lean proof relies on axioms encoding these results. Under the Generalized Riemann Hypothesis (GRH), the bounds improve dramatically to $A = O((\log n)^2)$.
 
 \subsection{Main Results}
 
-\begin{theorem}[Main Theorem, Conditional on Chebotarev]\label{thm:main}
-For every integer $n \geq 2$, there exist positive integers $x, y, z$ such that $4/n = 1/x + 1/y + 1/z$.
-\end{theorem}
+We state the main result as a conjecture supported by strong evidence:
 
-The proof proceeds by partitioning all $n \geq 2$ into seven residue-based cases, six of which are resolved by elementary modular identities (unconditional, Lean-verified). The seventh---the hard case---is resolved by the $A$-boundedness theorem:
-
-\begin{theorem}[$A$-Boundedness]\label{thm:a-bounded}
-For every $n \geq 2$ satisfying the hard case conditions, the $u$-method produces a solution with $A = O(\log n)$. Specifically:
+\begin{conjecture}[A-Boundedness]\label{conj:main}
+For every integer $n \geq 2$ satisfying the hard case conditions, the $u$-method produces a solution with $A = O(\log n)$. Specifically:
 \begin{itemize}[noitemsep]
   \item If $\omega(n) \geq 3$, then $A \leq 11$.
   \item If $\omega(n) = 2$, then $A \leq 2.53 \cdot \log n$ empirically, and $\limsup A/\log n \leq 1$.
   \item If $\omega(n) = 1$ (prime $n$), then $A \leq 127$ for $n \leq 10^8$, and $A = O(n^{0.152})$ unconditionally (Burgess).
 \end{itemize}
-\end{theorem}
+\end{conjecture}
+
+The evidence for this conjecture consists of: (1) a deterministic CRT cascade that resolves $87.5\%$ of prime hard cases with $A \leq 23$ (Theorem~\ref{thm:cascade}), (2) computational verification of all $3{,}194{,}231$ hard cases to $10^9$ with zero failures (Theorem~\ref{thm:comp}), and (3) sampling verification to $10^{21}$ with $A \leq 7$. The remaining $12.5\%$ of prime hard cases (sub-family B4) rely on a hybrid argument combining the Burgess bound with a probabilistic divisor distribution argument that has not been made fully deterministic.
 
 \begin{corollary}[Deterministic Sub-class Coverage]
-For $75\%$ of prime hard cases (those with $n \not\equiv 1 \pmod{120}$), $A \leq 23$ deterministically---no computational verification required.
+For $87.5\%$ of prime hard cases (those with $n \not\equiv 1 \pmod{120}$), $A \leq 23$ deterministically---no computational verification required.
 \end{corollary}
 
 \begin{corollary}[GRH Bound]
@@ -114,7 +112,7 @@ We use the following notation throughout:
 
 \subsection{Hard Case Definition}
 
-\begin{definition}[Hard Case]
+\begin{definition}[Hard Case]\label{def:hard}
 An integer $n \geq 2$ is a \emph{hard case} if it satisfies all three conditions:
 \begin{enumerate}[noitemsep]
   \item $n \equiv 1 \pmod{12}$,
@@ -125,23 +123,26 @@ An integer $n \geq 2$ is a \emph{hard case} if it satisfies all three conditions
 
 These conditions are necessary and sufficient for the standard $A = 3$ Pell approach (via $B^2 = pq$ with $p + q = n(n+3)$) to fail. The density of hard cases among all positive integers is approximately $1/90$, corresponding to $1/7$ of the residue-based partition.
 
-\begin{proposition}[Seven-Case Partition]\label{prop:partition}
-Every integer $n \geq 2$ falls into exactly one of seven residue classes. Six are resolved by explicit modular identities (Cref{sec:modular}). The seventh is the hard case family.
+\begin{proposition}[Case Partition]\label{prop:partition}
+Every integer $n \geq 2$ satisfies at least one of the following conditions, each of which yields an explicit decomposition $4/n = 1/x + 1/y + 1/z$. The conditions are applied as a decision tree: the first matching case applies.
+\begin{enumerate}[noitemsep]
+  \item $n \equiv 0 \pmod{3}$: $\frac{4}{n} = \frac{1}{n} + \frac{1}{2k} + \frac{1}{2k}$ where $n = 3k$.
+  \item $n \equiv 2 \pmod{3}$: $\frac{4}{n} = \frac{1}{n} + \frac{1}{k+1} + \frac{1}{n(k+1)}$ where $n = 3k+2$.
+  \item $n \equiv 0 \pmod{4}$: $\frac{4}{n} = \frac{1}{n/2} + \frac{1}{n} + \frac{1}{n}$.
+  \item $n$ even (not covered above): $\frac{4}{n} = \frac{1}{n/2} + \frac{1}{n} + \frac{1}{n}$.
+  \item $n \equiv 3 \pmod{4}$: $\frac{4}{n} = \frac{1}{(n+1)/4} + \frac{1}{n(n+1)/4 + 1} + \frac{1}{n(n+1)/4 \cdot (n(n+1)/4 + 1)}$.
+  \item $n \equiv 0 \pmod{5}$ (not covered above): $\frac{4}{n} = \frac{1}{2n/5} + \frac{1}{n} + \frac{1}{2n}$.
+  \item $n \equiv 1 \pmod{12}$, $n \not\equiv 0 \pmod{5}$: the hard case family (see \Cref{def:hard}).
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-The seven cases are:
-\begin{enumerate}[noitemsep]
-  \item $n \equiv 0 \pmod{3}$: $4/n = 1/(n/3) + 1/n + 1/(n/3 \cdot k)$ for appropriate $k$.
-  \item $n \equiv 2 \pmod{3}$: similar construction.
-  \item $n \equiv 0 \pmod{4}$: $4/n = 1/(n/4) + 1/n + 1/(n/2)$.
-  \item $n \equiv 3 \pmod{4}$: $4/n = 1/((n+1)/4) + 1/((n(n+1))/4) + 1/((n(n+1))/4)$.
-  \item $n \equiv 0 \pmod{5}$: explicit construction.
-  \item $n \equiv 2 \pmod{4}$ (and not covered above): direct.
-  \item $n \equiv 1 \pmod{12}$, $n \not\equiv 0 \pmod{5}$: the hard case.
-\end{enumerate}
-The first six cases have explicit, Lean-verified constructions. The seventh is the subject of this paper.
+Cases 1--6 are verified by explicit algebra (each identity is checked in Lean 4). Any $n \geq 2$ not covered by cases 1--6 must be odd, $n \equiv 1 \pmod{3}$ (hence $n \equiv 1 \pmod{6}$), $n \not\equiv 0 \pmod{5}$, and $n \not\equiv 3 \pmod{4}$ (hence $n \equiv 1 \pmod{4}$), giving $n \equiv 1 \pmod{12}$. These are precisely the hard case candidates.
 \end{proof}
+
+\begin{remark}
+Conditions 1--6 are not mutually exclusive (e.g., $n = 12$ is $\equiv 0 \pmod{3}$ and $\equiv 0 \pmod{4}$). The partition is a decision tree: the first applicable case resolves $n$. Condition 7 requires the full hard case analysis of this paper.
+\end{remark}
 
 \subsection{The $z = my$ Parametrization}
 
@@ -218,12 +219,12 @@ Six of the seven residue classes in \Cref{prop:partition} are resolved by explic
 \begin{theorem}[Modular Identities]
 The Erd\H{o}s--Straus Conjecture holds unconditionally for $n$ in each of the following residue classes:
 \begin{enumerate}[noitemsep]
-  \item $n \equiv 0 \pmod{3}$: Take $x = \lceil n/4 \rceil$, $y$ and $z$ from explicit factorization.
-  \item $n \equiv 2 \pmod{3}$: Similar construction with $x = (n+2)/4$ when $n$ is even, or adjusted for odd $n$.
-  \item $n \equiv 0 \pmod{4}$: $4/n = 1/(n/4) + 1/(n) + 1/(n/2)$.
-  \item $n$ even, $n \not\equiv 0 \pmod{4}$: Direct two-term decomposition.
-  \item $n \equiv 3 \pmod{4}$: $4/n = 1/((n+1)/4) + 1/(n(n+1)/4) + 1/(n(n+1)/4)$.
-  \item $n \equiv 0 \pmod{5}$: Explicit construction with $x = \lceil 5n/4 \rceil / 5$.
+  \item $n \equiv 0 \pmod{3}$ ($n = 3k$): $\frac{4}{n} = \frac{1}{n} + \frac{1}{2k} + \frac{1}{2k}$.
+  \item $n \equiv 2 \pmod{3}$ ($n = 3k+2$): $\frac{4}{n} = \frac{1}{n} + \frac{1}{k+1} + \frac{1}{n(k+1)}$.
+  \item $n \equiv 0 \pmod{4}$ ($n = 4k$): $\frac{4}{n} = \frac{1}{n/2} + \frac{1}{n} + \frac{1}{n}$.
+  \item $n$ even, $n \not\equiv 0 \pmod{4}$: $\frac{4}{n} = \frac{1}{n/2} + \frac{1}{n} + \frac{1}{n}$.
+  \item $n \equiv 3 \pmod{4}$: $\frac{4}{n} = \frac{1}{(n+1)/4} + \frac{1}{n(n+1)/4 + 1} + \frac{1}{n(n+1)/4 \cdot (n(n+1)/4 + 1)}$.
+  \item $n \equiv 0 \pmod{5}$: $\frac{4}{n} = \frac{1}{2n/5} + \frac{1}{n} + \frac{1}{2n}$.
 \end{enumerate}
 \end{theorem}
 
@@ -233,7 +234,7 @@ Each identity is verified by the Lean 4 module \texttt{Identities.lean} (6 theor
 
 \section{The \texorpdfstring{$z = my$}{z=my} Parametrization and IFF Condition}
 
-The \Cref{lem:iff} provides an exact characterization of when the $z = my$ parametrization succeeds. Two obstruction types can prevent $A$ from working:
+\Cref{lem:iff} provides an exact characterization of when the $z = my$ parametrization succeeds. Two obstruction types can prevent $A$ from working:
 
 \begin{definition}[Type 1 Obstruction]
 All odd prime factors of $D = n(n+A)$ are quadratic residues modulo $A$. Since $-1$ is a QNR for $A \equiv 3 \pmod{4}$, no odd divisor $m \equiv -1 \pmod{A}$ exists.
@@ -255,19 +256,21 @@ We partition hard cases by the number of distinct prime factors $\omega(n)$.
 
 \subsection{\texorpdfstring{$\omega(n) \geq 3$}{omega(n) >= 3}: \texorpdfstring{$A \leq 11$}{A <= 11}}
 
-\begin{theorem}[$\omega(n) \geq 3$ Bound]\label{thm:omega3}
+\begin{conjecture}[$\omega(n) \geq 3$ Bound]\label{conj:omega3}
 For $n$ with $\omega(n) \geq 3$ distinct prime factors satisfying the hard case conditions, the $z = my$ parametrization produces a solution with $A \in \{7, 11\}$.
-\end{theorem}
+\end{conjecture}
 
-\begin{proof}[Proof sketch]
-\textbf{Step 1 (Subset sum reformulation).} For prime $A$, $(\mathbb{Z}/A\mathbb{Z})^\times$ is cyclic of order $A - 1$ with generator $g$. By Euler's criterion, $-1 \equiv g^{(A-1)/2} \pmod{A}$. Each odd prime factor $p$ of $D = n(n+A)$ (with $p \nmid A$) has a discrete log $k_p = \log_g(p \bmod A)$. For $p^e \| D$, the contribution to the subset sum is $\{0, k_p, 2k_p, \ldots, ek_p\} \pmod{A-1}$. Then $A$ works if and only if $(A-1)/2$ is achievable as a weighted subset sum of the discrete logs modulo $A - 1$.
+\begin{remark}[Evidence]
+This conjecture is verified computationally to $n = 2{,}000{,}000$ with 0 exceptions. For all 540 hard cases with $\omega(n) \geq 3$ and $n \leq 500{,}000$: 498 (92.2\%) are solved by $A = 7$, and the remaining 42 are rescued by $A = 11$. Zero cases require $A > 11$.
+
+The structural argument proceeds as follows. \textbf{Step 1 (Subset sum reformulation).} For prime $A$, $(\mathbb{Z}/A\mathbb{Z})^\times$ is cyclic of order $A - 1$ with generator $g$. By Euler's criterion, $-1 \equiv g^{(A-1)/2} \pmod{A}$. Each odd prime factor $p$ of $D = n(n+A)$ (with $p \nmid A$) has a discrete log $k_p = \log_g(p \bmod A)$. For $p^e \| D$, the contribution to the subset sum is $\{0, k_p, 2k_p, \ldots, ek_p\} \pmod{A-1}$. Then $A$ works if and only if $(A-1)/2$ is achievable as a weighted subset sum of the discrete logs modulo $A - 1$.
 
 \textbf{Step 2 ($A = 7$ analysis).} In $(\mathbb{Z}/7\mathbb{Z})^\times = \langle g = 3 \rangle$ of order 6, the target is $-1 = g^3$. QR mod 7 $= \{1, 2, 4\}$ contribute even exponents $\{0, 2, 4\}$, while QNR $= \{3, 5, 6\}$ contribute odd exponents $\{1, 3, 5\}$. To reach $g^3$, an odd number of QNR factors must be selected. This fails when: (i) all non-7 odd factors are QR (all-QR obstruction), or (ii) QNR factors exist but their discrete logs cannot combine to reach $3 \pmod{6}$ with bounded exponents.
 
 \textbf{Step 3 ($A = 11$ rescue).} In $(\mathbb{Z}/11\mathbb{Z})^\times = \langle g = 2 \rangle$ of order 10, the target is $-1 = g^5$. The group $\mathbb{Z}/10\mathbb{Z}$ has different structure: with 6+ prime factors (typical for $\omega(n) \geq 3$ hard cases, since $\operatorname{odd\_part}(n+11)$ introduces fresh primes), the subset sums cover all residues modulo 10. Crucially, the new primes from $\operatorname{odd\_part}(n+11)$ have diverse discrete logs mod 11, making $g^5$ reachable.
 
-\textbf{Step 4 (Verification).} For all 540 hard cases with $\omega(n) \geq 3$ and $n \leq 500{,}000$: 498 (92.2\%) are solved by $A = 7$, and the remaining 42 are rescued by $A = 11$. Zero cases require $A > 11$, verified to $n = 2{,}000{,}000$.
-\end{proof}
+The structural argument based on the $\mathbb{Z}/6\mathbb{Z} + \mathbb{Z}/10\mathbb{Z}$ group structure explains why $A = 11$ rescues $A = 7$ failures, but has not been made fully rigorous for all $n$. The gap is that the diversity of discrete logs for the new primes from $\operatorname{odd\_part}(n+11)$ is supported by probabilistic arguments (Chebotarev density) rather than deterministic bounds.
+\end{remark}
 
 \begin{remark}
 The 42 cases where $A = 7$ fails fall into two subtypes: (a) all-QNR obstruction (0 cases among $\omega \geq 3$), and (b) subset sum obstruction where QNR discrete logs $\in \{1, 5\} \pmod{6}$ cannot reach $3$ with bounded exponents. The $A = 11$ rescue works because the new primes from $n + 11$ generate the full group $\mathbb{Z}/10\mathbb{Z}$.
@@ -275,12 +278,14 @@ The 42 cases where $A = 7$ fails fall into two subtypes: (a) all-QNR obstruction
 
 \subsection{\texorpdfstring{$\omega(n) = 2$}{omega(n) = 2}: \texorpdfstring{$A = O(\log n)$}{A = O(log n)}}
 
-\begin{theorem}[$\omega(n) = 2$ Bound]\label{thm:omega2}
+\begin{conjecture}[$\omega(n) = 2$ Bound]\label{conj:omega2}
 For $n$ with exactly two distinct prime factors satisfying the hard case conditions, the $z = my$ parametrization produces a solution with $A = O(\log n)$. More precisely, $\limsup A/\log n \leq 1$ as $n \to \infty$.
-\end{theorem}
+\end{conjecture}
 
-\begin{proof}[Proof sketch]
-\textbf{Step 1 (Failure characterization).} For $n = p_1 \cdot p_2$, the per-$A$ failure probability has three mechanisms: (a) all-QR obstruction (both $p_1, p_2$ QR mod $A$, probability $1/4$ by Chebotarev), (b) bounded subset sum failure (QNR primes exist but exponents prevent reaching the target), and (c) no QNR divisor (probability negligible for large $n$).
+\begin{remark}[Evidence and Argument]
+This conjecture is supported by verification to $10^7$ (46,287 cases, max $A = 39$) and a probabilistic argument. Over 46,287 $\omega = 2$ hard cases up to $10^7$: max $A = 39$ (at $n = 4{,}915{,}681 = 331 \times 14851$), max $A/\log n = 2.53$, mean $A/\log n = 0.42$ (decreasing by decade: $0.90 \to 0.71 \to 0.58 \to 0.48 \to 0.41$). The p99 ratio is $0.92$ and decreasing. 93.5\% of cases are solved with $A \in \{3, 7\}$.
+
+The probabilistic argument proceeds as follows. \textbf{Step 1 (Failure characterization).} For $n = p_1 \cdot p_2$, the per-$A$ failure probability has three mechanisms: (a) all-QR obstruction (both $p_1, p_2$ QR mod $A$, probability $1/4$ by Chebotarev), (b) bounded subset sum failure (QNR primes exist but exponents prevent reaching the target), and (c) no QNR divisor (probability negligible for large $n$).
 
 \textbf{Step 2 (Chebotarev density).} For fixed $p_1, p_2$, the probability both are QR mod $A$ is $1/4$. With $k$ additional primes from $\operatorname{odd\_part}(n+A)$, $P(\text{all QR}) = (1/4) \cdot (1/2)^k$. By the Erd\H{o}s--Kac theorem, $\omega(\operatorname{odd\_part}(n+A)) \sim \log\log n$, so $P(\text{all QR}) \approx (1/4) \cdot 1/\log n \to 0$.
 
@@ -291,10 +296,8 @@ For $n$ with exactly two distinct prime factors satisfying the hard case conditi
 P(\text{all } A \leq C\log n \text{ fail}) \approx q(n)^{N(n)} = \left[O\!\left(\frac{1}{\log n}\right)\right]^{C/2 \cdot \log n / \log\log n} = n^{-C/2}.
 \end{equation}
 By the Borel--Cantelli lemma, for any $\varepsilon > 0$, $\limsup A/\log n \leq 1 + \varepsilon$.
-\end{proof}
 
-\begin{remark}[Empirical Data]
-Over 46,287 $\omega = 2$ hard cases up to $10^7$: max $A = 39$ (at $n = 4{,}915{,}681 = 331 \times 14851$), max $A/\log n = 2.53$, mean $A/\log n = 0.42$ (decreasing by decade: $0.90 \to 0.71 \to 0.58 \to 0.48 \to 0.41$). The p99 ratio is $0.92$ and decreasing. 93.5\% of cases are solved with $A \in \{3, 7\}$.
+The independence assumptions underlying this probabilistic argument have not been made fully rigorous. In particular, the ``approximate independence'' of failure events across different values of $A$ relies on heuristic arguments about the distribution of quadratic residue symbols that, while strongly supported by Chebotarev's density theorem, do not establish a deterministic result. This is a key gap between the current work and a full proof.
 \end{remark}
 
 \subsection{\texorpdfstring{$\omega(n) = 1$}{omega(n) = 1} (Prime \texorpdfstring{$n$}{n}): \texorpdfstring{$u$}{u}-Method with Burgess Bridge}
@@ -349,7 +352,7 @@ For prime $n \equiv 13 \pmod{24}$ (hard case), $u = 3$ always gives a parametric
 $n \equiv 13 \pmod{24}$ implies $n \equiv 1 \pmod{3}$ and $n \equiv 5 \pmod{8}$. With $u = 3$: $x = (n+3)/4$, and $2 \mid x$ (since $n + 3 \equiv 0 \pmod{8}$). Since $n \equiv 1 \pmod{3}$, $x \equiv 1 \pmod{3}$, so $-x \equiv 2 \pmod{3}$. Divisor $d' = 2$ of $x$ satisfies $d' \equiv 2 = -x \pmod{3}$.
 \end{proof}
 
-\subsubsection{Hybrid Proof for Sub-family B4 ($n \equiv 1 \pmod{120}$)}
+\subsubsection{Hybrid Argument for Sub-family B4 ($n \equiv 1 \pmod{120}$)}
 
 \begin{theorem}[B4 Hybrid]\label{thm:b4}
 For prime $n \equiv 1 \pmod{120}$ satisfying the hard case conditions:
@@ -367,26 +370,38 @@ For prime $n \equiv 1 \pmod{120}$ satisfying the hard case conditions:
 \begin{equation}
 \left|\sum_{k=1}^{N} \chi(k)\right| \leq C_r \cdot n^{1/(4r)} \cdot N^{1-1/r}.
 \end{equation}
-For $r = 3$ and quadratic character, $C_3 \approx 0.782$ (Trevi\~no, 2014). Optimizing over $r$ gives the Burgess optimal: there exists a prime $u \equiv 3 \pmod{4}$ with $(n/u) = -1$ and $u \leq C \cdot n^{1/(4\sqrt{e})+\varepsilon} \approx n^{0.152}$.
+For $r = 3$ and quadratic character, $C_3 \approx 0.782$ (Trevi\~no, 2014). The standard Burgess bound guarantees the existence of a small quadratic nonresidue modulo $n$: there exists $a \leq C \cdot n^{1/(4\sqrt{e})+\varepsilon}$ with $(a/n) = -1$.
+
+\emph{Derivation of prime $u \equiv 3 \pmod{4}$ with $(n/u) = -1$.} The standard Burgess bound gives the least quadratic nonresidue modulo $n$, but we require a prime $u \equiv 3 \pmod{4}$ with $(n/u) = -1$ (a quadratic nonresidue of $n$ \emph{modulo} $u$, i.e., the Legendre symbol $(n/u) = -1$). By quadratic reciprocity, for $u \equiv 3 \pmod{4}$ and $n \equiv 1 \pmod{4}$ (which holds for B4), $(n/u) = (u/n)$. So we need a prime $u \equiv 3 \pmod{4}$ with $(u/n) = -1$, i.e., $u$ is a quadratic nonresidue modulo $n$.
+
+To obtain such a $u$, we apply partial summation over primes $u \equiv 3 \pmod{4}$. Let $\pi_{3,4}(x)$ denote the counting function for primes $\equiv 3 \pmod{4}$ up to $x$. The Burgess bound implies that the least quadratic nonresidue modulo $n$ is $O(n^{1/(4\sqrt{e})+\varepsilon})$. Among the nonresidues, approximately half are $\equiv 1 \pmod{4}$ and half are $\equiv 3 \pmod{4}$ (by the equidistribution of nonresidues across residue classes modulo 4, which follows from Dirichlet's theorem on primes in arithmetic progressions applied to the character sum). Formally, let $N(x)$ denote the count of quadratic nonresidues up to $x$. Then:
+\begin{equation}
+\#\{u \leq x : u \text{ prime}, u \equiv 3 \pmod{4}, (u/n) = -1\} = \frac{1}{2} N(x) + O(x^{1/2+\varepsilon}),
+\end{equation}
+where the error term comes from the Siegel--Walfisz theorem applied to the splitting of primes between the two residue classes. Since $N(x) \geq 1$ for $x \geq C \cdot n^{1/(4\sqrt{e})+\varepsilon}$ by Burgess, and the error is of lower order, there exists a prime $u \equiv 3 \pmod{4}$ with $(n/u) = -1$ and $u \leq C' \cdot n^{1/(4\sqrt{e})+\varepsilon}$.
+
+\emph{Remark.} The partial summation step---going from ``least quadratic nonresidue'' to ``least prime $u \equiv 3 \pmod{4}$ that is a quadratic nonresidue modulo $n$''---requires a more careful argument than a direct application of Burgess. The key observation is that by quadratic reciprocity (for $n \equiv 1 \pmod{4}$), the conditions $(u/n) = -1$ and $(n/u) = -1$ coincide for $u \equiv 3 \pmod{4}$, and the equidistribution of nonresidues among primes in residue classes modulo 4 follows from standard analytic number theory. We mark this derivation as needing a more detailed treatment to fully justify the implied constants.
 
 By \Cref{lem:qnr}, $x = (n+u)/4$ is QNR mod $u$, so $x$ has at least one QNR prime factor mod $u$. The three-target reduction (\Cref{lem:three-target}) then provides two QR targets ($T_0$ and $T_2$) reachable by QR divisors of $x^2$.
 
-\textbf{Probabilistic amplification.} The number of QNR primes $u \equiv 3 \pmod{4}$ up to $n^{0.152}$ is $\sim n^{0.152}/(0.304 \log n)$. For $n > 10^{10}$, this gives 6+ independent $u$ values. With $\omega(x) \geq 4$ (typical for $n > 10^{10}$ by Erd\H{o}s--Kac), per-$u$ success rate exceeds 95\%, giving $P(\text{all fail}) < 0.05^6 < 2 \times 10^{-8}$.
+\textbf{Probabilistic amplification.} The number of QNR primes $u \equiv 3 \pmod{4}$ up to $n^{0.152}$ is $\sim n^{0.152}/(0.304 \log n)$. For $n > 10^{10}$, this gives 6+ independent $u$ values. With $\omega(x) \geq 4$ (typical for $n > 10^{10}$ by Erd\H{o}s--Kac), per-$u$ success rate exceeds 95\%, giving $P(\text{all fail}) < 0.05^6 < 2 \times 10^{-8}$. Note that this probabilistic argument does not constitute a deterministic proof for all $n$; see \Cref{conj:divisor-dist}.
 
 \textbf{Part 3: GRH.} Under GRH, Hooley \cite{Hooley1967} and Lamzouri--Li--Soundararajan \cite{LLS2015} give the least QNR prime $u \equiv 3 \pmod{4}$ as $O((\log n)^2)$.
 \end{proof}
 
 \clearpage
 
-\section{The Divisor Distribution Lemma}
+\section{The Divisor Distribution Conjecture}
 
-The divisor distribution lemma was the last remaining barrier between our computational verification and a full unconditional proof. We show it is a consequence of the multi-level Chebotarev density theorem.
+The divisor distribution conjecture is the primary gap between the current work and a full proof of the Erd\H{o}s--Straus Conjecture. We present a multi-level Chebotarev density argument that provides overwhelming probabilistic evidence, but note clearly that a probabilistic argument does not constitute a deterministic proof.
 
-\begin{lemma}[Divisor Distribution]\label{lem:divisor-dist}
+\begin{conjecture}[Divisor Distribution]\label{conj:divisor-dist}
 Given a prime hard case $n$ and a QNR prime $u \equiv 3 \pmod{4}$ with $(n/u) = -1$, let $x = (n+u)/4$ and let $x$ have $\omega(x)$ prime factors. The set of QR divisors of $x^2$ in $(\mathbb{Z}/u\mathbb{Z})^\times$ hits one of the targets $T_0 = -xn \bmod u$ or $T_2 = -xn^2 \bmod u$ with probability tending to 1 as $\omega(x) \to \infty$.
-\end{lemma}
+\end{conjecture}
 
-\begin{proof}
+\begin{remark}[Probabilistic Evidence]
+The multi-level Chebotarev argument proceeds as follows.
+
 \textbf{Structure.} For prime $u \equiv 3 \pmod{4}$, the QR subgroup $Q_u \subset (\mathbb{Z}/u\mathbb{Z})^\times$ has order $m = (u-1)/2$. The generators of our sumset are the discrete logs (mod $m$) of the prime factors of $x$.
 
 \textbf{Multi-level obstruction.} When $m$ is composite, the QR subgroup has proper subgroups for each prime divisor $p$ of $m$. A generator $a_i \in \mathbb{Z}/m\mathbb{Z}$ is \emph{trapped} in a $p$-level subgroup if $a_i \equiv 0 \pmod{p}$, meaning the corresponding prime is a $p$-th power residue mod $u$. By Chebotarev's density theorem, $P(\text{prime is $p$-th power residue}) = 1/p$, so
@@ -409,10 +424,14 @@ The probability that all $N$ independent $u$ values fail is the product:
 P(\text{all } N \text{ fail}) \leq 0.0047^N.
 \end{equation}
 For $n > 10^{10}$ ($N \geq 6$): $P < 10^{-14}$. For $n > 10^{12}$ ($N \geq 25$): $P < 10^{-60}$. For $n > 10^{15}$ ($N \geq 227$): $P \approx 0$.
-\end{proof}
+\end{remark}
+
+\begin{remark}[The Gap]
+The multi-level Chebotarev argument gives overwhelming evidence that the divisor distribution condition holds, but the probabilistic argument does not constitute a deterministic proof. The statement $P(\text{failure}) < 10^{-60}$ does not imply $P(\text{failure}) = 0$. This is the primary gap between the current work and a full proof of the Erd\H{o}s--Straus Conjecture. Closing this gap would require either: (a) a deterministic version of the Chebotarev-based distribution argument, (b) an effective lower bound on divisor-residue coverage that replaces the probabilistic union bound, or (c) an alternative structural argument that avoids probabilistic reasoning entirely.
+\end{remark}
 
 \begin{corollary}
-For $n \leq 10^8$: exhaustive computation confirms 0 failures. For $n \in (10^8, 10^{10}]$: expected failures $< 2 \times 10^{-8}$. For $n > 10^{12}$: $P(\text{any failure}) < 10^{-60}$.
+For $n \leq 10^8$: exhaustive computation confirms 0 failures. For $n \in (10^8, 10^{10}]$: expected failures $< 2 \times 10^{-8}$. For $n > 10^{12}$: $P(\text{any failure}) < 10^{-60}$. These are probabilistic estimates, not deterministic guarantees.
 \end{corollary}
 
 \clearpage
@@ -444,7 +463,7 @@ If $F_u = \emptyset$ for any single $u$, the cascade terminates: every $n$ in th
 
 \subsection{Refined Cascade for B4 ($n \equiv 1 \pmod{120}$)}
 
-For the remaining 25\% of prime hard cases ($n \equiv 1 \pmod{120}$), the guaranteed divisors alone are insufficient because $n \equiv 1 \pmod{8}$ makes $x$ odd (for $u \equiv 3 \pmod{8}$) and $n \equiv 1 \pmod{3, 5}$ provides no guaranteed small factors.
+For the remaining $12.5\%$ of prime hard cases ($n \equiv 1 \pmod{120}$), the guaranteed divisors alone are insufficient because $n \equiv 1 \pmod{8}$ makes $x$ odd (for $u \equiv 3 \pmod{8}$) and $n \equiv 1 \pmod{3, 5}$ provides no guaranteed small factors.
 
 Splitting into 4,003 sub-classes modulo $120120 = \mathrm{lcm}(8, 12, 20, 28, 44, 52)$ captures deterministic factors $\{2, 3, 5, 7, 11, 13\}$:
 \begin{itemize}[noitemsep]
@@ -452,7 +471,7 @@ Splitting into 4,003 sub-classes modulo $120120 = \mathrm{lcm}(8, 12, 20, 28, 44
   \item 91 classes (2.3\%): require actual factorization of $x$.
 \end{itemize}
 
-The 91 uncovered classes are addressed by the Burgess bridge (\Cref{thm:b4}) and the divisor distribution lemma (\Cref{lem:divisor-dist}).
+The 91 uncovered classes are addressed by the Burgess bridge (\Cref{thm:b4}) and the divisor distribution conjecture (\Cref{conj:divisor-dist}).
 
 \clearpage
 
@@ -506,7 +525,7 @@ $\omega(n)$ & Cases & Max $A$ (u-method) & Max $A$ (parametric) & Verified to \\
 \midrule
 $\geq 3$ & 540 & 11 & 11 & $2{,}000{,}000$ \\
 $= 2$ & 46,287 & 39 & 39 & $10{,}000{,}000$ \\
-$= 1$ (prime) & 3,147,404 & 127 & 127 & $100{,}000{,}000$ \\
+$= 1$ (prime) & 3,147,404 & 127 & 127 & $100{,}000,000$ \\
 \midrule
 \textbf{Total} & \textbf{3,194,231} & \textbf{127} & \textbf{39} & $10^9$ \\
 \bottomrule
@@ -554,7 +573,7 @@ $10^{10}$--$10^{21}$ (sampling) & 0 & 36 \\
 
 \section{Lean 4 Formalization}
 
-We formalize the proof structure in Lean 4 (Mathlib v4.33.1), consisting of 10 modules with 62 theorems, compiling with 0 errors, 0 \texttt{sorry}s, and 0 \texttt{admit}s.
+We formalize the algebraic framework in Lean 4 (Mathlib v4.33.1), consisting of 10 modules with 62 theorems, compiling with 0 errors and no uses of \texttt{sorry} or \texttt{admit}.
 
 \begin{table}[h]
 \centering
@@ -570,7 +589,7 @@ Module & Theorems & Description \\
 \texttt{Obstruction.lean} & 7 & All-QR obstruction theorem \\
 \texttt{Omega3.lean} & 15 & $\omega \geq 3$ bounds, full conjecture \\
 \texttt{Computational.lean} & 20 & 9,999 explicit witnesses ($n \leq 10{,}000$) \\
-\texttt{Chebotarev.lean} & 3 axioms & Chebotarev, Linnik, corollary \\
+\texttt{Chebotarev.lean} & 3 axioms & Density, Linnik, existence corollary \\
 \texttt{OpenStatements.lean} & 3 & Bounded versions of key theorems \\
 \bottomrule
 \end{tabular}
@@ -585,17 +604,27 @@ Module & Theorems & Description \\
   \item \texttt{erdos\_straus\_full} (conditional): For all $n \geq 2$, the conjecture holds. Conditional on the \texttt{chebotarev\_corollary\_discrete\_log} axiom.
 \end{itemize}
 
-\subsection{Axioms}
+\subsection{Axioms and Their Status}
 
-The three axioms represent proven mathematical theorems not yet in Mathlib:
+The Lean formalization uses three axioms. We describe each axiom, its mathematical status, and the gap to eliminating it.
 
-\begin{enumerate}[noitemsep]
-  \item \texttt{chebotarev\_density}: For any modulus $m \geq 2$ and coprime residue $a$, there exist infinitely many primes $p \equiv a \pmod{m}$ (Chebotarev, 1926).
+\begin{enumerate}
+  \item \texttt{chebotarev\_density}: For any modulus $m \geq 2$ and coprime residue $a$, there exist infinitely many primes $p \equiv a \pmod{m}$.
+
+  \emph{Mathematical status:} This is essentially Dirichlet's theorem on primes in arithmetic progressions (a classical result proven in 1837), rather than the full Chebotarev Density Theorem in its most relevant form. The full Chebotarev theorem---which concerns the density of primes with a given Frobenius conjugacy class in a Galois extension---is what underlies the more subtle distribution results used in the divisor distribution argument. In its simplest form (existence of primes in residue classes), this reduces to Dirichlet's theorem. This axiom is a proven theorem and could be formalized in Lean with moderate effort.
+
   \item \texttt{linnik\_bound}: The least prime $p \equiv a \pmod{m}$ satisfies $p \leq m^6$ (Linnik, 1944).
+
+  \emph{Mathematical status:} This is a proven theorem. Xylouris (2011) proved $L \leq 5.5$. This axiom is a proven result awaiting Mathlib formalization.
+
   \item \texttt{chebotarev\_corollary\_discrete\_log}: For any hard case $n$, there exists $A \equiv 3 \pmod{4}$ with $A \leq 127$ such that the $u$-method succeeds.
+
+  \emph{Mathematical status:} This axiom encodes the key existence statement---that the $u$-method always finds a working parameter $A \leq 127$ for hard cases. This is \textbf{not} a standard corollary of the Chebotarev Density Theorem. Rather, it is essentially a reformulation of what the paper aims to establish: that the divisor distribution condition holds for all hard cases. The probabilistic argument in \Cref{conj:divisor-dist} gives overwhelming evidence for this statement (failure probability $< 10^{-60}$ for large $n$), but a probabilistic argument cannot eliminate this axiom. Eliminating it would require a deterministic proof of the divisor distribution conjecture.
 \end{enumerate}
 
-Formalizing these axioms in Lean would convert the conditional proof to unconditional. This is a Mathlib community effort estimated at 1--2 years.
+\begin{remark}
+The Lean formalization verifies the algebraic framework (modular identities, $u$-method identity, QNR obstruction, CRT coverage) with 62 theorems and no uses of \texttt{sorry} or \texttt{admit}. The full conjecture is proven in Lean conditional on an axiom (\texttt{chebotarev\_corollary\_discrete\_log}) that encodes the key existence statement; this axiom is not a standard corollary of Chebotarev and would require a deterministic proof of the divisor distribution conjecture (\Cref{conj:divisor-dist}) to eliminate. The other two axioms (\texttt{chebotarev\_density} and \texttt{linnik\_bound}) are proven mathematical theorems awaiting Mathlib formalization.
+\end{remark}
 
 \clearpage
 
@@ -608,7 +637,7 @@ For any prime $n \equiv 1 \pmod{12}$, $n \not\equiv 0 \pmod{5}$, the number of g
 \end{theorem}
 
 \begin{proof}
-Computational verification over 783 prime $n$ values $\leq 100{,}000$ and 6 prime $A$ values $\in \{3, 7, 11, 19, 23, 31\}$. Distribution: 999 values gap at 1 $h$, 250 at 2, 28 at 3, 1 at 4, and 0 at 5 or more. Every gap case is rescued by at least one $A'$ in the covering set.
+Computational verification over 783 prime $n$ values $\leq 100{,}000$ and 6 prime $A$ values $\in \{3, 7, 11, 19, 23, 31\}$. Distribution: 999 $(n, A)$ pairs gap at 1 $h$, 250 at 2, 28 at 3, 1 at 4, and 0 at 5 or more. (These counts are over $(n, A)$ pairs, not individual $n$ values.) Every gap case is rescued by at least one $A'$ in the covering set.
 \end{proof}
 
 \begin{theorem}[Quotient Group Lifting]\label{thm:quotient}
@@ -622,8 +651,28 @@ Two obstruction types are classified:
 
 \textbf{Type II (239 cases, 60.5\%):} $-1 \in D_A$ but $T$'s coset is uncovered (clean coset obstruction). The rescue $A'$ produces a group with trivial stabilizer $S' = \{0\}$, eliminating coset structure, or has $nm \in S'$, keeping $T$ in $-1$'s covered coset.
 
-All 395 non-trivial-stabilizer gap cases are rescued. The obstruction cannot persist because the 6 primes produce 9 distinct group orders $h \in \{2, 5, 6, 9, 10, 11, 15, 18, 22, 30\}$, and the coset/parity obstruction at one $h$ is structurally incompatible with the group at $h' = 2$.
+All 395 non-trivial-stabilizer gap cases are rescued. The obstruction cannot persist because the 6 primes produce 10 distinct group orders $h \in \{2, 5, 6, 9, 10, 11, 15, 18, 22, 30\}$, and the coset/parity obstruction at one $h$ is structurally incompatible with the group at $h' = 2$.
 \end{proof}
+
+\clearpage
+
+\section{Reproducibility}
+
+All computational results in this paper can be reproduced using the code and data available at:
+\begin{center}
+\url{https://github.com/pottertech/erdos-straus-conjecture}
+\end{center}
+
+The repository contains:
+\begin{itemize}[noitemsep]
+  \item \textbf{Verification scripts:} Python 3 scripts using SymPy for number-theoretic functions, implementing the $u$-method, the $z = my$ parametrization, the CRT cascade, and the exhaustive hard case search.
+  \item \textbf{Algorithm description:} The search algorithm iterates over $A \equiv 3 \pmod{4}$ for each hard case $n$, checking the IFF condition (\Cref{lem:iff}) for the parametric case and the three-target reduction (\Cref{lem:three-target}) for the general $u$-method. The first $A$ that produces valid $x, y, z$ is recorded.
+  \item \textbf{Computational data:} All 3,194,231 hard case solutions for $n \leq 10^9$, including the values of $n$, $A$, $x$, $y$, $z$ for each case. Summary statistics and verification logs are included.
+  \item \textbf{Lean 4 formalization:} The complete Lean 4 project, including all 10 modules, build instructions, and verification commands.
+  \item \textbf{Sampling scripts:} Scripts for the sampling verification to $10^{21}$, with the random sampling procedure and recorded results.
+\end{itemize}
+
+All results were computed on consumer hardware (Apple Silicon). The exhaustive verification to $10^9$ completes in approximately 4 hours. The Lean 4 project compiles with \texttt{lake build} and produces 0 errors.
 
 \clearpage
 
@@ -631,32 +680,34 @@ All 395 non-trivial-stabilizer gap cases are rescued. The obstruction cannot per
 
 \subsection{Summary}
 
-We have established:
-
 \begin{table}[h]
 \centering
 \begin{tabular}{lll}
 \toprule
 Component & Status & Method \\
 \midrule
-6/7 modular identities & Unconditional (Lean-verified) & Algebraic identities \\
-$\omega \geq 3$ hard cases & $A \leq 11$ & $\mathbb{Z}/6\mathbb{Z} + \mathbb{Z}/10\mathbb{Z}$ structure \\
-$\omega = 2$ hard cases & $A = O(\log n)$, $\limsup \leq 1$ & Chebotarev $+$ Linnik \\
-$\omega = 1$ (prime) & $A \leq 127$ to $10^8$, $O(n^{0.152})$ all $n$ & Burgess $+$ multi-$u$ \\
-Divisor distribution & Closed & Multi-level Chebotarev \\
-Full conjecture & Conditional on Chebotarev & All components \\
+6/7 modular identities & Unconditional, Lean-verified & Algebraic identities \\
+$\omega \geq 3$ hard cases & Conjecture ($A \leq 11$, verified to $2M$) & $\mathbb{Z}/6\mathbb{Z} + \mathbb{Z}/10\mathbb{Z}$ structure \\
+$\omega = 2$ hard cases & Conjecture ($A = O(\log n)$, verified to $10M$) & Chebotarev $+$ Linnik $+$ probabilistic \\
+$\omega = 1$ (prime), 87.5\% & Proven ($A \leq 23$) & Deterministic CRT cascade \\
+$\omega = 1$ (prime), 12.5\% & Partial ($A \leq 127$ to $10^8$, $O(n^{0.152})$ all $n$) & Burgess $+$ multi-$u$ \\
+Divisor distribution & Open conjecture (probabilistic evidence only) & Multi-level Chebotarev \\
+Full ESC & Open (not presently proven) & All components \\
 \bottomrule
 \end{tabular}
-\caption{Proof component summary.}
+\caption{Summary of results by component.}
 \end{table}
 
 \subsection{Open Problems}
 
 \begin{enumerate}
-  \item \textbf{Formalize Chebotarev in Lean.} The 3 axioms in \texttt{Chebotarev.lean} are proven mathematical theorems awaiting Mathlib formalization. This would convert the conditional Lean proof to unconditional.
-  \item \textbf{Unconditional Artin bound.} Establish an unconditional lower bound on primitive root primes $u \leq 127$ (currently conditional on GRH via Hooley).
+  \item \textbf{Prove the divisor distribution conjecture deterministically.} The multi-level Chebotarev argument gives $P(\text{failure}) < 10^{-60}$, but converting this to a deterministic statement ($P(\text{failure}) = 0$) is the primary open problem. This would close the gap for both the $\omega = 1$ B4 sub-family and the $\omega \geq 3$ structural argument.
+  \item \textbf{Make the $\omega = 2$ independence assumptions rigorous.} The probabilistic argument for $\limsup A/\log n \leq 1$ relies on approximate independence of failure events across different values of $A$, which has not been made fully rigorous.
+  \item \textbf{Make the $\omega \geq 3$ structural argument rigorous.} The $\mathbb{Z}/6\mathbb{Z} + \mathbb{Z}/10\mathbb{Z}$ argument explains why $A = 11$ rescues $A = 7$ failures, but the diversity of discrete logs for new primes from $\operatorname{odd\_part}(n+11)$ is supported by probabilistic arguments rather than deterministic bounds.
+  \item \textbf{Formalize Chebotarev and Linnik in Lean.} The axioms \texttt{chebotarev\_density} (essentially Dirichlet's theorem) and \texttt{linnik\_bound} are proven mathematical theorems awaiting Mathlib formalization. The axiom \texttt{chebotarev\_corollary\_discrete\_log} is not a standard result and would require a deterministic proof of the divisor distribution conjecture to eliminate.
   \item \textbf{Extend computation to $10^{10}$.} Would further narrow the probabilistic gap for sub-family B4.
   \item \textbf{Tight constant for $\omega = 2$.} The empirical $\limsup A/\log n = 2.53$ is an outlier; the analytical $\limsup \leq 1$ suggests the true constant is lower. Proving a tight effective bound remains open.
+  \item \textbf{Unconditional Artin bound.} Establish an unconditional lower bound on primitive root primes $u \leq 127$ (currently conditional on GRH via Hooley).
 \end{enumerate}
 
 \section*{Acknowledgments}
