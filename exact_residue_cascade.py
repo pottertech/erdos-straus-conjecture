@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """Exact deterministic residue-cascade analysis for the corrected u-method.
 
-For prime u == 3 (mod 4), x=(n+u)/4 and D=(nx)^2.  We only use divisors
-that are guaranteed from n, x, and small primes p whose divisibility p|x is
-forced by the residue class under study.  A residue class is certified for u
-when every admissible n mod u has a guaranteed divisor d with
+For prime u == 3 (mod 4), x=(n+u)/4 and D=(nx)^2.  If distinct small
+primes p_i are forced to divide x, write x = P*q with P=prod p_i.  The
+safe guaranteed divisor basis for x^2 is then
 
-    d == -n*x (mod u).
+    q^b * prod p_i^c_i,  b,c_i in {0,1,2},
 
-For units modulo u, the complementary divisor then has the same residue
-because D == (-n*x)^2 (mod u).
+not x^b * prod p_i^c_i (which can exceed the available exponents).
 """
 
+from itertools import product
 from math import gcd, lcm
 from sympy import primerange, legendre_symbol
 
@@ -34,22 +33,35 @@ def forced_factors(r, modulus, u, primes=SMALL_FACTORS):
 def guaranteed_residues(nmod, u, extras):
     inv4 = pow(4, -1, u)
     xmod = nmod * inv4 % u
-    vals = {
-        pow(nmod, a, u) * pow(xmod, b, u) % u
-        for a in range(3)
-        for b in range(3)
-    }
+
+    # If u itself is forced to divide x then the target is 0 mod u and a
+    # direct u-divisible divisor witness exists.  Handle that in class_covered.
+    P = 1
     for p in extras:
-        vals = {v * pow(p, c, u) % u for v in vals for c in range(3)}
+        P = P * p % u
+    if gcd(P, u) != 1:
+        raise ValueError("u divides the forced factor product")
+
+    qmod = xmod * pow(P, -1, u) % u
+    vals = set()
+    for a in range(3):
+        for b in range(3):
+            base = pow(nmod, a, u) * pow(qmod, b, u) % u
+            for cs in product(range(3), repeat=len(extras)):
+                v = base
+                for p, c in zip(extras, cs):
+                    v = v * pow(p, c, u) % u
+                vals.add(v)
     return xmod, vals
 
 
 def class_covered(r, modulus, u, primes=SMALL_FACTORS):
     extras = forced_factors(r, modulus, u, primes)
+    if u in extras:
+        return True, extras
     for nmod in possible_n_mod_u(r, modulus, u):
         xmod, vals = guaranteed_residues(nmod, u, extras)
-        target = (-nmod * xmod) % u
-        if target not in vals:
+        if (-nmod * xmod) % u not in vals:
             return False, extras
     return True, extras
 
@@ -79,15 +91,15 @@ def base120_report():
 
 
 def residual_120120_report():
-    modulus = lcm(120, 4 * 7, 4 * 11, 4 * 13)  # 120120
+    modulus = lcm(120, 4 * 7, 4 * 11, 4 * 13)
     residues = [
         r for r in range(modulus)
         if r % 120 in (1, 49) and gcd(r, 2 * 3 * 5 * 7 * 11 * 13) == 1
     ]
-    uncovered = []
-    for r in residues:
-        if not any(class_covered(r, modulus, u)[0] for u in U_VALUES):
-            uncovered.append(r)
+    uncovered = [
+        r for r in residues
+        if not any(class_covered(r, modulus, u)[0] for u in U_VALUES)
+    ]
 
     print(f"\nResidual refinement modulo {modulus}")
     print(f"  admissible classes: {len(residues)}")
@@ -95,39 +107,30 @@ def residual_120120_report():
     print(f"  remaining: {len(uncovered)}")
 
     assert all(legendre_symbol(r, 7) == 1 for r in uncovered)
-    assert all(legendre_symbol(r, 11) == 1 for r in uncovered)
-    q13 = sum(1 for r in uncovered if legendre_symbol(r, 13) == 1)
-    n13 = len(uncovered) - q13
-    print("  all remaining classes are QR mod 7 and QR mod 11")
-    print(f"  mod 13: QR={q13}, QNR={n13}")
+    print("  all remaining classes are QR mod 7")
+    for p in (11, 13):
+        qr = sum(1 for r in uncovered if legendre_symbol(r, p) == 1)
+        print(f"  mod {p}: QR={qr}, QNR={len(uncovered)-qr}")
 
 
-def verify_qnr_lemmas():
-    # Residual base classes n == 1 or 49 mod 120 have n == 1 mod 8.
-    # For u=7, x=(n+7)/4 is even, so factor 2 is guaranteed.
+def verify_u7_qnr_lemma():
+    # n == 1 or 49 mod 120 implies n == 1 mod 8, so for u=7,
+    # x=(n+7)/4 is even.  Write x=2q and use q and 2 as independent
+    # guaranteed factors of x.
     bad7 = failure_residues(7, [2])
     qr7 = qr_residues(7)
     assert bad7 == qr7
+    print("\nVerified exact u=7 QNR reduction:")
+    print(f"  failure residues = QR_7 = {bad7}")
 
-    # For u=11 and n == 1 mod 12, 3 | (n+11)/4, so factor 3 is guaranteed.
+    # Diagnostic only: these are not full-QNR lemmas.
     bad11 = failure_residues(11, [3])
-    qr11 = qr_residues(11)
-    assert bad11 == qr11
-
-    # Residual classes are n == 1 mod 24. For u=23,
-    # (n+23)/4 is divisible by both 2 and 3.
     bad23 = failure_residues(23, [2, 3])
-    qr23 = qr_residues(23)
-    assert bad23 == qr23
-
-    print("\nVerified deterministic QNR reductions:")
-    print(f"  u=7 failure residues  = QR_7  = {bad7}")
-    print(f"  u=11 failure residues = QR_11 = {bad11}")
-    print(f"  u=23 failure residues = QR_23 = {bad23}")
-    print("  unresolved residual primes must be QR mod 7, 11, and 23")
+    print(f"  u=11 forced-factor failure residues: {bad11}")
+    print(f"  u=23 forced-factor failure residues: {bad23}")
 
 
 if __name__ == "__main__":
     base120_report()
-    verify_qnr_lemmas()
+    verify_u7_qnr_lemma()
     residual_120120_report()
