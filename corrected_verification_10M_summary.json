@@ -1,0 +1,58 @@
+{
+  "range": [2, 10000000],
+  "criterion": "direct divisor-pair congruence",
+  "u_max": 300,
+  "prime_hard_cases": 48711,
+  "failure_count": 0,
+  "failures": [],
+  "max_u": 107,
+  "max_u_n": 8803369,
+  "u_distribution": {
+    "3": 12961,
+    "7": 28606,
+    "11": 4463,
+    "15": 949,
+    "19": 883,
+    "23": 541,
+    "27": 91,
+    "31": 152,
+    "35": 17,
+    "39": 22,
+    "43": 5,
+    "47": 15,
+    "51": 1,
+    "55": 2,
+    "59": 2,
+    "107": 1
+  },
+  "changed_first_u_count": 405,
+  "changed_residue_classes_mod_120": {
+    "1": 306,
+    "49": 99
+  },
+  "changed_omega_x_distribution": {
+    "2": 27,
+    "3": 208,
+    "4": 154,
+    "5": 16
+  },
+  "most_common_old_to_new": [
+    {"old_u": 11, "new_u": 19, "count": 98},
+    {"old_u": 11, "new_u": 15, "count": 87},
+    {"old_u": 19, "new_u": 23, "count": 62},
+    {"old_u": 11, "new_u": 23, "count": 54},
+    {"old_u": 19, "new_u": 31, "count": 23}
+  ],
+  "notable_outlier": {
+    "n": 8803369,
+    "old_u": 43,
+    "corrected_u": 107,
+    "x": 2200869,
+    "factorization_x": {"3": 2, "11": 2, "43": 1, "47": 1},
+    "d1": 1065207649,
+    "d2": 352413001402225929,
+    "y": 181085300330,
+    "z": 3293760527702370
+  },
+  "note": "Results generated after replacing the old {-x*n^j} three-target shortcut with the exact complementary-divisor congruence d1*d2=n^2*x^2 and d1=d2=-n*x (mod u), followed by exact verification of 4/n=1/x+1/y+1/z."
+}
