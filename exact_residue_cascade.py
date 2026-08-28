@@ -54,6 +54,19 @@ def class_covered(r, modulus, u, primes=SMALL_FACTORS):
     return True, extras
 
 
+def failure_residues(u, extras):
+    bad = []
+    for nmod in range(1, u):
+        xmod, vals = guaranteed_residues(nmod, u, extras)
+        if (-nmod * xmod) % u not in vals:
+            bad.append(nmod)
+    return bad
+
+
+def qr_residues(u):
+    return [a for a in range(1, u) if legendre_symbol(a, u) == 1]
+
+
 def base120_report():
     print("Exact guaranteed coverage modulo 120")
     for r in BASE_CLASSES:
@@ -92,26 +105,26 @@ def residual_120120_report():
 def verify_qnr_lemmas():
     # Residual base classes n == 1 or 49 mod 120 have n == 1 mod 8.
     # For u=7, x=(n+7)/4 is even, so factor 2 is guaranteed.
-    bad7 = []
-    for nmod in range(1, 7):
-        xmod, vals = guaranteed_residues(nmod, 7, [2])
-        if (-nmod * xmod) % 7 not in vals:
-            bad7.append(nmod)
-    qr7 = [a for a in range(1, 7) if legendre_symbol(a, 7) == 1]
+    bad7 = failure_residues(7, [2])
+    qr7 = qr_residues(7)
     assert bad7 == qr7
 
     # For u=11 and n == 1 mod 12, 3 | (n+11)/4, so factor 3 is guaranteed.
-    bad11 = []
-    for nmod in range(1, 11):
-        xmod, vals = guaranteed_residues(nmod, 11, [3])
-        if (-nmod * xmod) % 11 not in vals:
-            bad11.append(nmod)
-    qr11 = [a for a in range(1, 11) if legendre_symbol(a, 11) == 1]
+    bad11 = failure_residues(11, [3])
+    qr11 = qr_residues(11)
     assert bad11 == qr11
+
+    # Residual classes are n == 1 mod 24. For u=23,
+    # (n+23)/4 is divisible by both 2 and 3.
+    bad23 = failure_residues(23, [2, 3])
+    qr23 = qr_residues(23)
+    assert bad23 == qr23
 
     print("\nVerified deterministic QNR reductions:")
     print(f"  u=7 failure residues  = QR_7  = {bad7}")
     print(f"  u=11 failure residues = QR_11 = {bad11}")
+    print(f"  u=23 failure residues = QR_23 = {bad23}")
+    print("  unresolved residual primes must be QR mod 7, 11, and 23")
 
 
 if __name__ == "__main__":
