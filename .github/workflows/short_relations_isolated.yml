@@ -1,0 +1,26 @@
+name: Short relations isolated Lean check
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  short-relations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lean via elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          source $HOME/.elan/env
+          lean --version
+          lake --version
+      - name: Fetch dependencies
+        run: |
+          source $HOME/.elan/env
+          lake update
+      - name: Compile short-relation endpoint module only
+        run: |
+          source $HOME/.elan/env
+          lake env lean ErdosStrausConjecture/ShortRelations.lean
