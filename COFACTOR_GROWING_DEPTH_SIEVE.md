@@ -1,6 +1,6 @@
 # Growing-Depth Sieve for the Cofactor Shift-Divisor Family
 
-**Status:** unconditional theorem by direct specialization of the one-parameter large-sieve argument in Dahan (2026); no priority claimed for the analytic mechanism
+**Status:** unconditional theorem by transfer of the one-parameter large-sieve argument in Dahan (2026), with the local hypotheses checked below; no priority claimed for the analytic mechanism
 
 The cofactor-layer / shift-divisor family asks for
 
@@ -58,17 +58,35 @@ Therefore the number of classes removed modulo `q` is
 }
 \]
 
-## 2. Exact match with Dahan's one-parameter counting function
+## 2. Match with Dahan's one-parameter sieve data
 
-Benjamin Dahan, arXiv:2608.24035 (2026), Section 4.3, studies a one-parameter witness system whose large-sieve counting function is
+Benjamin Dahan, arXiv:2608.24035 (2026), Section 4.3, studies the one-parameter system
+
+\[
+s\mid n+u,
+\qquad
+s\equiv-1\pmod{4u},
+\]
+
+whose prime-witness counting function is
 
 \[
 \rho_J(q)=\#\{u\le J:4u\mid q+1\}.
 \]
 
-This is exactly the same arithmetic function after renaming `u` as the cofactor-layer parameter `a`.
+Our affine form `n+4a` is **not literally the same witness system** as Dahan's `n+u`. The transfer rests instead on the following exact agreement of the large-sieve inputs:
 
-The actual residue classes removed modulo `q` are different affine classes, but the large-sieve upper bound uses their number and pairwise distinctness, not their location. Consequently Dahan's one-parameter proof applies verbatim to the cofactor prime-witness system.
+1. for a witness prime `q`, admissible parameters are selected by the same progression
+   \[
+   q\equiv-1\pmod{4a};
+   \]
+2. each admissible parameter removes exactly one residue class of `n mod q`;
+3. for `q>4J`, those classes are pairwise distinct;
+4. the number of removed classes is exactly the same function `rho_J(q)`;
+5. after restricting to `n == 1 (mod 24)` and writing `n=24k+1`, multiplication by `24^{-1} mod q` simply transports the classes to distinct affine classes in `k`, so their location does not change the large-sieve cardinality calculation;
+6. the progression moduli controlling the prime witnesses are `4a <= 4J`, exactly the one-parameter modulus range used in Dahan's sharper Bombieri--Vinogradov cutoff.
+
+Dahan's Section 4.4 explicitly notes that the regimes in his Table 1 come from the same large sieve and that only the local counting function `rho(p)` changes. Thus the one-parameter proof transfers to this cofactor prime-witness system after the six checks above; it should not be described as a literal identity of affine families.
 
 ## 3. Mean size
 
@@ -99,7 +117,7 @@ Equivalently, after summing prime witnesses over the admissible progressions,
 
 has main size `kappa_0 log J` times the logarithmic length of the prime-sifting interval.
 
-The one-parameter modulus is only `4a <= 4J`, so the Bombieri--Vinogradov step is valid with the sharper lower cutoff `J^3` used in Dahan's one-parameter discussion.
+The one-parameter modulus is only `4a <= 4J`, so the Bombieri--Vinogradov step is valid with the sharper lower cutoff `J^3` explicitly recorded by Dahan for the one-parameter system.
 
 ## 4. Polylogarithmic growing depth
 
@@ -112,7 +130,7 @@ J=(\log N)^\lambda,
 
 be fixed.
 
-The one-parameter large-sieve argument therefore gives
+The transferred one-parameter large-sieve argument gives
 
 \[
 \boxed{
@@ -150,7 +168,7 @@ This is an unconditional **uniform growing-depth theorem** for the actual shift-
 
 ## 5. Optimized one-parameter depth
 
-Dahan's Table 1 records the optimized one-parameter regime using the sharper `J^3` cutoff. Because our local counting function is identical, the same optimization applies:
+Dahan's Table 1 records the optimized one-parameter regime and states that using the sharper `J^3` cutoff improves it to
 
 \[
 \boxed{
@@ -158,7 +176,7 @@ J=\exp\!\big((0.308+o(1))\sqrt{\log N}\big)
 }
 \]
 
-is compatible with the bound
+with
 
 \[
 \boxed{
@@ -168,7 +186,7 @@ N\exp\!\big(-(0.199+o(1))\sqrt{\log N}\big).
 }
 \]
 
-The numerical constants are inherited from the same one-parameter large-sieve optimization and are not claimed as new.
+These numerical constants are inherited from Dahan's one-parameter optimization and are not claimed as new.
 
 ## 6. Relation to the finite computation
 
@@ -195,6 +213,6 @@ This is a genuine distinction of search spaces, not a defect in the proof.
 
 ## 8. Publication / priority note
 
-The large-sieve machinery and the constants above come directly from Dahan's one-parameter analysis. The contribution here is the exact identification that the complementary-cofactor shift-divisor subsystem has the same local counting function, allowing the theorem to be transferred to this separately parametrized Type-A/ED2 slice.
+The large-sieve machinery, `kappa_0`, and the optimized constants above come directly from Dahan's one-parameter analysis. The contribution here is the identification and hypothesis check showing that the complementary-cofactor shift-divisor subsystem has the same prime-witness local counting data, so the analytic bound transfers to this differently located affine family.
 
-Any publication should cite Dahan explicitly and should not present the analytic machinery or constants as new.
+Any publication should cite Dahan explicitly, should not call the two affine witness systems identical, and should not present the analytic machinery or constants as new.
