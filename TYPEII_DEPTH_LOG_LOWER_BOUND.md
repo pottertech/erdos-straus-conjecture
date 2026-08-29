@@ -1,6 +1,18 @@
 # Logarithmic Lower Bound for Complete Type-II Square Depth Along an Infinite Sequence
 
-**Status:** unconditional corollary of the depth-avoidance progression plus standard PNT-in-AP and Linnik theorems; no novelty claim pending literature audit
+**Status:** unconditional corollary of the depth-avoidance progression plus standard PNT-in-AP and Linnik theorems; mathematical proof audited, novelty not established
+
+## Priority status
+
+The underlying fact that square-completed Type-II first-hit depth is unbounded is prior art: the Free Computation Foundation / CENTL research library recorded a stronger prime-modulus realization theorem on 2026-08-15.
+
+The literature search performed for this branch did **not** locate this specific Linnik-based quantitative conclusion
+
+\[
+\operatorname{depth}_{II}(p)\gg\log p
+\]
+
+along an infinite sequence. That absence is not a priority proof. Until a publication-grade search is completed, this result should be described as an unconditional quantitative corollary derived here, with novelty explicitly unclaimed.
 
 Let `depth_II(p)` denote the least square-completion parameter `A` for which
 
@@ -111,11 +123,13 @@ As `J -> infinity`, the moduli `L_J` grow and the corresponding progression prim
 
 ## Consequences
 
-1. Complete Type-II depth is not merely unbounded; logarithmic-scale depth is genuinely necessary along an infinite sequence.
-2. Any universal Type-II algorithm/proof whose allowed square depth is `o(log p)` must fail on infinitely many relevant primes.
-3. The computational records `624` through `1e8` and `816` through `1e9` are compatible with an intrinsically growing depth function.
-4. A successful universal argument must support at least logarithmic adaptive depth; fixed-depth or sublogarithmic-depth covering strategies cannot suffice.
+1. Complete Type-II square depth is not merely unbounded; logarithmic-scale square depth is necessary along an infinite sequence.
+2. Any universal Type-II algorithm/proof whose allowed **square-completion depth** is `o(log p)` must fail on infinitely many relevant primes.
+3. This statement does **not** imply a logarithmic lower bound for Dahan's pair depth `max(u,a)`: the coordinate map contains the additional unbounded witness quotient `alpha`.
+4. The computational records `624` through `1e8` and `816` through `1e9` are compatible with an intrinsically growing square-depth function.
 
 ## Claim boundary
 
-This is a lower bound on the minimum depth of the Type-II certificate family along an infinite sequence. It is not evidence for Erdős--Straus counterexamples: those primes may and generally do have valid Type-II certificates at larger depth, or Type-I certificates.
+This is a lower bound on the minimum **square-completion depth** of the Type-II certificate family along an infinite sequence. It is not evidence for Erdős--Straus counterexamples: those primes may and generally do have valid Type-II certificates at larger square depth, or Type-I certificates.
+
+No novelty claim is made pending a dedicated historical and contemporary literature review.
