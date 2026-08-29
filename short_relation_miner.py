@@ -14,7 +14,12 @@ def small_primes(n=20000):
     return [i for i in range(2, n + 1) if bs[i]]
 
 
-PR = small_primes(12000)
+# shift_reduced() factors n+1 and n+4, so a scan through 1e9 needs
+# trial primes past sqrt(1e9).  The earlier 12000 table was only safe for
+# arbitrary factor inputs below about 1.44e8 and could silently treat a
+# composite residual as prime above that range.
+PR = small_primes(40000)
+FACTOR_INPUT_LIMIT = PR[-1] * PR[-1]
 
 
 def isprime32(n):
@@ -43,6 +48,11 @@ def isprime32(n):
 
 
 def factor(n):
+    if n > FACTOR_INPUT_LIMIT:
+        raise ValueError(
+            f'factor({n}) exceeds the certified trial-prime range '
+            f'({FACTOR_INPUT_LIMIT}); enlarge PR before extending the scan'
+        )
     out = {}
     for p in PR:
         if p * p > n:
