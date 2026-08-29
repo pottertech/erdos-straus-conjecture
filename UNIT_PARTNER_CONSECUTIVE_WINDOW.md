@@ -1,6 +1,6 @@
 # Consecutive-Window Form of the Unit-Partner Cascade
 
-**Status:** exact reparametrization
+**Status:** exact reparametrization plus unconditional fixed-window density theorem
 
 Write any residual integer `n == 1 (mod 4)` as
 
@@ -82,19 +82,81 @@ If `m+j = a d`, this becomes the parametric condition
 \boxed{4ad^2\equiv-1\pmod{4j-1}}.
 \]
 
-## The verified 299-shift window
+## Unconditional fixed-window theorem
 
-The computation with `u <= 299` is exactly `J <= 75`, because
+Let `F_J(N)` be the number of primes `n=4m+1 <= N` for which the **untwisted** unit-partner branch fails at every one of the first `J` positions
 
 \[
-299=4\cdot75-1.
+m+1,\ldots,m+J,
 \]
 
-Thus the audited `10^9` observation can be restated as:
+with attached shifts
 
-> For every corrected residual prime `n=4m+1 <= 10^9` except `2521`, at least one of the 75 consecutive integers `m+1,...,m+75` contains a divisor satisfying the untwisted or twisted position-dependent congruence above.
+\[
+3,7,11,\ldots,4J-1.
+\]
 
-This form may be more useful for a universal argument because it replaces a family of shifted factorizations by one fixed-length consecutive window.
+Applying the certified fixed finite multi-shift sieve in `UNIT_PARTNER_MULTI_SHIFT_SIEVE.md` to the `J` distinct shifts gives
+
+\[
+\boxed{
+F_J(N)
+\ll_J
+\frac{N}{(\log N)^{1+J/2}}.
+}
+\]
+
+This is unconditional for every fixed `J`.
+
+Because failure of both unit-partner branches, or failure of the complete centered binary criterion, implies failure of the untwisted branch, the same upper bound holds for either of those smaller exceptional sets.
+
+## The 75-position / u <= 299 theorem
+
+The computational search uses
+
+\[
+u\le299=4\cdot75-1,
+\]
+
+so it is exactly the window length
+
+\[
+J=75.
+\]
+
+The theorem above therefore gives the explicit asymptotic bound
+
+\[
+\boxed{
+F_{75}(N)
+\ll
+\frac{N}{(\log N)^{77/2}}.
+}
+\]
+
+Equivalently,
+
+\[
+\boxed{
+F_{75}(N)
+\ll
+\frac{N}{(\log N)^{38.5}}.
+}
+\]
+
+Thus the primes for which none of the first 75 consecutive-window positions supplies even an **untwisted** unit-partner certificate form an exceptionally thin set. The set failing both branches, and the set failing the full binary criterion at all 75 shifts, are thinner still and satisfy the same rigorous upper bound.
+
+This is a theorem-level asymptotic companion to the finite computation through `10^9`.
+
+## The audited 10^9 observation
+
+The exact computation gives a different and much stronger finite statement:
+
+> For every corrected residual prime `n=4m+1 <= 10^9` except `2521`, at least one of the 75 consecutive integers `m+1,...,m+75` contains a divisor satisfying the untwisted or twisted position-dependent unit-partner congruence.
+
+The unique unit-partner exception `2521` is permanent, not a depth-75 artifact, and is solved by the full binary pair `(2,29)` at shift `31`.
+
+The asymptotic sieve theorem does **not** prove that `2521` is the only permanent exception globally. It proves that any further failures of the 75-position mechanism are logarithmically extremely sparse.
 
 ## Classical-core coordinates
 
@@ -111,4 +173,12 @@ m=\frac{n-1}{4}
 \equiv0,30,42,72,90,132\pmod{210}.
 \]
 
-Hence `m` is always divisible by 6 in the classical core. The unresolved problem can therefore be studied as a divisor-placement problem in a length-75 window beginning at an integer in these six classes modulo 210.
+Hence `m` is always divisible by 6 in the classical core. Restricting to these six progressions changes only the implied constant in the fixed-window sieve estimate; it does not change the logarithmic exponent.
+
+## What the consecutive-window theorem does and does not buy
+
+The consecutive-window formulation upgrades the empirical `u <= 299` phenomenon to an explicit unconditional density theorem with exponent `38.5`.
+
+It does **not** imply finiteness of the exceptional set. A fixed-length window, however large, is compatible with infinitely many exceptions of sufficiently low density.
+
+To obtain a finiteness statement from sieve theory alone one would need substantially more than a fixed-dimensional upper-bound sieve: for example a uniform growing-window theorem with constants strong enough to make the exceptional counting function eventually less than one, or an independent structural argument closing the remaining thin set. Neither is currently established here.
