@@ -96,7 +96,111 @@ Equivalently, exact cross-multiplication gives
 
 No primality assumption on `A`, `B`, or `q` is needed.  Coprimality of `A,B` is required only when interpreting this as a centered support-two divisor certificate; the displayed unit-fraction identity itself is algebraically valid whenever the parameters are positive integers satisfying the stated equations.
 
-## 2. The r = 1 binary-sum family
+## 2. Exact factorization equivalence
+
+The polynomial family has an equivalent formulation as a factorization of a linear polynomial in `n`.
+
+From
+
+\[
+A+B=ur,
+\qquad
+n=4ABq-u,
+\]
+
+we obtain
+
+\[
+\begin{aligned}
+(4Aqr-1)(4Bqr-1)
+&=16ABq^2r^2-4qr(A+B)+1\\
+&=16ABq^2r^2-4qur^2+1\\
+&=4qr^2(4ABq-u)+1\\
+&=\boxed{4qr^2n+1}.
+\end{aligned}
+\]
+
+Thus every member of the family yields
+
+\[
+\boxed{
+4qr^2n+1=RS
+}
+\]
+
+with
+
+\[
+R=4Aqr-1,
+\qquad
+S=4Bqr-1,
+\]
+
+so that
+
+\[
+\boxed{R\equiv S\equiv-1\pmod{4qr}}.
+\]
+
+### Converse
+
+Conversely, suppose positive integers `q,r,R,S` satisfy
+
+\[
+RS=4qr^2n+1
+\]
+
+and
+
+\[
+R\equiv S\equiv-1\pmod{4qr}.
+\]
+
+Write
+
+\[
+A=\frac{R+1}{4qr},
+\qquad
+B=\frac{S+1}{4qr}.
+\]
+
+These are positive integers. Expanding `RS=4qr^2 n+1` and cancelling `1` gives
+
+\[
+16ABq^2r^2-4qr(A+B)=4qr^2n.
+\]
+
+Dividing by `4qr` gives
+
+\[
+4ABqr-(A+B)=rn,
+\]
+
+hence
+
+\[
+A+B=r(4ABq-n).
+\]
+
+Therefore
+
+\[
+u:=4ABq-n=\frac{A+B}{r}
+\]
+
+is a positive integer whenever `4ABq>n`, and the parameters recover the general `r`-family exactly.
+
+So the binary-sum construction can be searched equivalently by factoring
+
+\[
+\boxed{4qr^2n+1}
+\]
+
+into two factors both congruent to `-1 mod 4qr`.
+
+This formulation is closely related to known Mordell/ED2-style factorization parameterizations of the Erdős--Straus equation.  It is recorded here because it is the natural factorization language for the repository's corrected centered-binary criterion, not as a novelty claim.
+
+## 3. The r = 1 binary-sum family
 
 The cleanest specialization is
 
@@ -126,11 +230,21 @@ has the explicit decomposition
 }
 \]
 
+The factorization form becomes
+
+\[
+\boxed{
+4qn+1=(4Aq-1)(4Bq-1),
+}
+\]
+
+with both factors congruent to `-1 mod 4q`.
+
 This is a three-parameter polynomial family in `A,B,q`.
 
 If `A+B ≡ 3 (mod 4)`, then `n ≡ 1 (mod 4)`, so this family naturally intersects the difficult Erdős--Straus residue regime rather than merely reproducing even or elementary cases.
 
-## 3. Unit-partner family as A = 1
+## 4. Unit-partner family as A = 1
 
 The ordinary unit-partner slice is obtained by setting
 
@@ -150,8 +264,7 @@ with
 
 \[
 x=Bq,
-\qquad
-y=nqr,
+\qquad y=nqr,
 \qquad z=Bnqr.
 \]
 
@@ -159,7 +272,15 @@ Thus the cofactor/shift-divisor family is a strict one-sided slice of the full b
 
 The full binary criterion can succeed even when every `A=1` slice fails, because two nontrivial complementary factors may satisfy `A+B ≡ 0 (mod u)`.
 
-## 4. The n = 2521 rescue
+In factorization language, the unit-partner restriction forces one factor of `4qr^2 n+1` to be exactly
+
+\[
+4qr-1.
+\]
+
+The full binary family removes that restriction and allows both factors to be nontrivial members of the residue class `-1 mod 4qr`.
+
+## 5. The n = 2521 rescue
 
 The corrected `10^9` audit identifies
 
@@ -197,6 +318,26 @@ n=4ABq-A-B
 =2521.
 \]
 
+The associated factorization is
+
+\[
+4qn+1=4\cdot11\cdot2521+1=110,925
+\]
+
+and
+
+\[
+110,925
+=(4\cdot2\cdot11-1)(4\cdot29\cdot11-1)
+=87\cdot1,275.
+\]
+
+Both factors satisfy
+
+\[
+87\equiv1,275\equiv-1\pmod{44}.
+\]
+
 The explicit decomposition is
 
 \[
@@ -227,7 +368,7 @@ Hence
 
 This explains the finite `2521` rescue structurally: it is not an isolated accidental divisor certificate, but a genuine binary-sum case with both partners nontrivial.
 
-## 5. Revised proof target
+## 6. Revised proof target
 
 The corrected finite computation suggests a two-stage deterministic target.
 
@@ -251,10 +392,22 @@ For every number permanently avoiding Stage A, prove that some gate admits
 
 with `A,B>1`, `gcd(A,B)=1`, and `AB | n(n+u)/4`.
 
+Equivalently, it is enough to find `q,r` for which
+
+\[
+4qr^2n+1
+\]
+
+has two factors in the residue class
+
+\[
+-1\pmod{4qr}.
+\]
+
 The `2521` example shows that Stage B is not artificial: it is exactly what is needed beyond the unit-partner subsystem.
 
 A universal theorem of this form would be stronger and more structurally faithful than trying to prove that the unit-partner family alone is universal.
 
-## 6. Publication caution
+## 7. Publication caution
 
-The algebraic identity above is elementary and may overlap with existing parametrized Erdős--Straus identities.  No novelty claim is made here.  Any publication should perform a dedicated literature comparison before claiming priority for this parameterization or its interpretation.
+The algebraic and factorization identities above are elementary and overlap conceptually with known Mordell/ED2/Elsholtz--Tao parameterizations of the Erdős--Straus equation.  No novelty claim is made here.  Any publication should perform a dedicated literature comparison before claiming priority for this parameterization or its interpretation.
