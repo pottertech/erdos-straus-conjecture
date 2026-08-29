@@ -29,6 +29,37 @@ theorem short_product_endpoint
         (n * r * x) * hfz
     exact_mod_cast hz
 
+/-- Untwisted unit-partner endpoint from the complete fixed-shift binary criterion.
+If `K = d*q` and `d + 1 = c*r`, then the divisor pair `(d,1)` is a
+unit-partner certificate at shift `c`. -/
+theorem unit_partner_untwisted
+    (n K c d q r : Nat)
+    (hn : 0 < n) (hK : 0 < K) (hq : 0 < q) (hr : 0 < r)
+    (h4 : 4 * K = n + c)
+    (hKfac : d * q = K)
+    (hrel : c * r = d + 1) :
+    IsErdosStraus n := by
+  have hk : 0 < n * q := Nat.mul_pos hn hq
+  have hfac : d * (n * q) = n * K := by
+    rw [← hKfac]
+    ring
+  exact short_product_endpoint n K c d (n * q) r hn hK hk hr h4 hfac hrel
+
+/-- Twisted unit-partner endpoint from the complete fixed-shift binary criterion.
+If `K = d*q` and `n*d + 1 = c*r`, then the divisor pair `(n*d,1)` is a
+unit-partner certificate at shift `c`. -/
+theorem unit_partner_twisted
+    (n K c d q r : Nat)
+    (hn : 0 < n) (hK : 0 < K) (hq : 0 < q) (hr : 0 < r)
+    (h4 : 4 * K = n + c)
+    (hKfac : d * q = K)
+    (hrel : c * r = n * d + 1) :
+    IsErdosStraus n := by
+  have hfac : (n * d) * q = n * K := by
+    rw [← hKfac]
+    ring
+  exact short_product_endpoint n K c (n * d) q r hn hK hq hr h4 hfac hrel
+
 /-- One-factor endpoint: a factor `p | n*x` with `p ≡ -1 (mod u)`. -/
 theorem short_relation_p_neg_one
     (n x u p k r : Nat)
