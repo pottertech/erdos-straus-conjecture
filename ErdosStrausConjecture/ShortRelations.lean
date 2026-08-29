@@ -29,6 +29,34 @@ theorem short_product_endpoint
         (n * r * x) * hfz
     exact_mod_cast hz
 
+/-- Complete centered binary endpoint.
+If `A*B*C = n*K`, `A+B = u*r`, and `4*K=n+u`, then
+`K`, `A*C*r`, and `B*C*r` form an Erdős--Straus decomposition.
+No primality assumption on `A` or `B` is required. -/
+theorem centered_binary_endpoint
+    (n K u A B C r : Nat)
+    (hn : 0 < n) (hK : 0 < K) (hA : 0 < A) (hB : 0 < B)
+    (hC : 0 < C) (hr : 0 < r)
+    (h4 : 4 * K = n + u)
+    (hfac : (A * B) * C = n * K)
+    (hsum : u * r = A + B) :
+    IsErdosStraus n := by
+  refine ⟨K, A * C * r, B * C * r, hK, ?_, ?_, ?_⟩
+  · positivity
+  · positivity
+  · have h4z : (4 * K : ℤ) = n + u := by exact_mod_cast h4
+    have hfz : ((A * B) * C : ℤ) = n * K := by exact_mod_cast hfac
+    have hsz : (u * r : ℤ) = A + B := by exact_mod_cast hsum
+    have hz :
+        (4 * K * (A * C * r) * (B * C * r) : ℤ) =
+        n * (K * (A * C * r) + K * (B * C * r) + (A * C * r) * (B * C * r)) := by
+      push_cast
+      linear_combination
+        (C * r * r * (4 * K - n)) * hfz +
+        (n * C * r * r * K) * h4z -
+        (n * C * r * K) * hsz
+    exact_mod_cast hz
+
 /-- Untwisted unit-partner endpoint from the complete fixed-shift binary criterion.
 If `K = d*q` and `d + 1 = c*r`, then the divisor pair `(d,1)` is a
 unit-partner certificate at shift `c`. -/
