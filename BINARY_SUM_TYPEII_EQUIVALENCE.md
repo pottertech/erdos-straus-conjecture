@@ -224,49 +224,89 @@ with
 
 This is a genuine Type-II rescue beyond the unit-partner slice.
 
-## 6. n = 66529 is the essential warning
+## 6. n = 66529: warning against confusing the unit-partner slice with full Type II
 
-The repository's exact all-shift untwisted classification proves that
+The repository's earlier all-shift **unit-partner** classification showed that
 
 \[
 \boxed{n=66529}
 \]
 
-has no Type-II solution at all.
+is a permanent failure of the untwisted unit-partner slice.  That does **not** imply failure of the complete Type-II criterion.
 
-It is nevertheless solved by the twisted/Type-I branch at
-
-\[
-u=19,
-\qquad K=16637,
-\qquad d=131.
-\]
-
-Therefore the Type-II one-divisor formulation cannot be universal by itself.
-
-Equivalently, for `n=66529` there do **not** exist positive integers `q,r` and a divisor
+In fact `66529` has a small non-unit Type-II certificate.  Take
 
 \[
-R\mid4qr^2n+1
+q=2,
+\qquad r=1.
 \]
 
-with
+Then
 
 \[
-R\equiv-1\pmod{4qr}.
+4qn+1=4\cdot2\cdot66529+1=532233
 \]
 
-This should be retained as a regression test for any attempted universal Type-II theorem.
+and
 
-## 7. Correct global hierarchy
+\[
+532233=39\cdot13647.
+\]
 
-The current finite evidence supports the following hierarchy rather than Type-II universality:
+Both factors satisfy
 
-1. **Type-II unit-partner / cofactor slice** handles the overwhelming majority;
-2. **Type-I twisted unit-partner slice** rescues cases such as `66529`;
-3. **full non-unit Type II** rescues the unique permanent unit-partner exception `2521` in the audited range through `10^9`.
+\[
+39\equiv13647\equiv-1\pmod8.
+\]
 
-A global proof would still need to rule out integers requiring a genuinely non-unit Type-I solution outside these three slices.
+Hence
+
+\[
+A=\frac{39+1}{8}=5,
+\qquad
+B=\frac{13647+1}{8}=1706,
+\]
+
+and
+
+\[
+e=A+B=1711.
+\]
+
+Indeed,
+
+\[
+n+e=66529+1711=68240
+=4\cdot5\cdot1706\cdot2.
+\]
+
+The resulting Type-II decomposition is
+
+\[
+\boxed{x=17060},
+\qquad
+\boxed{y=665290},
+\qquad
+\boxed{z=226996948}.
+\]
+
+Exact cross-multiplication verifies
+
+\[
+4xyz=n(xy+xz+yz).
+\]
+
+This is an important regression example: a number can permanently avoid the **unit-partner** Type-II slice and yet have a very small non-unit Type-II solution.
+
+## 7. Correct hierarchy
+
+The finite evidence should therefore be described in terms of searched certificate slices, not intrinsic solution type:
+
+1. **Type-II unit-partner / cofactor slice** finds many certificates;
+2. **Type-I twisted unit-partner slice** finds many additional certificates;
+3. **full non-unit Type II** can solve cases missed by the Type-II unit-partner slice, including both `2521` and `66529`.
+
+A first-found Type-I certificate does not establish that the same `n` lacks a Type-II solution elsewhere.  Determining intrinsic Type-I-only versus Type-II-solvable populations requires a separate complete Type-II search or theorem.
 
 ## 8. Priority / literature note
 
