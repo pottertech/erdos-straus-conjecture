@@ -322,7 +322,7 @@ This is the cleanest exact formulation of the repository's current endgame.
 
 ---
 
-## 4. Where the finite 10^9 evidence sits
+## 4. What the finite 10^9 certificate counts do -- and do not -- say
 
 The audited corrected residual population through `n <= 10^9` contains `195,271` primes.
 
@@ -332,15 +332,17 @@ The first unit-partner certificates chosen by the current bounded cascade split 
 - `84,268` twisted/unit-partner certificates -- therefore explicitly Type I;
 - `1` bounded unit-partner failure, `n=2521`, rescued by a non-unit Type-II pair `(a,b)=(2,29)` at `c=31`.
 
-These counts classify the **certificates selected by the current search**, not the intrinsic solution type of each `n`: a prime first found on the Type-I branch may also possess a Type-II solution at another shift.
+These counts classify the **certificates selected by the current search**, not the intrinsic solution type of each `n`. A prime first found on the Type-I branch may also possess a Type-II solution at another shift, and a permanent failure of the Type-II unit-partner slice does not imply failure of full Type II.
 
-The special case
+### n = 66529 demonstrates the distinction
+
+The earlier unit-partner stratification identified
 
 \[
 n=66529
 \]
 
-is stronger: the repository's exact all-shift untwisted classification proves that it has no Type-II solution at all, while its twisted Type-I unit-partner solution occurs at
+as a permanent failure of the **untwisted unit-partner** slice. It is also found very cheaply by the Type-I unit-partner branch at
 
 \[
 c=19,
@@ -349,23 +351,47 @@ c=19,
 \quad b=1.
 \]
 
-Indeed
+However, `66529` also has a small non-unit Type-II solution. Take
 
 \[
-4aq=n+c=66548
+q=2,
+\qquad r=1,
+\qquad a=5,
+\qquad b=1706,
+\qquad c=a+b=1711.
 \]
 
-and
+Then
 
 \[
-4a^2q+1
-=
-4\cdot131^2\cdot127+1
+4abq=4\cdot5\cdot1706\cdot2=68240=n+c.
 \]
 
-is divisible by `c=19`.
+Equivalently,
 
-Thus Type II alone is not universal.
+\[
+4qn+1=532233=39\cdot13647,
+\]
+
+with
+
+\[
+39\equiv13647\equiv-1\pmod8.
+\]
+
+The resulting Type-II denominators are
+
+\[
+\boxed{x=17060},
+\qquad
+\boxed{y=665290},
+\qquad
+\boxed{z=226996948}.
+\]
+
+Thus `66529` is a decisive warning against identifying an all-shift **unit-partner** exception with a Type-II exception.
+
+### n = 2521
 
 The case
 
@@ -373,7 +399,7 @@ The case
 n=2521
 \]
 
-illustrates the opposite phenomenon: it is a permanent failure of both unit-partner slices, but full non-unit Type II succeeds with
+is a permanent failure of both bounded unit-partner slices in the audited cascade, but full non-unit Type II succeeds with
 
 \[
 c=31,
@@ -393,15 +419,17 @@ The exact dichotomy exposes four natural levels:
 | Type II | `a=1` or `b=1` | `a,b>1` |
 | Type I | `b=1` after orienting the `n`-factor | `a,b>1` in fixed-shift form |
 
-The audited `10^9` population is closed using only the first three cells:
+The audited `10^9` population is closed using certificates from only the first three cells:
 
 1. Type-II unit partner;
 2. Type-I unit partner;
-3. non-unit Type II (`2521`).
+3. non-unit Type II (`2521` in the selected closure certificate set).
 
-No audited residual prime through `10^9` needs the fourth cell, non-unit Type I, in order to obtain some solution.
+This statement is about one successful certificate per prime. It does **not** assert that the three cells are disjoint, nor that a prime found in the Type-I cell lacks a Type-II certificate.
 
-This is finite evidence only.  A global proof cannot simply discard the fourth cell without a theorem showing that the first three always suffice.
+No audited residual prime through `10^9` needs the fourth cell, non-unit Type I, in order to obtain some solution under the current certificate selection.
+
+This is finite evidence only. A global proof cannot simply discard the fourth cell without a theorem showing that the first three always suffice.
 
 ---
 
@@ -417,8 +445,10 @@ The most precise current theorem target is:
 
 If that statement is false, characterize the residual set that genuinely requires non-unit Type I.
 
+A useful immediate subproblem is to measure full Type-II coverage independently of the unit-partner cascade. The `66529` example shows that this can be substantially larger than the Type-II unit-partner coverage.
+
 This formulation is preferable to an undifferentiated divisor-distribution conjecture because every branch is exact, constructive, and tied directly to the complete classical Type-I/Type-II dichotomy.
 
 ## 7. Literature / priority note
 
-The Type-I and Type-II closed criteria are classical in the modern literature, especially Elsholtz--Tao and Pomerance--Weingartner, and are restated and algorithmically developed by Benjamin Dahan (2026).  The algebra above records the exact variable map to the repository's centered fixed-shift criterion.  No priority claim is made for the solvability criteria themselves.
+The Type-I and Type-II closed criteria are classical in the modern literature, especially Elsholtz--Tao and Pomerance--Weingartner, and are restated and algorithmically developed by Benjamin Dahan (2026). The algebra above records the exact variable map to the repository's centered fixed-shift criterion. No priority claim is made for the solvability criteria themselves.
