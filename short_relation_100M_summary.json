@@ -1,0 +1,23 @@
+{
+  "range": [2, 100000000],
+  "u_max": 299,
+  "core_primes": 179468,
+  "after_hard": 97374,
+  "after_shift": 26399,
+  "failure_count": 0,
+  "failures": [],
+  "route_counts": {
+    "pq=-1": 2583,
+    "p=-q": 2401,
+    "p=-1": 21399,
+    "p^3=-1": 16
+  },
+  "source_counts": {
+    "n+x": 3038,
+    "x+x": 1946,
+    "x": 21415
+  },
+  "verified_certificates": 26399,
+  "bad_certificates": 0,
+  "note": "Corrected classical-core search. Minimal support first, then exponent size, then u. All certificates were independently checked against 4*x*y*z = n*(x*y+x*z+y*z) using exact integer arithmetic."
+}
