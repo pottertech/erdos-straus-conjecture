@@ -26,12 +26,21 @@ import argparse, json, time
 
 from short_relation_miner import (
     CORE,
+    FACTOR_INPUT_LIMIT,
     isprime32,
     factor,
     hard_gate,
     shift_reduced,
-    assert_factor_range,
 )
+
+
+def assert_factor_range(n):
+    if n > FACTOR_INPUT_LIMIT:
+        raise ValueError(
+            f'factor input {n} exceeds the certified trial-prime range '
+            f'({FACTOR_INPUT_LIMIT}); enlarge PR in short_relation_miner.py '
+            'before extending this scan'
+        )
 
 
 def divisors_from_factorization(fm):
