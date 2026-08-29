@@ -56,7 +56,7 @@ Failure occurs only in either:
 
 ### 4. Exact u=15 layer
 
-The inherited restriction `n ≡ 1 or 4 (mod 15)` is now proved, not empirical.
+The inherited restriction `n ≡ 1 or 4 (mod 15)` is proved, not empirical.
 
 With
 
@@ -94,17 +94,64 @@ Thus these deterministic layers reduce the corrected hard-prime sample by
 1-\frac{283}{48711}\approx99.42\%.
 \]
 
-Among the final 283 cases at the u=23 failure stage:
+Among the 283 cases at the u=23 failure stage:
 
 - 268 are QR-pure modulo 23;
 - 15 have the exact small exceptional non-QR shape.
 
 The finite counts are computational cross-checks. The layer descriptions themselves are algebraic finite-group results.
 
-## Next layer
+## Extended corrected finite cascade
 
-Applying `u=31` to these 283 cases in the corrected data solves 190 and leaves 93.
+Continuing with the exact centered criterion, but without yet claiming new general theorems for these later moduli, the 283 finite survivors collapse as follows:
 
-Unlike `u=23`, `x_31` forces only the factor 2, so the mod-31 obstruction has a larger exceptional set. The next task is to determine whether inherited purity from the 7, 11, 15, and 23 layers collapses that larger abstract obstruction to a small finite family.
+| next modulus | survivors after layer |
+|---:|---:|
+| 31 | 93 |
+| 35 | 67 |
+| 39 | 29 |
+| 43 | 25 |
+| 47 | 9 |
+| 51 | 7 |
+| 55 | 5 |
+| 59 | 2 |
+| 63 | 1 |
 
-That is the current proof target.
+The single survivor after `u=63` is
+
+\[
+n=8,803,369.
+\]
+
+It also fails the tested values `u=67,71,75,79,83,87,91,95,99,103` and first succeeds at
+
+\[
+\boxed{u=107}.
+\]
+
+For this case,
+
+\[
+x_{107}=\frac{8,803,369+107}{4}=2,200,869
+=3^2\cdot11^2\cdot43\cdot47.
+\]
+
+A particularly small centered witness is
+
+\[
+\boxed{3^{-2}43^{-1}47^{-1}\equiv-1\pmod{107}},
+\]
+
+because
+
+\[
+3^2\cdot43\cdot47\equiv-1\pmod{107}.
+\]
+
+Thus even the largest corrected first-working value below `10^7` has support 3 and total centered exponent size 4.
+
+## Current proof target
+
+The next proof-level task is the `u=31` obstruction. Here `x_31` forces the factor 2 but not 3, so the abstract exceptional set is larger than at `u=23`. The goal is to combine the inherited purity restrictions from the exact 7, 11, 15, and 23 layers with the finite mod-31 centered obstruction and show that only a much smaller set of residue patterns can survive.
+
+The longer-term target remains a bounded-support deterministic cascade theorem, not an equidistribution heuristic.
