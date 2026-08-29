@@ -1,6 +1,12 @@
 # Complete Type-II Square Depth Is Unbounded
 
-**Status:** unconditional theorem; no novelty claim pending literature audit
+**Status:** unconditional theorem; independently rederived here, but the unboundedness conclusion is prior art and is not claimed as new
+
+## Literature / priority correction
+
+A literature audit on 2026-08-29 found that the Free Computation Foundation / CENTL research library publicly recorded unbounded **square-completed Type-II first-hit depth** on 2026-08-15, before this branch. Their prime-modulus backbone is stronger in one direction: whenever `4A-1 > 7` is prime, depth `A` is realized by infinitely many Mordell-hard primes.
+
+Accordingly, this note should be read as an independent elementary rederivation of unboundedness using the universal avoidance residue `1 mod (4A-1)`, not as a novelty claim. The separate quantitative Linnik consequence in `TYPEII_DEPTH_LOG_LOWER_BOUND.md` should be evaluated independently for priority.
 
 For a prime `p == 1 (mod 4)`, use the square-completed Type-II criterion
 
@@ -142,3 +148,5 @@ Equivalently, the minimum complete-Type-II square depth is unbounded on the prim
 ## Claim boundary
 
 This theorem does **not** produce an Erdős--Straus counterexample. It only proves that the least Type-II depth, when measured by the square-completion parameter `A`, cannot be bounded by an absolute constant over all relevant primes.
+
+The unboundedness conclusion itself is not claimed as new. Priority for any stronger quantitative consequence must be established separately.
