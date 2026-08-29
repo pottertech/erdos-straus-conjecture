@@ -1,10 +1,10 @@
 # Multi-Shift Half-Dimensional Sieve for the Untwisted Unit-Partner Branch
 
-**Status:** unconditional density theorem at fixed finite shift set, using standard upper-bound sieve machinery; not a proof of the Erdős--Straus conjecture
+**Status:** analytic proposition / proof template; exact local lemma proved, global upper-bound-sieve step pending citation-level audit
 
-This note records the analytic consequence of `UNIT_PARTNER_HALF_GROUP_LEMMA.md`.
+This note records the proposed analytic consequence of `UNIT_PARTNER_HALF_GROUP_LEMMA.md`.
 
-No priority is claimed for the sieve mechanism. Benjamin Dahan's August 2026 preprint proves an exact sieve-dimension theorem for a broader fixed-depth Erdős--Straus search and uses the same fixed-point-free involution idea. The statement below isolates the simpler untwisted unit-partner slice in the notation of this repository.
+No priority is claimed for the sieve mechanism. Benjamin Dahan's August 2026 preprint proves an exact sieve-dimension theorem for a broader fixed-depth Erdős--Straus search and uses the same fixed-point-free involution idea. The statement below isolates the simpler untwisted unit-partner slice in the notation of this repository. Before publication, the upper-bound-sieve hypotheses and the precise correspondence with Dahan's theorem must be checked line by line.
 
 ## Setup
 
@@ -26,9 +26,9 @@ Let `E_U(N)` be the primes `n <= N`, excluding the finitely many primes dividing
 \exists d\mid K_u(n):\qquad d\equiv-1\pmod u.
 \]
 
-## Local structure of failure
+## Exact local structure of failure
 
-By the half-group lemma, failure at a fixed `u` implies that the distinct residue classes modulo `u` occupied by prime factors of `K_u(n)` lie in an independent set for
+By the proved half-group lemma, failure at a fixed `u` implies that the distinct residue classes modulo `u` occupied by prime factors of `K_u(n)` lie in an independent set for
 
 \[
 r\mapsto-r^{-1}.
@@ -58,7 +58,7 @@ q\mid K_u(n)\Longrightarrow q\bmod u\notin B_u
 
 for every prime divisor `q` of `K_u(n)`.
 
-## Collision lemma for the shifted linear forms
+## Exact collision lemma for the shifted linear forms
 
 For distinct `u,v in U`, if an odd prime `q` divides both `K_u(n)` and `K_v(n)`, then
 
@@ -80,9 +80,9 @@ Hence outside the finite set of primes dividing
 
 a prime `q` can divide at most one of the shifted forms at any one residue class `n mod q`.
 
-## Sieve dimension
+## Proposed sieve dimension
 
-For a prime `q` outside the finite exceptional set, the sieve removes:
+For a prime `q` outside the finite exceptional set, the intended sieve removes:
 
 1. the residue `n == 0 (mod q)` to enforce primality of `n`;
 2. for each `u in U` with `q mod u in B_u`, the residue
@@ -93,31 +93,31 @@ For a prime `q` outside the finite exceptional set, the sieve removes:
 
 The removed residues are distinct outside the collision primes.
 
-By Dirichlet equidistribution of primes among the reduced residue classes modulo each fixed `u`, the mean contribution of the `u`-th forbidden set is
+By Dirichlet equidistribution of primes among the reduced residue classes modulo each fixed `u`, the expected/standard dimension contribution of the `u`-th forbidden set is
 
 \[
 \frac{|B_u|}{\varphi(u)}=\frac12.
 \]
 
-Thus the total sieve dimension is
+This leads to the candidate total sieve dimension
 
 \[
 \boxed{\kappa=1+\frac{|U|}{2}.}
 \]
 
-Applying a standard Selberg/upper-bound sieve to each fixed tuple `(A_u)` gives
+A standard Selberg/upper-bound-sieve application should then give, for each fixed tuple `(A_u)`,
 
 \[
 \#E_{U,(A_u)}(N)
 \ll_U
-\frac{N}{(\log N)^{1+|U|/2}}.
+\frac{N}{(\log N)^{1+|U|/2}},
 \]
 
-There are only finitely many tuples `(A_u)`, with a number depending on `U` alone, so summing over them preserves the exponent.
+and summing over the finitely many tuples should preserve the exponent.
 
-## Theorem
+## Proposition to audit
 
-For every fixed finite set `U` of distinct shifts `u == 3 (mod 4)`,
+The intended final statement is
 
 \[
 \boxed{
@@ -127,12 +127,12 @@ For every fixed finite set `U` of distinct shifts `u == 3 (mod 4)`,
 }
 \]
 
-The estimate is unconditional for fixed `U`, modulo the standard cited upper-bound-sieve theorem and prime number theorem in fixed arithmetic progressions used in the dimension calculation.
+The local half-group and collision lemmas above are proved exactly. The remaining task is to cite or reproduce an upper-bound-sieve theorem with hypotheses matching the residue-removal function here and verify the required Mertens/prime-in-progressions average uniformly for the fixed moduli involved.
 
-## What this proves and does not prove
+## What it would prove and what it would not prove
 
-This proves that a finite collection of untwisted unit-partner shifts leaves an exceptional set of primes of arbitrarily strong logarithmic sparsity as more fixed shifts are added.
+Once the analytic audit is completed, the proposition would show that a finite collection of untwisted unit-partner shifts leaves an exceptional set of primes of arbitrarily strong logarithmic sparsity as more fixed shifts are added.
 
-It does **not** prove that the exceptional set is finite or empty. The implied constant depends on `U`, and a fixed finite shift collection can still have infinitely many blind primes. Dahan's fixed-shift obstruction at `u=7` is a concrete warning of exactly this phenomenon.
+It would **not** prove that the exceptional set is finite or empty. The implied constant depends on `U`, and a fixed finite shift collection can still have infinitely many blind primes. Dahan's fixed-shift obstruction at `u=7` is a concrete warning of exactly this phenomenon.
 
 The verified computation through `10^9` is stronger in a different direction: allowing both untwisted and twisted unit-partner branches over `u <= 299` leaves only the explicit integer `2521` in the corrected residual population. Turning that observation into a universal theorem requires control beyond fixed-`U` density decay.
