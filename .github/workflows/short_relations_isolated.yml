@@ -16,10 +16,10 @@ jobs:
           source $HOME/.elan/env
           lean --version
           lake --version
-      - name: Fetch dependencies
+      - name: Fetch pinned dependencies
         run: |
           source $HOME/.elan/env
-          lake update
+          lake exe cache get || true
       - name: Compile short-relation endpoint module only
         run: |
           source $HOME/.elan/env
