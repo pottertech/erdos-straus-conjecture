@@ -1,0 +1,38 @@
+name: Short Relations Lean Check
+
+on:
+  push:
+    branches: ["research/short-relation-100m"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  short-relations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pinned Lean toolchain
+        shell: bash
+        run: |
+          set -euxo pipefail
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y
+          source "$HOME/.elan/env"
+          lean --version
+          lake --version
+
+      - name: Fetch mathlib dependencies
+        shell: bash
+        run: |
+          set -euxo pipefail
+          source "$HOME/.elan/env"
+          lake update
+          lake exe cache get
+
+      - name: Compile ShortRelations.lean directly
+        shell: bash
+        run: |
+          set -euxo pipefail
+          source "$HOME/.elan/env"
+          lake env lean ErdosStrausConjecture/ShortRelations.lean
