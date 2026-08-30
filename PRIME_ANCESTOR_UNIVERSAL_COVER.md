@@ -60,27 +60,43 @@ Thus `3` and `7` are universal.
 
 Assume now `p>7`. Then `B>=3`.
 
-Every divisor of `B^2` smaller than `B` is a proper divisor of `B^2`, and divisors of the square `B^2` pair around the central divisor `B`. More simply, for any positive integer `N`, the number of divisors of `N^2` is
+For any positive integer `N`, the divisors of the square `N^2` pair around the central divisor `N`. If `L` denotes the number of divisors of `N^2` strictly below `N`, then
 
 \[
-\tau(N^2)=2L+1,
+\tau(N^2)=2L+1.
 \]
 
-where `L` is the number of divisors of `N^2` strictly below `N`.
-
-Any divisor `d<N` of `N^2` satisfies `d<=N^2/(2N)=N/2` whenever its complementary divisor `N^2/d` is strictly greater than `N`; equivalently, the below-`N` divisors inject into integers `1,...,\lfloor N/2\rfloor`. Hence
+There are only `N-1` positive integers below `N`, so
 
 \[
-\tau(N^2)\le 2\lfloor N/2\rfloor+1.
+L\le N-1
 \]
 
-For `N=B>=3`, this gives
+and therefore
 
 \[
-\tau(B^2)\le 2\lfloor B/2\rfloor+1<2B-1.
+\tau(N^2)\le2N-1.
 \]
 
-Since reduction modulo `p` cannot create more residue classes than there are divisors,
+For `N>=3`, equality is impossible. Equality would require every integer `1,2,...,N-1` to divide `N^2`; in particular,
+
+\[
+N-1\mid N^2.
+\]
+
+But
+
+\[
+\gcd(N-1,N)=1,
+\]
+
+so `N-1 | N^2` forces `N-1 | 1`, hence `N<=2`, a contradiction. Thus for every `N>=3`,
+
+\[
+\boxed{\tau(N^2)<2N-1.}
+\]
+
+Applying this with `N=B` gives
 
 \[
 |Q_B|\le\tau(B^2)<2B-1=|QR(p)|.
@@ -110,7 +126,7 @@ In particular, every strong-survivor base in `FIVE_FACTOR_MINIMAL_DESCENT.md` mu
 
 ## Why the theorem matters
 
-The five-factor ancestry conjecture can therefore be restricted at once to moduli whose prime factors are all at least `5` and avoid `7`, with every `3 mod 4` factor at least `11`.
+The five-factor ancestry conjecture can therefore be restricted at once to moduli whose prime factors avoid `3` and `7`; in particular every `3 mod 4` prime factor is at least `11`.
 
 The result also shows that the ancestry proof cannot be reduced to a single larger prime ancestor: for every prime `p>=11`, the local set `Q_{(p+1)/4}` is too small to cover `QR(p)` by itself. Any proof beyond the `3` and `7` cases must use the simultaneous overlap of several proper ancestors, exactly as suggested by the current CRT/ancestry-lattice program.
 
