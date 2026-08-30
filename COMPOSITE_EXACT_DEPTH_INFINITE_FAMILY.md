@@ -1,6 +1,6 @@
 # Infinite Family of Composite Exact Type-II Square Depths
 
-**Status:** unconditional theorem.  Uses only the square-divisor Type-II criterion, an elementary avoidance lemma, CRT, Dirichlet's theorem, and Dirichlet/PNT in arithmetic progressions.  No claim of literature priority is made pending a broader review.
+**Status:** unconditional theorem. Uses only the square-divisor Type-II criterion, an elementary avoidance lemma, CRT, Dirichlet's theorem, and the prime number theorem in arithmetic progressions. No claim of literature priority is made pending a broader review.
 
 For a prime denominator `p == 1 (mod 4)`, define the square-completion Type-II depth
 
@@ -42,7 +42,7 @@ Since `E | B^2`,
 gd\mid g^2a^2.
 \]
 
-Thus `d | g`; write `g=dh`.  Then
+Thus `d | g`; write `g=dh`. Then
 
 \[
 B=dha,\qquad E=d^2h.
@@ -90,7 +90,7 @@ This is impossible because
 4B-1=4dha-1>d+a
 \]
 
-for positive `d,h,a`.  Contradiction.
+for positive `d,h,a`. Contradiction.
 
 ## Theorem 2: a composite-modulus exact-depth backbone
 
@@ -114,7 +114,7 @@ Then `A_q` is a positive integer and
 
 is composite.
 
-Moreover, there are infinitely many primes `p` satisfying
+Moreover, there are infinitely many primes `p == 1 (mod 4)` satisfying
 
 \[
 \boxed{\delta_{\rm sq}(p)=A_q.}
@@ -175,7 +175,7 @@ We claim
 q\nmid m_B.
 \]
 
-Indeed, if `q | m_B`, write `m_B=q s`.  Because
+Indeed, if `q | m_B`, write `m_B=q s`. Because
 
 \[
 m_B\equiv3\pmod4,
@@ -188,7 +188,7 @@ we must have
 s\equiv3\pmod4,
 \]
 
-so `s >= 3`.  Therefore
+so `s >= 3`. Therefore
 
 \[
 m_B\ge3q=m,
@@ -222,18 +222,20 @@ The simultaneous congruences
 \boxed{
 n\equiv-8\pmod{3q},
 \qquad
-n\equiv1\pmod L
+n\equiv1\pmod L,
+\qquad
+n\equiv1\pmod4
 }
 \]
 
-are CRT-compatible: every common divisor of `3q` and `L` divides `3`, and the two target residues agree modulo `3`.
+are CRT-compatible: every common divisor of `3q` and `L` divides `3`, and the first two target residues agree modulo `3`; the modulus `4` is coprime to all odd moduli involved.
 
 Let
 
 \[
 n\equiv n_0\pmod M,
 \qquad
-M=\operatorname{lcm}(3q,L)
+M=\operatorname{lcm}(4,3q,L)
 \]
 
 be the resulting CRT progression.
@@ -244,7 +246,7 @@ For every earlier depth `B<A_q`,
 n\equiv1\pmod{4B-1}.
 \]
 
-By Lemma 1, residue `1` belongs to no earlier square-completed Type-II trap.  Thus no member of this progression has square depth below `A_q`.
+By Lemma 1, residue `1` belongs to no earlier square-completed Type-II trap. Thus no member of this progression has square depth below `A_q`.
 
 At the target layer,
 
@@ -254,13 +256,13 @@ n\equiv-8\pmod{3q}=\pmod{4A_q-1},
 
 and `D=2|A_q^2`, so every member has a depth-`A_q` witness.
 
-Finally the CRT progression is reduced.  Every prime divisor of `L` sees residue `1`; the only new prime factor contributed by the target modulus is `q`, where the residue is `-8`, nonzero.  Thus
+Finally the CRT progression is reduced. Every prime divisor of `L` sees residue `1`; the only new odd prime factor contributed by the target modulus is `q`, where the residue is `-8`, nonzero; and the residue modulo `4` is `1`. Thus
 
 \[
 \gcd(n_0,M)=1.
 \]
 
-Dirichlet's theorem on primes in arithmetic progressions gives infinitely many primes in this progression, and each satisfies
+Dirichlet's theorem on primes in arithmetic progressions gives infinitely many primes in this progression. Every such prime is `1 mod 4` and satisfies
 
 \[
 \delta_{\rm sq}(p)=A_q.
@@ -334,7 +336,7 @@ For every `q > 5` in the theorem,
 \gcd(3q,840)=3.
 \]
 
-The target residue `-8` is congruent to `1 mod 3`, so the construction can additionally impose
+The target residue `-8` is congruent to `1 mod 3`, so the construction can strengthen the congruence `n == 1 (mod 4)` to
 
 \[
 \boxed{p\equiv1\pmod{840}.}
@@ -366,10 +368,10 @@ Take `q=13`. Then
 A_q=10,\qquad4A_q-1=39,\qquad D=2.
 \]
 
-The CRT construction gives a reduced progression modulo the lcm of the target modulus and all earlier moduli. One prime in this progression is
+Imposing the hard-core strengthening `p == 1 (mod 840)` gives a reduced CRT progression. One prime in this progression is
 
 \[
-\boxed{p=6,477,768,991}.
+\boxed{p=10,139,116,681}.
 \]
 
 Direct enumeration of all `B<=10` and all `E|B^2` verifies that its first square-completed Type-II witness is exactly
@@ -382,19 +384,19 @@ This finite example is only a regression check; the theorem is symbolic and does
 
 ## Significance
 
-This family is qualitatively different from the prime-modulus exact-depth backbone.  Every target modulus here is deliberately composite:
+This family is qualitatively different from the prime-modulus exact-depth backbone. Every target modulus here is deliberately composite:
 
 \[
 4A_q-1=3q.
 \]
 
-The proof works because `3` is the smallest possible `3 mod 4` factor.  A new prime factor `q == 1 (mod 4)` cannot occur in any earlier modulus `4B-1`, while the target residue is arranged to agree modulo the only shared factor `3` with the universal safe residue `1`.
+The proof works because `3` is the smallest possible `3 mod 4` factor. A new prime factor `q == 1 (mod 4)` cannot occur in any earlier modulus `4B-1`, while the target residue is arranged to agree modulo the only shared factor `3` with the universal safe residue `1`.
 
 This gives an elementary infinite composite-modulus backbone inside the complete Type-II square-depth spectrum.
 
 ## Claim boundary / priority
 
-The square-divisor Type-II criterion, CRT, Dirichlet's theorem, and the prime number theorem in arithmetic progressions are prior mathematics.  The candidate contribution is the exact-depth synthesis above: the family
+The square-divisor Type-II criterion, CRT, Dirichlet's theorem, and the prime number theorem in arithmetic progressions are prior mathematics. The candidate contribution is the exact-depth synthesis above: the family
 
 \[
 A=(3q+1)/4,\quad q\equiv5\pmod8\text{ prime},
@@ -402,6 +404,6 @@ A=(3q+1)/4,\quad q\equiv5\pmod8\text{ prime},
 
 as an infinite composite-modulus exact-depth backbone.
 
-A targeted web/repository search on 2026-08-30 did not locate this exact family in the current Erdős--Straus depth-spectrum literature, including the public FCF/CENTL prime-modulus backbone and composite-core notes.  That negative search is not a proof of novelty; broader historical review is still required before a publication-priority claim.
+A targeted web/repository search on 2026-08-30 did not locate this exact family in the current Erdős--Straus depth-spectrum literature, including the public FCF/CENTL prime-modulus backbone and composite-core notes. That negative search is not a proof of novelty; broader historical review is still required before a publication-priority claim.
 
 This theorem does **not** prove universal Type-II solvability or the Erdős--Straus conjecture.
