@@ -1,135 +1,176 @@
-# Logarithmic Lower Bound for Complete Type-II Square Depth Along an Infinite Sequence
+# Logarithmic Lower Bound for Exact Complete Type-II Square Depth
 
-**Status:** unconditional corollary of the depth-avoidance progression plus standard PNT-in-AP and Linnik theorems; mathematical proof audited, novelty not established
+**Status:** unconditional quantitative corollary of the exact prime-modulus backbone plus Linnik's theorem; proof audited. Novelty is not established.
 
-## Priority status
+## 1. Why the earlier formulation needed repair
 
-The underlying fact that square-completed Type-II first-hit depth is unbounded is prior art: the Free Computation Foundation / CENTL research library recorded a stronger prime-modulus realization theorem on 2026-08-15.
-
-The literature search performed for this branch did **not** locate this specific Linnik-based quantitative conclusion
+An avoidance progression of the form
 
 \[
-\operatorname{depth}_{II}(p)\gg\log p
+p\equiv1\pmod{\operatorname{lcm}(840,3,7,\ldots,4J-1)}
 \]
 
-along an infinite sequence. That absence is not a priority proof. Until a publication-grade search is completed, this result should be described as an unconditional quantitative corollary derived here, with novelty explicitly unclaimed.
+proves that no square-completed Type-II witness occurs at depth `<=J`. It does **not**, by itself, prove that such a prime has any later Type-II witness, because universal Type-II existence remains open.
 
-Let `depth_II(p)` denote the least square-completion parameter `A` for which
+Therefore the statement
 
 \[
-\exists D\mid A^2:\qquad 4A-1\mid p+4D
+\operatorname{depth}_{\rm sq}(p)>J
 \]
 
-(with the usual prime Type-II coprimality condition).
+is unconditional only if `depth_sq` is allowed to take the value `infinity`. It is not enough to establish a lower bound for a finite minimum depth.
 
-`TYPEII_DEPTH_UNBOUNDED.md` proves that residue `1 mod (4A-1)` is never a depth-`A` trap. Hence, with
+The exact prime-modulus backbone repairs this: it simultaneously avoids every earlier layer and forces an actual hit at the target layer.
+
+## 2. Exact-depth backbone
+
+Let
 
 \[
-L_J=\operatorname{lcm}(840,3,7,11,\ldots,4J-1),
+q=4k-1>7
 \]
 
-every prime
+be prime. Put
 
 \[
-p\equiv1\pmod{L_J}
+L_{k-1}=\operatorname{lcm}(840,3,7,11,\ldots,4k-5),
+\qquad
+M_k=qL_{k-1}.
 \]
 
-satisfies
+Since `q` is prime and exceeds every earlier layer modulus,
 
 \[
-\boxed{\operatorname{depth}_{II}(p)>J.}
+\gcd(q,L_{k-1})=1.
 \]
 
-## Size of the avoidance modulus
-
-Every prime
+Choose by CRT a reduced residue `r_k mod M_k` satisfying
 
 \[
-q\le4J,\qquad q\equiv3\pmod4,
+r_k\equiv1\pmod{L_{k-1}},
+\qquad
+r_k\equiv-1\pmod q.
 \]
 
-occurs as one of the numbers `4A-1` and therefore divides `L_J`.
-
-Consequently
+For every prime
 
 \[
-\log L_J
-\ge
-\sum_{\substack{q\le4J\\q\equiv3\ (4)}}\log q.
+p\equiv r_k\pmod{M_k},
 \]
 
-The prime number theorem in arithmetic progressions gives
+the neutral-residue lemma `1 notin S_j` eliminates every square depth `j<k`, while at depth `k` the choice `D=k` gives
 
 \[
-\sum_{\substack{q\le x\\q\equiv3\ (4)}}\log q
-=\frac{x}{2}+o(x).
+p+4k\equiv-1+4k=q\equiv0\pmod q.
 \]
 
-At `x=4J`,
+Hence
 
 \[
-\log L_J\ge(2+o(1))J.
+\boxed{\operatorname{depth}_{\rm sq}(p)=k}.
 \]
 
-On the other hand,
+Dirichlet gives infinitely many such primes for every backbone index `k`.
+
+## 3. Size of the CRT modulus
+
+We only need an upper bound. Since
 
 \[
-L_J\mid\operatorname{lcm}(1,2,\ldots,4J)\cdot840,
+L_{k-1}\mid 840\,\operatorname{lcm}(1,2,\ldots,4k),
 \]
 
-so the standard Chebyshev/PNT estimate for the full lcm gives
+the standard Chebyshev/PNT estimate
 
 \[
-\log L_J=O(J).
+\log\operatorname{lcm}(1,2,\ldots,x)=\psi(x)=O(x)
 \]
 
-Thus
+gives
 
 \[
-\boxed{\log L_J=\Theta(J).}
+\log L_{k-1}=O(k).
 \]
 
-## Linnik progression prime
-
-By Linnik's theorem, the least prime in the reduced progression
+Also `q=4k-1`, so
 
 \[
-p\equiv1\pmod{L_J}
+\log M_k
+=\log q+\log L_{k-1}
+=O(k).
 \]
 
-satisfies
+## 4. Linnik least-prime bound
+
+Let `p_k` be the least prime in the reduced progression
 
 \[
-p_J\ll L_J^C
+p\equiv r_k\pmod{M_k}.
 \]
 
-for an absolute constant `C`.
+Linnik's theorem gives an absolute constant `C` such that
+
+\[
+p_k\ll M_k^C.
+\]
 
 Therefore
 
 \[
-\log p_J\le C\log L_J+O(1)=O(J).
+\log p_k
+\le C\log M_k+O(1)
+=O(k).
 \]
 
-Since `depth_II(p_J)>J`, we obtain
+But the construction proves the exact identity
+
+\[
+\operatorname{depth}_{\rm sq}(p_k)=k.
+\]
+
+Consequently
 
 \[
 \boxed{
-\operatorname{depth}_{II}(p_J)\gg\log p_J.
+\operatorname{depth}_{\rm sq}(p_k)
+\gg
+\log p_k.
 }
 \]
 
-As `J -> infinity`, the moduli `L_J` grow and the corresponding progression primes cannot remain bounded. Hence this yields an infinite sequence of classical-core primes with minimum complete-Type-II square depth at least a positive constant times their logarithm.
+There are infinitely many eligible `k`, because primes `q == 3 (mod 4)` are infinite and `k=(q+1)/4`. Distinct exact depths force the resulting `p_k` to be distinct. Thus:
 
-## Consequences
+### Theorem
 
-1. Complete Type-II square depth is not merely unbounded; logarithmic-scale square depth is necessary along an infinite sequence.
-2. Any universal Type-II algorithm/proof whose allowed **square-completion depth** is `o(log p)` must fail on infinitely many relevant primes.
-3. This statement does **not** imply a logarithmic lower bound for Dahan's pair depth `max(u,a)`: the coordinate map contains the additional unbounded witness quotient `alpha`.
-4. The computational records `624` through `1e8` and `816` through `1e9` are compatible with an intrinsically growing square-depth function.
+There exists an infinite sequence of Mordell-hard primes with **finite exact** complete-Type-II square depth satisfying
 
-## Claim boundary
+\[
+\boxed{
+\operatorname{depth}_{\rm sq}(p)
+\gg
+\log p.
+}
+\]
 
-This is a lower bound on the minimum **square-completion depth** of the Type-II certificate family along an infinite sequence. It is not evidence for Erdős--Straus counterexamples: those primes may and generally do have valid Type-II certificates at larger square depth, or Type-I certificates.
+This is stronger than a bare avoidance statement: every prime in the constructed sequence has an explicitly guaranteed Type-II first hit at the stated depth.
 
-No novelty claim is made pending a dedicated historical and contemporary literature review.
+## 5. Consequences
+
+1. Logarithmic-scale **finite square depth** is genuinely necessary along an infinite sequence.
+2. Any universal procedure restricted to square-completion depth `o(log p)` misses infinitely many primes that nevertheless have a complete Type-II witness.
+3. This avoids the logical ambiguity between `depth > J` and `depth = infinity`.
+4. The statement concerns square-completion depth only. It does **not** imply a lower bound of this size for Dahan's pair depth `max(u,a)`, because the square coordinate includes the additional factor `alpha`.
+
+## 6. Priority boundary
+
+The underlying square-completed exact-depth backbone is prior art: FCF/CENTL publicly recorded it on 2026-08-15.
+
+A targeted search on 2026-08-29 did not locate this specific quantitative combination of that backbone with Linnik's theorem to obtain an infinite exact-depth sequence satisfying
+
+\[
+\operatorname{depth}_{\rm sq}(p)\gg\log p.
+\]
+
+That search is not sufficient to establish novelty. The result should therefore be described as an **unconditional quantitative corollary derived here, with novelty unclaimed pending publication-grade prior-art review**.
+
+No Erdős--Straus counterexample or universal Type-II theorem is implied.
