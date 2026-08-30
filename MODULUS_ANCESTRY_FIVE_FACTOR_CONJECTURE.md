@@ -1,134 +1,149 @@
-# Five-Factor Modulus Ancestry Cover Conjecture
+# Five-Factor Modulus Ancestry Cover — Refuted
 
-**Status:** exact formulation plus finite verification; open conjecture, not a theorem.
+**Status:** **FALSE.** The former five-factor ancestry-cover conjecture is refuted by an exact all-negative five-prime counterexample. This file is retained as a correction record so later work does not accidentally rely on the conjecture.
 
-For any odd modulus
+## Former conjecture
+
+For an odd modulus
 
 \[
 m\equiv3\pmod4,
+\qquad A=\frac{m+1}{4},
 \]
 
-write
-
-\[
-A=\frac{m+1}{4}.
-\]
-
-For every proper divisor
+and every proper divisor
 
 \[
 1<d<m,\qquad d\mid m,\qquad d\equiv3\pmod4,
 \]
 
-set
+put
 
 \[
-B=\frac{d+1}{4}
-\]
-
-and define the square-completed ancestor set
-
-\[
+B=\frac{d+1}{4},
+\qquad
 Q_B=\{E\pmod d:E\mid B^2\}.
 \]
 
-A unit square class `r mod m` is called **proper-ancestor inherited** if for at least one such `d`,
+The former conjecture asserted that if `omega(m)>=5`, then every unit square class modulo `m` is inherited from at least one proper `3 mod 4` ancestor:
 
 \[
-r\pmod d\in Q_B.
+QR(m)\subseteq
+\bigcup_{\substack{d\mid m\\1<d<m\\d\equiv3(4)}}
+\pi_d^{-1}(Q_{(d+1)/4}).
 \]
 
-This definition is independent of any particular factorization `A=uv` or any denominator prime `p`.
+That assertion is false.
 
-## Conjecture
+## Exact counterexample
 
-If
+Take
 
 \[
-\boxed{\omega(m)\ge5}
+\boxed{m=6,407,731=11\cdot19\cdot23\cdot31\cdot43}.
 \]
 
-where `omega` is the number of distinct prime factors, then every unit square class modulo `m` is proper-ancestor inherited.
+All five prime factors are `3 mod 4`, so `m == 3 (mod 4)` and `omega(m)=5`.
 
-Equivalently:
+The unit square class
+
+\[
+\boxed{r=3,990,232}
+\]
+
+is a quadratic residue modulo every prime factor:
+
+| p | r mod p |
+|---:|---:|
+| 11 | 4 |
+| 19 | 4 |
+| 23 | 8 |
+| 31 | 5 |
+| 43 | 4 |
+
+Each displayed residue is a nonzero square modulo `p`; by CRT, `r` is a unit square class modulo `m`.
+
+For a product of five distinct `3 mod 4` primes, the proper divisors that are `3 mod 4` are exactly the one-prime and three-prime products. There are 15 of them. Exact divisor-set evaluation gives:
+
+| d | B=(d+1)/4 | r mod d | in Q_B? |
+|---:|---:|---:|:---:|
+| 11 | 3 | 4 | no |
+| 19 | 5 | 4 | no |
+| 23 | 6 | 8 | no |
+| 31 | 8 | 5 | no |
+| 43 | 11 | 4 | no |
+| 4,807 | 1,202 | 422 | no |
+| 6,479 | 1,620 | 5,647 | no |
+| 7,843 | 1,961 | 5,988 | no |
+| 8,987 | 2,247 | 4 | no |
+| 10,879 | 2,720 | 8,518 | no |
+| 13,547 | 3,387 | 7,414 | no |
+| 14,663 | 3,666 | 1,896 | no |
+| 18,791 | 4,698 | 6,540 | no |
+| 25,327 | 6,332 | 13,893 | no |
+| 30,659 | 7,665 | 4,562 | no |
+
+Thus
 
 \[
 \boxed{
-\omega(m)\ge5,\ m\equiv3\pmod4
-\Longrightarrow
+r\notin
 \bigcup_{\substack{d\mid m\\1<d<m\\d\equiv3(4)}}
 \pi_d^{-1}(Q_{(d+1)/4})
-\supseteq QR(m),
 }
 \]
 
-where `QR(m)` denotes the unit square classes modulo `m` and `pi_d` is reduction modulo `d`.
+while `r in QR(m)`.
 
-## Why this would matter for semiprime Type-II depth
+Hence the five-factor ancestry-cover conjecture is refuted.
 
-Suppose
+## Why the earlier finite evidence missed this
 
-\[
-A=uv
-\]
-
-with distinct primes `u,v`, and `m=4uv-1`.  The genuinely square-only mixed directions are represented by the square classes `u^2` and `v^2` modulo `m`.
-
-If the conjecture holds and `omega(m)>=5`, then `u^2` is inherited from some proper depth `B<A`; by the complementary pairing argument in `SEMIPRIME_MIXED_RESCUE_CORE.md`, `v^2` is inherited as well.  Therefore no squarefree-semiprime layer with `omega(4uv-1)>=5` can be structurally primitive.
-
-This would prove the empirical observation from the semiprime census rather than merely record it.
-
-## Exact finite evidence
-
-The analyzer `modulus_ancestry_square_cover_analyzer.py` performs a complete unit-square-class test for each modulus, with no sampling and no denominator-prime search.
-
-Independent finite checks performed during the 2026-08-30 audit found:
-
-- every `m <= 100000`, `m == 3 (mod 4)`, with `omega(m)>=5` is fully covered by proper ancestors;
-- the verification was extended through `m <= 250000` with no counterexample;
-- in the semiprime-index census through `A <= 200000`, no structurally primitive `A=uv` had `omega(4uv-1)>=5`.
-
-These are finite facts only.  They do not establish the conjecture.
-
-## Why simple local counting is insufficient
-
-For a prime ancestor divisor `q == 3 (mod 4)`, a primitive square class must avoid at least
+The previous exhaustive modulus-level audit stopped at
 
 \[
-1,\quad B,\quad B^2\pmod q,
-\qquad B=(q+1)/4.
+m\le250,000.
 \]
 
-This yields the universal restrictions
+But after the exact pruning lemma `gcd(m,21)=1`, the smallest modulus having five distinct prime factors all `3 mod 4` is already
 
 \[
-u\not\equiv\pm1,\ \pm2^{-1},\ \pm4^{-1}\pmod q.
+11\cdot19\cdot23\cdot31\cdot43
+=6,407,731.
 \]
 
-For large `q`, however, many square classes remain.  Thus a proof of the five-factor conjecture cannot follow from independent pigeonhole counting at individual prime divisors.
+Therefore the old finite range did not test the all-`3 mod 4` five-factor branch at all.
 
-The crucial extra structure is that **all** proper divisors `d == 3 (mod 4)` of the same modulus `m` act simultaneously.  When `omega(m)` is large, the ancestry lattice contains many overlapping composite divisors, and their exact `Q_B` sets appear empirically to cover the full square subgroup.
+The earlier computation remains valid for the moduli it actually tested; the extrapolated five-factor conjecture does not.
 
-## Relation to the FCF/CENTL reciprocity framework
+## Additional exact checks
 
-FCF/CENTL has independently developed a reciprocity-matrix and ancestor-shadow framework for the Type A/B and square-completed geometry.  In particular, the relation `m=4A-1` imposes nontrivial left- and right-kernel constraints on the quadratic-signature matrix.
+An independent CRT-level scan of the next several five-prime all-negative moduli also found survivors. Therefore the counterexample is not an isolated boundary accident. No replacement universality conjecture should be stated from the old `omega(m)>=5` heuristic without substantially stronger hypotheses.
 
-For squarefree semiprime `A=uv`, the right-kernel relation makes the two prime-factor signature columns dependent, while increasing `omega(m)` forces a large left-nullity.  This is qualitatively consistent with the disappearance of primitive high-omega layers.
+## What survives from the ancestry program
 
-However, the conjecture above is an **exact residue-cover statement**, stronger than a quadratic-signature rank statement.  No priority claim is made; a dedicated literature comparison is still required before publication.
+Several exact pieces remain valid and useful:
 
-## Proof targets
+1. the square-completed Type-II criterion itself;
+2. the definition of ancestor sets `Q_B`;
+3. the minimal-descent implication through a `1 mod 4` prime factor;
+4. the theorem that `3` and `7` are the only universal prime ancestors;
+5. the finite census of strong four-factor bases in the range actually checked.
 
-A proof would likely require one of the following.
+What fails is the global leap
 
-1. **Ancestry-lattice induction.** Show that adding a fifth distinct prime factor forces enough new `3 mod 4` proper divisors that every surviving square class from the four-factor stage is captured.
+\[
+\omega(m)\ge5\Longrightarrow\text{complete proper-ancestor coverage}.
+\]
 
-2. **CRT decomposition.** Express the survivor set as a product/union of local square classes and prove that the composite-divisor ancestor conditions eliminate every CRT combination once five prime factors are present.
+## Revised research direction
 
-3. **Reciprocity plus exact lifting.** Use the low rank of the semiprime reciprocity matrix to reduce possible signatures, then upgrade signature membership to exact divisor-residue membership in some `Q_B`.
+The correct next question is not whether five factors automatically force ancestry coverage. Instead:
 
-4. **Minimal-counterexample descent.** Assume a least modulus with five distinct factors and a surviving square class; remove one prime factor and exploit the survivor's forced behavior on the resulting proper divisor to construct an ancestor contradiction.
+> Which arithmetic signatures of the factorization of `m` force ancestor coverage, and which signatures admit persistent CRT survivor classes?
+
+The mixed-signature case and the all-negative case must be treated separately. The all-negative branch demonstrably admits survivors and therefore requires an additional mechanism beyond proper-ancestor inheritance.
 
 ## Claim boundary
 
-This conjecture does not prove universal Type II or the Erdős--Straus conjecture.  Even if proved, it would eliminate one large class of structurally primitive squarefree-semiprime depth layers.  The remaining cases `omega(4uv-1)<=4`, prime depths, prime powers, and higher-factor depth indices would still require analysis.
+This counterexample refutes only the proposed **ancestry-cover lemma**. It is not a counterexample to the Erdős--Straus conjecture, nor to Type-II solvability. It only shows that this proposed structural route cannot by itself establish universal Type-II coverage.
