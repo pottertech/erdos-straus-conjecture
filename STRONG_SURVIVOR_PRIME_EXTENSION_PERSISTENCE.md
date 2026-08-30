@@ -221,10 +221,39 @@ Thus
 \[
 \boxed{
 \text{there is no universal factor-count threshold that forces proper-ancestor coverage.}
-}
 \]
 
-This is stronger than the explicit five-factor counterexamples: the failure of factor-count closure persists to arbitrarily large `omega(m)`.
+## Exact Type-II interpretation
+
+This point is essential.
+
+A strong survivor `(m,r)` is **not** a denominator-prime state that evades Type II. Instead, it is a square class at the depth
+
+\[
+A=\frac{m+1}{4}
+\]
+
+that is not inherited from any divisor-modulus ancestor.
+
+Whenever an actual divisor `D|A^2` satisfies
+
+\[
+D\equiv r\pmod m,
+\]
+
+the progression
+
+\[
+\boxed{n\equiv-4D\equiv-4r\pmod m}
+\]
+
+is a valid square-completed Type-II progression at depth `A`.
+
+Thus ancestry survival means **primitive rescue relative to the divisor-modulus ancestry system**, not failure of complete Type II.
+
+For the semiprime mixed-square application, the relevant survivor classes are represented by actual divisors `D=u^2` or `v^2`, so they directly generate valid Type-II rescue progressions.
+
+The prime-extension theorem therefore says that the ancestry geometry continues to produce non-inherited square classes at arbitrarily complicated moduli. It does **not** say that denominator primes become increasingly Type-II-resistant.
 
 ## Explicit seed and regression edge
 
@@ -258,15 +287,18 @@ admits at least one survivor lift of this fixed state; there are 77 such primes.
 
 ## Strategic consequence
 
-Proper-ancestor inheritance cannot be the terminal mechanism for complete Type-II universality. Once a strong survivor state appears, the ancestor system alone permits it to propagate through arbitrarily many new prime factors.
+Proper-ancestor inheritance is a **compression mechanism**, not a terminal solvability mechanism.
 
-Therefore the useful role of ancestry is **state compression**:
+- inherited square classes can be removed from the list of genuinely new depth contributions;
+- strong survivors identify primitive residue geometry that survives that compression;
+- persistent towers show that new primitive geometry continues to appear at arbitrarily high factor complexity;
+- none of this, by itself, identifies denominator primes that evade complete Type II.
 
-- inherited states can be discarded;
-- strong survivors are the persistent residual states;
-- the missing global ingredient must act outside proper-ancestor inheritance, for example through a non-ancestor complete Type-II layer, an external rescue relation, or a transition invariant coupling the denominator prime to the survivor state.
+The next meaningful question is therefore different:
 
-This redirects the proof search away from factor-count thresholds and toward mechanisms that kill persistent survivor towers.
+> For a primitive square-completed progression at depth `A`, how much of that progression has already been solved by unrelated earlier depths whose moduli do not divide `4A-1`?
+
+That is a global first-hit / cross-modulus problem rather than an ancestry problem.
 
 ## Literature / priority note
 
@@ -274,4 +306,4 @@ The FCF/CENTL program contains closely related square-lift, prime-extension-shad
 
 ## Claim boundary
 
-This theorem concerns the internal square-completed **ancestor-shadow system**. It neither proves nor disproves the Erdős--Straus conjecture, and it does not imply that the lifted residue classes correspond to denominator primes that evade complete Type II. It proves only that proper ancestry, by itself, cannot close the residual system.
+This theorem concerns the internal square-completed **ancestor-shadow system**. It neither proves nor disproves the Erdős--Straus conjecture. Its correct interpretation is that proper ancestry alone does not exhaust the primitive square-completed residue geometry.
