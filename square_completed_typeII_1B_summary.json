@@ -1,0 +1,45 @@
+{
+  "status": "exact finite computation on all primes in the six classical residue classes; not a global proof",
+  "range": [2, 1000000000],
+  "A_max": 816,
+  "six_class_primes": 1587581,
+  "certificate_count": 1587581,
+  "failure_count": 0,
+  "failures": [],
+  "bad_certificate_count": 0,
+  "cumulative": {
+    "A_le_5": 662193,
+    "A_le_10": 1284796,
+    "A_le_20": 1497424,
+    "A_le_50": 1579257,
+    "A_le_100": 1586592,
+    "A_le_200": 1587509,
+    "A_le_300": 1587567,
+    "A_le_624": 1587580,
+    "A_le_816": 1587581
+  },
+  "maximum_minimum_A": 816,
+  "maximum_case": {
+    "n": 605531161,
+    "A": 816,
+    "D": 16,
+    "alpha": 16,
+    "u": 1,
+    "a": 51,
+    "s": 3263,
+    "v": 9464324,
+    "shift": 185575,
+    "K": 151429184,
+    "x": 151429184,
+    "y": 494113427376,
+    "z": 4676449569436933824
+  },
+  "record_frontier_tail": [
+    {"n": 915961, "A": 76, "D": 2},
+    {"n": 954409, "A": 84, "D": 504},
+    {"n": 1853329, "A": 96, "D": 2},
+    {"n": 2031121, "A": 624, "D": 576},
+    {"n": 605531161, "A": 816, "D": 16}
+  ],
+  "interpretation": "Every prime n <= 1e9 in the six classical residual classes modulo 840 has a complete prime Type-II square-completed certificate with minimum square-completion parameter A <= 816. The previous A<=624 ceiling through 1e8 has exactly one failure through 1e9, n=605531161, which is solved at A=816. Every recovered certificate passed the Dahan-coordinate consistency checks and exact integer Erdős-Straus cross multiplication."
+}
