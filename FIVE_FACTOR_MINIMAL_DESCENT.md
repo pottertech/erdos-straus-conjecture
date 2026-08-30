@@ -1,6 +1,6 @@
-# Minimal Descent for the Five-Factor Ancestry Conjecture
+# Minimal Descent for Mixed-Signature Ancestry Survivors
 
-**Status:** exact descent lemma plus finite structural census; not a proof of the five-factor conjecture.
+**Status:** exact descent lemma plus finite structural census. The former five-factor ancestry-cover conjecture has been refuted in the all-`3 mod 4` branch; this note now records only the surviving mixed-signature descent result.
 
 Let
 
@@ -32,7 +32,7 @@ where
 Q_B=\{D\pmod{4B-1}:D\mid B^2\}.
 \]
 
-## Descent lemma through a 1 mod 4 prime factor
+## Exact descent lemma through a 1 mod 4 prime factor
 
 Assume
 
@@ -79,7 +79,7 @@ Hence the reduced square class `r mod d` avoids both:
 
 Call such a class a **strong survivor** at modulus `d`.
 
-Thus:
+Thus
 
 \[
 \boxed{
@@ -89,17 +89,17 @@ Thus:
 }
 \]
 
-This is an exact descent statement.
+This statement is unconditional.
 
-## Consequence for a hypothetical five-factor counterexample
+## Consequence for five-factor mixed-signature moduli
 
 Suppose
 
 \[
-\omega(m)=5.
+\omega(m)=5
 \]
 
-If `m` has at least one prime factor `p == 1 (mod 4)`, any survivor at `m` descends to a four-factor modulus
+and at least one prime factor of `m` is `1 mod 4`. Then any ancestry survivor at `m` descends to a four-factor modulus
 
 \[
 d=m/p\equiv3\pmod4
@@ -107,9 +107,7 @@ d=m/p\equiv3\pmod4
 
 carrying a strong survivor.
 
-Therefore the five-factor conjecture can fail in this case only above a four-factor **strong-survivor base**.
-
-This is substantially narrower than the set of all four-factor moduli.
+Therefore every mixed-signature five-factor survivor must lie above a four-factor strong-survivor base. This remains a useful reduction even though universal five-factor ancestry coverage is false.
 
 ## Finite census through d < 100000
 
@@ -117,16 +115,16 @@ An exact scan of all `d < 100000` with
 
 \[
 d\equiv3\pmod4,
-\qquad \omega(d)=4
+\qquad\omega(d)=4
 \]
 
 found:
 
 - `1,448` four-factor moduli in total;
-- only `90` admitting even one strong unit-square survivor;
-- `1,358` with no strong survivor at all.
+- `90` admitting at least one strong unit-square survivor;
+- `1,358` with no strong survivor.
 
-Thus only about `6.2%` of four-factor moduli in this range can even serve as a descent base for a five-factor counterexample having a `1 mod 4` prime factor.
+Thus only about `6.2%` of four-factor moduli in this range can serve as descent bases for a mixed-signature five-factor survivor.
 
 Among the 90 strong bases:
 
@@ -134,7 +132,7 @@ Among the 90 strong bases:
 - 23 have pattern `(1,3,3,3)`;
 - 84 of 90 are divisible by `5`.
 
-The six exceptions not divisible by `5` below `100000` are:
+The six exceptions not divisible by `5` below `100000` are
 
 \[
 62491=11\cdot13\cdot19\cdot23,
@@ -160,29 +158,33 @@ The six exceptions not divisible by `5` below `100000` are:
 99671=11\cdot13\cdot17\cdot41.
 \]
 
-These data suggest that strong four-factor survivors themselves occupy a highly restricted arithmetic family.
+The new universal-prime-ancestor theorem also proves that every survivor modulus must avoid `3` and `7`.
 
-## The all-3-mod-4 branch
+## The all-3-mod-4 branch is not covered by this descent
 
-The descent lemma above removes a `1 mod 4` prime factor while preserving a `3 mod 4` modulus. If all five distinct prime factors of `m` are `3 mod 4`, removing one factor produces a modulus `1 mod 4`, so this direct descent does not apply.
+If all five distinct prime factors of `m` are `3 mod 4`, removing one factor produces a modulus `1 mod 4`, so the descent lemma does not apply.
 
-Therefore a proof of the five-factor conjecture naturally splits into two cases:
+More importantly, the former hope that the many one- and three-prime ancestors would automatically cover this branch is false. The smallest admissible all-negative five-prime modulus
 
-1. **mixed-signature case:** at least one prime factor of `m` is `1 mod 4`; reduce to classification/elimination of strong four-factor bases;
-2. **all-negative case:** all five prime factors are `3 mod 4`; use the many three-factor `3 mod 4` ancestor divisors instead.
+\[
+6,407,731=11\cdot19\cdot23\cdot31\cdot43
+\]
 
-This split is exact and should guide the next proof stage.
+already has an explicit proper-ancestor survivor. See `MODULUS_ANCESTRY_FIVE_FACTOR_CONJECTURE.md` for the exact counterexample.
 
-## Next theorem targets
+Therefore no proof target should continue to assert universal all-negative five-factor ancestry coverage.
 
-The most promising targets are now:
+## Revised theorem targets
 
-1. classify all four-factor moduli admitting a strong survivor;
-2. prove that no strong four-factor base can be extended by an additional `1 mod 4` prime while preserving a survivor;
-3. separately prove full ancestry coverage when `m` is a product of five `3 mod 4` primes.
+The viable targets are now:
 
-Any combination of (2) and (3) proves the five-factor modulus conjecture.
+1. classify four-factor strong-survivor bases;
+2. characterize which `1 mod 4` prime extensions of such bases preserve a survivor;
+3. determine whether some mixed-signature condition stronger than `omega(m)>=5` forces coverage;
+4. treat the all-negative branch using an additional mechanism beyond proper-ancestor inheritance.
+
+The factor-`5` concentration in the finite four-factor census remains suggestive but is empirical only.
 
 ## Claim boundary
 
-The descent lemma is unconditional. The finite census and observed concentration around the factor `5` are computational evidence only. No classification theorem for strong four-factor bases is claimed yet.
+The descent lemma is unconditional. The finite census is exact in the stated range. The former global five-factor ancestry-cover conjecture is false and is no longer a research target.
