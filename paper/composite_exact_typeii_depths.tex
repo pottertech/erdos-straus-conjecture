@@ -12,7 +12,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 
-\title{Composite Exact-Depth Layers in the Type-II Erd\H{o}s--Straus Spectrum}
+\title{An Infinite Composite-Modulus Exact-Depth Family for Type-II Erd\H{o}s--Straus Solutions}
 \author{Skip Potter}
 \date{Draft -- August 2026}
 
@@ -20,283 +20,491 @@
 \maketitle
 
 \begin{abstract}
-For a prime $p\equiv1\pmod4$, consider the classical square-divisor Type-II criterion
+For a prime $p\equiv1\pmod4$, let $\delta_{\rm sq}(p)$ be the least positive integer $A$ for which there is a divisor $D\mid A^2$ satisfying
 \[
- d\mid A^2,\qquad 4A-1\mid p+4d.
+4A-1\mid p+4D.
 \]
-We define the square-completion depth $\delta_{\rm sq}(p)$ to be the least $A$ for which such a divisor $d$ exists.  Prime target moduli $4A-1$ yield an elementary infinite exact-depth backbone by the Chinese remainder theorem and Dirichlet's theorem.  The composite-modulus case is subtler because the target progression interacts with all earlier Type-II layers through nontrivial gcds.
+This square-completion coordinate is equivalent to the complete standard prime Type-II criterion for the Erd\H{o}s--Straus equation.
 
-We give an exact finite congruence certificate for proving that a specified pair $(A,d)$ supports infinitely many primes of exact square-completion depth $A$.  The certificate reduces the entire earlier-layer problem to avoidance of finitely many congruence classes in one progression parameter and can be verified prime-power coordinate by prime-power coordinate.
-
-Using independently reproducible certificates, we prove that the composite layers
+We prove an infinite exact-depth family with deliberately composite target modulus.  If $q\equiv5\pmod8$ is prime and
 \[
- A=649=11\cdot59,\qquad 4A-1=2595=3\cdot5\cdot173,
+A_q=\frac{3q+1}{4},
 \]
-and
+then $4A_q-1=3q$ is composite and infinitely many primes satisfy
 \[
- A=22339=89\cdot251,\qquad 4A-1=89355=3\cdot5\cdot7\cdot23\cdot37,
+\delta_{\rm sq}(p)=A_q.
 \]
-are exact depths for infinitely many primes.  More strongly, at each of these two layers every realized divisor-modulus primitive branch is globally first-hit: all four such branches support infinitely many primes of exact depth.  These prime families may be chosen inside classical hard residue classes modulo $840$.
+Indeed the target witness may always be chosen as $D=2$, and for every $q>5$ the prime family may be chosen inside the classical hard class $p\equiv1\pmod{840}$.  Consequently, if $N_{\rm comp}(X)$ counts composite-target depths $A\le X$ that are realized as $\delta_{\rm sq}(p)$ for infinitely many primes, then
+\[
+N_{\rm comp}(X)\ge\left(\frac13+o(1)\right)\frac{X}{\log X}.
+\]
 
-The results concern the exact-depth spectrum of Type-II solutions only.  They do not prove universal Type-II solvability or the Erd\H{o}s--Straus conjecture.
+We also give a finite CRT certificate theorem for arbitrary composite target layers and use it to certify two more dependency-rich examples: at $A=649$ and $A=22339$, every realized divisor-modulus primitive branch supports infinitely many primes of exact square depth.  The symbolic family is unconditional and computation-free; the two full-layer examples are independently machine-verifiable finite certificates.
+
+These results concern the exact-depth spectrum of Type-II solutions.  They do not prove universal Type-II solvability or the Erd\H{o}s--Straus conjecture.
 \end{abstract}
 
 \section{Introduction}
 The Erd\H{o}s--Straus conjecture asks whether
 \[
- \frac4n=\frac1x+\frac1y+\frac1z
+\frac4n=\frac1x+\frac1y+\frac1z
 \]
-has a solution in positive integers for every $n\ge2$.  It suffices to study prime denominators.  For prime $p$, the standard Type-I/Type-II dichotomy is classical; modern complete criteria appear, for example, in Elsholtz--Tao and Pomerance--Weingartner, and a recent search-depth formulation is given by Dahan.
+has a solution in positive integers for every $n\ge2$.  It is enough to study prime denominators.  For a prime $p$, the Type-I/Type-II dichotomy is classical; complete formulations appear in modern work of Elsholtz--Tao and Pomerance--Weingartner, and Dahan recently reformulated the Type-II problem in a search-depth setting.
 
-A particularly efficient Type-II coordinate uses a divisor of a square.  Mizony and Gardes record the following sufficient condition and explicit identity: if $d\mid A^2$ and $4A-1\mid p+4d$, then $4/p$ has a three-unit-fraction decomposition.  This mechanism is historical prior art and is not claimed here.
-
-What we study is the \emph{first} square-completed layer at which the criterion succeeds.  Write
+A historical Type-II coordinate, going back through the Th\'epault--Mizony--Gardes line, is obtained from a divisor of a square.  For positive integers $A,D$ one asks for
 \[
- m_A=4A-1,\qquad
- R_A=\{-4d\pmod{m_A}:d\mid A^2\}.
+D\mid A^2,\qquad 4A-1\mid p+4D. \tag{1}
 \]
-For primes $p\equiv1\pmod4$, define
+We use $A$ as a \emph{square-completion depth}.  The arithmetic mechanism in (1) is prior work; our subject is its exact first-hit spectrum.
+
+Define
 \[
- \delta_{\rm sq}(p)
- =\min\{A\ge1:p\bmod m_A\in R_A\},
+m_A=4A-1,
+\qquad
+R_A=\{-4D\pmod{m_A}:D\mid A^2\},
 \]
-with value $\infty$ if no Type-II witness exists.
-
-When $m_A$ is prime, CRT plus Dirichlet supplies an elementary infinite exact-depth family.  Public 2026 work of the Free Computation Foundation/CENTL develops this prime-modulus backbone and a related depth-spectrum/shadow framework.  The harder residual question is what happens at composite $m_A$, where earlier moduli share factors with the target modulus and the target layer is no longer an independent CRT coordinate.
-
-The contribution of this note is a finite exact certificate for this composite situation and two explicit full-layer realizations.
-
-\section{The square-divisor Type-II criterion}
-We use the following classical form.
-
-\begin{proposition}[square-divisor Type-II criterion]
-Let $p$ be prime and $A,d$ positive integers with
+and, for primes $p\equiv1\pmod4$,
 \[
- d\mid A^2,\qquad m_A=4A-1\mid p+4d.
+\delta_{\rm sq}(p)
+=\min\{A\ge1:p\bmod m_A\in R_A\}, \tag{2}
 \]
-Then $4/p$ has a Type-II Erd\H{o}s--Straus decomposition.
+with $\delta_{\rm sq}(p)=\infty$ if no Type-II witness exists.
+
+A prime target modulus $m_A$ gives an elementary exact-depth backbone: one can force the target residue while placing the denominator in a safe residue at every earlier modulus.  Public 2026 work of the Free Computation Foundation/CENTL develops this prime-modulus backbone and a related minimal-depth spectrum.  Composite target moduli are harder because they share factors with earlier layers.
+
+Our main observation is that a large infinite composite subfamily nevertheless has an equally elementary exact-depth construction.  If
+\[
+q\equiv5\pmod8\quad\text{is prime},
+\qquad
+A_q=\frac{3q+1}{4},
+\]
+then
+\[
+m_{A_q}=3q.
+\]
+The factor $3$ is the smallest possible $3\pmod4$ cofactor.  The new prime $q\equiv1\pmod4$ cannot occur in any earlier modulus $4B-1$, and the target residue from the fixed divisor $D=2$ agrees modulo $3$ with a universal safe residue.  This yields a simultaneous CRT construction avoiding every earlier Type-II layer.
+
+The paper has two parts.  Sections 2--4 establish the symbolic infinite family and its quantitative consequences.  Sections 5--7 give a general finite CRT certificate for arbitrary composite layers and two computationally assisted full-layer examples at depths $649$ and $22339$.
+
+\section{The square-completion coordinate is complete Type II}
+We first record that (1) is not merely a sufficient subfamily of Type II.
+
+A convenient complete prime Type-II criterion, in the notation used by Dahan, is the existence of positive integers $u,a$ and a divisor $s$ such that
+\[
+s\mid ap+u,
+\qquad
+s\equiv-1\pmod{4ua}. \tag{3}
+\]
+
+\begin{proposition}[equivalence of Type-II coordinates]
+For a prime $p$, criterion \emph{(3)} holds if and only if there exist $A,D>0$ satisfying
+\[
+D\mid A^2,
+\qquad
+4A-1\mid p+4D. \tag{4}
+\]
+Thus the square-completion coordinate parametrizes the complete standard prime Type-II solution set.
 \end{proposition}
 
-\begin{remark}
-The criterion is prior art.  Mizony--Gardes give the identity directly, and the same Type-II solution set is encompassed by the complete criteria used by Pomerance--Weingartner and Dahan.  Our parameter $A$ is a square-completion depth coordinate; it should not be confused with Dahan's two-parameter depth $\max(u,a)$.
-\end{remark}
-
-\section{Exact-depth reduction to one parameter}
-Fix a target pair $(A,d)$ with $d\mid A^2$, and put
+\begin{proof}
+Suppose first that (3) holds.  Write
 \[
- m_A=4A-1,\qquad a\equiv-4d\pmod{m_A}.
+s=4\alpha ua-1
 \]
-Every integer in the target Type-II progression has the form
+with $\alpha\ge1$, and set
 \[
- n=a+m_A k. \tag{1}
+A=\alpha ua,
+\qquad
+D=\alpha u^2.
+\]
+Then $D\mid A^2$.  Because $s\mid ap+u$,
+\[
+4\alpha u(ap+u)=4Ap+4D\equiv p+4D\pmod{s},
+\]
+where $4A\equiv1\pmod{s}$.  Hence
+\[
+4A-1=s\mid p+4D.
 \]
 
-An earlier layer $B<A$, with $E\mid B^2$, has trap progression
+Conversely, suppose (4) holds.  Put
 \[
- n\equiv -4E\pmod{m_B},\qquad m_B=4B-1. \tag{2}
+E=\frac{A^2}{D},
+\qquad
+\alpha=\gcd(D,E).
+\]
+After dividing $D$ and $E$ by their gcd, the two resulting integers are coprime and their product is a square.  Hence there are coprime positive integers $u,a$ such that
+\[
+D=\alpha u^2,
+\qquad
+E=\alpha a^2,
+\qquad
+A=\alpha ua.
 \]
 Let
 \[
- g_{A,B}=\gcd(m_A,m_B),\qquad q_{A,B}=\frac{m_B}{g_{A,B}}.
+s=4A-1=4\alpha ua-1.
 \]
+From $s\mid p+4D$, multiplying by $a$ gives
+\[
+ap+4aD=ap+4Au\equiv ap+u\pmod{s}.
+\]
+Thus $s\mid ap+u$, and by construction
+\[
+s\equiv-1\pmod{4ua}.
+\]
+This is (3).
+\end{proof}
 
-\begin{lemma}[induced parameter congruence]
-The target progression \emph{(1)} intersects the earlier trap \emph{(2)} if and only if
+\begin{remark}
+The algebra above is a coordinate equivalence, not a novelty claim for Type II itself.  It is included so that statements about $\delta_{\rm sq}$ are transparently statements about the complete standard prime Type-II family.  This depth is nevertheless coordinate-specific and should not be conflated with Dahan's pair depth $\max(u,a)$.
+\end{remark}
+
+\section{A universal safe residue}
+The construction rests on one elementary observation.
+
+\begin{lemma}[universal safe residue]
+For every $B\ge1$ and every divisor $E\mid B^2$,
 \[
- a\equiv-4E\pmod{g_{A,B}}.
+4B-1\nmid4E+1.
 \]
-When this compatibility condition holds, the intersection removes exactly one residue class
+Equivalently,
 \[
- k\equiv c_{B,E}\pmod{q_{A,B}}, \tag{3}
-\]
-where
-\[
- c_{B,E}\equiv
- \frac{-4E-a}{g_{A,B}}
- \left(\frac{m_A}{g_{A,B}}\right)^{-1}
- \pmod{q_{A,B}}.
+1\notin R_B.
 \]
 \end{lemma}
 
 \begin{proof}
-Substitute $n=a+m_Ak$ into \emph{(2)}.  The linear congruence
+Let
 \[
- m_Ak\equiv-4E-a\pmod{m_B}
+g=\gcd(B,E),\qquad B=ga,\qquad E=gd,\qquad\gcd(a,d)=1.
 \]
-is solvable exactly when $g_{A,B}$ divides the right-hand side.  Dividing by $g_{A,B}$ leaves a coefficient coprime to $q_{A,B}$ and hence a unique residue class modulo $q_{A,B}$.
+Since $E\mid B^2$, we have $d\mid g$; write $g=dh$.  Hence
+\[
+B=dha,
+\qquad
+E=d^2h.
+\]
+Suppose that $4B-1\mid4E+1$.  Since $4B\equiv1$ and $4E\equiv-1$ modulo $4B-1$,
+\[
+E\equiv-B\pmod{4B-1},
+\]
+so
+\[
+4B-1\mid E+B=dh(d+a).
+\]
+But $\gcd(4B-1,dh)=1$, because every prime divisor of $dh$ divides $B$.  Therefore
+\[
+4B-1\mid d+a.
+\]
+This is impossible since
+\[
+4B-1=4dha-1>d+a
+\]
+for positive $d,h,a$.
 \end{proof}
 
-Thus exact first-hit at $A$ is a finite covering problem on $k$: one must avoid all congruences \emph{(3)} arising from every $B<A$ and $E\mid B^2$.
+\section{An infinite composite-modulus exact-depth backbone}
+We now state the main theorem.
 
-\section{A finite CRT certificate theorem}
-Let $\mathcal C_{A,d}$ be the finite set of all forbidden pairs $(q,c)$ obtained from the preceding lemma.  Let
+\begin{theorem}[composite exact-depth backbone]\label{thm:backbone}
+Let $q\equiv5\pmod8$ be prime and put
 \[
- L=\operatorname{lcm}\{q:(q,c)\in\mathcal C_{A,d}\}.
+A_q=\frac{3q+1}{4}.
 \]
-Factor $L$ into maximal prime-power coordinates
+Then
 \[
- L=\prod_{\ell}\ell^{e_\ell}.
+4A_q-1=3q
 \]
-A forbidden class $k\equiv c\pmod q$ is equivalent to simultaneous equalities on the prime-power coordinates dividing $q$.
-
-\begin{theorem}[finite exact-depth certificate]
-Suppose there is a compatible prime-power assignment
+is composite, and there are infinitely many primes $p\equiv1\pmod4$ for which
 \[
- k\equiv r_\ell\pmod{\ell^{e_\ell}}
+\boxed{\delta_{\rm sq}(p)=A_q.}
 \]
-with the following properties.
-\begin{enumerate}
-\item For every forbidden $(q,c)\in\mathcal C_{A,d}$, at least one prime-power coordinate of $q$ differs from $c$.
-\item The CRT class $k\equiv r\pmod L$ determined by the assignment makes
-\[
- n_0=a+m_Ar
-\]
-reduced modulo $m_AL$, i.e.
-\[
- \gcd(n_0,m_AL)=1.
-\]
-\end{enumerate}
-Then infinitely many primes $p$ satisfy
-\[
- \delta_{\rm sq}(p)=A
-\]
-and
-\[
- p\equiv a\pmod{m_A}.
-\]
+The target witness may always be chosen as $D=2$.
 \end{theorem}
 
 \begin{proof}
-By construction, every integer in the progression
+Because $q\equiv5\pmod8$,
 \[
- n\equiv n_0\pmod{m_AL}
+3q+1\equiv16\pmod{24},
 \]
-lies in the target depth-$A$ trap and avoids every Type-II trap at depths $B<A$.  The progression is reduced by hypothesis, so Dirichlet's theorem gives infinitely many primes in it.  All but finitely many are larger than the fixed divisor $d$, so the usual prime Type-II coprimality condition causes no exception.  Each such prime has no square-completed Type-II witness below $A$ and has the target witness at $A$.
+and therefore
+\[
+A_q\equiv4\pmod6.
+\]
+In particular $A_q$ is even, so $2\mid A_q^2$.  Put
+\[
+m=4A_q-1=3q,
+\qquad
+a\equiv-8\pmod m.
+\]
+Every integer $n\equiv a\pmod m$ therefore has a depth-$A_q$ witness with $D=2$.
+
+Consider an earlier depth $B<A_q$, with $m_B=4B-1$.  We claim that $q\nmid m_B$.  If $m_B=qs$, then $m_B\equiv3\pmod4$ and $q\equiv1\pmod4$ force $s\equiv3\pmod4$, so $s\ge3$.  Hence
+\[
+m_B\ge3q=m,
+\]
+contradicting $B<A_q$.  Consequently
+\[
+\gcd(m,m_B)\mid3
+\]
+for every $B<A_q$.
+
+Let
+\[
+L=\operatorname{lcm}_{1\le B<A_q}(4B-1).
+\]
+Since $a=-8\equiv1\pmod3$, the congruence system
+\[
+n\equiv-8\pmod{3q},
+\qquad
+n\equiv1\pmod L,
+\qquad
+n\equiv1\pmod4 \tag{5}
+\]
+is CRT-compatible.  Let $n\equiv n_0\pmod M$ be its solution, where
+\[
+M=\operatorname{lcm}(4,3q,L).
+\]
+
+For every $B<A_q$, system (5) gives
+\[
+n\equiv1\pmod{4B-1}.
+\]
+By the universal safe-residue lemma, no member of the progression has a square-completed Type-II witness at an earlier depth.  At depth $A_q$, however,
+\[
+n\equiv-8\pmod{3q}
+\]
+and $D=2\mid A_q^2$, so the target witness exists.
+
+The progression is reduced.  Every prime factor inherited from $L$ sees residue $1$; the new odd prime factor $q$ sees residue $-8\not\equiv0\pmod q$; and the residue modulo $4$ is $1$.  Hence
+\[
+\gcd(n_0,M)=1.
+\]
+Dirichlet's theorem supplies infinitely many primes in this progression, all congruent to $1\pmod4$, and every one has exact square depth $A_q$.
 \end{proof}
 
-\begin{remark}[certificate representation]
-The theorem does not require printing the typically enormous CRT integer $r$.  A certificate can specify the maximal prime-power coordinates independently.  The accompanying verifier reconstructs all earlier traps, factors every reduced modulus $q$, checks every forbidden tuple, checks reducedness prime by prime, and invokes CRT existence only at the final logical step.
+\begin{corollary}[infinitely many composite exact depths]
+The set of composite-target square depths realized by infinitely many primes is infinite and unbounded.  More precisely,
+\[
+\left\{\frac{3q+1}{4}:q\text{ prime},\ q\equiv5\pmod8\right\}
+\subseteq\mathcal D^{\rm comp}_{\infty}.
+\]
+\end{corollary}
+
+\begin{corollary}[quantitative lower bound]\label{cor:count}
+Let
+\[
+N_{\rm comp}(X)
+=\#\{A\le X:4A-1\text{ is composite and }\delta_{\rm sq}(p)=A
+\text{ for infinitely many primes }p\}.
+\]
+Then
+\[
+N_{\rm comp}(X)
+\ge
+\pi\!\left(\frac{4X-1}{3};8,5\right)
+=\left(\frac13+o(1)\right)\frac{X}{\log X}.
+\]
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:backbone} gives one distinct depth for every prime $q\equiv5\pmod8$ with $q\le(4X-1)/3$.  The prime number theorem in arithmetic progressions gives
+\[
+\pi(Y;8,5)\sim\frac14\operatorname{Li}(Y),
+\]
+and $Y\sim4X/3$.
+\end{proof}
+
+\begin{corollary}[classical hard-core realization]
+For every prime $q\equiv5\pmod8$ with $q>5$, infinitely many primes
+\[
+p\equiv1\pmod{840}
+\]
+satisfy
+\[
+\delta_{\rm sq}(p)=\frac{3q+1}{4}.
+\]
+\end{corollary}
+
+\begin{proof}
+For $q>5$ in this residue class,
+\[
+\gcd(3q,840)=3.
+\]
+The target residue $-8$ and the hard residue $1$ agree modulo $3$.  Replacing the congruence $n\equiv1\pmod4$ in (5) by $n\equiv1\pmod{840}$ therefore preserves CRT compatibility and reducedness.
+\end{proof}
+
+\begin{remark}[small regression example]
+For $q=13$, Theorem~\ref{thm:backbone} gives $A_q=10$, target modulus $39$, and witness $D=2$.  One prime in the hard-core progression is
+\[
+10{,}139{,}116{,}681,
+\]
+and direct enumeration through depth $10$ confirms that its first square-completed Type-II witness is $(A,D)=(10,2)$.  This numerical check is not used in the proof.
 \end{remark}
 
-\section{A composite full layer at depth 649}
-Take
-\[
- A=649=11\cdot59,
- \qquad
- m_A=2595=3\cdot5\cdot173.
-\]
-The divisors of $A^2$ are
-\[
-1,11,59,121,649,3481,7139,38291,421201.
-\]
-Reduction through the proper divisor-modulus ancestors $m_B\mid2595$ leaves precisely four realized primitive branches,
-\[
- \boxed{d\in\{11,59,7139,38291\}}. \tag{4}
-\]
-The other five branches are already inherited from earlier divisor-modulus layers.
+\section{A finite certificate for arbitrary composite layers}
+The $3q$ backbone exploits a special gcd pattern.  For a general composite target modulus one can still reduce exact first-hit to a finite congruence certificate.
 
-\begin{theorem}[full composite layer at $A=649$]
-For every divisor $d$ in \emph{(4)}, there are infinitely many primes $p$ with
+Fix a target pair $(A,D)$ with $D\mid A^2$, and put
 \[
- \delta_{\rm sq}(p)=649
+m_A=4A-1,
+\qquad
+a\equiv-4D\pmod{m_A}.
 \]
-and target congruence
+Write the target progression as
 \[
- p\equiv-4d\pmod{2595}.
+n=a+m_Ak. \tag{6}
 \]
-Consequently every realized divisor-modulus primitive branch at depth $649$ is globally first-hit for infinitely many primes.
+An earlier depth $B<A$, with $E\mid B^2$, has trap progression
+\[
+n\equiv-4E\pmod{m_B},
+\qquad m_B=4B-1. \tag{7}
+\]
+Let
+\[
+g_{A,B}=\gcd(m_A,m_B),
+\qquad
+q_{A,B}=\frac{m_B}{g_{A,B}}.
+\]
+
+\begin{lemma}[induced parameter congruence]
+The target progression (6) intersects (7) if and only if
+\[
+a\equiv-4E\pmod{g_{A,B}}.
+\]
+When compatible, the intersection removes exactly one residue class
+\[
+k\equiv c_{B,E}\pmod{q_{A,B}},
+\]
+where
+\[
+c_{B,E}\equiv
+\frac{-4E-a}{g_{A,B}}
+\left(\frac{m_A}{g_{A,B}}\right)^{-1}
+\pmod{q_{A,B}}.
+\]
+\end{lemma}
+
+\begin{proof}
+Substitute (6) into (7), divide the resulting linear congruence by $g_{A,B}$, and invert the remaining coefficient modulo $q_{A,B}$.
+\end{proof}
+
+Let $\mathcal C_{A,D}$ be the finite set of all forbidden pairs $(q,c)$ obtained in this way for $B<A$ and $E\mid B^2$.  Put
+\[
+L=\operatorname{lcm}\{q:(q,c)\in\mathcal C_{A,D}\}.
+\]
+
+\begin{theorem}[finite exact-depth certificate]
+Suppose a residue class $k\equiv r\pmod L$ avoids every forbidden class in $\mathcal C_{A,D}$ and the resulting denominator progression
+\[
+n\equiv a+m_Ar\pmod{m_AL}
+\]
+is reduced.  Then infinitely many primes have exact square depth $A$ with the target witness $D$.
 \end{theorem}
 
 \begin{proof}
-For each of the four target divisors, the accompanying independent verifier constructs the complete set $\mathcal C_{649,d}$ from all $B<649$ and all $E\mid B^2$, and checks a compact prime-power assignment satisfying the finite certificate theorem.
-
-The certificate statistics are shown in Table~\ref{tab:649}.
+Every member of the progression has the target depth-$A$ witness and avoids every earlier Type-II trap.  Reducedness and Dirichlet's theorem give infinitely many primes in the progression.
 \end{proof}
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrr}
-\toprule
-$d$ & $-4d\bmod2595$ & hard class mod $840$ & reduced moduli & forbidden classes & overrides\\
-\midrule
-11    & 2551 & 1   & 479 & 9137 & 3\\
-59    & 2359 & 169 & 479 & 9202 & 6\\
-7139  & 2584 & 169 & 479 & 9202 & 5\\
-38291 & 2536 & 121 & 479 & 9137 & 6\\
-\bottomrule
-\end{tabular}
-\caption{Compact exact-depth certificates at $A=649$.  ``Overrides'' are the non-baseline prime-power coordinates listed in the verifier.}
-\label{tab:649}
-\end{table}
+\begin{remark}[prime-power certificates]
+In practice $L$ may be enormous.  It is enough to specify $r$ by its maximal prime-power coordinates.  A forbidden congruence is then a forbidden tuple across the prime-power factors of its modulus.  The accompanying verifiers reconstruct every earlier trap from first principles and check a compact coordinate assignment rather than storing a gigantic CRT integer.
+\end{remark}
 
-The hard-class column follows by one additional CRT intersection with a classical residue modulo $840$.  Hence exact depth $649$ occurs infinitely often even inside the classical hard core.
+\section{Full composite layers beyond the elementary backbone}
+The infinite family in Theorem~\ref{thm:backbone} has target modulus $3q$.  More dependency-rich composite layers also occur.
 
-\section{A second composite full layer at depth 22339}
+\subsection{Depth 649}
 Take
 \[
- A=22339=89\cdot251,
- \qquad
- m_A=89355=3\cdot5\cdot7\cdot23\cdot37.
+A=649=11\cdot59,
+\qquad
+m_A=2595=3\cdot5\cdot173.
 \]
-The four realized primitive branches are represented by
+Among the nine divisors of $649^2$, divisor-modulus ancestry leaves exactly four realized primitive branches,
 \[
- \boxed{d\in\{89,251,22361,67079\}}. \tag{5}
+D\in\{11,59,7139,38291\}.
 \]
 
-\begin{theorem}[full composite layer at $A=22339$]
-For every divisor $d$ in \emph{(5)}, there are infinitely many primes $p$ with
+\begin{theorem}[full composite layer at 649]
+Every one of these four branches supports infinitely many primes $p$ satisfying
 \[
- \delta_{\rm sq}(p)=22339
+\delta_{\rm sq}(p)=649.
 \]
-and
+The four families may be placed respectively in the classical hard classes
 \[
- p\equiv-4d\pmod{89355}.
+1,169,169,121\pmod{840}.
 \]
-The four families may be placed respectively in the classical hard classes $169,361,121,169$ modulo $840$.
 \end{theorem}
 
 \begin{proof}
-The verifier reconstructs all earlier layers $B<22339$.  Depending on the branch, this produces $14210$ or $14256$ distinct reduced parameter moduli and $576465$ or $577670$ forbidden parameter classes, represented on $5703$ maximal prime-power coordinates.  The stored compact assignments avoid every unary exclusion and every composite forbidden tuple, are reduced, and are compatible with the stated hard class.  The finite certificate theorem and Dirichlet's theorem complete the proof.
+The deterministic verifier \texttt{exact\_depth\_649\_full\_layer\_certificate.py} reconstructs every earlier trap $B<649$, converts compatible intersections to forbidden $k$-classes, and checks four compact prime-power assignments satisfying the finite certificate theorem.  No precomputed trap list is loaded.
 \end{proof}
 
-\section{Verification and reproducibility}
-The proof has two logically separate parts.
+\subsection{Depth 22339}
+Take
+\[
+A=22339=89\cdot251,
+\qquad
+m_A=89355=3\cdot5\cdot7\cdot23\cdot37.
+\]
+The four realized primitive branches are
+\[
+D\in\{89,251,22361,67079\}.
+\]
 
-\paragraph{Mathematical reduction.}
-The induced-congruence lemma and finite certificate theorem are ordinary CRT and Dirichlet arguments.  They reduce exact depth to a finite list of explicit congruence exclusions.
+\begin{theorem}[full composite layer at 22339]
+Every one of these four branches supports infinitely many primes $p$ satisfying
+\[
+\delta_{\rm sq}(p)=22339.
+\]
+The families may be placed respectively in the classical hard classes
+\[
+169,361,121,169\pmod{840}.
+\]
+\end{theorem}
 
-\paragraph{Finite verification.}
-The repository contains independent deterministic verifiers:
-\begin{verbatim}
-python3 exact_depth_649_full_layer_certificate.py
-python3 exact_depth_22339_full_layer_certificate.py
-\end{verbatim}
-Each verifier reconstructs the earlier trap system from the definition $E\mid B^2$ rather than loading a precomputed constraint file.  The compact certificate consists only of a deterministic baseline rule plus a short list of prime-power coordinate overrides.
+\begin{proof}
+The deterministic verifier \texttt{exact\_depth\_22339\_full\_layer\_certificate.py} reconstructs all earlier layers $B<22339$ and checks the stored compact prime-power certificates.  Depending on the branch, the construction contains $14210$ or $14256$ distinct reduced parameter moduli and $576465$ or $577670$ forbidden parameter classes on $5703$ maximal prime-power coordinates.
+\end{proof}
 
-The $649$ verifier was independently re-audited during manuscript preparation.  A bookkeeping bug in the optional mod-$840$ compatibility assertion was corrected: CRT overlap between a prime power $\ell^e$ and the reduced hard-core modulus is tested modulo their gcd, not their minimum.  The corrected verifier passes all four cases; the underlying exact-depth assignments and theorem were unchanged.
+\section{Reproducibility and audit boundary}
+The main theorem and Corollary~\ref{cor:count} are symbolic and require no computation beyond standard primality input for the parameter $q$.
 
-\section{Relation to prior work}
-The square-divisor criterion is not new.  Mizony--Gardes explicitly record the condition $d\mid A^2$, $4A-1\mid p+4d$ and the corresponding Egyptian-fraction identity.  Elsholtz--Tao develop the Type-I/Type-II framework for prime denominators, and Pomerance--Weingartner give complete closed Type-I/Type-II criteria.  Dahan reformulates Type II as a two-parameter divisor criterion and studies fixed and growing search depth.
+The two full-layer examples are computationally assisted finite theorems.  Their verifier scripts regenerate the complete earlier trap system from the definition $E\mid B^2$ and check compact certificates independently.  During manuscript preparation, an error was found in an optional mod-$840$ compatibility assertion in the depth-$649$ verifier: the overlap between a prime-power coordinate and the reduced hard-core modulus must be tested modulo their gcd, not their minimum.  The assertion was corrected; all four certificates pass, and the exact-depth assignments themselves were unchanged.
 
-Recent public work of FCF/CENTL studies minimal congruence depth, shadowing, structural gaps, and an infinite exact-depth prime-modulus backbone.  In that framework the composite-modulus spectrum is explicitly identified as the dependency-rich residual classification problem.  The present note is narrower: it gives a general finite exact-depth certificate for the square-completed Type-II coordinate and certifies two composite target layers at which every realized primitive branch is infinitely prime-realized.
+For publication, the repository should be archived at a permanent DOI and the certificate scripts should be accompanied by checksums and a minimal independent verifier.
 
-A targeted literature search through August 2026 did not locate this exact full-layer composite realization statement.  This negative search is not a priority proof.  No claim of first discovery should be made until a broader historical and contemporary review, including non-arXiv literature, is complete.
+\section{Relation to prior work and novelty boundary}
+The Type-II mechanism is prior mathematics.  Mizony--Gardes explicitly record the square-divisor condition and a corresponding unit-fraction identity.  Elsholtz--Tao develop the Type-I/Type-II framework, Pomerance--Weingartner give complete criteria, and Dahan studies Type-II search depth analytically.
 
-\section{Consequences and open questions}
-The examples show that the composite exact-depth spectrum is not merely a finite-search artifact.  A layer can have substantial dependency with earlier moduli and nevertheless contribute several infinite exact-first-hit prime families.
+Public August 2026 work of FCF/CENTL develops a minimal-depth spectrum with an infinite prime-modulus exact-depth backbone, structural-gap families, and a square-completion/shadow program.  That work explicitly leaves a dependency-rich composite residual spectrum to classify.
 
-They also illustrate why finite prime searches can miss large exact depths.  Public finite square-completion data through $5\times10^7$ report maximum observed depth $624$, whereas $649$ is infinitely realizable.  The reduced exact-depth progressions can simply have very large least prime representatives.
-
-Natural next questions are:
+The candidate contribution here is narrower and should be described conservatively:
 \begin{enumerate}
-\item Are there infinitely many composite $A$ for which $m_A=4A-1$ is composite and $\delta_{\rm sq}(p)=A$ for infinitely many primes?
-\item Are there infinitely many \emph{full} composite layers, in the sense proved here for $649$ and $22339$?
-\item Can the finite prime-power certificate be replaced by a parametric family, yielding an infinite composite exact-depth theorem without per-layer computation?
-\item How does square-completion depth compare quantitatively with Dahan's two-parameter Type-II depth?
+\item the explicit infinite composite-modulus exact-depth family
+\[
+A=(3q+1)/4,\qquad q\equiv5\pmod8\text{ prime},
+\]
+with the quantitative lower bound of Corollary~\ref{cor:count};
+\item realization of that family inside the classical hard class $1\pmod{840}$;
+\item the finite exact-depth certificate formulation for arbitrary composite target layers; and
+\item the two full composite-layer certificates at $649$ and $22339$ as examples outside the elementary $3q$ construction.
+\end{enumerate}
+
+A targeted literature search through August 2026 did not locate the exact $3q$ family or the full-layer statements above.  This negative search does not establish priority.  A broader historical review, including non-arXiv and non-English sources, is required before claiming first discovery.
+
+\section{Open questions}
+The symbolic family immediately raises several questions.
+\begin{enumerate}
+\item Can the factor $3$ in Theorem~\ref{thm:backbone} be replaced by other fixed $3\pmod4$ cofactors while preserving a universal earlier-layer avoidance residue?
+\item Are there additional infinite families obtained from fixed divisors $D>2$?
+\item What is the true order of $N_{\rm comp}(X)$?  Corollary~\ref{cor:count} gives only a lower bound of order $X/\log X$.
+\item Are there infinitely many \emph{full} composite layers, in the sense verified here at $649$ and $22339$?
+\item How does $\delta_{\rm sq}$ compare quantitatively with Dahan's pair depth on the same prime families?
 \end{enumerate}
 
 \section*{Claim boundary}
-Nothing in this paper proves that every prime has a Type-II solution.  Exact-depth realization is compatible with the possibility that some primes have no Type-II solution at all.  The Erd\H{o}s--Straus conjecture itself remains open.
+Nothing here proves that every prime has a Type-II solution.  Exact-depth realization is compatible with the existence of primes with no Type-II solution.  The Erd\H{o}s--Straus conjecture remains open.
 
 \begin{thebibliography}{9}
 
@@ -306,15 +514,10 @@ C.~Elsholtz and T.~Tao,
 J. Aust. Math. Soc. 94 (2013), 50--105.
 \href{https://doi.org/10.1017/S1446788712000468}{doi:10.1017/S1446788712000468}.
 
-\bibitem{Lopez2024}
-M.~A.~Lopez,
-\emph{A Complete Congruence System for the Erdos--Straus Conjecture},
-arXiv:2404.01508 (2024).
-
 \bibitem{MizonyGardes2012}
 M.~Mizony and M.-L.~Gardes,
 \emph{Un point sur la conjecture d'Erd\H{o}s et Straus},
-Universit\'e Claude Bernard, Villeurbanne (2012), research note.
+Universit\'e Claude Bernard Lyon 1, 2012 research note.
 
 \bibitem{PomeranceWeingartner2026}
 C.~Pomerance and A.~Weingartner,
