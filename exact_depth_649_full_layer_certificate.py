@@ -116,8 +116,10 @@ def verify_case(D, case):
     rhs = ((core - target) // g) % reduced_mod
     k_class = (rhs * pow(lhs, -1, reduced_mod)) % reduced_mod
     # Compatibility with the already-fixed odd prime-power coordinates.
+    # CRT compatibility is modulo gcd(pe, reduced_mod), not min(pe, reduced_mod).
     for p, pe in ((p, pe) for p, pe in max_power.items() if reduced_mod % p == 0):
-        assert k_class % min(pe, reduced_mod) == assignment[p] % min(pe, reduced_mod)
+        overlap = gcd(pe, reduced_mod)
+        assert k_class % overlap == assignment[p] % overlap
 
     return {
         "D": D,
