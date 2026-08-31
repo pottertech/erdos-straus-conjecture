@@ -1,0 +1,470 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\sqdepth}{\delta_{\rm sq}}
+
+\title{A Composite Exact-Depth Backbone for Type-II Erd\H{o}s--Straus Solutions}
+\author{Skip Potter}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a prime $p\equiv1\pmod4$, let
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2,\ 4A-1\mid p+4D\},
+\]
+the first-hit depth in the classical divisor-square coordinate for prime Type-II Erd\H{o}s--Straus solutions. The parametrization itself is classical; we study its exact-depth spectrum.
+
+For primes $q\equiv1\pmod4$, put $A_q=(3q+1)/4$. We prove that if $A_q$ has a divisor $D\equiv2\pmod3$, then infinitely many primes $p$ satisfy $\sqdepth(p)=A_q$. Thus the deliberately composite modulus $4A_q-1=3q$ gives an exact-depth backbone. A half-dimensional upper-bound sieve gives
+\[
+E(Y)\ll Y(\log Y)^{-3/2}
+\]
+for the exceptional prime parameters and hence
+\[
+N_{\rm comp}(X)\ge \frac12\operatorname{Li}\!\left(\frac{4X-1}{3}\right)
+-O\!\left(X(\log X)^{-3/2}\right).
+\]
+
+We then encode the Jacobi characters of the moduli $4A-1$ as parity vectors over $\mathbf F_2$. A new character direction occurs at depth $A$ if and only if $4A-1$ is prime or $4A-1=3q$ with $q\equiv1\pmod4$ prime. Consequently the $3q$ family is the maximal composite backbone for every global CRT construction that avoids earlier layers solely by imposing Jacobi sign $+1$. The character-space rank satisfies
+\[
+\dim\mathcal V_X=
+\pi(4X-1;4,3)+\pi((4X-1)/3;4,1)
+\sim \frac{8}{3}\frac{X}{\log X},
+\]
+and the exact-depth construction asymptotically saturates the new composite character directions.
+
+Finally, the number of witness primes $\ell\equiv2\pmod3$ dividing $A_q$ obeys an Erd\H{o}s--Kac law, so the number of distinct infinite exact-depth prime progressions attached to a typical backbone depth is asymptotically Gaussian with mean and variance $\frac12\log\log q$.
+
+These results do not prove universal Type-II solvability or the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+
+\section{Introduction}
+The Erd\H{o}s--Straus conjecture asks whether
+\[
+\frac4n=\frac1x+\frac1y+\frac1z
+\]
+has a solution in positive integers for every $n\ge2$. For prime denominators, standard solutions split into Type I and Type II. We study Type II through the classical divisor-square coordinate
+\begin{equation}\label{eq:square}
+D\mid A^2,\qquad 4A-1\mid p+4D.
+\end{equation}
+This mechanism belongs to the Th\'epault--Mizony lineage and is not claimed here. Modern complete Type-II formulations appear in work of Elsholtz--Tao and Pomerance--Weingartner, while Dahan studies Type-II sieve dimension and search depth.
+
+For primes $p\equiv1\pmod4$, define
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2\text{ satisfying \eqref{eq:square}}\}.
+\]
+Our concern is the set of depths that occur infinitely often, especially when the target modulus $4A-1$ is composite.
+
+\section{The Type-II coordinate and its Jacobi obstruction}
+We use the standard completeness statement.
+
+\begin{proposition}[complete prime Type-II coordinate]\label{prop:complete}
+For a prime $p\equiv1\pmod4$, a standard Type-II Erd\H{o}s--Straus solution exists if and only if there are positive integers $A,D$ such that
+\[
+D\mid A^2,\qquad p\nmid D,\qquad 4A-1\mid p+4D.
+\]
+\end{proposition}
+
+\begin{remark}
+Proposition~\ref{prop:complete} is prior mathematics. The depth $A$ is coordinate-specific and should not be confused with other search-depth parameters in the literature.
+\end{remark}
+
+For $B\ge1$, put
+\[
+m_B=4B-1,
+\qquad
+R_B=\{-4E\pmod{m_B}:E\mid B^2\}.
+\]
+
+\begin{lemma}[Jacobi obstruction]\label{lem:jacobi}
+For every $E\mid B^2$,
+\[
+\boxed{\left(\frac{-4E}{m_B}\right)=-1.}
+\]
+Hence no residue of Jacobi sign $+1$ modulo $m_B$ belongs to the depth-$B$ trap set $R_B$.
+\end{lemma}
+
+\begin{proof}
+Every prime divisor $r$ of $B$ is coprime to $m_B$. For odd $r$, quadratic reciprocity applied to $4B\equiv1\pmod{m_B}$ gives $(r/m_B)=1$. If $2\mid B$, then $m_B\equiv7\pmod8$, so $(2/m_B)=1$. Thus $(E/m_B)=1$ for every $E\mid B^2$. Since $m_B\equiv3\pmod4$, one has $(-1/m_B)=-1$, and the result follows because $4$ is a square.
+\end{proof}
+
+Closely related divisor-Jacobi and reciprocity-signature statements occur in contemporary FCF/CENTL work; no novelty is claimed for Lemma~\ref{lem:jacobi} itself.
+
+\section{The composite $3q$ backbone}
+\begin{theorem}[structural composite exact-depth theorem]\label{thm:backbone}
+Let $q\equiv1\pmod4$ be prime and set
+\[
+A_q=\frac{3q+1}{4}.
+\]
+If there exists
+\[
+D\mid A_q^2,
+\qquad
+D\equiv2\pmod3,
+\]
+then infinitely many primes $p\equiv1\pmod4$ satisfy
+\[
+\boxed{\sqdepth(p)=A_q.}
+\]
+In particular the target modulus is composite:
+\[
+4A_q-1=3q.
+\]
+\end{theorem}
+
+\begin{proof}
+Set $m=3q$ and $a\equiv-4D\pmod m$. Since $D\equiv2\pmod3$, $a\equiv1\pmod3$. Every integer in the target progression $n\equiv a\pmod m$ has a depth-$A_q$ witness.
+
+If $B<A_q$ and $q\mid4B-1$, write $4B-1=qs$. Since $q\equiv1\pmod4$ and $4B-1\equiv3\pmod4$, one has $s\equiv3\pmod4$, so $s\ge3$ and $4B-1\ge3q=4A_q-1$, a contradiction. Hence
+\[
+\gcd(3q,4B-1)\mid3
+\]
+for every earlier $B$.
+
+Let
+\[
+L=\operatorname{lcm}_{1\le B<A_q}(4B-1).
+\]
+The CRT system
+\[
+n\equiv-4D\pmod{3q},
+\qquad
+n\equiv1\pmod L,
+\qquad
+n\equiv1\pmod4
+\]
+is compatible, because the target residue and $1$ agree modulo $3$. By Lemma~\ref{lem:jacobi}, the residue $1$ avoids every earlier Type-II layer. The progression is reduced: every prime inherited from $L$ sees residue $1$, and $q\nmid D$ because $q\nmid A_q$. Dirichlet's theorem therefore supplies infinitely many prime members, all of exact depth $A_q$.
+\end{proof}
+
+\begin{corollary}[prime-factor criterion]\label{cor:factor}
+If $A_q$ has a prime divisor $\ell\equiv2\pmod3$, then $A_q$ is realized as exact square-completion depth by infinitely many primes.
+\end{corollary}
+
+\section{A half-dimensional exceptional set}
+Define
+\[
+E(Y)=\#\left\{q\le Y:q\text{ prime},\ q\equiv1\pmod4,
+\ A_q\text{ has no prime divisor }\ell\equiv2\pmod3\right\}.
+\]
+
+\begin{theorem}[quantitative exceptional set]\label{thm:exceptional}
+\[
+\boxed{E(Y)\ll\frac{Y}{(\log Y)^{3/2}}.}
+\]
+Consequently
+\[
+\frac{E(Y)}{\pi(Y;4,1)}\ll(\log Y)^{-1/2}.
+\]
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Sieve the sequence
+\[
+\mathcal A(Y)=\left\{\frac{3q+1}{4}:q\le Y,\ q\equiv1\pmod4\text{ prime}\right\}
+\]
+by odd primes $\ell\equiv2\pmod3$. If $d$ is squarefree and supported on those primes, then $d\mid A_q$ places $q$ in one reduced class modulo $4d$. Relative to the base class $q\equiv1\pmod4$, the local density is
+\[
+g(d)=\frac1{\varphi(d)},
+\qquad
+g(\ell)=\frac1{\ell-1}.
+\]
+Thus
+\[
+V(z)=\prod_{\substack{\ell<z\\\ell\equiv2(3)}}
+\left(1-\frac1{\ell-1}\right)
+\asymp(\log z)^{-1/2}
+\]
+by Mertens' theorem in arithmetic progressions. Bombieri--Vinogradov supplies the required averaged remainder control up to level $Y^{1/2}$, and the standard upper-bound beta sieve of dimension $1/2$ gives
+\[
+E(Y)\ll\frac{Y}{\log Y}V(Y^c)
+\ll\frac{Y}{(\log Y)^{3/2}}
+\]
+for fixed sufficiently small $c>0$. Omitting the sieving prime $2$ only enlarges the sifted set.
+\end{proof}
+
+Let
+\[
+N_{\rm comp}(X)=\#\{A\le X:4A-1\text{ composite and infinitely many primes }p
+\text{ satisfy }\sqdepth(p)=A\}.
+\]
+
+\begin{corollary}[quantitative depth count]\label{cor:count}
+\[
+\boxed{
+N_{\rm comp}(X)
+\ge
+\frac12\operatorname{Li}\!\left(\frac{4X-1}{3}\right)
+-O\!\left(\frac{X}{(\log X)^{3/2}}\right).
+}
+\]
+In particular,
+\[
+N_{\rm comp}(X)
+\ge\left(\frac23+o(1)\right)\frac{X}{\log X}.
+\]
+\end{corollary}
+
+\section{Jacobi ancestry and maximality}
+For an odd integer $m$, let
+\[
+v(m)=(\operatorname{ord}_r(m)\bmod2)_r
+\in\mathbf F_2^{(\mathcal P)}
+\]
+be the parity vector of its prime factorization, and put
+\[
+v_A=v(4A-1).
+\]
+The associated Jacobi character is
+\[
+\chi_A(n)=\left(\frac{n}{4A-1}\right)
+=\prod_r\left(\frac nr\right)^{(v_A)_r}.
+\]
+Multiplication of these characters corresponds to addition of parity vectors over $\mathbf F_2$.
+
+\begin{theorem}[first-occurrence span classification]\label{thm:span}
+Let
+\[
+V_{A-1}=\operatorname{span}_{\mathbf F_2}\{v_B:1\le B<A\}.
+\]
+Then
+\[
+\boxed{v_A\notin V_{A-1}}
+\]
+if and only if either
+\[
+4A-1=q\equiv3\pmod4\quad\text{is prime},
+\]
+or
+\[
+4A-1=3q,
+\qquad q\equiv1\pmod4\quad\text{is prime}.
+\]
+\end{theorem}
+
+\begin{proof}
+Let $r$ be a prime occurring to odd exponent in $4A-1$. If $r\equiv3\pmod4$, the earlier candidate depth
+\[
+B_r=\frac{r+1}{4}
+\]
+has modulus $4B_r-1=r$. Hence the coordinate vector $e_r$ is already present unless $B_r=A$, which is equivalent to $4A-1=r$.
+
+If $r\equiv1\pmod4$, the depth
+\[
+C_r=\frac{3r+1}{4}
+\]
+has modulus $3r$, hence parity vector $e_3+e_r$. Since depth $1$ has modulus $3$ and vector $e_3$, the coordinate $e_r$ is generated earlier unless $C_r=A$, which is equivalent to $4A-1=3r$.
+
+Outside the two stated cases every coordinate occurring in $v_A$ is individually generated by earlier vectors, so $v_A\in V_{A-1}$. Conversely, in the prime case the new prime coordinate has not appeared earlier; in the $3q$ case the $q$-coordinate first appears at depth $A$, so $e_3+e_q$ is new.
+\end{proof}
+
+\begin{theorem}[maximality of Jacobi-safe CRT]\label{thm:maximality}
+Suppose one attempts to avoid every earlier depth solely by imposing
+\[
+\chi_B(n)=+1\qquad(B<A).
+\]
+Such a global Jacobi-safe CRT construction can succeed at a composite target depth only when
+\[
+\boxed{4A-1=3q,
+\qquad q\equiv1\pmod4\text{ prime}.}
+\]
+In that case the target branches compatible with the earlier Jacobi condition are exactly those with $D\equiv2\pmod3$.
+\end{theorem}
+
+\begin{proof}
+If the composite target is not of the form $3q$, Theorem~\ref{thm:span} gives
+\[
+v_A=\sum_{B\in S}v_B
+\]
+for some finite set of earlier depths $S$. Therefore
+\[
+\chi_A(n)=\prod_{B\in S}\chi_B(n)=+1
+\]
+under the Jacobi-safe hypotheses. But a target witness has $n\equiv-4D\pmod{4A-1}$ with $D\mid A^2$, and Lemma~\ref{lem:jacobi} gives $\chi_A(n)=-1$, a contradiction.
+
+For $4A-1=3q$, the only earlier target coordinate is the factor $3$. Compatibility requires
+\[
+\left(\frac{-4D}{3}\right)=+1,
+\]
+which is equivalent to $D\equiv2\pmod3$, precisely the condition of Theorem~\ref{thm:backbone}.
+\end{proof}
+
+\section{Rank growth and reciprocity saturation}
+Define
+\[
+\mathcal V_X=\operatorname{span}_{\mathbf F_2}\{v_A:1\le A\le\lfloor X\rfloor\}.
+\]
+
+\begin{corollary}[exact Jacobi-rank formula]\label{cor:rank}
+\[
+\boxed{
+\dim\mathcal V_X
+=
+\pi(4\lfloor X\rfloor-1;4,3)
++
+\pi\!\left(\frac{4\lfloor X\rfloor-1}{3};4,1\right).
+}
+\]
+Consequently
+\[
+\boxed{\dim\mathcal V_X\sim\frac{8}{3}\frac{X}{\log X}.}
+\]
+The prime target backbone contributes asymptotically $3/4$ of the new character directions and the composite $3q$ backbone contributes $1/4$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:span}, rank increases exactly at prime target moduli and at $3q$ target moduli with $q\equiv1\pmod4$ prime. Counting the two disjoint classes gives the exact formula, and the prime number theorem in progressions gives the asymptotic.
+\end{proof}
+
+Let $J_{\rm comp}(X)$ count composite depths $A\le X$ that introduce a new Jacobi-character direction, and let $R_{\rm comp}(X)$ count those certified by Corollary~\ref{cor:factor}.
+
+\begin{corollary}[composite reciprocity saturation]\label{cor:saturation}
+\[
+J_{\rm comp}(X)=\pi\!\left(\frac{4X-1}{3};4,1\right)
+\]
+and
+\[
+\boxed{
+J_{\rm comp}(X)-R_{\rm comp}(X)
+\ll\frac{X}{(\log X)^{3/2}}.
+}
+\]
+Hence
+\[
+1-O((\log X)^{-1/2})
+\le
+\frac{R_{\rm comp}(X)}{J_{\rm comp}(X)}
+\le1.
+\]
+Thus asymptotically every new composite Jacobi direction is accompanied by an infinite exact-depth prime family from the $3q$ construction.
+\end{corollary}
+
+\begin{proof}
+The first equality follows from Theorem~\ref{thm:span}. The only $3q$ parameters not certified by Corollary~\ref{cor:factor} lie in the exceptional set counted by Theorem~\ref{thm:exceptional}. Substituting $Y=(4X-1)/3$ proves the estimate, and dividing by $J_{\rm comp}(X)\asymp X/\log X$ gives the ratio.
+\end{proof}
+
+\section{Multiplicity and an Erd\H{o}s--Kac law}
+For a backbone depth define
+\[
+\nu_-(A_q)=\#\{\ell\mid A_q:\ell\text{ prime},\ \ell\equiv2\pmod3\}.
+\]
+Every such witness prime $\ell$ gives a distinct target residue
+\[
+p\equiv-4\ell\pmod{3q}
+\]
+and hence a distinct infinite prime progression of exact depth $A_q$.
+
+Set
+\[
+\mu(Y)=\sum_{\substack{\ell\le Y\\\ell\equiv2(3)\\\ell\text{ odd prime}}}\frac1{\ell-1},
+\]
+\[
+\sigma^2(Y)=\sum_{\substack{\ell\le Y\\\ell\equiv2(3)\\\ell\text{ odd prime}}}
+\frac1{\ell-1}\left(1-\frac1{\ell-1}\right).
+\]
+Then Mertens' theorem in progressions gives
+\[
+\mu(Y)=\frac12\log\log Y+O(1),
+\qquad
+\sigma^2(Y)=\frac12\log\log Y+O(1).
+\]
+
+\begin{theorem}[Gaussian multiplicity law]\label{thm:ek}
+For every real $u$,
+\[
+\boxed{
+\lim_{Y\to\infty}
+\frac1{\pi(Y;4,1)}
+\#\left\{q\le Y:q\equiv1\pmod4\text{ prime},
+\frac{\nu_-(A_q)-\mu(Y)}{\sigma(Y)}\le u\right\}
+=\Phi(u),
+}
+\]
+where $\Phi$ is the standard normal distribution function. Equivalently,
+\[
+\frac{\nu_-(A_q)-\frac12\log\log q}
+{\sqrt{\frac12\log\log q}}
+\Longrightarrow N(0,1)
+\]
+over primes $q\equiv1\pmod4$.
+\end{theorem}
+
+\begin{proof}
+Apply the general sieve-theoretic Erd\H{o}s--Kac framework of Martin--Troupe to
+\[
+\left\{A_q=\frac{3q+1}{4}:q\equiv1\pmod4\text{ prime}\right\}
+\]
+and to the strongly additive function counting odd prime divisors $\ell\equiv2\pmod3$. For squarefree $d$ supported on these primes, $d\mid A_q$ places $q$ in one reduced class modulo $4d$, so the local density is $1/\varphi(d)$ and at a prime $\ell$ it is $1/(\ell-1)$. Bombieri--Vinogradov supplies the averaged remainder control required by the general theorem, as in its shifted-prime applications. The mean and variance are therefore $\mu(Y)$ and $\sigma^2(Y)$. The possible factor $2$ alters $\nu_-$ by at most one and is negligible after normalization.
+\end{proof}
+
+\begin{corollary}[normal order]
+For relative density $1$ of primes $q\equiv1\pmod4$,
+\[
+\nu_-(A_q)=\left(\frac12+o(1)\right)\log\log q.
+\]
+Thus a typical backbone depth supports that many distinct explicitly certified infinite exact-depth prime progressions.
+\end{corollary}
+
+\section{Beyond the Jacobi-safe backbone}
+Theorem~\ref{thm:maximality} concerns only constructions that avoid all earlier layers through one global choice of Jacobi sign $+1$. It does not make other composite exact depths impossible. Indeed finite branch-dependent CRT/CSP certificates in the accompanying repository verify full composite layers at $A=649$ and $A=22339$, neither of which lies in the $3q$ family. These examples show that finer congruence information is strictly stronger than the Jacobi-safe mechanism.
+
+A matching lower bound for $E(Y)$ is not obtained by the same half-dimensional sieve; the standard parity obstruction prevents a direct lower-bound sieve from forcing avoidance of all primes $\ell\equiv2\pmod3$.
+
+\section{Prior work and claim boundaries}
+The divisor-square Type-II parametrization, quadratic reciprocity, Dirichlet's theorem, Mertens' theorem in arithmetic progressions, Bombieri--Vinogradov, beta/half-dimensional sieve machinery, and Erd\H{o}s--Kac theory are prior mathematics. Martin--Troupe give a general sieve-theoretic Erd\H{o}s--Kac framework and shifted-prime applications; earlier additive-function distribution results on shifted primes and polynomial values go back to Halberstam, Barban, and Hildebrand. Contemporary FCF/CENTL work contains closely related divisor-Jacobi, reciprocity-signature, and ancestry ideas.
+
+The candidate contributions are the exact-depth synthesis: the composite $3q$ backbone, its quantitative exceptional-set consequence, the first-occurrence Jacobi-span classification and maximality theorem, the exact character-rank formula and reciprocity-saturation consequence, and the interpretation of the witness-prime additive function as the multiplicity of distinct infinite exact-depth prime families. Targeted searches through August 2026 did not locate these exact statements; this negative search does not establish publication priority.
+
+\begin{thebibliography}{99}
+\bibitem{ET}
+C. Elsholtz and T. Tao,
+Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions,
+\emph{J. Aust. Math. Soc.} 94 (2013), 50--105.
+
+\bibitem{PW}
+C. Pomerance and A. Weingartner,
+Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture,
+\emph{Ramanujan J.} 69 (2026).
+
+\bibitem{Dahan}
+B. Dahan,
+Sieve dimension and search depth for the Erd\H{o}s--Straus conjecture, $n\equiv1\pmod{24}$,
+arXiv:2608.24035 (2026).
+
+\bibitem{MG}
+L. Mizony and J.-L. Gardes,
+Un point sur la conjecture d'Erd\H{o}s et Straus,
+Universit\'e Claude-Bernard Lyon 1 (2012).
+
+\bibitem{MT}
+G. Martin and L. Troupe,
+The distribution of sums and products of additive functions,
+\emph{J. Th\'eorie des Nombres de Bordeaux} 32 (2020), 103--133.
+
+\bibitem{Hildebrand}
+A. Hildebrand,
+Additive and multiplicative functions on shifted primes,
+\emph{Proc. London Math. Soc.} (3) 59 (1989), 209--232.
+
+\bibitem{IK}
+H. Iwaniec and E. Kowalski,
+\emph{Analytic Number Theory},
+AMS Colloquium Publications 53, 2004.
+
+\bibitem{FCF}
+Free Computation Foundation / CENTL,
+Erd\H{o}s--Straus research library: square completion, exact-depth spectrum, ancestry, and reciprocity notes (2026).
+\end{thebibliography}
+
+\end{document}
