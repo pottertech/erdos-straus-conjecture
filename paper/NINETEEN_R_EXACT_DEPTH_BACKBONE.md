@@ -171,9 +171,9 @@ The primes `r\equiv21 (mod 40)` have relative density `1/\varphi(40)=1/16` among
 \[
 \pi\!\left(\frac{4X}{19};40,21\right)
 \sim
-\frac1{76}\frac{4X}{\log X}
+\frac1{16}\frac{4X/19}{\log X}
 =
-\boxed{\frac1{19}\frac{X}{\log X}}.
+\boxed{\frac1{76}\frac{X}{\log X}}.
 \]
 
 This family is disjoint from the prime-modulus and `3q`, `7r`, and `11r` backbones at the level of target modulus factorization.
