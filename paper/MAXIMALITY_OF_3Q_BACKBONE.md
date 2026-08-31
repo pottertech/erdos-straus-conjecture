@@ -22,10 +22,6 @@ The square-safe overlap theorem says that a target branch `(A,D)`, `D|A^2`, give
 
 is a square modulo `H_A`.
 
-The purpose here is to classify the possible target moduli for this mechanism.
-
----
-
 ## 1. First occurrence of an odd modulus
 
 For an odd integer `s`, let `beta(s)` be the least positive integer `B` satisfying
@@ -34,9 +30,7 @@ For an odd integer `s`, let `beta(s)` be the least positive integer `B` satisfyi
 s\mid4B-1.
 \]
 
-Equivalently, `beta(s)` is the least positive residue of `4^{-1} mod s`.
-
-Because `s == 1 or 3 (mod 4)`, one has the explicit formula
+Equivalently, `beta(s)` is the least positive residue of `4^{-1} mod s`. Since `s == 1 or 3 (mod 4)`,
 
 \[
 \boxed{
@@ -47,9 +41,7 @@ Because `s == 1 or 3 (mod 4)`, one has the explicit formula
 \end{cases}}
 \]
 
-Indeed these are positive integers less than or equal to `s` and satisfy `4 beta(s) == 1 (mod s)`.
-
-Now let `s|m_A`. Since `4A == 1 (mod s)`,
+If `s|m_A`, then `4A == 1 (mod s)`, so
 
 \[
 A\equiv\beta(s)\pmod s.
@@ -61,8 +53,6 @@ Thus `s` occurs in an earlier modulus `4B-1`, `B<A`, if and only if
 \boxed{\beta(s)<A.}
 \]
 
----
-
 ## 2. When is the ancestral overlap proper?
 
 ### Theorem 1
@@ -73,7 +63,7 @@ If
 H_A<m_A,
 \]
 
-then the target modulus has one of the two forms
+then
 
 \[
 \boxed{m_A=p^e}
@@ -101,55 +91,27 @@ If `H_A<m_A`, choose a prime power
 s=p^e\parallel m_A
 \]
 
-whose full exponent is not present in `H_A`. Then `s` has not occurred at any earlier depth, so
+whose full exponent is absent from `H_A`. Then `s` has not occurred at an earlier depth, so
 
 \[
 \beta(s)=A.
 \]
 
-If `s == 3 (mod 4)`, then
-
-\[
-A=(s+1)/4,
-\]
-
-hence
+If `s == 3 (mod 4)`, then `A=(s+1)/4`, hence
 
 \[
 m_A=4A-1=s=p^e.
 \]
 
-If `s == 1 (mod 4)`, then
-
-\[
-A=(3s+1)/4,
-\]
-
-hence
+If `s == 1 (mod 4)`, then `A=(3s+1)/4`, hence
 
 \[
 m_A=4A-1=3s=3p^e.
 \]
 
-This proves necessity.
+Conversely, in each displayed form the top prime power first occurs at depth `A`, so it is absent from `L_{A-1}`.
 
-Conversely, if `m_A=p^e == 3 (mod 4)`, then the top prime power `p^e` first occurs at
-
-\[
-A=(p^e+1)/4.
-\]
-
-If `m_A=3p^e` with `p^e == 1 (mod 4)`, then `p^e` first occurs at
-
-\[
-A=(3p^e+1)/4.
-\]
-
-Thus in either case the top prime-power coordinate is absent from `L_{A-1}`, so `H_A<m_A`.
-
----
-
-## 3. Composite prime powers are always blocked
+## 3. Composite prime powers are blocked
 
 Suppose
 
@@ -158,55 +120,76 @@ m_A=p^e,
 \qquad e>1.
 \]
 
-Since `m_A == 3 (mod 4)`, one has
+Since `m_A == 3 (mod 4)`,
 
 \[
 p\equiv3\pmod4,
 \qquad e\text{ odd}.
 \]
 
-Also `p` already occurs at an earlier depth, so
+Also `p` occurs at an earlier depth, so
 
 \[
 p\mid H_A.
 \]
 
-We show that every divisor `D|A^2` makes `-4D` a quadratic nonresidue modulo `p`.
-
-Let `r` be any prime divisor of `A`. Since
+We prove that every divisor `D|A^2` satisfies
 
 \[
-4A=p^e+1,
+\left(\frac Dp\right)=1.
 \]
 
-we have
+Let `r` be an odd prime divisor of `A`. From
+
+\[
+4A=p^e+1
+\]
+
+we get
 
 \[
 p^e\equiv-1\pmod r.
 \]
 
-Taking Legendre symbols and using that `e` is odd,
+Since `e` is odd,
 
 \[
-\left(\frac p r\right)=\left(\frac{-1}r\right).
+\left(\frac pr\right)=\left(\frac{-1}r\right).
 \]
 
-Quadratic reciprocity, with `p == 3 (mod 4)`, gives
+Quadratic reciprocity, using `p == 3 (mod 4)`, gives
 
 \[
-\left(\frac r p\right)
+\left(\frac rp\right)
 =
-\left(\frac p r\right)
-(-1)^{((p-1)/2)((r-1)/2)}
+\left(\frac pr\right)(-1)^{((p-1)/2)((r-1)/2)}
 =
 \left(\frac{-1}r\right)^2
 =1.
 \]
 
-Thus every prime divisor of `A` is a quadratic residue modulo `p`. Hence for every `D|A^2`,
+The only remaining possible prime divisor of `A` is `2`. If `2|A`, then
 
 \[
-\left(\frac D p\right)=1.
+p^e\equiv7\pmod8.
+\]
+
+Because `e` is odd and `p==3 (mod 4)`, this forces
+
+\[
+p\equiv7\pmod8,
+\]
+
+and hence
+
+\[
+\left(\frac2p\right)=1.
+\]
+
+Therefore every prime divisor of `A`, including `2` when present, is a quadratic residue modulo `p`. Hence every `D|A^2` satisfies
+
+\[
+\left(\frac Dp\right)=1.
 \]
 
 But
@@ -219,22 +202,20 @@ But
 =-1.
 \]
 
-Therefore `-4D` is not a square modulo `p`, and hence not a square modulo `H_A`.
+Thus `-4D` is not a square modulo `p`, hence not modulo `H_A`.
 
-So:
+So
 
 \[
-\boxed{m_A=p^e,\ e>1\quad\Longrightarrow\quad
+\boxed{m_A=p^e,\ e>1\Longrightarrow
 \text{the square-safe overlap criterion never succeeds}.}
 \]
 
-The only prime-power targets admitted by the mechanism are therefore the prime-modulus case `e=1`, i.e. the already-known prime backbone.
+The only prime-power targets admitted by the mechanism are the prime targets `e=1`.
 
----
+## 4. Targets `3p^e` with `e>1` are blocked
 
-## 4. Targets `3p^e` with `e>1` are always blocked
-
-Now suppose
+Suppose
 
 \[
 m_A=3p^e,
@@ -258,39 +239,33 @@ Then
 -4D\equiv2\pmod3,
 \]
 
-which is not a square modulo `3`. Hence the overlap criterion fails.
+which is not a square modulo `3`.
 
 ### Case 2: `D == 2 (mod 3)`
 
-We show that the target residue is a quadratic nonresidue modulo `p`.
+We show that `-4D` is a quadratic nonresidue modulo `p`.
 
-Let `r|A` be prime. From
+From
 
 \[
 4A=3p^e+1
 \]
 
-we obtain
+we have, for every odd prime `r|A`,
 
 \[
 3p^e\equiv-1\pmod r.
 \]
 
-Equivalently,
-
-\[
-p^e\equiv-3^{-1}\pmod r.
-\]
-
 #### If `e` is even
 
-Taking Legendre symbols gives
+Then
 
 \[
 1=\left(\frac{-3}r\right).
 \]
 
-For primes `r != 3`, the quadratic character of `-3` satisfies
+For odd primes `r != 3`,
 
 \[
 \left(\frac{-3}r\right)=1
@@ -298,42 +273,60 @@ For primes `r != 3`, the quadratic character of `-3` satisfies
 r\equiv1\pmod3.
 \]
 
-Thus every prime divisor of `A` is `1 mod 3`, so every divisor `D|A^2` is also `1 mod 3`. Case 2 cannot occur.
+Also an odd square is `1 mod 8`, so `p^e == 1 (mod 8)` and
+
+\[
+3p^e+1\equiv4\pmod8,
+\]
+
+which makes `A` odd. Thus every prime divisor of `A` is `1 mod 3`, and every `D|A^2` is `1 mod 3`. Case 2 cannot occur.
 
 #### If `e` is odd
 
-Since `p^e == 1 (mod 4)`, we have
+Then `p^e == 1 (mod 4)` implies
 
 \[
 p\equiv1\pmod4.
 \]
 
-Taking Legendre symbols in `p^e == -3^{-1} (mod r)` gives
-
-\[
-\left(\frac p r\right)
-=
-\left(\frac{-3}r\right).
-\]
-
-Because `p == 1 (mod 4)`, quadratic reciprocity has no sign, so
+For every odd prime divisor `r|A`, quadratic reciprocity gives
 
 \[
 \boxed{
-\left(\frac r p\right)=\left(\frac{-3}r\right).
+\left(\frac rp\right)=\left(\frac{-3}r\right).
 }
 \]
 
-Thus a prime divisor `r|A` has Legendre symbol `-1 mod p` exactly when
+Hence an odd prime divisor `r|A` has Legendre symbol `-1 mod p` exactly when
 
 \[
 r\equiv2\pmod3.
 \]
 
-If `D == 2 (mod 3)`, the total exponent parity in `D` of prime factors `r == 2 (mod 3)` is odd. Consequently
+We must again handle `r=2` separately. If `2|A`, then
 
 \[
-\left(\frac D p\right)=-1.
+3p^e\equiv7\pmod8,
+\]
+
+so, with `e` odd,
+
+\[
+p\equiv5\pmod8.
+\]
+
+Therefore
+
+\[
+\left(\frac2p\right)=-1.
+\]
+
+Thus the same rule extends to the factor `2`: every prime divisor of `A` that is `2 mod 3` contributes a factor `-1` to `(D/p)`, while every prime divisor that is `1 mod 3` contributes `+1`.
+
+If `D == 2 (mod 3)`, the total exponent parity in `D` of prime factors congruent to `2 mod 3` is odd. Consequently
+
+\[
+\left(\frac Dp\right)=-1.
 \]
 
 Since `p == 1 (mod 4)`,
@@ -347,26 +340,24 @@ Since `p == 1 (mod 4)`,
 
 So the target residue is not a square modulo `p`, hence not modulo `H_A`.
 
-Combining the cases:
+Combining the cases,
 
 \[
-\boxed{m_A=3p^e,\ e>1\quad\Longrightarrow\quad
+\boxed{m_A=3p^e,\ e>1\Longrightarrow
 \text{the square-safe overlap criterion never succeeds}.}
 \]
 
----
-
 ## 5. Complete classification
 
-### Theorem 2 — maximality of the composite square-safe backbone
+### Theorem 2 - maximality of the composite square-safe backbone
 
-The universal-square safe-residue CRT mechanism produces infinitely many primes of exact square-completion depth only in the following target-modulus situations:
+The universal-square safe-residue CRT mechanism can produce infinitely many primes of exact square-completion depth only in the following target-modulus situations:
 
 1. **Prime target modulus**
    \[
    m_A=q\equiv3\pmod4\text{ prime},
    \]
-   where `H_A=1`. This is the prime-modulus exact-depth backbone.
+   where `H_A=1`.
 
 2. **Composite target modulus**
    \[
@@ -388,7 +379,7 @@ The universal-square safe-residue CRT mechanism produces infinitely many primes 
 
 All composite prime-power targets and all `3p^e` targets with `e>1` are blocked by quadratic reciprocity.
 
-Therefore:
+Therefore
 
 \[
 \boxed{
@@ -396,15 +387,11 @@ Therefore:
 }
 \]
 
----
-
 ## 6. Consequence for the manuscript
 
 The density-one `3q` theorem is not merely a convenient subfamily of the square-safe method. It exhausts the composite part of that entire mechanism.
 
-To go beyond the `3q` backbone one must use genuinely richer information than one globally square-safe residue class: for example branch-dependent CRT assignments, multi-coordinate avoidance, divisor-modulus primitive structure, or the full CSP certificate method used at depths `649` and `22339`.
-
-This explains structurally why those later composite examples require more complicated machinery.
+To go beyond the `3q` backbone one must use genuinely richer information than one globally square-safe residue class: branch-dependent CRT assignments, multi-coordinate avoidance, divisor-modulus primitive structure, or the full CSP certificate method used at depths `649` and `22339`.
 
 ## Claim boundary / prior art
 
