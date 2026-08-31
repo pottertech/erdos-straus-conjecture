@@ -1,13 +1,13 @@
 # Admissible Fixed-Cofactor Exact-Depth Theorem
 
-**Status:** unconditional theorem schema. This unifies the previously proved fixed-cofactor families. It is a theorem about exact square-completed Type-II depth, not a proof of the Erdos--Straus conjecture. Novelty/priority remains subject to dedicated literature review.
+**Status:** unconditional theorem schema. This unifies the previously proved fixed-cofactor families. It concerns exact square-completed Type-II depth, not the full Erdős--Straus conjecture. Novelty/priority remains subject to literature review.
 
-## 1. Admissible fixed pair
+## 1. Equality-free admissible parameter progression
 
 Let `s>1` be a fixed odd integer with
 
 \[
-s\equiv 3\pmod 4,
+s\equiv3\pmod4,
 \]
 
 and let `d>=1` satisfy
@@ -16,240 +16,162 @@ and let `d>=1` satisfy
 \gcd(s,4d)=1.
 \]
 
-Let `a` be the reduced residue class
+Choose a reduced residue class `alpha (mod 16d)` satisfying
 
 \[
-\boxed{a\equiv -s^{-1}\pmod{4d}.}
+\boxed{\alpha\equiv-s^{-1}\pmod{4d}.}
 \]
 
-Assume the following two local character conditions.
+Assume:
 
-1. The target is square on every prime divisor of the fixed cofactor:
-
+1. for every prime `q|s`,
 \[
-\boxed{
-\left(\frac{-d}{q}\right)=+1
-\quad\text{for every prime }q\mid s.
-}
+\boxed{\left(\frac{-d}{q}\right)=+1;}
 \]
 
-2. The target is nonsquare on the variable prime throughout the parameter progression: for every prime
-
+2. for every prime `r==alpha (mod 16d)`, apart from at most finitely many excluded primes,
 \[
-r\equiv a\pmod{4d}
+\boxed{\left(\frac{-d}{r}\right)=-1;}
 \]
 
-outside a finite set (equivalently, for the reduced classes under consideration),
-
+3. for every integer `c` with
 \[
-\boxed{
-\left(\frac{-d}{r}\right)=-1.
-}
+0<c<s,\qquad c\equiv3\pmod4,
+\]
+the AM--GM equality configuration is excluded on the parameter progression:
+\[
+\boxed{c\alpha+1\not\equiv0\pmod{16d}.}
 \]
 
-Call such a pair `(s,d)` **admissible**.
+Call `(s,d,alpha)` an **equality-free admissible triple**.
 
-For a prime parameter `r` in the progression, define
-
+For a prime parameter
+\[
+r\equiv\alpha\pmod{16d},
+\]
+put
 \[
 A=\frac{sr+1}{4}.
 \]
-
-Because `sr+1==0 (mod 4d)`, we have
-
+Because `alpha==-s^{-1} (mod 4d)`,
 \[
 \boxed{d\mid A,}
 \]
-
-hence `d|A^2`. The target square-completion residue is
-
+so `d|A^2`. The target square-completion residue is
 \[
-\boxed{n\equiv -4d\pmod{sr}.}
+\boxed{n\equiv-4d\pmod{sr}.}
 \]
+It is square at each fixed prime coordinate dividing `s` and nonsquare at the single variable coordinate `r`.
 
-By admissibility, this target is a quadratic residue at every fixed prime coordinate dividing `s` and a quadratic nonresidue at the single variable coordinate `r`.
+## 2. Reduction to the `r`-bearing earlier layers
 
-## 2. Reduction to finitely many exceptional layers
+Choose square-safe CRT coordinates at all prime powers not involving `r`, preserving the prescribed target residues on the fixed factors of `s`. The universal square-safe lemma then eliminates every earlier layer whose modulus is not divisible by `r`.
 
-Choose square-safe CRT coordinates at every prime power not involving `r`, while preserving the required target residues on the prime factors of `s`. By the universal square-safe lemma, every earlier square-completed Type-II layer whose modulus is not divisible by `r` is avoided automatically.
-
-After excluding the finitely many parameter primes `r<=s`, an earlier modulus containing `r` has the form
-
+After discarding the finitely many parameters `r<=s`, every earlier modulus containing `r` has the form
 \[
 4B-1=cr,
 \]
-
-where
-
+with
 \[
-0<c<s,
-\qquad
-c\equiv3\pmod4.
+0<c<s,\qquad c\equiv3\pmod4.
 \]
-
-Thus only finitely many fixed cofactors `c` can occur.
+Thus only finitely many fixed cofactors `c` need inspection.
 
 ## 3. Master exceptional-layer equation
 
-Fix such a cofactor `c`, and put
-
+Fix such a `c` and put
 \[
 B=\frac{cr+1}{4}.
 \]
-
-Suppose a collision occurs at depth `B`. Then there exists a divisor
-
+A collision gives a divisor `E|B^2` satisfying `E==d (mod r)`, so write
 \[
-E\mid B^2
+E=rk+d.
+\]
+With
+\[
+F=B^2/E,
+\]
+the complementary congruence has the form
+\[
+16dF=rh+1.
+\]
+Multiplying gives
+\[
+(rk+d)(rh+1)=d(cr+1)^2,
+\]
+and hence
+\[
+\boxed{r(kh-dc^2)+k+dh-2dc=0.}
 \]
 
-compatible with the target residue. The congruence modulo the variable prime gives
-
+If `kh>dc^2`, AM--GM gives
 \[
-E\equiv d\pmod r,
+k+dh>2dc,
 \]
-
-so write
-
+contradicting the displayed equation. If `kh=dc^2`, equality in AM--GM forces
 \[
-E=rk+d,
-\qquad k\ge0.
+k=dc,\qquad h=c,
 \]
-
-Let
-
+and hence
 \[
-F=\frac{B^2}{E}.
+16d\mid cr+1.
 \]
-
-The complementary congruence gives
-
+But `r==alpha (mod 16d)` and hypothesis 3 says
 \[
-16dF=rh+1
+c\alpha+1\not\equiv0\pmod{16d},
 \]
+so the equality case is impossible throughout the chosen prime progression.
 
-for some integer `h>=0`. Multiplying
-
-\[
-(rk+d)(rh+1)=16dB^2=d(cr+1)^2
-\]
-
-and cancelling the constant term yields the exact identity
-
-\[
-\boxed{
-r(kh-dc^2)+k+dh-2dc=0.
-}
-\]
-
-If `kh>dc^2`, then
-
-\[
-r(kh-dc^2)=2dc-k-dh.
-\]
-
-But AM--GM gives
-
-\[
-k+dh\ge2\sqrt{dkh}>2dc,
-\]
-
-so the right side is negative while the left side is positive, impossible.
-
-If `kh=dc^2`, equality in AM--GM forces
-
-\[
-k=dc,\qquad h=c.
-\]
-
-This equality case is equivalent to the additional divisibility
-
-\[
-4d\mid B,
-\]
-
-or
-
-\[
-\boxed{16d\mid cr+1.}
-\]
-
-For any fixed `(s,d,c)`, this either is incompatible with the chosen parameter progression or contributes at most a fixed subprogression that can be separated explicitly. Outside that equality configuration, every collision therefore satisfies
-
+Therefore every collision satisfies
 \[
 \boxed{kh<dc^2.}
 \]
-
-Hence, for fixed `s,d,c`, there are only finitely many possible pairs `(k,h)`. For each pair the master equation determines at most one rational value
-
+For fixed `(s,d,c)` only finitely many nonnegative pairs `(k,h)` satisfy this bound, and each determines at most one rational value
 \[
-\boxed{
-r=\frac{k+dh-2dc}{dc^2-kh}.}
+\boxed{r=\frac{k+dh-2dc}{dc^2-kh}.}
+\]
+Thus each `c` contributes only finitely many collision primes `r`; the union over all `c<s` is finite.
+
+## 4. The theorem
+
+Dirichlet gives infinitely many primes
+\[
+r\equiv\alpha\pmod{16d}
+\]
+because `alpha` is reduced. Removing the finite collision set still leaves infinitely many parameter primes. For every remaining `r`, CRT gives a reduced progression satisfying the target congruence at depth `A` and avoiding all earlier square-completed Type-II traps. A second application of Dirichlet therefore gives infinitely many primes `p` with
+\[
+\boxed{\delta_{\rm sq}(p)=\frac{sr+1}{4}.}
 \]
 
-Consequently each exceptional cofactor `c` produces only finitely many possible collision parameters `r` (plus the explicitly handled equality configuration).
-
-Since only finitely many `c<s` occur, the union of all bad parameter primes is finite.
-
-## 4. Admissible-pair theorem
-
-Dirichlet's theorem gives infinitely many primes
-
-\[
-r\equiv a\pmod{4d}
-\]
-
-because `a` is reduced. Removing the finite collision set leaves infinitely many prime parameters. For every remaining `r`, CRT supplies a reduced progression satisfying the target congruence at depth `A` and avoiding every earlier square-completed Type-II trap. Dirichlet applied to that refined progression then gives infinitely many primes `p` with
-
-\[
-\boxed{
-\delta_{\rm sq}(p)=\frac{sr+1}{4}.
-}
-\]
-
-Therefore:
-
-> **Admissible fixed-cofactor theorem.**  For every admissible fixed pair `(s,d)`, all but finitely many prime parameters
-> \[
-> r\equiv -s^{-1}\pmod{4d}
-> \]
-> generate an exact square-completed Type-II depth
-> \[
-> \boxed{A=(sr+1)/4}
-> \]
-> that is realized by infinitely many primes.
+> **Equality-free admissible fixed-cofactor theorem.** For every equality-free admissible triple `(s,d,alpha)`, all but finitely many primes `r==alpha (mod 16d)` generate a depth `A=(sr+1)/4` that occurs infinitely often as an exact square-completed Type-II depth.
 
 ## 5. Counting consequence
 
-For each fixed admissible pair `(s,d)`, deleting finitely many prime parameters does not change the asymptotic count. The family contributes
-
+A fixed equality-free admissible triple contributes
 \[
-\boxed{
-\frac{4}{s\varphi(4d)}\frac{X}{\log X}
-}
+\boxed{\frac{4}{s\varphi(16d)}\frac{X}{\log X}}
+\]
+exact depths up to `X` when one works with the single class `alpha (mod 16d)`.
+
+If the equality obstruction is known to be impossible on a coarser reduced class modulo `4d` (as in the canonical `s==3 (mod 8)` hierarchy and several explicit small families), one may retain that coarser progression and obtain the larger contribution
+\[
+\boxed{\frac{4}{s\varphi(4d)}\frac{X}{\log X}.}
 \]
 
-exact depths up to `X`.
+For any fixed finite collection of families with distinct target factorizations, the contributions add after discarding the finitely many swapped-prime coincidences.
 
-For any fixed finite collection of admissible pairs whose target factorizations are distinct apart from finitely many swapped-prime coincidences, the contributions add after discarding those finite overlaps.
+## 6. Relation to the proved families
 
-## 6. Previously proved families as instances
-
-This theorem schema contains the explicit fixed-cofactor constructions already established on the research branch:
-
-- `s=7, d=3`, parameter class `r==5 (mod 12)`;
-- `s=11, d=6`, parameter class `r==13 (mod 24)`;
-- `s=19, d=10`, parameter class `r==21 (mod 40)`;
-- `s=23, d=20`, parameter class `r==73 (mod 80)`;
-- the certified `s=31,43,47,59,67` rows;
-- for every prime `s==3 (mod 8)`, the canonical choice
-  \[
-  d=(s+1)/2,
-  \]
-  which yields the infinite hierarchy proved in `INFINITE_FIXED_COFACTOR_HIERARCHY.md`.
-
-The explicit small-family notes remain useful because they provide transparent collision tables, while the present theorem isolates the reusable mechanism.
+The explicit branch notes verify the stronger coarse-progression condition directly for their stated residue classes. In particular, the canonical prime-cofactor hierarchy
+\[
+s\equiv3\pmod8,\qquad d=(s+1)/2,
+\]
+has an equality obstruction that is impossible for every parameter in the original class, so its previously stated coefficient
+\[
+\frac{4}{s\varphi(2(s+1))}
+\]
+remains unchanged.
 
 ## Claim boundary
 
-The local quadratic-coordinate mechanism has close antecedents in contemporary reciprocity/square-lift work. The candidate contribution here is the fixed-cofactor **exact-first-hit finite-exception theorem** and its use to generate infinite exact-depth backbones. Do not claim novelty or priority without a dedicated literature audit.
+The local quadratic-coordinate mechanism has close antecedents in contemporary reciprocity/square-lift work. The candidate contribution is the fixed-cofactor exact-first-hit finite-exception theorem and its use to generate infinite exact-depth backbones. Do not claim novelty or priority without a dedicated literature audit.
