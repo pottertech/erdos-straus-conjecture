@@ -2,7 +2,7 @@ name: CI (Lean build + certificate verification + audit)
 
 on:
   push:
-    branches: [main, "integration/cloakbrowser-optional-runtime"]
+    branches: [main, "research/short-relation-100m"]
   pull_request:
     branches: [main]
 
@@ -28,7 +28,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install -r requirements.txt
       - name: Verify certificates (per-record)
         run: python analysis/layer4/verify_certificates.py
       - name: Check certificate dataset integrity
@@ -42,7 +41,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install -r requirements.txt
       - name: Install Lean via elan
         run: |
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
