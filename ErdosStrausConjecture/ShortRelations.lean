@@ -44,18 +44,15 @@ theorem centered_binary_endpoint
   refine ⟨K, A * C * r, B * C * r, hK, ?_, ?_, ?_⟩
   · positivity
   · positivity
-  · have h4z : (4 * K : ℤ) = n + u := by exact_mod_cast h4
-    have hfz : ((A * B) * C : ℤ) = n * K := by exact_mod_cast hfac
-    have hsz : (u * r : ℤ) = A + B := by exact_mod_cast hsum
-    have hz :
-        (4 * K * (A * C * r) * (B * C * r) : ℤ) =
-        n * (K * (A * C * r) + K * (B * C * r) + (A * C * r) * (B * C * r)) := by
-      push_cast
-      linear_combination
-        (C * r * r * (4 * K - n)) * hfz +
-        (n * C * r * r * K) * h4z -
-        (n * C * r * K) * hsz
-    exact_mod_cast hz
+  · calc
+      4 * K * (A * C * r) * (B * C * r)
+          = 4 * K * ((A * B) * C) * C * r^2 := by ring
+      _ = 4 * K * (n * K) * C * r^2 := by rw [hfac]
+      _ = n * K * C * r^2 * (n + u) := by rw [← h4]; ring
+      _ = n * (K * C * r * (A + B) + ((A * B) * C) * C * r^2) := by
+            rw [← hsum, hfac]
+            ring
+      _ = n * (K * (A * C * r) + K * (B * C * r) + (A * C * r) * (B * C * r)) := by ring
 
 /-- Untwisted unit-partner endpoint from the complete fixed-shift binary criterion.
 If `K = d*q` and `d + 1 = c*r`, then the divisor pair `(d,1)` is a
