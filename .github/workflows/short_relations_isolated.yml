@@ -20,7 +20,7 @@ jobs:
         run: |
           source $HOME/.elan/env
           lake exe cache get || true
-      - name: Compile short-relation endpoint module only
+      - name: Build library including ShortRelations
         run: |
           source $HOME/.elan/env
-          lake env lean ErdosStrausConjecture/ShortRelations.lean
+          lake build ErdosStrausConjecture
