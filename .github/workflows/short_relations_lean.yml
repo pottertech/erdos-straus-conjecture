@@ -30,9 +30,9 @@ jobs:
           lake update
           lake exe cache get
 
-      - name: Compile ShortRelations.lean directly
+      - name: Build library including ShortRelations
         shell: bash
         run: |
           set -euxo pipefail
           source "$HOME/.elan/env"
-          lake env lean ErdosStrausConjecture/ShortRelations.lean
+          lake build ErdosStrausConjecture
