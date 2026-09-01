@@ -1,1 +1,365 @@
-XGRvY3VtZW50Y2xhc3NbMTFwdF17YXJ0aWNsZX0KXHVzZXBhY2thZ2VbbWFyZ2luPTFpbl17Z2VvbWV0cnl9Clx1c2VwYWNrYWdle2Ftc21hdGgsYW1zc3ltYixhbXN0aG19Clx1c2VwYWNrYWdlW2hpZGVsaW5rc117aHlwZXJyZWZ9Clx1c2VwYWNrYWdle21pY3JvdHlwZX0KClxuZXd0aGVvcmVte3RoZW9yZW19e1RoZW9yZW19ClxuZXd0aGVvcmVte2xlbW1hfVt0aGVvcmVtXXtMZW1tYX0KXG5ld3RoZW9yZW17cHJvcG9zaXRpb259W3RoZW9yZW1de1Byb3Bvc2l0aW9ufQpcbmV3dGhlb3JlbXtjb3JvbGxhcnl9W3RoZW9yZW1de0Nvcm9sbGFyeX0KXHRoZW9yZW1zdHlsZXtkZWZpbml0aW9ufQpcbmV3dGhlb3JlbXtyZW1hcmt9W3RoZW9yZW1de1JlbWFya30KXG5ld2NvbW1hbmR7XHNxZGVwdGh9e1xkZWx0YV97XHJtIHNxfX0KXG5ld2NvbW1hbmR7XHNyY317XG9wZXJhdG9ybmFtZXtzcmN9fQoKXHRpdGxle1ByaW1lLUNvZmFjdG9yIEhpZXJhcmNoaWVzIGluIHRoZSBFeGFjdCBUeXBlLUlJIEVyZFxIe299cy0tU3RyYXVzIERlcHRoIFNwZWN0cnVtfQpcYXV0aG9ye1NraXAgUG90dGVyfQpcZGF0ZXtBdWd1c3QgMzEsIDIwMjZ9CgpcYmVnaW57ZG9jdW1lbnR9ClxtYWtldGl0bGUKClxiZWdpbnthYnN0cmFjdH0KRm9yIHByaW1lcyAkcFxlcXVpdjFccG1vZDQkLCBkZWZpbmUKXFsKXHNxZGVwdGgocCk9XG1pblx7QVxnZTE6XGV4aXN0cyBEXG1pZCBBXjIsXCA0QS0xXG1pZCBwKzREXH0uClxdClRoaXMgaXMgdGhlIGZpcnN0LWhpdCBkZXB0aCBpbiBhIGNsYXNzaWNhbCBkaXZpc29yLXNxdWFyZSBjb29yZGluYXRlIGZvciBwcmltZSBUeXBlLUlJIEVyZFxIe299cy0tU3RyYXVzIHNvbHV0aW9ucy4gV2Ugc3R1ZHkgaXRzIGV4YWN0LWRlcHRoIHNwZWN0cnVtLgoKRXZlcnkgZGVwdGgtJEIkIHRyYXAgcmVzaWR1ZSAkLTRFJCwgJEVcbWlkIEJeMiQsIGhhcyBKYWNvYmkgc2lnbiAkLTEkIG1vZHVsbyAkNEItMSQuIEEgcGFyaXR5LXZlY3RvciBjYWxjdWxhdGlvbiBzaG93cyB0aGF0IG5ldyBnbG9iYWwgSmFjb2JpLWNoYXJhY3RlciBkaXJlY3Rpb25zIGZpcnN0IG9jY3VyIG9ubHkgYXQgcHJpbWUgdGFyZ2V0IG1vZHVsaSBhbmQgYXQgdGFyZ2V0IG1vZHVsaSAkM3EkLiBUaHVzICQzcSQgaXMgbWF4aW1hbCBmb3IgY29uc3RydWN0aW9ucyB0aGF0IGF2b2lkIGFsbCBlYXJsaWVyIGxheWVycyBzb2xlbHkgYnkgYSBnbG9iYWwgSmFjb2JpLXNpZ24gY29uZGl0aW9uLgoKV2UgaW50cm9kdWNlIGEgZmluZXIgZml4ZWQtY29mYWN0b3IgbWVjaGFuaXNtLiBJZiBhIHRhcmdldCByZXNpZHVlIGlzIHF1YWRyYXRpYy1yZXNpZHVlIGF0IGV2ZXJ5IGZpeGVkIHRhcmdldCBwcmltZSBhbmQgbm9ucmVzaWR1ZSBhdCBvbmUgdmFyaWFibGUgcHJpbWUgJHIkLCBhbGwgZWFybGllciBsYXllcnMgbm90IGNvbnRhaW5pbmcgJHIkIGNhbiBiZSBlbGltaW5hdGVkIHNpbXVsdGFuZW91c2x5LiBFdmVyeSByZW1haW5pbmcgJHIkLWJlYXJpbmcgbGF5ZXIgaGFzIG1vZHVsdXMgJGNyJCwgYW5kIGFueSBjb2xsaXNpb24gZm9yY2VzClxbCnIoa2gtZGNeMikraytkaC0yZGM9MC4KXF0KQSBzZXBhcmF0ZSBuby1yZXVzZSB0aGVvcmVtIGV4Y2x1ZGVzICRrPTAkLiBIZW5jZSAkayxoXGdlMSQgYW5kIEFNLS1HTSBnaXZlcyAka2g8ZGNeMiQsIGxlYXZpbmcgb25seSBmaW5pdGVseSBtYW55IGJhZCBwYXJhbWV0ZXIgcHJpbWVzLgoKVGhpcyB5aWVsZHMgYSBjYW5vbmljYWwgaGllcmFyY2h5IGZvciBldmVyeSBmaXhlZCBwcmltZSBjb2ZhY3RvciAkcz4zJC4gQWNjb3JkaW5nIHRvICRzXHBtb2Q4JCwgYW4gZXhwbGljaXQgd2l0bmVzcyAkZF9zJCBhbmQgYW4gZXhwbGljaXQgcHJpbWUgcHJvZ3Jlc3Npb24gZm9yICRyJCBnaXZlLCBhcGFydCBmcm9tIGZpbml0ZWx5IG1hbnkgcGFyYW1ldGVyIHByaW1lcywgZXhhY3QgZGVwdGhzClxbCkE9XGZyYWN7c3IrMX17NH0KXF0KcmVhbGl6ZWQgYnkgaW5maW5pdGVseSBtYW55IHByaW1lcy4KCklmICROX1xpbmZ0eShYKSQgY291bnRzIGRlcHRoIHZhbHVlcyAkQVxsZSBYJCByZWFsaXplZCBhcyBleGFjdCBzcXVhcmUtY29tcGxldGVkIFR5cGUtSUkgZGVwdGggYnkgaW5maW5pdGVseSBtYW55IHByaW1lcywgdGhlbgpcWwpcbGltaW5mX3tYXHRvXGluZnR5fVxmcmFje05fXGluZnR5KFgpXGxvZyBYfXtYfVxnZVxmcmFjODMrQ197XHJtIGFsbH0sClxdCndoZXJlICRDX3tccm0gYWxsfT4wJCBpcyBhbiBleHBsaWNpdGx5IGNvbnZlcmdlbnQgaGllcmFyY2h5IHNlcmllcy4gVXNpbmcgb25seSBmaXhlZCBwcmltZSBjb2ZhY3RvcnMgJHNcbGUxMF42JCBnaXZlcwpcWwpcYm94ZWR7XGxpbWluZl97WFx0b1xpbmZ0eX1cZnJhY3tOX1xpbmZ0eShYKVxsb2cgWH17WH1cZ2UzLjAzNTMwODA1ODAyMTNcbGRvdHMgLn0KXF0KVGhlc2UgcmVzdWx0cyBjb25jZXJuIGV4YWN0IFR5cGUtSUkgZGVwdGggYW5kIGRvIG5vdCBwcm92ZSB1bml2ZXJzYWwgVHlwZS1JSSBzb2x2YWJpbGl0eSBvciB0aGUgRXJkXEh7b31zLS1TdHJhdXMgY29uamVjdHVyZS4KXGVuZHthYnN0cmFjdH0KClxzZWN0aW9ue0ludHJvZHVjdGlvbn0KVGhlIEVyZFxIe299cy0tU3RyYXVzIGNvbmplY3R1cmUgYXNrcyB3aGV0aGVyClxbClxmcmFjNG49XGZyYWMxeCtcZnJhYzF5K1xmcmFjMXoKXF0KaGFzIGEgc29sdXRpb24gaW4gcG9zaXRpdmUgaW50ZWdlcnMgZm9yIGV2ZXJ5ICRuXGdlMiQuIFdlIHN0dWR5IHByaW1lIFR5cGUtSUkgc29sdXRpb25zIHRocm91Z2ggdGhlIGRpdmlzb3Itc3F1YXJlIGNvb3JkaW5hdGUKXGJlZ2lue2VxdWF0aW9ufVxsYWJlbHtlcTpzcXVhcmV9CkRcbWlkIEFeMixccXF1YWQgNEEtMVxtaWQgcCs0RC4KXGVuZHtlcXVhdGlvbn0KVGhlIGNvb3JkaW5hdGUgaXMgY2xhc3NpY2FsIGFuZCBpcyBub3QgY2xhaW1lZCBoZXJlLiBNb2Rlcm4gY29tcGxldGUgVHlwZS1JSSBmb3JtdWxhdGlvbnMgYXBwZWFyIGluIEVsc2hvbHR6LS1UYW8gYW5kIFBvbWVyYW5jZS0tV2VpbmdhcnRuZXI7IERhaGFuIHN0dWRpZXMgVHlwZS1JSSBzaWV2ZSBkaW1lbnNpb24gYW5kIHNlYXJjaCBkZXB0aC4KCkZvciBwcmltZXMgJHBcZXF1aXYxXHBtb2Q0JCwgbGV0ICRcc3FkZXB0aChwKSQgYmUgdGhlIGxlYXN0ICRBJCBzYXRpc2Z5aW5nIFxlcXJlZntlcTpzcXVhcmV9LCBhbmQgbGV0ClxbCk5fXGluZnR5KFgpPVwjXHtBXGxlIFg6XHRleHR7IGluZmluaXRlbHkgbWFueSBwcmltZXMgfHBcdGV4dHsgc2F0aXNmeSB9XHNxZGVwdGgocCk9QVx9LgpcXQpPdXIgcHJvYmxlbSBpcyBleGFjdCBmaXJzdCBvY2N1cnJlbmNlIHJhdGhlciB0aGFuIHVuaXZlcnNhbCBzb2x2YWJpbGl0eS4KClxzZWN0aW9ue1RoZSBjb21wbGV0ZSBzcXVhcmUgY29vcmRpbmF0ZSBhbmQgSmFjb2JpIG9ic3RydWN0aW9ufQpcYmVnaW57cHJvcG9zaXRpb259W2NvbXBsZXRlIHByaW1lIFR5cGUtSUkgY29vcmRpbmF0ZV1cbGFiZWx7cHJvcDpjb21wbGV0ZX0KRm9yIGEgcHJpbWUgJHAkLCBhIFR5cGUtSUkgc29sdXRpb24gZXhpc3RzIGlmIGFuZCBvbmx5IGlmIHRoZXJlIGFyZSBwb3NpdGl2ZSBpbnRlZ2VycyAkQSxEJCB3aXRoClxbCkRcbWlkIEFeMixccXF1YWQgNEEtMVxtaWQgcCs0RC4KXF0KRm9yIHRoZSByZWR1Y2VkIHByaW1lIHByb2dyZXNzaW9ucyB1c2VkIGJlbG93IG9uZSBhbHNvIGhhcyAkcFxubWlkIEQkLgpcZW5ke3Byb3Bvc2l0aW9ufQoKXGJlZ2lue3Byb29mfQpQb21lcmFuY2UtLVdlaW5nYXJ0bmVyLCBDb3JvbGxhcnkgMi40IHNwZWNpYWxpemVkIHRvICRtPTQkLCBzdGF0ZXMgdGhhdCBhIHByaW1lICRwJCBoYXMgYSBUeXBlLUlJIHNvbHV0aW9uIGlmIGFuZCBvbmx5IGlmIHRoZXJlIGFyZSBwb3NpdGl2ZSBpbnRlZ2VycyAkYSxiLGUkIHdpdGgKXFsKZVxtaWQgYStiLFxxcXVhZCA0YWJcbWlkIHArZS4KXF0KQXNzdW1lIHRoZXNlIGNvbmRpdGlvbnMgYW5kIHB1dApcWwpjPVxmcmFje2ErYn17ZX0sXHFxdWFkIFxhbHBoYT1cZnJhY3twK2V9ezRhYn0sXHFxdWFkIEE9XGFscGhhIGFjLFxxcXVhZCBEPVxhbHBoYSBhXjIuClxdClRoZW4gJEFeMi9EPVxhbHBoYSBjXjIkIGlzIGludGVncmFsLCBzbyAkRFxtaWQgQV4yJC4gU2luY2UgJGI9Y2UtYSQsClxbClxhbHBoYSBhYitEPVxhbHBoYSBhKGNlLWEpK1xhbHBoYSBhXjI9QWUsClxdCmFuZCB0aGVyZWZvcmUKXFsKcCs0RD00KFxhbHBoYSBhYitEKS1lPSg0QS0xKWUuClxdCgpDb252ZXJzZWx5LCBzdXBwb3NlICREXG1pZCBBXjIkIGFuZCAkcCs0RD0oNEEtMSlxJCBmb3Igc29tZSAkcT4wJC4gUHV0ICRFPUFeMi9EJCBhbmQgJFxhbHBoYT1cZ2NkKEQsRSkkLiBTaW5jZSAkREU9QV4yJCBpcyBhIHNxdWFyZSBhbmQgJEQvXGFscGhhLEUvXGFscGhhJCBhcmUgY29wcmltZSwgdGhlcmUgYXJlIGNvcHJpbWUgJHUsYz4wJCBzdWNoIHRoYXQKXFsKRD1cYWxwaGEgdV4yLFxxcXVhZCBFPVxhbHBoYSBjXjIsXHFxdWFkIEE9XGFscGhhIHVjLgpcXQpUaGVuClxbCnArcT00XGFscGhhIHUoY3EtdSkuClxdCkxldCAkdD1jcS11PjAkLiBXZSBoYXZlICQ0dXRcbWlkIHArcSQgYW5kICRxXG1pZCB1K3QkLCBzbyB0aGUgUG9tZXJhbmNlLS1XZWluZ2FydG5lciBjcml0ZXJpb24gaG9sZHMgd2l0aCAkKGEsYixlKT0odSx0LHEpJC4KXGVuZHtwcm9vZn0KCkZvciAkQlxnZTEkLCBwdXQgJG1fQj00Qi0xJCBhbmQKXFsKUl9CPVx7LTRFXHBtb2R7bV9CfTpFXG1pZCBCXjJcfS4KXF0KClxiZWdpbntsZW1tYX1bSmFjb2JpIG9ic3RydWN0aW9uXVxsYWJlbHtsZW06amFjb2JpfQpGb3IgZXZlcnkgJEVcbWlkIEJeMiQsClxbClxsZWZ0KFxmcmFjey00RX17bV9CfVxyaWdodCk9LTEuClxdClxlbmR7bGVtbWF9CgpcYmVnaW57cHJvb2Z9CkV2ZXJ5IHByaW1lIGRpdmlzb3Igb2YgJEIkIGlzIGNvcHJpbWUgdG8gJG1fQiQuIFF1YWRyYXRpYyByZWNpcHJvY2l0eSBhcHBsaWVkIHRvICQ0QlxlcXVpdjFccG1vZHttX0J9JCBnaXZlcyAkKEUvbV9CKT0xJCBmb3IgZXZlcnkgJEVcbWlkIEJeMiQsIHdpdGggdGhlIHN1cHBsZW1lbnRhcnkgbGF3IGhhbmRsaW5nIHRoZSBmYWN0b3IgJDIkLiBTaW5jZSAkbV9CXGVxdWl2M1xwbW9kNCQsICQoLTEvbV9CKT0tMSQuClxlbmR7cHJvb2Z9Cgpcc2VjdGlvbntUaGUgSmFjb2JpLXNhZmUgYmFja2JvbmV9CkZvciBwcmltZXMgJHFcZXF1aXYxXHBtb2Q0JCwgcHV0ICRBX3E9KDNxKzEpLzQkLgoKXGJlZ2lue3RoZW9yZW19W2NvbXBvc2l0ZSAkM3EkIGJhY2tib25lXVxsYWJlbHt0aG06M3F9CklmIHNvbWUgJERcbWlkIEFfcV4yJCBzYXRpc2ZpZXMgJERcZXF1aXYyXHBtb2QzJCwgdGhlbiBpbmZpbml0ZWx5IG1hbnkgcHJpbWVzICRwJCBoYXZlClxbClxzcWRlcHRoKHApPUFfcS4KXF0KXGVuZHt0aGVvcmVtfQoKVGhlIHByb29mIHVzZXMgQ1JUIHdpdGggcmVzaWR1ZSAkMSQgb24gYWxsIGVhcmxpZXIgbW9kdWxpOyBubyBlYXJsaWVyIG1vZHVsdXMgY2FuIGNvbnRhaW4gdGhlIGZhY3RvciAkcSQuIEEgaGFsZi1kaW1lbnNpb25hbCB1cHBlci1ib3VuZCBzaWV2ZSBzaG93cyB0aGF0IHRoZSB1bmNlcnRpZmllZCBwcmltZSBwYXJhbWV0ZXJzIGhhdmUgc2l6ZSAkTyhZKFxsb2cgWSleey0zLzJ9KSQsIHNvIHRoaXMgY29tcG9zaXRlIGJhY2tib25lIGNvbnRyaWJ1dGVzICQoMi8zK28oMSkpWC9cbG9nIFgkIGV4YWN0IGRlcHRocy4KCldyaXRlICR2X0E9KFxvcGVyYXRvcm5hbWV7b3JkfV9yKDRBLTEpXGJtb2QyKV9yJC4KClxiZWdpbnt0aGVvcmVtfVtmaXJzdC1vY2N1cnJlbmNlIEphY29iaSBzcGFuXVxsYWJlbHt0aG06c3Bhbn0KVGhlIHZlY3RvciAkdl9BJCBsaWVzIG91dHNpZGUgdGhlIHNwYW4gb2YgJFx7dl9COkI8QVx9JCBpZiBhbmQgb25seSBpZiBlaXRoZXIgJDRBLTEkIGlzIHByaW1lIG9yClxbCjRBLTE9M3EsXHFxdWFkIHFcZXF1aXYxXHBtb2Q0XHRleHR7IHByaW1lfS4KXF0KXGVuZHt0aGVvcmVtfQoKVGh1cyAkM3EkIGlzIG1heGltYWwgYW1vbmcgY29tcG9zaXRlIHRhcmdldHMgZm9yIGEgY29uc3RydWN0aW9uIHVzaW5nIG9ubHkgSmFjb2JpIHNpZ24gJCsxJCBvbiBhbGwgZWFybGllciBsYXllcnMuIFRoZSBjb25zdHJ1Y3Rpb24gYmVsb3cgZ29lcyBiZXlvbmQgdGhhdCBiYXJyaWVyLgoKXHNlY3Rpb257T25lIG5vbnNxdWFyZSBjb29yZGluYXRlIGFuZCB0aGUgbWFzdGVyIGVxdWF0aW9ufQpcYmVnaW57bGVtbWF9W3NpbmdsZS1ub25zcXVhcmUgcmVkdWN0aW9uXVxsYWJlbHtsZW06c2luZ2xlfQpTdXBwb3NlIHRoZSBzcXVhcmVmcmVlIHRhcmdldCBtb2R1bHVzIGlzICRzciQsIHdpdGggJHIkIHByaW1lLCBhbmQgdGhlIHRhcmdldCByZXNpZHVlICQtNGQkIGlzIGEgcXVhZHJhdGljIHJlc2lkdWUgYXQgZXZlcnkgcHJpbWUgZGl2aXNvciBvZiB0aGUgZml4ZWQgc3F1YXJlZnJlZSBjb2ZhY3RvciAkcyQgYnV0IGEgbm9ucmVzaWR1ZSBtb2R1bG8gJHIkLiBUaGVuIGV2ZXJ5IGVhcmxpZXIgbGF5ZXIgd2hvc2UgbW9kdWx1cyBpcyBub3QgZGl2aXNpYmxlIGJ5ICRyJCBjYW4gYmUgZWxpbWluYXRlZCBzaW11bHRhbmVvdXNseSBieSBjaG9vc2luZyBzcXVhcmUtc2FmZSBDUlQgY29vcmRpbmF0ZXMgYXdheSBmcm9tICRyJC4KXGVuZHtsZW1tYX0KClxiZWdpbntwcm9vZn0KQ2hvb3NlIGEgdW5pdCBzcXVhcmUgYXQgZXZlcnkgbm9uLSRyJCBjb29yZGluYXRlLCBwcmVzZXJ2aW5nIHRoZSB0YXJnZXQgcmVzaWR1ZSBvbiBjb21tb24gdGFyZ2V0IGZhY3RvcnMuIEV2ZXJ5IGVhcmxpZXIgbW9kdWx1cyBub3QgY29udGFpbmluZyAkciQgdGhlbiBoYXMgSmFjb2JpIHNpZ24gJCsxJCwgYW5kIExlbW1hflxyZWZ7bGVtOmphY29iaX0gZXhjbHVkZXMgaXRzIHRyYXAgc2V0LgpcZW5ke3Byb29mfQoKRml4IGEgc3F1YXJlZnJlZSBvZGQgY29mYWN0b3IgJHMkLCBhIHBvc2l0aXZlIGludGVnZXIgJGQkIGNvcHJpbWUgdG8gJHMkLCBhbmQgYSB2YXJpYWJsZSBwcmltZSAkciQuIFB1dCAkQT0oc3IrMSkvNCQgYW5kIHN1cHBvc2UgJGRcbWlkIEEkLiBBbiBlYXJsaWVyIG1vZHVsdXMgY29udGFpbmluZyAkciQgaGFzIHRoZSBmb3JtClxbCjRCLTE9Y3IsXHFxdWFkIDA8YzxzLgpcXQoKXGJlZ2lue2xlbW1hfVttYXN0ZXIgY29sbGlzaW9uIGVxdWF0aW9uXVxsYWJlbHtsZW06bWFzdGVyfQpJZiB0aGUgdGFyZ2V0IGJyYW5jaCBjb2xsaWRlcyB3aXRoIHRoZSBkZXB0aC0kQiQgdHJhcCwgdGhlbiB0aGVyZSBhcmUgbm9ubmVnYXRpdmUgaW50ZWdlcnMgJGssaCQgc2F0aXNmeWluZwpcWwpyKGtoLWRjXjIpK2srZGgtMmRjPTAKXF0KYW5kClxbCjE2ZFxtaWQgcmgrMS4KXF0KSWYgJGssaFxnZTEkIGFuZCB0aGUgZXF1YWxpdHkgY29uZmlndXJhdGlvbiBpcyBleGNsdWRlZCwgdGhlbiAka2g8ZGNeMiQuClxlbmR7bGVtbWF9CgpcYmVnaW57cHJvb2Z9CkEgY29sbGlzaW9uIGdpdmVzICRFXG1pZCBCXjIkIHdpdGggJEVcZXF1aXYgZFxwbW9kIHIkLCBzbyAkRT1yaytkJC4gV2l0aCAkRj1CXjIvRSQsIHJlZHVjdGlvbiBtb2R1bG8gJHIkIGdpdmVzICQxNmRGPXJoKzEkLiBNdWx0aXBseWluZwpcWwpyaytkKVxyaGorMSk9ZChjcithKV4yClxdCnlpZWxkcyB0aGUgZXF1YXRpb24uIElmICRraD5kY14yJCwgQU0tLUdNIGdpdmVzICRrK2RoPjJkYyQsIGNvbnRyYWRpY3RpbmcgaXRzIHNpZ24uIEVxdWFsaXR5IGZvcmNlcyAkaz1kYyQsICRoPWMkLCBoZW5jZSAkMTZkXG1pZCBjcisyMSQuClxlbmR7cHJvb2Z9CgpUaGUgY29uZGl0aW9uICRoXGdlMSQgaXMgYXV0b21hdGljLiBUaGUgcmVtYWluaW5nIGlzc3VlIGlzICRrPTAkLCBtZWFuaW5nIHJldXNlIG9mIHRoZSB0YXJnZXQgZGl2aXNvciAkRT1kJC4KClxzZWN0aW9ue1RoZSBjYW5vbmljYWwgbm8tcmV1c2UgdGhlb3JlbX0KRm9yIGEgcG9zaXRpdmUgaW50ZWdlciAkZCQsIGRlZmluZQpcWwpcc3JjKGQpPVxwcm9kX3AgcF57XGxjZWlsIHZfcChkKS8yXHJjZWlsfS4KXF0KVGhlbiAkZFx8IEJeMiQgaWYgYW5kIG9ubHkgaWYgJFxzcmMoZCl8IEIkLgoKVW5kZXIgdGhlIHNxdWFyZS1zYWZlIGFzc2lnbm1lbnQgJDEkIGF0IGV2ZXJ5IG5vbi10YXJnZXQgY29vcmRpbmF0ZSwgdGhlIGNhc2UgJGs9MCQgY2FuIGNvbGxpZGUgYXQgJGNyJCBvbmx5IGlmClxbClxib3hlZHtkfCBCXjJccXF1YWQgXHRleHR7YW5kfVxxcXVhZCBjfCA0ZCsxfS4KXF0KClxiZWdpbnt0YWJsZX1baF0KXGNlbnRlcmluZwpcYmVnaW57dGFidWxhcn17Y3xjfGMkfQokc1xwbW9kOCQgJiB3aXRuZXNzICRkX3MkICYgY2Fub25pY2FsIHByaW1lIHByb2dyZXNzaW9uIGZvciAkciQgXFwKXGhsaW5lCiQxJCAmICQyXnt2XzIocy0xKS0zfShzLTEpJCAmICRyXGVxdWl2LXNee3wxfVxwbW9kezRkX3N9JCBcXAokMyQgJiAkKHM") ,"encoding":"base64
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\sqdepth}{\delta_{\rm sq}}
+\newcommand{\src}{\operatorname{src}}
+
+\title{Prime-Cofactor Hierarchies in the Exact Type-II Erd\H{o}s--Straus Depth Spectrum}
+\author{Skip Potter}
+\date{August 31, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For primes $p\equiv1\pmod4$, define
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2,\ 4A-1\mid p+4D\}.
+\]
+This is the first-hit depth in a classical divisor-square coordinate for prime Type-II Erd\H{o}s--Straus solutions. We study its exact-depth spectrum.
+
+Every depth-$B$ trap residue $-4E$, $E\mid B^2$, has Jacobi sign $-1$ modulo $4B-1$. A parity-vector calculation shows that new global Jacobi-character directions first occur only at prime target moduli and at target moduli $3q$. Thus $3q$ is maximal for constructions that avoid all earlier layers solely by a global Jacobi-sign condition.
+
+We introduce a finer fixed-cofactor mechanism. If a target residue is quadratic-residue at every fixed target prime and nonresidue at one variable prime $r$, all earlier layers not containing $r$ can be eliminated simultaneously. Every remaining $r$-bearing layer has modulus $cr$, and any collision forces
+\[
+r(kh-dc^2)+k+dh-2dc=0.
+\]
+A separate no-reuse theorem excludes $k=0$. Hence $k,h\ge1$ and AM--GM gives $kh<dc^2$, leaving only finitely many bad parameter primes.
+
+This yields a canonical hierarchy for every fixed prime cofactor $s>3$. According to $s\pmod8$, an explicit witness $d_s$ and an explicit prime progression for $r$ give, apart from finitely many parameter primes, exact depths
+\[
+A=\frac{sr+1}{4}
+\]
+realized by infinitely many primes.
+
+If $N_\infty(X)$ counts depth values $A\le X$ realized as exact square-completed Type-II depth by infinitely many primes, then
+\[
+\liminf_{X\to\infty}\frac{N_\infty(X)\log X}{X}\ge\frac83+C_{\rm all},
+\]
+where $C_{\rm all}>0$ is an explicitly convergent hierarchy series. Using only fixed prime cofactors $s\le10^6$ gives
+\[
+\boxed{\liminf_{X\to\infty}\frac{N_\infty(X)\log X}{X}\ge3.0353080580213\ldots .}
+\]
+These results concern exact Type-II depth and do not prove universal Type-II solvability or the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+
+\section{Introduction}
+The Erd\H{o}s--Straus conjecture asks whether
+\[
+\frac4n=\frac1x+\frac1y+\frac1z
+\]
+has a solution in positive integers for every $n\ge2$. We study prime Type-II solutions through the divisor-square coordinate
+\begin{equation}\label{eq:square}
+D\mid A^2,\qquad 4A-1\mid p+4D.
+\end{equation}
+The coordinate is classical and is not claimed here. Modern complete Type-II formulations appear in Elsholtz--Tao and Pomerance--Weingartner; Dahan studies Type-II sieve dimension and search depth.
+
+For primes $p\equiv1\pmod4$, let $\sqdepth(p)$ be the least $A$ satisfying \eqref{eq:square}, and let
+\[
+N_\infty(X)=\#\{A\le X:\text{ infinitely many primes }p\text{ satisfy }\sqdepth(p)=A\}.
+\]
+Our problem is exact first occurrence rather than universal solvability.
+
+\section{The complete square coordinate and Jacobi obstruction}
+\begin{proposition}[complete prime Type-II coordinate]\label{prop:complete}
+For a prime $p$, a Type-II solution exists if and only if there are positive integers $A,D$ with
+\[
+D\mid A^2,\qquad 4A-1\mid p+4D.
+\]
+For the reduced prime progressions used below one also has $p\nmid D$.
+\end{proposition}
+
+\begin{proof}
+Pomerance--Weingartner, Corollary 2.4 specialized to $m=4$, states that a prime $p$ has a Type-II solution if and only if there are positive integers $a,b,e$ with
+\[
+e\mid a+b,\qquad 4ab\mid p+e.
+\]
+Assume these conditions and put
+\[
+c=\frac{a+b}{e},\qquad \alpha=\frac{p+e}{4ab},\qquad A=\alpha ac,\qquad D=\alpha a^2.
+\]
+Then $A^2/D=\alpha c^2$ is integral, so $D\mid A^2$. Since $b=ce-a$,
+\[
+\alpha ab+D=\alpha a(ce-a)+\alpha a^2=Ae,
+\]
+and therefore
+\[
+p+4D=4(\alpha ab+D)-e=(4A-1)e.
+\]
+
+Conversely, suppose $D\mid A^2$ and $p+4D=(4A-1)q$ for some $q>0$. Put $E=A^2/D$ and $\alpha=\gcd(D,E)$. Since $DE=A^2$ is a square and $D/\alpha,E/\alpha$ are coprime, there are coprime $u,c>0$ such that
+\[
+D=\alpha u^2,\qquad E=\alpha c^2,\qquad A=\alpha uc.
+\]
+Then
+\[
+p+q=4\alpha u(cq-u).
+\]
+Let $t=cq-u>0$. We have $4ut\mid p+q$ and $q\mid u+t$, so the Pomerance--Weingartner criterion holds with $(a,b,e)=(u,t,q)$.
+\end{proof}
+
+For $B\ge1$, put $m_B=4B-1$ and
+\[
+R_B=\{-4E\pmod{m_B}:E\mid B^2\}.
+\]
+
+\begin{lemma}[Jacobi obstruction]\label{lem:jacobi}
+For every $E\mid B^2$,
+\[
+\left(\frac{-4E}{m_B}\right)=-1.
+\]
+\end{lemma}
+
+\begin{proof}
+Every prime divisor of $B$ is coprime to $m_B$. Quadratic reciprocity applied to $4B\equiv1\pmod{m_B}$ gives $(E/m_B)=1$ for every $E\mid B^2$, with the supplementary law handling the factor $2$. Since $m_B\equiv3\pmod4$, $(-1/m_B)=-1$.
+\end{proof}
+
+\section{The Jacobi-safe backbone}
+For primes $q\equiv1\pmod4$, put $A_q=(3q+1)/4$.
+
+\begin{theorem}[composite $3q$ backbone]\label{thm:3q}
+If some $D\mid A_q^2$ satisfies $D\equiv2\pmod3$, then infinitely many primes $p$ have
+\[
+\sqdepth(p)=A_q.
+\]
+\end{theorem}
+
+The proof uses CRT with residue $1$ on all earlier moduli; no earlier modulus can contain the factor $q$. A half-dimensional upper-bound sieve shows that the uncertified prime parameters have size $O(Y(\log Y)^{-3/2})$, so this composite backbone contributes $(2/3+o(1))X/\log X$ exact depths.
+
+Write $v_A=(\operatorname{ord}_r(4A-1)\bmod2)_r$.
+
+\begin{theorem}[first-occurrence Jacobi span]\label{thm:span}
+The vector $v_A$ lies outside the span of $\{v_B:B<A\}$ if and only if either $4A-1$ is prime or
+\[
+4A-1=3q,\qquad q\equiv1\pmod4\text{ prime}.
+\]
+\end{theorem}
+
+Thus $3q$ is maximal among composite targets for a construction using only Jacobi sign $+1$ on all earlier layers. The construction below goes beyond that barrier.
+
+\section{One nonsquare coordinate and the master equation}
+\begin{lemma}[single-nonsquare reduction]\label{lem:single}
+Suppose the squarefree target modulus is $sr$, with $r$ prime, and the target residue $-4d$ is a quadratic residue at every prime divisor of the fixed squarefree cofactor $s$ but a nonresidue modulo $r$. Then every earlier layer whose modulus is not divisible by $r$ can be eliminated simultaneously by choosing square-safe CRT coordinates away from $r$.
+\end{lemma}
+
+\begin{proof}
+Choose a unit square at every non-$r$ coordinate, preserving the target residue on common target factors. Every earlier modulus not containing $r$ then has Jacobi sign $+1$, and Lemma~\ref{lem:jacobi} excludes its trap set.
+\end{proof}
+
+Fix a squarefree odd cofactor $s$, a positive integer $d$ coprime to $s$, and a variable prime $r$. Put $A=(sr+1)/4$ and suppose $d\mid A$. An earlier modulus containing $r$ has the form
+\[
+4B-1=cr,\qquad 0<c<s.
+\]
+
+\begin{lemma}[master collision equation]\label{lem:master}
+If the target branch collides with the depth-$B$ trap, then there are nonnegative integers $k,h$ satisfying
+\[
+r(kh-dc^2)+k+dh-2dc=0
+\]
+and
+\[
+16d\mid rh+1.
+\]
+If $k,h\ge1$ and the equality configuration is excluded, then $kh<dc^2$.
+\end{lemma}
+
+\begin{proof}
+A collision gives $E\mid B^2$ with $E\equiv d\pmod r$, so $E=rk+d$. With $F=B^2/E$, reduction modulo $r$ gives $16dF=rh+1$. Multiplying
+\[
+(rk+d)(rh+1)=d(cr+1)^2
+\]
+yields the equation. If $kh>dc^2$, AM--GM gives $k+dh>2dc$, contradicting its sign. Equality forces $k=dc$, $h=c$, hence $16d\mid cr+1$.
+\end{proof}
+
+The condition $h\ge1$ is automatic. The remaining issue is $k=0$, meaning reuse of the target divisor $E=d$.
+
+\section{The canonical no-reuse theorem}
+For $d>0$, define
+\[
+\src(d)=\prod_p p^{\lceil v_p(d)/2\rceil}.
+\]
+Then $d\mid B^2$ if and only if $\src(d)\mid B$. Under the square-safe assignment $1$ at every non-target coordinate, $k=0$ can collide at $cr$ only if
+\[
+d\mid B^2\qquad\text{and}\qquad c\mid4d+1.
+\]
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c}
+$s\pmod8$ & witness $d_s$ & canonical prime progression for $r$ \\
+\hline
+$1$ & $2^{v_2(s-1)-3}(s-1)$ & $r\equiv-s^{-1}\pmod{4d_s}$ \\
+$3$ & $(s+1)/2$ & $r\equiv s+2\pmod{2(s+1)}$ \\
+$5$ & $s-1$ & $r\equiv s-2\pmod{4(s-1)}$ \\
+$7$ & $(s-1)/2$ & $r\equiv s-2\pmod{2(s-1)}$
+\end{tabular}
+\caption{Canonical fixed-prime data.}
+\label{tab:canonical}
+\end{table}
+
+\begin{theorem}[canonical no-reuse]\label{thm:noreuse}
+For every fixed prime $s>3$, choose $d=d_s$ and the parameter progression in Table~\ref{tab:canonical}. Then no exceptional cofactor $c<s$ can satisfy both $d\mid B^2$ and $c\mid4d+1$.
+\end{theorem}
+
+\begin{proof}
+We give the four congruence cases.
+
+\emph{Case $s\equiv3\pmod8$.} Here $d=(s+1)/2=2m$ with $m$ odd and $r\equiv2d+1\pmod{4d}$. Write $m=u_0w_0$, where $u_0=\src(m)$; then $w_0\le u_0$. Because $s>3$, one has $m>1$, hence $u_0>1$. If $d\mid B^2$, then $B$ is even, hence $c\equiv3\pmod8$, and the odd part gives $u_0\mid c+1$. If also $4d+1=8m+1=ct$, then $t\equiv-1\pmod{u_0}$ and $t\equiv3\pmod8$. Thus
+\[
+c=u_0a-1,\qquad t=u_0b-1,\qquad a,b\ge4.
+\]
+Expanding gives
+\[
+ab u_0-(a+b)=8w_0.
+\]
+The left side is at least $16u_0-8>8u_0\ge8w_0$, contradiction.
+
+\emph{Case $s\equiv7\pmod8$.} Here $d=(s-1)/2$ is odd and $r\equiv2d-1\pmod{4d}$. Put $u=\src(d)$ and $d=uw$, with $w\le u$. If $d\mid B^2$, then $u\mid B$, whence $u\mid c-1$. If $4d+1=ct$, then $t\equiv1\pmod u$; since $c,t\equiv3\pmod4$,
+\[
+c=ua+1,\qquad t=ub+1,\qquad a,b\ge2.
+\]
+Thus
+\[
+ab u+(a+b)=4w,
+\]
+whose left side is at least $4u+4$ while the right side is at most $4u$, contradiction.
+
+\emph{Case $s\equiv5\pmod8$.} Take $d=s-1=4m$ with $m$ odd and $r\equiv d-1\pmod{4d}$. Write $m=u_0w_0$ with $u_0=\src(m)$ and $w_0\le u_0$. Exceptional cofactors satisfy $c\equiv1\pmod4$. The case $c=1$ cannot reuse $d$ because $B=(r+1)/4\equiv d/4\pmod d$ has $v_2(B)=0$ while $v_2(d)=2$. For $c>1$, $d\mid B^2$ implies $u_0\mid c-1$. If $4d+1=16m+1=ct$, then also $t\equiv1\pmod{u_0}$, and $c,t\equiv1\pmod4$. Hence
+\[
+c=u_0a+1,\qquad t=u_0b+1,\qquad a,b\ge4.
+\]
+Expansion gives
+\[
+ab u_0+(a+b)=16w_0,
+\]
+where the left side is at least $16u_0+8>16w_0$, contradiction.
+
+\emph{Case $s\equiv1\pmod8$.} Let $e=v_2(s-1)\ge3$, write $s-1=2^e m$ with $m$ odd, and use
+\[
+d=2^{e-3}(s-1)=2^{2e-3}m.
+\]
+Write $m=u_0w_0$ with $u_0=\src(m)$ and $w_0\le u_0$; then $\src(d)=2^{e-1}u_0$. If $d\mid B^2$, then $2^{e+1}u_0\mid cr+1$. The parameter class gives $r\equiv-1\pmod{u_0}$ and $r\equiv2^e-1\pmod{2^{e+1}}$, so
+\[
+u_0\mid c-1,\qquad c\equiv2^e+1\pmod{2^{e+1}}.
+\]
+If also $4d+1=ct$, the same congruences imply
+\[
+t\equiv2^e+1\pmod{2^{e+1}}.
+\]
+Hence
+\[
+c=u_0a+1,\qquad t=u_0b+1,\qquad a,b\ge2^e.
+\]
+Since $4d+1=2^{2e-1}u_0w_0+1$,
+\[
+ab u_0+(a+b)=2^{2e-1}w_0.
+\]
+The left side is at least $2^{2e}u_0+2^{e+1}>2^{2e-1}u_0\ge2^{2e-1}w_0$, contradiction. This also excludes $c=1$.
+\end{proof}
+
+Consequently every actual collision has $k,h\ge1$, and after excluding the equality congruence it satisfies $kh<dc^2$. For each fixed $c$ there are only finitely many pairs $(k,h)$, and each determines at most one rational parameter
+\[
+r=\frac{k+dh-2dc}{dc^2-kh}.
+\]
+
+\section{A hierarchy for every prime fixed cofactor}
+\begin{theorem}[every-prime fixed-cofactor hierarchy]\label{thm:allprime}
+For every fixed prime $s>3$, use the canonical data in Table~\ref{tab:canonical}. Then all but finitely many prime parameters in the stated progression generate
+\[
+A=(sr+1)/4
+\]
+as an exact square-completed Type-II depth realized by infinitely many primes.
+\end{theorem}
+
+\begin{proof}
+In each row, the parameter congruence gives $d_s\mid A$. Direct quadratic reciprocity shows that $-d_s$ is a residue modulo the fixed prime $s$ and a nonresidue modulo the variable prime $r$. The equality configuration $16d_s\mid cr+1$ is excluded by the same fixed congruence data. Lemma~\ref{lem:single} removes all non-$r$ layers, Theorem~\ref{thm:noreuse} removes $k=0$, and Lemma~\ref{lem:master} leaves only finitely many remaining parameter collisions. Deleting them leaves infinitely many parameter primes by Dirichlet. For each such parameter, the final reduced CRT class for the denominator is an arithmetic progression, so Dirichlet gives infinitely many exact-depth primes.
+\end{proof}
+
+\section{Counting the hierarchy}
+Define
+\[
+c(s)=
+\begin{cases}
+\dfrac{4}{s\varphi(4\cdot2^{v_2(s-1)-3}(s-1))},&s\equiv1\pmod8,\\[6pt]
+\dfrac{4}{s\varphi(2(s+1))},&s\equiv3\pmod8,\\[6pt]
+\dfrac{4}{s\varphi(4(s-1))},&s\equiv5\pmod8,\\[6pt]
+\dfrac{4}{s\varphi(2(s-1))},&s\equiv7\pmod8.
+\end{cases}
+\]
+and
+\[
+C_{\rm all}=\sum_{\substack{s>3\\s\text{ prime}}}c(s).
+\]
+The series converges, since $c(s)\ll(\log\log s)/s^2$.
+
+\begin{theorem}[spectrum lower bound]\label{thm:count}
+\[
+\liminf_{X\to\infty}\frac{N_\infty(X)\log X}{X}\ge\frac83+C_{\rm all}.
+\]
+Using only fixed prime cofactors $s\le10^6$ gives
+\[
+\boxed{\liminf_{X\to\infty}\frac{N_\infty(X)\log X}{X}\ge3.0353080580213976\ldots .}
+\]
+\end{theorem}
+
+\begin{proof}
+For any fixed finite set of cofactors, the prime number theorem in fixed arithmetic progressions applies separately to every family. Distinct fixed cofactors give distinct semiprime target moduli except for finitely many swapped-prime coincidences, which do not affect the asymptotic. Thus the contributions add for a fixed finite set. Taking $X\to\infty$ first and then the supremum over finite cofactor sets gives $C_{\rm all}$ without any growing-modulus uniformity.
+
+The one-million finite certificate gives classwise partial sums
+\[
+0.006681657710714896,\quad
+0.06768134901831344,\quad
+0.12763386380907094,\quad
+0.16664452081663197
+\]
+for $s\equiv1,3,5,7\pmod8$. Their sum is $0.36864139135473123\ldots$, which added to $8/3$ gives the displayed value.
+\end{proof}
+
+\section{Context and claim boundaries}
+The accompanying repository contains independent exact certificates for composite layers such as $A=649$ and $A=22339$; these are not inputs to the hierarchy theorem. The $3q$ backbone also carries a separate half-dimensional sieve and Erd\H{o}s--Kac multiplicity theory.
+
+The divisor-square coordinate, quadratic reciprocity, Dirichlet's theorem, prime number theorems in arithmetic progressions, and the analytic sieve machinery used for the $3q$ family are prior mathematics. Contemporary FCF/CENTL work contains closely related divisor-Jacobi, fixed-shift, ancestry, shadow, and exact-depth machinery. The candidate contribution here is the exact-first-hit fixed-cofactor mechanism: one nonsquare coordinate, the master collision equation, the no-reuse theorem, and the resulting hierarchy for every fixed prime cofactor. Targeted searches through August 2026 have not located this exact theorem; a negative search does not establish priority.
+
+These results do not prove universal Type-II solvability and do not prove the Erd\H{o}s--Straus conjecture.
+
+\begin{thebibliography}{99}
+\bibitem{ET}
+C. Elsholtz and T. Tao,
+Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions,
+\emph{J. Aust. Math. Soc.} 94 (2013), 50--105.
+
+\bibitem{PW}
+C. Pomerance and A. Weingartner,
+Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture,
+\emph{Ramanujan J.} 69 (2026).
+
+\bibitem{Dahan}
+B. Dahan,
+Sieve dimension and search depth for the Erd\H{o}s--Straus conjecture, $n\equiv1\pmod{24}$,
+arXiv:2608.24035 (2026).
+
+\bibitem{MG}
+L. Mizony and J.-L. Gardes,
+Un point sur la conjecture d'Erd\H{o}s et Straus,
+Universit\'e Claude-Bernard Lyon 1 (2012).
+
+\bibitem{IK}
+H. Iwaniec and E. Kowalski,
+\emph{Analytic Number Theory},
+AMS Colloquium Publications 53, 2004.
+
+\bibitem{FCF}
+Free Computation Foundation / CENTL,
+Erd\H{o}s--Straus research library: exact-depth spectrum, square completion, fixed shifts, ancestry, reciprocity, and shadow notes (2026).
+\end{thebibliography}
+
+\end{document}
