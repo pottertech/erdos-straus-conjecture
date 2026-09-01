@@ -8,11 +8,22 @@ on:
 jobs:
   lean-minimal:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: lean-minimal
     steps:
       - uses: actions/checkout@v4
-      - uses: leanprover/lean-action@v1
+      - name: Install Lean via elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          source $HOME/.elan/env
+          lean --version
+          lake --version
+      - name: Fetch pinned dependencies
+        working-directory: lean-minimal
+        run: |
+          source $HOME/.elan/env
+          lake update
+          lake exe cache get || true
       - name: Build isolated binary endpoint
-        run: lake build
+        working-directory: lean-minimal
+        run: |
+          source $HOME/.elan/env
+          lake build
