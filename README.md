@@ -123,5 +123,5 @@ lake exe cache get && lake build
 - Verifiers: `corrected_centered_criterion.py`, `finite_abelian_centered_verifier.py`, `scripts/smoke_test.py`, `analysis/layer4/`
 - Search pipelines: `verify_*.py` with results in `verification_*.json`
 - Cascade and hard-case tools: `phase2_n1mod24.py`, `hard_case_scan.py`, `exact_residue_cascade.py`, `neg1_route_analysis.py`, and related scripts
-- Documents: root `*.md` (some superseded — banners mark them)
+- Documents: root `*.md` (some superseded — banners mark them); `paper/` holds the route-2 handout PDF (build artifact — regenerate with `scripts/build_route2_pdf.sh`, requires pandoc + Gotenberg on :3000)
 - Retired Lean projects: `lean-archive/`
