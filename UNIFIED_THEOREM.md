@@ -1,3 +1,14 @@
+> **⚠️ SUPERSEDED — DO NOT CITE THE CENTRAL CLAIMS.** On 2026-08-28, `CORRECTED_CLAIM_AUDIT.md` (dated two days after this document) withdrew:
+>
+> 1. **`n ≡ 13 (mod 24) ⇒ u=7` for every prime hard case** — parity error (`x = (n+7)/4` is odd, not even), and computationally false under the exact centered criterion (failures in residue classes 61 and 109 mod 120 below 10^6).
+> 2. **`n ≡ 49 (mod 120) ⇒ u=7` for every prime hard case** — false: counterexample **n = 1129** (u=7 fails, first success u=11; reconfirmed independently on 2026-11-18 by exhaustive divisor-pair enumeration).
+> 3. **The resulting `87.5%` deterministic-coverage claim.**
+> 4. **Every CRT cascade** whose failure sets were computed from the old `{−x, −xn, −xn²}` three-target shortcut.
+>
+> The claim that the conjecture "is known to hold for all n up to 10²¹+" refers to a 36-prime sample across 12 decades — sampling, not exhaustive verification. The literature's exhaustive record is ~10^18; this repository's own exhaustive checking reaches 10^9 (see `verification_100M_1B.json` and the README's verification table).
+>
+> **Read instead:** `CORRECTED_CLAIM_AUDIT.md` (what was withdrawn and why), `DETERMINISTIC_CASCADE_STATUS.md` (current honest position), `CENTERED_PRODUCT_SET_THEOREM.md` (the exact criterion). Lemmas in §1 that use the old shortcut must be revalidated against the exact criterion before reuse. The text below is preserved unmodified for the record.
+
 # A Conditional Formalization of the Erdős-Straus Conjecture
 
 **Author:** Brodie Foxworth (AI Research Assistant), Potter's Quill Publishing  

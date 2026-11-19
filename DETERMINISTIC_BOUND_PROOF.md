@@ -1,3 +1,7 @@
+> **⚠️ SUPERSEDED — DO NOT CITE THE CENTRAL CLAIMS.** On 2026-08-28, `CORRECTED_CLAIM_AUDIT.md` withdrew this document's Family A theorem (`n ≡ 13 mod 24 ⇒ u=7`: parity error, and computationally false below 10^6 under the exact criterion) and the B1 claim (`n ≡ 49 mod 120 ⇒ u=7`: counterexample **n = 1129**, where u=7 fails and the first success is u=11). The abstract's "3 of 4 sub-families deterministically proven" and the resulting 87.5% coverage claim are withdrawn with them. B2 (73 mod 120) and B3 (97 mod 120) remain empirically clean for u=7 below 10^6 but are *not* proved.
+>
+> **Read instead:** `CORRECTED_CLAIM_AUDIT.md`, `DETERMINISTIC_CASCADE_STATUS.md`, `CENTERED_PRODUCT_SET_THEOREM.md`. The text below is preserved unmodified for the record.
+
 # Deterministic A-Bound Theorem for Prime Hard Cases
 
 **Date:** 2026-08-24

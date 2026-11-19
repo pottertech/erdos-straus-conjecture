@@ -350,20 +350,11 @@ lemma a7_all_qr_fails (vals : List ℕ)
 
 -- Theorem 4 (Combined): A = O(n^0.152) unconditionally, O((log n)^2) under GRH.
 
--- ============================================
--- BURGESS BOUND (AXIOMATIC)
--- ============================================
--- The Burgess bound is a theorem of analytic number theory.
--- We state it as an axiom since proving it in Lean would require
--- building the full machinery of L-functions and character sums.
-
-axiom burgess_bound (q : ℕ) (hq : q > 1) (r : ℕ) (hr : r ≥ 3) : True
-
--- ============================================
--- GRH CHARACTER SUM BOUND (AXIOMATIC)
--- ============================================
-
-axiom grh_character_sum (q : ℕ) (hq : q > 1) : True
+-- Note (2026-11-18): two placeholder axioms (`burgess_bound` and
+-- `grh_character_sum`, both stated `: True`) were removed here. They
+-- proved nothing and were unused. If analytic number theory inputs are
+-- reintroduced, state them as real propositions and add them to the
+-- axiom whitelist enforced by `scripts/audit_all.sh`.
 
 -- ============================================
 -- U-METHOD: POSITIVE SOLUTIONS LEMMA
