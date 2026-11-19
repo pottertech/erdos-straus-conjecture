@@ -93,7 +93,7 @@ Removed on cleanup passes: two placeholder axioms stated as `True` (`burgess_bou
 `.github/workflows/ci.yml` runs on every push/PR to main:
 
 1. **smoke-math** — `scripts/smoke_test.py` (stdlib only): reproduces the exact-criterion sweep (51 cross-checked pairs, 0 mismatches, first-success distribution {3: 6, 7: 10, 11: 1}, the single u=11 case being exactly n = 1129).
-2. **repo-audit** — `audit_all.sh` (convenience mode): sorry census vs documented count, axiom whitelist, and certificate checks whenever `results/layer4_certificates.jsonl` is present (the dataset itself is not currently in the repository).
+2. **repo-audit** — `audit_all.sh` (convenience mode): sorry census vs documented count, axiom whitelist, and full certificate checks (the committed dataset `results/layer4_certificates.jsonl` — 166,011 records, verified per-record, max A = 107, exact domain coverage).
 3. **lean-build** — elan + `lake exe cache get`, then the root library and the seven-module certified set.
 
 The earlier workflows (`verify.yml`, `lean_action_ci.yml`) failed continuously on main from 2026-08-29 because they referenced files that do not exist (`code/verify.py`, `requirements.txt`, `paper/manuscript.tex`); they were retired and consolidated here (issue #5).

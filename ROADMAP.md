@@ -51,9 +51,13 @@ classified.
   route per #2), `StructuralLemmas.lean` retired to `lean-archive/orphan-modules/`.
   Census now 3 unfinished goals in the root project; axiom whitelist down to 2
   (the residual-class hypothesis + the divisor-residue reverse criterion).
-- **Issue #7 open**: the certificate generator is buggy (fails at n=15649; exact
-  criterion certifies A=7) — dataset stays out of the repo (generation documented,
-  strict audit gated) until fixed and the full range regenerates green.
+- **Issue #7 ✅ closed 2026-11-19**: the certificate generator was fixed (closed-form
+  y, z from the witness divisor; exact DP reconstruction; full range restored;
+  A = 3 fast path) and the complete dataset is committed:
+  `results/layer4_certificates.jsonl` — 166,011 records, per-record verified
+  (100%), max A = 107, exact domain coverage. CI runs the certificate
+  verification and dataset integrity checks on every push. The strict-audit
+  certificate gate is unblocked.
 
 None of #4 solves the conjecture; it makes routes 1–2 possible — nobody reviews work they
 cannot build or audit.
