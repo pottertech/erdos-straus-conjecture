@@ -18,7 +18,6 @@ Thumbs.db
 
 # Large data files (kept locally, not in repo)
 problem3_omega2_measurement.json
-results/layer4_certificates.jsonl
 a3_analysis.json
 prime_verification_10m.json
 unresolved_or_exceptional_cases.json

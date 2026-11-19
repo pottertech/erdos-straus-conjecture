@@ -1,275 +1,201 @@
 #!/usr/bin/env python3
 """
-Layer 4 Certificate Generation
-================================
-For every admissible prime n ≤ 10M, generate an auditable certificate:
-- first working A
-- witness divisor P such that P | (nx)² and P ≡ T mod A
-- resulting x, y, z (positive integers satisfying 4/n = 1/x + 1/y + 1/z)
-- verification that 4*x*y*z = n*(x*y + x*z + y*z)
+Layer 4 Certificate Generation  (fixed 2026-11-19, issue #7)
+=============================================================
+For every admissible prime n <= 10M (n ≡ 1 mod 12, 5 ∤ n), generate an
+auditable certificate:
+
+- first working A (searched over the exact centered criterion for each A)
+- witness divisor P of N² with P ≡ T (mod A), T = (-N) mod A, N = n·x
+- complementary divisor Q = N² / P (also ≡ T mod A)
+- x = (n + A) / 4, y = (P + N) / A, z = (Q + N) / A
+- verified: 4·x·y·z = n·(x·y + x·z + y·z)
 
 Output: results/layer4_certificates.jsonl (streaming, one JSON per line)
+
+Fixes relative to the 2026-08 version (issue #7):
+1. y, z are constructed from the witness divisor (closed form), instead of
+   a brute-force y-scan capped at 10^6 — which failed for every case whose
+   smallest witness y exceeded the cap (e.g. n = 15649, first working A = 7).
+2. The witness divisor is found by an exact DP over the residues mod A of
+   the prime powers of N (complete; no mod-reduced pseudo-divisors, no
+   incomplete sampling past 100k divisors).
+3. Records carry the Q field required by analysis/layer4/verify_certificates.py.
+4. Main loop covers the full documented range 13 ≤ n ≤ 10,000,000 (the old
+   main was left in a 100k debug bound).
 """
 import json
+import os
 import time
-from sympy import isprime, factorint, gcd, nextprime, legendre_symbol, jacobi_symbol
-from math import lcm
+from math import gcd
+
+from sympy import isprime, factorint, nextprime
 
 EXTENDED_A = [3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59,
               63, 67, 71, 75, 79, 83, 87, 91, 95, 99, 103, 107]
+MAX_N = 10_000_000
+
+
+def find_divisor_witness(factors_N, A, T):
+    """Exact DP: find a divisor P of N² with P ≡ T (mod A).
+
+    factors_N must contain only primes coprime to A (guaranteed by the
+    caller's gcd(N, A) = 1 check). States are residues mod A (<= A states),
+    each carrying a back-pointer for reconstruction; multipliers are prime
+    powers p^a, 1 <= a <= 2e, so the product P divides N².
+    """
+    T %= A
+    states = {1 % A: (None, 1)}   # residue -> (prev_residue, actual multiplier)
+    for p, e in factors_N.items():
+        vals = []                 # actual prime powers p^a, a = 1..2e
+        val = 1
+        for _ in range(2 * e):
+            val *= p
+            vals.append(val)
+        new_states = dict(states)
+        for r, back in states.items():
+            for v in vals:
+                nr = (r * v) % A
+                if nr not in new_states:
+                    new_states[nr] = (r, v)
+        states = new_states
+    if T not in states:
+        return None
+    mults = []
+    r = T
+    while states[r][0] is not None:
+        prev, v = states[r]
+        mults.append(v)
+        r = prev
+    P = 1
+    for m in mults:
+        P *= m
+    return P
+
 
 def find_witness(n, A):
-    """Find witness divisor P such that P | (nx)² and P ≡ T mod A.
-    
-    T = -N mod A where N = n*m = n*(n+A)/4.
-    P is a divisor of N² with P ≡ T (mod A).
-    
-    Returns: dict with P, x, y, z, verified, or None if A doesn't work.
+    """Exact centered-criterion certificate for (n, A), or None.
+
+    Succeeds iff gcd(N, A) = 1 and T = (-N) mod A belongs to the centered
+    product set of N (built over the prime powers 1..2e of N), in which case
+    P, Q, y, z are constructed explicitly and exactly verified.
     """
-    if gcd(n, A) > 1:
+    if (n + A) % 4:
         return None
-    
-    m = (n + A) // 4
+    x = m = (n + A) // 4
     N = n * m
+    if gcd(N, A) != 1:
+        return None
     T = (-N) % A
-    
-    # Factor N
+
     factors_N = factorint(N)
-    prime_factors = [(p, e) for p, e in factors_N.items() if gcd(p, A) == 1]
-    
-    if not prime_factors:
-        return None
-    
-    # For prime A: check if T ∈ D_A via order-2, direct, or m-route
-    if not isprime(A):
-        # Composite A: use Jacobi (known to have false positives)
-        # For certificates, we verify by exact D_A computation
-        # D_A = { product of p_i^a_i mod A : 0 <= a_i <= 2*e_i }
-        current_set = {1}
-        for p, e in prime_factors:
-            powers = set()
-            val = 1
-            for a in range(2 * e + 1):
-                powers.add(val % A)
-                val = (val * p) % A
-            new_set = set()
-            for c in current_set:
-                for pw in powers:
-                    new_set.add((c * pw) % A)
-            current_set = new_set
-        
-        if T not in current_set:
-            return None
-        
-        # Find a witness P: search for a divisor P of N² with P ≡ T mod A
-        # Try: enumerate small divisors
-        P = find_divisor_witness(N, factors_N, A, T)
-        if P is None:
-            return None
-        
-        # Compute x, y, z
-        x = m  # x = (n+A)/4
-        # 4/n = 1/x + 1/y + 1/z → need to find y, z
-        # From the construction: y and z depend on the route
-        # For a general certificate, just verify the Erdős–Straus identity
-        yz = find_yz(n, x)
-        if yz is None:
-            return None
-        y, z = yz
-        return {'A': A, 'P': P, 'x': x, 'y': y, 'z': z, 'T': T, 'N': N}
-    
-    # Prime A: full analysis
-    # Check if A works
-    from sympy import primitive_root
-    
-    g = primitive_root(A)
-    if g is None:
-        return None
-    
-    orders = []
-    for p, e in prime_factors:
-        # Compute order of p mod A
-        val = p % A
-        for i in range(1, A):
-            if val == 1:
-                orders.append(i)
-                break
-            val = (val * p) % A
-    
-    h = 1
-    for o in orders:
-        h = lcm(h, o)
-    
-    if h <= 1 or h % 2 != 0:
-        return None  # No QNR, A inapplicable
-    
-    # Check if T ∈ D_A by computing the divisor-residue set
-    current_set = {1}
-    for p, e in prime_factors:
-        powers = set()
-        val = 1
-        for a in range(2 * e + 1):
-            powers.add(val % A)
-            val = (val * p) % A
-        new_set = set()
-        for c in current_set:
-            for pw in powers:
-                new_set.add((c * pw) % A)
-        current_set = new_set
-    
-    if T not in current_set:
-        return None
-    
-    # Find witness P
-    P = find_divisor_witness(N, factors_N, A, T)
+    P = find_divisor_witness(factors_N, A, T)
     if P is None:
         return None
-    
-    # Compute x, y, z
-    x = m
-    yz = find_yz(n, x)
-    if yz is None:
-        return None
-    y, z = yz
-    
-    return {'A': A, 'P': P, 'x': x, 'y': y, 'z': z, 'T': T, 'N': N}
 
-def find_divisor_witness(N, factors_N, A, T):
-    """Find a divisor P of N² such that P ≡ T (mod A)."""
-    # N² = product of p_i^(2*e_i)
-    # We need P = product of p_i^(a_i) with 0 ≤ a_i ≤ 2*e_i and P ≡ T mod A
-    
-    # Simple approach: enumerate divisors (limited)
-    prime_factors = [(p, e) for p, e in factors_N.items() if gcd(p, A) == 1]
-    
-    # Try small combinations first
-    # Single prime power
-    for p, e in prime_factors:
-        val = 1
-        for a in range(2 * e + 1):
-            if val % A == T % A:
-                return val
-            val = (val * p) % A  # wrong, need actual value not mod
-    
-    # Proper search: build up divisors
-    current_divs = {1}
-    for p, e in prime_factors:
-        new_divs = set()
-        for d in current_divs:
-            val = 1
-            for a in range(2 * e + 1):
-                new_divs.add(d * val)
-                val *= p
-        current_divs = new_divs
-        # Keep only small divisors to avoid blowup
-        if len(current_divs) > 100000:
-            # Sample
-            for d in current_divs:
-                if d % A == T % A:
-                    return d
-            return None
-    
-    for d in current_divs:
-        if d % A == T % A:
-            return d
-    
-    return None
-
-def find_yz(n, x):
-    """Find y, z such that 4/n = 1/x + 1/y + 1/z, i.e., 4*x*y*z = n*(x*y + x*z + y*z)."""
-    # 4/n = 1/x + 1/y + 1/z
-    # Fix x, then 4/n - 1/x = 1/y + 1/z
-    # (4x - n) / (nx) = 1/y + 1/z
-    # So (4x - n) * y * z = n * x * (y + z)
-    # Let s = y + z, p = y*z
-    # (4x - n) * p = n * x * s
-    # s = (4x - n) * p / (n * x)
-    
-    if 4 * x <= n:
+    Q = (N * N) // P
+    y = (P + N) // A
+    z = (Q + N) // A
+    # exact verification (defense in depth — mirrors verify_certificates.py)
+    if P * Q != N * N:
         return None
-    
-    # 4x - n > 0
-    diff = 4 * x - n
-    nx = n * x
-    
-    # (4x - n) * y * z = nx * (y + z)
-    # Try y = (diff + gcd(diff, nx)) / diff... 
-    # Actually: try small values of y
-    # From the construction: y = (2 + nx) / 3, z = nx*(nx/2 + 1) / 3 (for A=3)
-    # For general A: y and z depend on the route
-    
-    # Brute force: try y from 1 to some limit
-    for y in range(1, min(nx + 1, 1000000)):
-        # (4x - n) * y * z = nx * (y + z)
-        # ((4x-n)*y - nx) * z = nx * y
-        # z = nx * y / ((4x-n)*y - nx)
-        num = nx * y
-        den = diff * y - nx
-        if den > 0 and num % den == 0:
-            z = num // den
-            if z > 0:
-                # Verify
-                if 4 * x * y * z == n * (x * y + x * z + y * z):
-                    return (y, z)
-    
-    return None
+    if P % A != T:
+        return None
+    if Q % A != T:
+        return None
+    if (P + N) % A != 0 or (Q + N) % A != 0:
+        return None
+    if 4 * x * y * z != n * (x * y + x * z + y * z):
+        return None
+    if x <= 0 or y <= 0 or z <= 0:
+        return None
+    return {'A': A, 'P': P, 'Q': Q, 'x': x, 'y': y, 'z': z, 'T': T, 'N': N}
+
+
+def A3_parametric_fast(n):
+    """Theorem 2 fast path: for n ≡ 5 (mod 8), A = 3 always works, with
+    witness divisor P = 2 (x = (n+3)/4 is even), no factorization needed."""
+    if n % 8 != 5:
+        return None
+    x = (n + 3) // 4
+    if x % 2 != 0:
+        return None
+    N = n * x
+    P = 2
+    Q = (N * N) // P
+    y = (P + N) // 3
+    z = (Q + N) // 3
+    if P * Q != N * N or P % 3 != 2 or Q % 3 != 2:
+        return None
+    if (P + N) % 3 != 0 or (Q + N) % 3 != 0:
+        return None
+    if 4 * x * y * z != n * (x * y + x * z + y * z):
+        return None
+    return {'A': 3, 'P': P, 'Q': Q, 'x': x, 'y': y, 'z': z, 'T': 2, 'N': N}
+
 
 def main():
     start_time = time.time()
-    
+
     print("=" * 70)
-    print("LAYER 4 CERTIFICATE GENERATION")
+    print("LAYER 4 CERTIFICATE GENERATION (fixed, issue #7)")
     print("=" * 70)
-    
+
     output_path = 'results/layer4_certificates.jsonl'
-    import os
     os.makedirs('results', exist_ok=True)
-    
+
     count = 0
     certified = 0
     failed = 0
     last_progress = time.time()
-    
+
     with open(output_path, 'w') as out:
         n = 13
-        while n <= 100000:  # Start with 100K for speed, extend later
+        while n <= MAX_N:
             if not isprime(n) or n % 12 != 1 or n % 5 == 0:
                 n = int(nextprime(n))
                 continue
-            
+
             count += 1
-            
-            # Find first working A
+
+            # find first working A
             cert = None
-            for A in EXTENDED_A:
-                if gcd(n, A) > 1:
-                    continue
-                result = find_witness(n, A)
-                if result is not None:
-                    # Verify the certificate
+            fast = A3_parametric_fast(n)
+            if fast is not None:
+                cert = fast
+                cert['n'] = n
+                cert['verified'] = True
+            else:
+                for A in EXTENDED_A:
+                    if gcd(n, A) > 1:
+                        continue
+                    result = find_witness(n, A)
+                    if result is None:
+                        continue
                     x, y, z = result['x'], result['y'], result['z']
-                    P = result['P']
-                    T = result['T']
-                    N = result['N']
-                    
-                    # Verify: P | N²
+                    P, Q, T, N = result['P'], result['Q'], result['T'], result['N']
+
+                    # independent verification (mirrors verify_certificates.py)
                     if N * N % P != 0:
                         continue
-                    # Verify: P ≡ T mod A
+                    if Q != N * N // P:
+                        continue
                     if P % A != T % A:
                         continue
-                    # Verify: 4xyz = n*(xy + xz + yz)
+                    if Q % A != T % A:
+                        continue
+                    if (P + N) % A != 0 or (Q + N) % A != 0:
+                        continue
                     if 4 * x * y * z != n * (x * y + x * z + y * z):
                         continue
-                    # Verify: x, y, z > 0
                     if x <= 0 or y <= 0 or z <= 0:
                         continue
-                    
+
                     cert = result
                     cert['n'] = n
                     cert['verified'] = True
                     break
-            
+
             if cert:
                 out.write(json.dumps(cert) + '\n')
                 certified += 1
@@ -277,23 +203,25 @@ def main():
                 failed += 1
                 if failed <= 10:
                     print(f"  FAILED: n={n}")
-            
+
             n = int(nextprime(n))
-            
+
             now = time.time()
             if now - last_progress > 30:
                 elapsed = now - start_time
-                print(f"  Progress: {count} primes, n={n}, elapsed={elapsed:.0f}s, certified={certified}, failed={failed}")
+                print(f"  Progress: {count} primes, n={n}, elapsed={elapsed:.0f}s, "
+                      f"certified={certified}, failed={failed}", flush=True)
                 last_progress = now
-    
+
     elapsed = time.time() - start_time
     print()
-    print(f"{'=' * 70}")
+    print("=" * 70)
     print(f"COMPLETE: {count} primes in {elapsed:.0f}s")
     print(f"  Certified: {certified}")
     print(f"  Failed: {failed}")
     print(f"  Output: {output_path}")
-    print(f"{'=' * 70}")
+    print("=" * 70)
+
 
 if __name__ == "__main__":
     main()
