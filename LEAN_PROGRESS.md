@@ -1,5 +1,7 @@
 # Lean Formalization Progress
 
+> **⚠️ Note (2026-11-18):** The build-status and "zero `sorry`" statements in this log do **not** match the repo's verified state. The current census (enforced by `scripts/audit_all.sh`) is **8 unfinished `sorry` proof terms in the root project** (`OmegaCases.lean`: 3, `StructuralLemmas.lean`: 5) plus 4 documented axioms, one of which (`erdos_straus_mod_12_1_not_div_5_conjecture`) *assumes* the residual open class. See `README.md` and `CORRECTED_CLAIM_AUDIT.md`.
+
 **Date:** August 25, 2026
 **Project:** Erdős-Straus Conjecture — A-Boundedness Formalization
 **Lean version:** 4.33.1 (Mathlib v4.33.1)
