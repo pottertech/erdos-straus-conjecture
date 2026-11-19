@@ -2,3 +2,4 @@
 import ErdosStrausConjecture.Basic
 import ErdosStrausConjecture.Identities
 import ErdosStrausConjecture.Mod12Case1
+import ErdosStrausConjecture.ShortRelations

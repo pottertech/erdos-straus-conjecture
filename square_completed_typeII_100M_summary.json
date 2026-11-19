@@ -1,0 +1,50 @@
+{
+  "status": "exact finite computation on all primes in the six classical residue classes; not a global proof",
+  "range": [2, 100000000],
+  "A_max": 624,
+  "six_class_primes": 179468,
+  "certificate_count": 179468,
+  "failure_count": 0,
+  "failures": [],
+  "bad_certificate_count": 0,
+  "cumulative": {
+    "A_le_5": 74934,
+    "A_le_10": 145629,
+    "A_le_20": 169580,
+    "A_le_50": 178577,
+    "A_le_100": 179370,
+    "A_le_200": 179461,
+    "A_le_300": 179467,
+    "A_le_624": 179468
+  },
+  "maximum_minimum_A": 624,
+  "maximum_case": {
+    "n": 2031121,
+    "A": 624,
+    "D": 576,
+    "alpha": 4,
+    "u": 12,
+    "a": 13,
+    "s": 2495,
+    "v": 10583,
+    "shift": 815,
+    "K": 507984
+  },
+  "record_frontier": [
+    {"n": 1009, "A": 3, "D": 9},
+    {"n": 1201, "A": 8, "D": 2},
+    {"n": 2521, "A": 12, "D": 16},
+    {"n": 3361, "A": 25, "D": 125},
+    {"n": 33289, "A": 39, "D": 9},
+    {"n": 90841, "A": 42, "D": 294},
+    {"n": 144169, "A": 48, "D": 9},
+    {"n": 167521, "A": 65, "D": 13},
+    {"n": 225289, "A": 70, "D": 245},
+    {"n": 361321, "A": 72, "D": 3},
+    {"n": 915961, "A": 76, "D": 2},
+    {"n": 954409, "A": 84, "D": 504},
+    {"n": 1853329, "A": 96, "D": 2},
+    {"n": 2031121, "A": 624, "D": 576}
+  ],
+  "interpretation": "Every prime n <= 1e8 in the six classical residual classes modulo 840 has a complete prime Type-II square-completed certificate with minimum square-completion parameter A <= 624. All recovered Dahan coordinates and explicit Erdős-Straus decompositions passed exact integer cross multiplication."
+}

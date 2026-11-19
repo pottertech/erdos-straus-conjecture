@@ -1,0 +1,400 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\sqdepth}{\delta_{\rm sq}}
+\newcommand{\Pminus}{\mathcal P_-}
+
+\title{A Composite Exact-Depth Backbone for Type-II Erd\H{o}s--Straus Solutions}
+\author{Skip Potter}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a prime $p\equiv1\pmod4$, let
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2,\ 4A-1\mid p+4D\},
+\]
+the first-hit depth in the classical square-divisor coordinate for prime Type-II Erd\H{o}s--Straus solutions. The square-divisor parametrization is classical; our subject is its exact-depth spectrum.
+
+Let $q\equiv1\pmod4$ be prime and set
+\[
+A_q=\frac{3q+1}{4}.
+\]
+We prove that if $A_q$ has a divisor $D\equiv2\pmod3$, then infinitely many primes $p$ satisfy $\sqdepth(p)=A_q$. Thus the deliberately composite target modulus $4A_q-1=3q$ supports an infinite exact-depth prime family. A half-dimensional upper-bound sieve shows that the exceptional prime parameters satisfy
+\[
+E(Y)\ll \frac{Y}{(\log Y)^{3/2}},
+\]
+which gives
+\[
+N_{\rm comp}(X)\ge \frac12\operatorname{Li}\!\left(\frac{4X-1}{3}\right)
+-O\!\left(\frac{X}{(\log X)^{3/2}}\right).
+\]
+We further prove that the $3q$ family is maximal among composite target moduli obtainable from a single universal square-safe CRT residue. Finally, the number of witness primes $\ell\equiv2\pmod3$ dividing $A_q$ satisfies an Erd\H{o}s--Kac law; hence the number of distinct infinite exact-depth prime progressions attached to a typical $A_q$ is asymptotically Gaussian with mean and variance $\frac12\log\log q$.
+
+None of these statements proves universal Type-II solvability or the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+
+\section{Introduction}
+The Erd\H{o}s--Straus conjecture asks whether
+\[
+\frac4n=\frac1x+\frac1y+\frac1z
+\]
+has a solution in positive integers for every $n\ge2$. For prime denominators, standard solutions split into Type I and Type II. We study only Type II.
+
+A classical coordinate for prime Type-II solutions asks for positive integers $A,D$ satisfying
+\begin{equation}\label{eq:square}
+D\mid A^2,\qquad 4A-1\mid p+4D.
+\end{equation}
+This divisor-square mechanism belongs to the Th\'epault--Mizony lineage and is prior mathematics. Modern complete Type-II formulations appear in work of Elsholtz--Tao and Pomerance--Weingartner; recent work of Dahan studies Type-II sieve dimension and search depth. Our contribution is instead about the first layer at which \eqref{eq:square} succeeds.
+
+For primes $p\equiv1\pmod4$, define
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2\text{ satisfying \eqref{eq:square}}\}.
+\]
+Public 2026 FCF/CENTL work studies the resulting square-completed exact-depth spectrum, including a prime-modulus backbone and a composite residual problem. The present paper gives a symbolic composite backbone, quantifies its exceptional set, identifies the maximal reach of the underlying square-safe CRT mechanism, and describes the statistical multiplicity of its exact-depth families.
+
+\section{The square-divisor coordinate}
+We use the following classical completeness fact.
+
+\begin{proposition}[complete prime Type-II coordinate]\label{prop:complete}
+For a prime $p\equiv1\pmod4$, a standard Type-II Erd\H{o}s--Straus solution exists if and only if there are positive integers $A,D$ with
+\[
+D\mid A^2,\qquad p\nmid D,\qquad 4A-1\mid p+4D.
+\]
+\end{proposition}
+
+\begin{remark}
+Proposition~\ref{prop:complete} is not claimed as new. It is included only to make explicit that $\sqdepth$ measures the complete standard prime Type-II family in this coordinate, not merely a sufficient subfamily.
+\end{remark}
+
+\section{Universal square-safe residues}
+For $B\ge1$, write
+\[
+m_B=4B-1,\qquad R_B=\{-4E\pmod{m_B}:E\mid B^2\}.
+\]
+
+\begin{lemma}[square-safe residue lemma]\label{lem:squaresafe}
+Every element of $R_B$ has Jacobi symbol $-1$ modulo $m_B$. In particular, no square residue modulo $m_B$ belongs to $R_B$.
+\end{lemma}
+
+\begin{proof}
+Let $r$ be an odd prime divisor of $B$. Since $4B\equiv1\pmod{m_B}$, quadratic reciprocity gives
+\[
+\left(\frac r{m_B}\right)=1.
+\]
+The same conclusion holds for the factor $2$ when it occurs in $B$; equivalently, every divisor $E\mid B^2$ has
+\[
+\left(\frac E{m_B}\right)=1.
+\]
+Because $m_B\equiv3\pmod4$ and $4$ is a square,
+\[
+\left(\frac{-4E}{m_B}\right)=
+\left(\frac{-1}{m_B}\right)
+\left(\frac E{m_B}\right)=-1.
+\]
+Thus $-4E$ cannot be a square modulo $m_B$.
+\end{proof}
+
+\begin{remark}
+Closely related divisor-Jacobi and reciprocity-signature statements occur in contemporary FCF/CENTL work. We use Lemma~\ref{lem:squaresafe} as an input and make no novelty claim for the reciprocity obstruction itself.
+\end{remark}
+
+\section{The composite $3q$ exact-depth backbone}
+
+\begin{theorem}[structural composite backbone]\label{thm:backbone}
+Let $q\equiv1\pmod4$ be prime and put
+\[
+A_q=\frac{3q+1}{4}.
+\]
+Suppose that there is a divisor
+\[
+D\mid A_q^2,\qquad D\equiv2\pmod3.
+\]
+Then there are infinitely many primes $p\equiv1\pmod4$ for which
+\[
+\boxed{\sqdepth(p)=A_q.}
+\]
+The target modulus is composite:
+\[
+4A_q-1=3q.
+\]
+\end{theorem}
+
+\begin{proof}
+Set $m=3q$ and $a\equiv-4D\pmod m$. Since $D\equiv2\pmod3$,
+\[
+a\equiv1\pmod3.
+\]
+Every integer $n\equiv a\pmod m$ has the target witness $(A_q,D)$.
+
+Let $B<A_q$. If $q\mid 4B-1$, write $4B-1=qs$. Since $q\equiv1\pmod4$ and $4B-1\equiv3\pmod4$, we have $s\equiv3\pmod4$ and hence $s\ge3$. Thus $4B-1\ge3q=4A_q-1$, a contradiction. Hence
+\[
+\gcd(3q,4B-1)\mid3
+\]
+for every earlier depth.
+
+Let
+\[
+L=\operatorname{lcm}_{1\le B<A_q}(4B-1).
+\]
+The system
+\[
+n\equiv-4D\pmod{3q},\qquad
+n\equiv1\pmod L,\qquad
+n\equiv1\pmod4
+\]
+is CRT-compatible, since the first two residues agree modulo the only possible common factor $3$. Every member is congruent to the square residue $1$ modulo every earlier $m_B$, so Lemma~\ref{lem:squaresafe} excludes all earlier Type-II witnesses.
+
+The resulting progression is reduced: every prime inherited from $L$ sees residue $1$, while $q\nmid D$ because $q\nmid A_q$. Dirichlet's theorem therefore gives infinitely many prime members, all of exact depth $A_q$.
+\end{proof}
+
+\begin{corollary}[prime-factor form]\label{cor:pf}
+If $A_q$ has a prime divisor $\ell\equiv2\pmod3$, then $A_q$ is realized as exact depth by infinitely many primes.
+\end{corollary}
+
+\section{A quantitative exceptional-set bound}
+Let
+\[
+E(Y)=\#\left\{q\le Y:q\text{ prime},\ q\equiv1\pmod4,
+\ A_q\text{ has no prime divisor }\ell\equiv2\pmod3\right\}.
+\]
+
+\begin{theorem}[half-dimensional exceptional set]\label{thm:exceptional}
+\[
+\boxed{E(Y)\ll \frac{Y}{(\log Y)^{3/2}}.}
+\]
+Consequently,
+\[
+\frac{E(Y)}{\pi(Y;4,1)}\ll \frac1{\sqrt{\log Y}}.
+\]
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Apply an upper-bound sieve to the sequence
+\[
+\mathcal A(Y)=\left\{A_q:q\le Y,\ q\equiv1\pmod4\text{ prime}\right\}
+\]
+using the odd primes $\ell\equiv2\pmod3$. For squarefree $d$ supported on these primes,
+\[
+d\mid A_q
+\]
+places $q$ in one reduced residue class modulo $4d$, so relative to the base prime class $q\equiv1\pmod4$ the local density is
+\[
+g(d)=\frac1{\varphi(d)},\qquad g(\ell)=\frac1{\ell-1}.
+\]
+The sifting product therefore satisfies
+\[
+V(z)=\prod_{\substack{\ell<z\\\ell\equiv2(3)}}
+\left(1-\frac1{\ell-1}\right)
+\asymp (\log z)^{-1/2},
+\]
+by Mertens' theorem in arithmetic progressions. Bombieri--Vinogradov supplies level $Y^{1/2}$ on average for the prime progression errors. The standard upper-bound beta sieve of dimension $1/2$, with $z=Y^c$ for fixed sufficiently small $c>0$, gives
+\[
+E(Y)\le S(\mathcal A,\mathcal P,z)
+\ll \frac{Y}{\log Y}V(z)
+\ll \frac{Y}{(\log Y)^{3/2}}.
+\]
+The omitted sieving prime $2$ only enlarges the sifted set, so the upper bound remains valid.
+\end{proof}
+
+Define
+\[
+N_{\rm comp}(X)=\#\{A\le X:4A-1\text{ composite and }\sqdepth(p)=A
+\text{ for infinitely many primes }p\}.
+\]
+
+\begin{corollary}[quantitative depth count]\label{cor:count}
+\[
+\boxed{
+N_{\rm comp}(X)
+\ge
+\frac12\operatorname{Li}\!\left(\frac{4X-1}{3}\right)
+-O\!\left(\frac{X}{(\log X)^{3/2}}\right).
+}
+\]
+In particular,
+\[
+N_{\rm comp}(X)
+\ge
+\left(\frac23+o(1)\right)\frac{X}{\log X}.
+\]
+\end{corollary}
+
+\section{Maximality of the square-safe composite backbone}
+Set
+\[
+L_{A-1}=\operatorname{lcm}_{1\le B<A}(4B-1),\qquad
+H_A=\gcd(4A-1,L_{A-1}).
+\]
+A target branch $(A,D)$ can be handled by one globally square-safe CRT residue whenever $-4D$ is a square modulo $H_A$.
+
+For an odd integer $s$, let $\beta(s)$ denote the first depth at which $s\mid4B-1$. Then
+\[
+\beta(s)=
+\begin{cases}
+(s+1)/4,&s\equiv3\pmod4,\\
+(3s+1)/4,&s\equiv1\pmod4.
+\end{cases}
+\]
+
+\begin{theorem}[maximality]\label{thm:maximality}
+Among composite target moduli, a single universal square-safe CRT construction can succeed only when
+\[
+\boxed{4A-1=3q,\qquad q\equiv1\pmod4\text{ prime}.}
+\]
+For these moduli, $H_A=3$ and the criterion succeeds precisely on branches $D\equiv2\pmod3$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+If $H_A<4A-1$, some top prime-power divisor $s=p^e\parallel4A-1$ has not occurred earlier. Thus $\beta(s)=A$. The formula for $\beta$ forces either
+\[
+4A-1=p^e
+\]
+or
+\[
+4A-1=3p^e.
+\]
+If $e>1$, quadratic reciprocity blocks every divisor branch $D\mid A^2$ from making $-4D$ square on the already-ancestral prime coordinate $p$. The factor $2\mid A$, when present, is handled separately by the supplementary law for $(2/p)$; it obeys the same residue-parity rule. Hence only $e=1$ remains. The prime-target case is the known prime backbone; the only composite case is $3q$ with $q\equiv1\pmod4$.
+\end{proof}
+
+\begin{remark}
+The reciprocity ingredients have close antecedents in the FCF/CENTL ancestry and signature framework. The candidate contribution here is the global overlap classification and its maximality interpretation; publication priority for that formulation remains subject to literature review.
+\end{remark}
+
+\section{Multiplicity and an Erd\H{o}s--Kac law}
+For the $3q$ backbone define
+\[
+\nu_-(A_q)=\#\{\ell\mid A_q:\ell\text{ prime},\ \ell\equiv2\pmod3\}.
+\]
+Every such witness prime $\ell$ gives a distinct target residue
+\[
+p\equiv-4\ell\pmod{3q},
+\]
+and hence a distinct infinite prime progression of exact depth $A_q$.
+
+Let
+\[
+\mu(Y)=\sum_{\substack{\ell\le Y\\\ell\equiv2(3)\\\ell\text{ odd prime}}}
+\frac1{\ell-1},
+\]
+\[
+\sigma^2(Y)=\sum_{\substack{\ell\le Y\\\ell\equiv2(3)\\\ell\text{ odd prime}}}
+\frac1{\ell-1}\left(1-\frac1{\ell-1}\right).
+\]
+Then
+\[
+\mu(Y)=\frac12\log\log Y+O(1),\qquad
+\sigma^2(Y)=\frac12\log\log Y+O(1).
+\]
+
+\begin{theorem}[Gaussian multiplicity law]\label{thm:ek}
+For every real $u$,
+\[
+\boxed{
+\lim_{Y\to\infty}
+\frac{1}{\pi(Y;4,1)}
+\#\left\{q\le Y:q\equiv1\pmod4\text{ prime},
+\frac{\nu_-(A_q)-\mu(Y)}{\sigma(Y)}\le u\right\}
+=\Phi(u),
+}
+\]
+where $\Phi$ is the standard normal distribution function.
+Equivalently,
+\[
+\frac{\nu_-(A_q)-\frac12\log\log q}
+{\sqrt{\frac12\log\log q}}
+\Longrightarrow N(0,1)
+\]
+over primes $q\equiv1\pmod4$.
+\end{theorem}
+
+\begin{proof}
+This is an application of the general sieve-theoretic Erd\H{o}s--Kac framework of Martin--Troupe. Take the input set
+\[
+\widetilde{\mathcal A}=
+\left\{\frac{3q+1}{4}:q\equiv1\pmod4\text{ prime}\right\}
+\]
+and the strongly additive function that counts odd prime divisors $\ell\equiv2\pmod3$. For squarefree $d$ supported on those primes,
+\[
+\#\{A_q\le X:d\mid A_q\}
+=
+\pi\!\left(\frac{4X-1}{3};4d,a_d\right)
+\]
+for one reduced residue class $a_d\pmod{4d}$. Thus the local sieve density is $1/\varphi(d)$, so at a prime $\ell$ it is $1/(\ell-1)$. Bombieri--Vinogradov provides the required averaged remainder control exactly as in the shifted-prime applications of the general theorem. The mean and variance are therefore the displayed $\mu(Y)$ and $\sigma^2(Y)$. Including the possible factor $2$ alters $\nu_-$ by at most one and does not affect the normalized limit.
+\end{proof}
+
+\begin{corollary}[normal order]
+For relative density $1$ of primes $q\equiv1\pmod4$,
+\[
+\nu_-(A_q)=\left(\frac12+o(1)\right)\log\log q.
+\]
+Hence a typical composite exact depth in the backbone supports that many distinct explicitly certified infinite exact-depth prime progressions.
+\end{corollary}
+
+\section{Beyond the square-safe backbone}
+The maximality theorem shows that the square-safe mechanism cannot reach arbitrary composite target moduli. This makes more complicated examples structurally meaningful rather than redundant. In the accompanying repository, finite CRT/CSP certificates verify full composite layers at $A=649$ and $A=22339$; these lie beyond the one-residue square-safe backbone and require branch-dependent avoidance of earlier layers. They are supplementary to the symbolic results proved here.
+
+A matching lower bound for the exceptional set in Theorem~\ref{thm:exceptional} is not obtained by the same sieve: the usual parity obstruction prevents an elementary lower-bound sieve from forcing avoidance of all primes $\ell\equiv2\pmod3$.
+
+\section{Prior work and claim boundaries}
+The divisor-square Type-II mechanism is historical prior art. The analytic tools used here--Dirichlet's theorem, quadratic reciprocity, Mertens' theorem in progressions, Bombieri--Vinogradov, the beta/half-dimensional sieve, and Erd\H{o}s--Kac machinery--are standard prior mathematics. In particular, Martin--Troupe give a modern general sieve framework for Erd\H{o}s--Kac laws on thin sequences and explicitly treat shifted primes using Bombieri--Vinogradov; earlier additive-function distribution results on shifted primes and polynomial values go back to Halberstam, Barban, and Hildebrand.
+
+The candidate contributions of this paper are the exact-depth synthesis: the composite $3q$ backbone, its quantitative exceptional-set consequence for the exact-depth counting function, the maximality classification for the universal square-safe CRT mechanism, and the interpretation of the witness-prime additive function as the multiplicity of distinct infinite exact-depth prime families. Targeted literature searches through August 2026 did not locate these exact statements; that negative search is not a proof of priority.
+
+\begin{thebibliography}{99}
+
+\bibitem{ET}
+C. Elsholtz and T. Tao,
+Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions,
+\emph{J. Aust. Math. Soc.} 94 (2013), 50--105.
+
+\bibitem{PW}
+C. Pomerance and A. Weingartner,
+Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture,
+\emph{Ramanujan J.} 69 (2026).
+
+\bibitem{Dahan}
+B. Dahan,
+Sieve dimension and search depth for the Erd\H{o}s--Straus conjecture, $n\equiv1\pmod{24}$,
+arXiv:2608.24035 (2026).
+
+\bibitem{MG}
+L. Mizony and J.-L. Gardes,
+Un point sur la conjecture d'Erd\H{o}s et Straus,
+Universit\'e Claude-Bernard Lyon 1 (2012).
+
+\bibitem{MT}
+G. Martin and L. Troupe,
+The distribution of sums and products of additive functions,
+\emph{J. Th\'eorie des Nombres de Bordeaux} 32 (2020), 103--133.
+
+\bibitem{Hildebrand}
+A. Hildebrand,
+Additive and multiplicative functions on shifted primes,
+\emph{Proc. London Math. Soc.} (3) 59 (1989), 209--232.
+
+\bibitem{IwaniecKowalski}
+H. Iwaniec and E. Kowalski,
+\emph{Analytic Number Theory},
+Amer. Math. Soc. Colloquium Publications 53, 2004.
+
+\bibitem{FCF}
+Free Computation Foundation / CENTL,
+Erd\H{o}s--Straus research library: square completion, exact-depth spectrum, ancestry, and current frontier (2026).
+
+\end{thebibliography}
+
+\end{document}

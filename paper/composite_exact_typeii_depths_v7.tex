@@ -1,0 +1,431 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\sqdepth}{\delta_{\rm sq}}
+
+\title{Fixed-Cofactor Backbones in the Exact Type-II Erd\H{o}s--Straus Depth Spectrum}
+\author{Skip Potter}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For primes $p\equiv1\pmod4$, let
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2,\ 4A-1\mid p+4D\},
+\]
+the first-hit depth in the classical divisor-square coordinate for prime Type-II Erd\H{o}s--Straus solutions. The parametrization itself is classical; we study its exact-depth spectrum.
+
+A composite $3q$ backbone and a half-dimensional sieve give a large family of exact depths, while a parity-vector calculation shows that prime target moduli and $3q$ target moduli are exactly the first occurrences of new global Jacobi characters. Thus $3q$ is maximal for constructions that avoid all earlier layers solely by imposing Jacobi sign $+1$.
+
+We then go beyond that barrier. If a target residue is quadratic-residue at every fixed prime coordinate and nonresidue at one variable prime $r$, every earlier layer not containing $r$ can be removed simultaneously. For a fixed cofactor $s$, the remaining $r$-bearing layers reduce to the finite Diophantine equation
+\[
+r(kh-dc^2)+k+dh-2dc=0.
+\]
+This yields a fixed-cofactor finite-exception theorem.
+
+Two canonical infinite hierarchies follow. For every fixed prime $s\equiv3\pmod8$, all but finitely many primes
+\[
+r\equiv s+2\pmod{2(s+1)}
+\]
+produce exact depths $A=(sr+1)/4$. For every fixed prime $s\equiv7\pmod8$, all but finitely many primes
+\[
+r\equiv s-2\pmod{2(s-1)}
+\]
+do the same. Consequently there are infinitely many post-Jacobi fixed cofactors in both odd residue classes modulo $8$ compatible with $s\equiv3\pmod4$.
+
+If $N_\infty(X)$ counts depth values $A\le X$ realized as exact square-completed Type-II depth by infinitely many primes, then
+\[
+\liminf_{X\to\infty}\frac{N_\infty(X)\log X}{X}
+\ge \frac83+C_{3(8)}+C_{7(8)},
+\]
+with explicitly convergent positive series $C_{3(8)}$ and $C_{7(8)}$. A finite certificate using only fixed cofactors $s\le10^6$ gives the rigorous numerical bound
+\[
+\boxed{
+\liminf_{X\to\infty}\frac{N_\infty(X)\log X}{X}
+\ge2.9009925365\ldots .
+}
+\]
+These results concern the exact Type-II depth spectrum; they do not prove universal Type-II solvability or the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+
+\section{Introduction}
+The Erd\H{o}s--Straus conjecture asks whether
+\[
+\frac4n=\frac1x+\frac1y+\frac1z
+\]
+has a solution in positive integers for every $n\ge2$. For prime denominators, standard solutions split into Type I and Type II. We study Type II through the classical divisor-square coordinate
+\begin{equation}\label{eq:square}
+D\mid A^2,\qquad 4A-1\mid p+4D.
+\end{equation}
+The mechanism belongs to the Th\'epault--Mizony lineage and is not claimed here. Modern complete Type-II formulations appear in work of Elsholtz--Tao and Pomerance--Weingartner; Dahan studies Type-II sieve dimension and search depth.
+
+For primes $p\equiv1\pmod4$, define
+\[
+\sqdepth(p)=\min\{A\ge1:\exists D\mid A^2\text{ satisfying \eqref{eq:square}}\}.
+\]
+Let
+\[
+N_\infty(X)=\#\{A\le X:\text{ infinitely many primes }p\text{ satisfy }\sqdepth(p)=A\}.
+\]
+Our concern is structural: which depth layers occur infinitely often, and what arithmetic mechanism forces exact first occurrence?
+
+\section{The square coordinate and a Jacobi obstruction}
+\begin{proposition}[complete prime Type-II coordinate]\label{prop:complete}
+For a prime $p\equiv1\pmod4$, a standard Type-II Erd\H{o}s--Straus solution exists if and only if there are positive integers $A,D$ such that
+\[
+D\mid A^2,\qquad p\nmid D,\qquad 4A-1\mid p+4D.
+\]
+\end{proposition}
+
+For $B\ge1$, put
+\[
+m_B=4B-1,
+\qquad
+R_B=\{-4E\pmod{m_B}:E\mid B^2\}.
+\]
+
+\begin{lemma}[Jacobi obstruction]\label{lem:jacobi}
+For every $E\mid B^2$,
+\[
+\boxed{\left(\frac{-4E}{m_B}\right)=-1.}
+\]
+Hence no residue of Jacobi sign $+1$ modulo $m_B$ belongs to $R_B$.
+\end{lemma}
+
+\begin{proof}
+Every prime divisor of $B$ is coprime to $m_B$. Quadratic reciprocity applied to $4B\equiv1\pmod{m_B}$ gives $(E/m_B)=1$ for every $E\mid B^2$, with the supplementary law handling a factor $2$. Since $m_B\equiv3\pmod4$, one has $(-1/m_B)=-1$, while $4$ is a square.
+\end{proof}
+
+\section{The composite $3q$ backbone}
+\begin{theorem}[composite $3q$ exact-depth theorem]\label{thm:3q}
+Let $q\equiv1\pmod4$ be prime and put
+\[
+A_q=\frac{3q+1}{4}.
+\]
+If there exists $D\mid A_q^2$ with $D\equiv2\pmod3$, then infinitely many primes $p$ satisfy
+\[
+\boxed{\sqdepth(p)=A_q.}
+\]
+\end{theorem}
+
+\begin{proof}
+The target modulus is $3q$ and the target residue is $-4D\equiv1\pmod3$. If $B<A_q$, then $q\nmid4B-1$: otherwise $4B-1=qt$ with $t\equiv3\pmod4$, hence $t\ge3$ and $4B-1\ge3q=4A_q-1$. Thus every earlier modulus meets $3q$ only in a divisor of $3$. CRT can impose the target condition modulo $3q$ and residue $1$ modulo all earlier moduli. Lemma~\ref{lem:jacobi} excludes every earlier layer, and Dirichlet supplies infinitely many primes in a reduced refinement.
+\end{proof}
+
+A half-dimensional upper-bound sieve applied to $A_q=(3q+1)/4$ gives
+\[
+E(Y)\ll Y(\log Y)^{-3/2}
+\]
+for prime parameters $q\equiv1\pmod4$ for which $A_q$ has no prime divisor $2\pmod3$. Consequently the $3q$ family contributes
+\[
+\left(\frac23+o(1)\right)\frac{X}{\log X}
+\]
+composite exact depths.
+
+\section{Jacobi-span maximality}
+Write
+\[
+v_A=(\operatorname{ord}_r(4A-1)\bmod2)_r
+\]
+for the squarefree parity vector of $4A-1$.
+
+\begin{theorem}[first-occurrence span classification]\label{thm:span}
+Let
+\[
+V_{A-1}=\operatorname{span}_{\mathbf F_2}\{v_B:B<A\}.
+\]
+Then $v_A\notin V_{A-1}$ if and only if either
+\[
+4A-1=q\equiv3\pmod4\quad\text{is prime},
+\]
+or
+\[
+4A-1=3q,
+\qquad q\equiv1\pmod4\quad\text{is prime}.
+\]
+\end{theorem}
+
+\begin{proof}
+If a prime $r\equiv3\pmod4$ occurs to odd exponent in $4A-1$, then the coordinate $e_r$ occurs at depth $(r+1)/4$, unless the target itself is $r$. If $r\equiv1\pmod4$, the earlier modulus $3r$ gives $e_3+e_r$ and depth $1$ gives $e_3$, unless the target itself is $3r$. Thus every target coordinate is generated earlier outside the stated cases; conversely the new prime coordinate cannot appear earlier in either exceptional case.
+\end{proof}
+
+\begin{corollary}[Jacobi-safe maximality]\label{cor:jacmax}
+A global CRT construction that avoids every earlier layer solely by imposing Jacobi sign $+1$ can have a composite target only when
+\[
+4A-1=3q,\qquad q\equiv1\pmod4\text{ prime}.
+\]
+\end{corollary}
+
+Thus any symbolic construction beyond the $3q$ backbone must exploit information finer than one global Jacobi sign.
+
+\section{A single nonsquare coordinate}
+\begin{lemma}[single-nonsquare reduction]\label{lem:single}
+Let the target modulus be squarefree, and let the target residue $a=-4D$ be a quadratic residue at every prime coordinate except one prime $r$, where it is a nonresidue. Then all earlier layers whose modulus is not divisible by $r$ can be avoided simultaneously by choosing square-safe CRT coordinates away from $r$. Consequently exact-depth realization reduces to the earlier layers whose moduli contain $r$.
+\end{lemma}
+
+\begin{proof}
+At every coordinate away from $r$, choose a unit square compatible with the prescribed target residue on common target factors. Every earlier modulus not divisible by $r$ then receives a unit square at each of its prime coordinates and hence Jacobi sign $+1$. Lemma~\ref{lem:jacobi} excludes its trap set.
+\end{proof}
+
+\section{The fixed-cofactor collision equation}
+Let $s\equiv3\pmod4$ be a fixed odd squarefree cofactor, let $d\ge1$ with $\gcd(s,4d)=1$, and let $r$ be a variable prime. Put
+\[
+A=\frac{sr+1}{4}
+\]
+and assume $d\mid A$. Suppose the target residue $-4d$ is a quadratic residue at every prime divisor of $s$ and a nonresidue at $r$. By Lemma~\ref{lem:single}, only earlier moduli divisible by $r$ remain.
+
+After excluding finitely many parameters $r\le s$, every earlier $r$-bearing modulus has the form
+\[
+4B-1=cr,
+\qquad 0<c<s,
+\qquad c\equiv3\pmod4.
+\]
+
+\begin{lemma}[exceptional-layer equation]\label{lem:master}
+If the depth-$B$ trap intersects the target branch, then there are nonnegative integers $k,h$ satisfying
+\[
+\boxed{r(kh-dc^2)+k+dh-2dc=0}
+\]
+and
+\[
+16d\mid rh+1.
+\]
+If the AM--GM equality case is excluded, then necessarily
+\[
+\boxed{kh<dc^2.}
+\]
+\end{lemma}
+
+\begin{proof}
+A collision gives $E\mid B^2$ with $E\equiv d\pmod r$, so write $E=rk+d$. If $F=B^2/E$, the complementary congruence can be written $16dF=rh+1$. Multiplication yields
+\[
+(rk+d)(rh+1)=d(cr+1)^2,
+\]
+which gives the displayed equation. If $kh>dc^2$, AM--GM gives $k+dh>2dc$, contradicting the sign of the equation. Equality forces $k=dc$ and $h=c$, equivalently $16d\mid cr+1$.
+\end{proof}
+
+The key point is finiteness: once $s,d,c$ are fixed and equality is excluded, the region $kh<dc^2$ contains only finitely many pairs. Each determines at most one rational parameter
+\[
+r=\frac{k+dh-2dc}{dc^2-kh}.
+\]
+Thus every fixed exceptional cofactor yields only finitely many collision primes.
+
+\section{A fixed-cofactor finite-exception theorem}
+\begin{theorem}[equality-free fixed-cofactor theorem]\label{thm:fixed}
+Let $s\equiv3\pmod4$ be fixed, odd and squarefree, and let $d$ be coprime to $s$. Suppose a reduced prime progression for $r$ is chosen so that:
+\begin{enumerate}
+\item $r\equiv-s^{-1}\pmod{4d}$, hence $d\mid(sr+1)/4$;
+\item $(-d/q)=+1$ for every prime $q\mid s$;
+\item $(-d/r)=-1$ throughout the chosen prime progression;
+\item $16d\nmid cr+1$ throughout the progression for every $0<c<s$ with $c\equiv3\pmod4$.
+\end{enumerate}
+Then all but finitely many prime parameters in that progression generate a depth
+\[
+\boxed{A=(sr+1)/4}
+\]
+that is realized as exact square-completed Type-II depth by infinitely many primes.
+\end{theorem}
+
+\begin{proof}
+Conditions (1)--(3) produce one nonsquare target coordinate, so Lemma~\ref{lem:single} removes every earlier modulus not containing $r$. Only finitely many cofactors $c<s$ remain. Condition (4) excludes the equality case in Lemma~\ref{lem:master}; each $c$ therefore contributes only finitely many collision parameters. Remove their finite union and apply Dirichlet first to the parameter progression and then to the reduced exact-depth CRT progression.
+\end{proof}
+
+\section{Two canonical post-Jacobi hierarchies}
+\begin{theorem}[the $3\pmod8$ hierarchy]\label{thm:hier3}
+For every fixed prime
+\[
+s>3,\qquad s\equiv3\pmod8,
+\]
+put
+\[
+d=\frac{s+1}{2}.
+\]
+Then all but finitely many primes
+\[
+\boxed{r\equiv s+2\pmod{2(s+1)}}
+\]
+generate exact depths
+\[
+\boxed{A=\frac{sr+1}{4}}
+\]
+that are each realized by infinitely many primes.
+\end{theorem}
+
+\begin{proof}
+The parameter congruence gives $d\mid A$. Modulo $s$, the target residue is $-2$, and $(-2/s)=1$ for $s\equiv3\pmod8$. Writing $d=2m$ with $m=(s+1)/4$ odd, the parameter congruence gives $r\equiv5\pmod8$ and $r\equiv1$ modulo each odd prime divisor of $m$. Hence $(-d/r)=-1$ by the supplementary laws and quadratic reciprocity.
+
+For an exceptional cofactor $c<s$, equality in Lemma~\ref{lem:master} would require
+\[
+8(s+1)\mid cr+1.
+\]
+But $r\equiv1\pmod{s+1}$, so this would force $c+1\equiv0\pmod{s+1}$, impossible for $0<c<s$. Theorem~\ref{thm:fixed} applies.
+\end{proof}
+
+\begin{theorem}[the $7\pmod8$ hierarchy]\label{thm:hier7}
+For every fixed prime
+\[
+s>3,\qquad s\equiv7\pmod8,
+\]
+put
+\[
+d=\frac{s-1}{2}.
+\]
+Then all but finitely many primes
+\[
+\boxed{r\equiv s-2\pmod{2(s-1)}}
+\]
+generate exact depths
+\[
+\boxed{A=\frac{sr+1}{4}}
+\]
+that are each realized by infinitely many primes.
+\end{theorem}
+
+\begin{proof}
+Write $s=2d+1$. The parameter congruence is $r\equiv2d-1\pmod{4d}$, hence
+\[
+sr+1\equiv(2d+1)(2d-1)+1=4d^2\equiv0\pmod{4d},
+\]
+so $d\mid A$.
+
+Modulo $s$,
+\[
+-d\equiv\frac12\pmod s,
+\]
+so $(-d/s)=(2/s)=+1$ because $s\equiv7\pmod8$. Also $d\equiv3\pmod4$, while the parameter progression gives $r\equiv-1\pmod d$ and $r\equiv1\pmod4$. Hence quadratic reciprocity gives
+\[
+\left(\frac{-d}{r}\right)
+=\left(\frac{r}{d}\right)
+=\left(\frac{-1}{d}\right)
+=-1.
+\]
+Thus $r$ is the unique nonsquare coordinate.
+
+Equality in Lemma~\ref{lem:master} would require $16d=8(s-1)$ to divide $cr+1$. Since $r\equiv-1\pmod{s-1}$, this implies $c\equiv1\pmod{s-1}$. With $0<c<s$ this forces $c=1$, contradicting $c\equiv3\pmod4$. Theorem~\ref{thm:fixed} applies.
+\end{proof}
+
+Theorems~\ref{thm:hier3} and~\ref{thm:hier7} are strictly beyond Corollary~\ref{cor:jacmax}: their target characters are generally Jacobi-dependent on earlier layers, yet finer local square information gives exact first-hit families.
+
+\section{Counting the two hierarchies}
+For the two canonical fixed-cofactor systems define
+\[
+C_{3(8)}=
+\sum_{\substack{s>3\ \mathrm{prime}\\s\equiv3\ (8)}}
+\frac{4}{s\varphi(2(s+1))},
+\]
+\[
+C_{7(8)}=
+\sum_{\substack{s>3\ \mathrm{prime}\\s\equiv7\ (8)}}
+\frac{4}{s\varphi(2(s-1))}.
+\]
+Both converge absolutely, since their summands are $\ll(\log\log s)/s^2$.
+
+\begin{theorem}[two-hierarchy spectrum lower bound]\label{thm:count}
+\[
+\boxed{
+\liminf_{X\to\infty}
+\frac{N_\infty(X)\log X}{X}
+\ge
+\frac83+C_{3(8)}+C_{7(8)}.
+}
+\]
+Using only the fixed cofactors $s\le10^6$ in the two hierarchy series gives the explicit rigorous estimate
+\[
+\boxed{
+\liminf_{X\to\infty}
+\frac{N_\infty(X)\log X}{X}
+\ge2.9009925365016\ldots .
+}
+\]
+\end{theorem}
+
+\begin{proof}
+For any fixed finite set of cofactors, the prime number theorem in arithmetic progressions applies separately to every parameter family. Different fixed cofactors yield distinct semiprime target moduli except for finitely many swapped-prime coincidences, which do not affect the asymptotic. Thus the contributions add for each fixed finite set. Letting $X\to\infty$ first and then taking the supremum over finite cofactor sets yields the two convergent series without any uniformity assumption for a cofactor growing with $X$.
+
+For $s\le10^6$ the exact partial sums are
+\[
+\sum_{\substack{s\le10^6\ \mathrm{prime}\\s\equiv3\ (8)}}
+\frac{4}{s\varphi(2(s+1))}
+=0.06768134901831344\ldots,
+\]
+\[
+\sum_{\substack{s\le10^6\ \mathrm{prime}\\s\equiv7\ (8)}}
+\frac{4}{s\varphi(2(s-1))}
+=0.16664452081663197\ldots .
+\]
+Adding these to $8/3$ gives the stated value.
+\end{proof}
+
+\begin{remark}
+Earlier explicit fixed-cofactor constructions such as alternate families at $s=23,31,47$ are not added to Theorem~\ref{thm:count} unless their parameter residue classes are first union-counted against the relevant canonical hierarchy. Some such progressions intersect infinitely often. The displayed numerical lower bound deliberately avoids that double-counting issue.
+\end{remark}
+
+\section{Statistical multiplicity on the $3q$ backbone}
+For $A_q=(3q+1)/4$, let
+\[
+\nu_-(A_q)=\#\{\ell\mid A_q:\ell\text{ prime},\ \ell\equiv2\pmod3\}.
+\]
+Every such witness prime yields a distinct infinite exact-depth progression. Standard sieve-theoretic Erd\H{o}s--Kac machinery for additive functions on prime-generated sequences gives
+\[
+\frac{\nu_-(A_q)-\frac12\log\log q}
+{\sqrt{\frac12\log\log q}}
+\Longrightarrow N(0,1)
+\]
+over primes $q\equiv1\pmod4$. The probability theorem is prior mathematics; the point here is its exact-depth multiplicity interpretation.
+
+\section{Computational examples}
+The accompanying repository contains exact reduced certificates for the full composite layers $A=649$ and $A=22339$. The single-nonsquare-coordinate reduction substantially simplifies both. These examples support richer post-Jacobi behavior but are not inputs to Theorems~\ref{thm:hier3}, \ref{thm:hier7}, or \ref{thm:count}.
+
+\section{Prior work and claim boundaries}
+The divisor-square Type-II parametrization, quadratic reciprocity, Dirichlet's theorem, prime number theorems in arithmetic progressions, Bombieri--Vinogradov, half-dimensional sieve machinery, and Erd\H{o}s--Kac theory are prior mathematics. Contemporary FCF/CENTL work contains closely related divisor-Jacobi, reciprocity-signature, ancestry, shadow, and exact-depth machinery. Their public research program also separates exact-depth realization from the unresolved all-prime Erd\H{o}s--Straus problem.
+
+The candidate contributions here are the fixed-cofactor finite-exception mechanism, the two canonical post-Jacobi hierarchies, and the resulting spectrum-count synthesis, together with the earlier $3q$/Jacobi-span results used to expose the barrier that the hierarchies cross. Targeted searches through August 2026 have not located these exact statements; this negative search does not establish priority.
+
+\begin{thebibliography}{99}
+\bibitem{ET}
+C. Elsholtz and T. Tao,
+Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions,
+\emph{J. Aust. Math. Soc.} 94 (2013), 50--105.
+
+\bibitem{PW}
+C. Pomerance and A. Weingartner,
+Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture,
+\emph{Ramanujan J.} 69 (2026).
+
+\bibitem{Dahan}
+B. Dahan,
+Sieve dimension and search depth for the Erd\H{o}s--Straus conjecture, $n\equiv1\pmod{24}$,
+arXiv:2608.24035 (2026).
+
+\bibitem{MG}
+L. Mizony and J.-L. Gardes,
+Un point sur la conjecture d'Erd\H{o}s et Straus,
+Universit\'e Claude-Bernard Lyon 1 (2012).
+
+\bibitem{MT}
+G. Martin and L. Troupe,
+The distribution of sums and products of additive functions,
+\emph{J. Th\'eorie des Nombres de Bordeaux} 32 (2020), 103--133.
+
+\bibitem{IK}
+H. Iwaniec and E. Kowalski,
+\emph{Analytic Number Theory},
+AMS Colloquium Publications 53, 2004.
+
+\bibitem{FCF}
+Free Computation Foundation / CENTL,
+Erd\H{o}s--Straus research library: exact-depth spectrum, square completion, ancestry, reciprocity, and shadow notes (2026).
+\end{thebibliography}
+
+\end{document}
