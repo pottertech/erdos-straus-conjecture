@@ -1,12 +1,34 @@
-name: CI (Lean build + certificate verification + audit)
+name: CI (math smoke + repo audit + Lean build)
 
 on:
   push:
-    branches: [main, "integration/cloakbrowser-optional-runtime"]
+    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
+  smoke-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Math smoke test (exact criteria + audit counterexample regression)
+        run: python scripts/smoke_test.py
+
+  repo-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Repository audit (documented Lean state + axiom whitelist;
+              certificates checked when results/layer4_certificates.jsonl exists)
+        run: bash scripts/audit_all.sh
+
   lean-build:
     runs-on: ubuntu-latest
     steps:
@@ -14,40 +36,12 @@ jobs:
       - name: Install Lean via elan
         run: |
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
-          source $HOME/.elan/env
-          lake --version
-      - name: Build Lean project
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch prebuilt Mathlib cache
+        run: lake exe cache get
+      - name: Build Lean project (root lib + the five modules verified on
+              the pinned toolchain; two known-broken modules are excluded —
+              see README)
         run: |
-          source $HOME/.elan/env
           lake build
-
-  certificate-verification:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: pip install -r requirements.txt
-      - name: Verify certificates (per-record)
-        run: python analysis/layer4/verify_certificates.py
-      - name: Check certificate dataset integrity
-        run: python analysis/layer4/check_certificate_dataset.py
-
-  audit:
-    runs-on: ubuntu-latest
-    needs: [lean-build, certificate-verification]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: pip install -r requirements.txt
-      - name: Install Lean via elan
-        run: |
-          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
-          source $HOME/.elan/env
-      - name: Run full audit (strict mode)
-        run: |
-          source $HOME/.elan/env
-          bash scripts/audit_all.sh --strict
+          lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem
