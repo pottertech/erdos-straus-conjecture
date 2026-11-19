@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: Math smoke test (exact criteria + audit counterexample regression)
         run: python scripts/smoke_test.py
 
@@ -25,6 +27,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: Repository audit (documented Lean state + axiom whitelist;
               certificates checked when results/layer4_certificates.jsonl exists)
         run: bash scripts/audit_all.sh
