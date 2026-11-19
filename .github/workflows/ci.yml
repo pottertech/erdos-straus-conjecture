@@ -43,7 +43,7 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch prebuilt Mathlib cache
         run: lake exe cache get
-      - name: Build Lean project (root lib + the full seven-module certified set)
+      - name: Build Lean project (root lib + the full eight-module certified set)
         run: |
           lake build
-          lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem ErdosStrausConjecture.Theorem4 ErdosStrausConjecture.NewTheorems
+          lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem ErdosStrausConjecture.Theorem4 ErdosStrausConjecture.NewTheorems ErdosStrausConjecture.CenteredCriterion

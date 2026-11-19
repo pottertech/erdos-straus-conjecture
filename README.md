@@ -64,8 +64,9 @@ One maintained project at the root (Lean/Mathlib **v4.30.0** — the tag is veri
 
 **Builds green (verified locally 2026-11-18; enforced in CI):**
 
-- root library — root module + `Basic`, `Identities`, `Mod12Case1` + `Main` exe — via `lake exe cache get && lake build`: 8,479 jobs, exit 0;
-- seven additional modules, all verified compiling on v4.30.0 and built in CI: `DivisorResidue`, `ClassicalIdentities`, `OmegaCases`, `CenteredEquivalence`, `MainTheorem`, `Theorem4`, `NewTheorems`.
+- root library — root module + `Basic`, `CenteredCriterion`, `Identities`, `Mod12Case1` + `Main` exe — via `lake exe cache get && lake build`: 8,481 jobs, exit 0 (2026-11-19);
+- eight additional modules, all verified compiling on v4.30.0 and built in CI: `DivisorResidue`, `ClassicalIdentities`, `OmegaCases`, `CenteredEquivalence`, `MainTheorem`, `Theorem4`, `NewTheorems`, `CenteredCriterion`.
+- `CenteredCriterion.lean` (added 2026-11-19, 0 sorries) machine-verified the constructive core used by every layer document: from `T ∣ (n·x)²` with `T ≡ −n·x (mod u)`, `u = 4x − n > 0`, it produces explicit positive `y, z` with `4·x·y·z = n·(x·y + x·z + y·z)`.
 
 **Resolved on 2026-11-19 (issue #6):**
 
