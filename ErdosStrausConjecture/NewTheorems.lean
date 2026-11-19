@@ -1,6 +1,14 @@
 import Mathlib
 import ErdosStrausConjecture.Basic
 
+-- ⚠ STATUS (2026-11-18): this module does NOT compile with the pinned
+-- toolchain (Lean/Mathlib v4.30.0). Line ~24 asks `decide` to verify
+-- 4·20·263·51180 = 73·(20·263 + 20·51180 + 263·51180), which is arithmetically
+-- false (1,076,827,200 ≠ 1,057,711,600) — a false witness that Lean correctly
+-- rejects, and that does not satisfy 4/73 as an exact fraction either.
+-- Replace the witness before this module is built or cited. See README.md
+-- (Lean section).
+
 namespace ErdosStrausConjecture
 
 -- ============================================

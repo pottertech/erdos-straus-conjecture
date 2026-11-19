@@ -1,6 +1,12 @@
 import Mathlib
 import ErdosStrausConjecture.Basic
 
+-- ⚠ STATUS (2026-11-18): this module does NOT compile with the pinned
+-- toolchain (Lean/Mathlib v4.30.0): tactic errors at lines 210/218/220
+-- (rewrites no longer type-check; authored/tested on Lean 4.33.1), plus
+-- 5 unfinished `sorry` goals (lines 233-278). Excluded from the CI build
+-- set until revalidated. See README.md (Lean section).
+
 namespace ErdosStrausConjecture
 
 -- ============================================
