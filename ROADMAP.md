@@ -11,9 +11,20 @@ number theorist to read them closely — journal submission or an informal send 
 specialist. One such reading will find a hole, or confirm there is not one, faster than
 another year of internal iteration.
 
-## 2. Conditional proof as a paper result
+## 2. Conditional proof as a paper result — ✅ reduction complete 2026-11-19
 
-Chebotarev and Linnik are proven theorems, so "the conjecture follows from these, by this
+> **Progress (2026-11-19):** the reduction is done and machine-checked:
+> `ErdosStrausConjecture.Reduction` (0 sorries, 0 axioms) proves the scaling
+> lemma, the unconditional coverage of every prime `n ≢ 1 (mod 24)`, and
+> `full_conjecture_of_h24` — the full conjecture follows from the
+> single-class hypothesis **(H24)** "every prime ≡ 1 (mod 24) has an
+> Erdős–Straus representation". Full write-up:
+> `ROUTE2_CONDITIONAL_REDUCTION.md` (the conditional paper's spine;
+> the analytic-window section documents exactly what a Burgess/Chebotarev
+> route would still have to supply). Remaining for a publishable paper:
+> prose polish of that document and the span-reachability analysis of (H24).
+
+The original framing: Chebotarev and Linnik are proven theorems, so "the conjecture follows from these, by this
 deduction" is legitimate and publishable if the deduction is airtight and every step is
 written out on paper. The analytic work must exist as careful mathematics, not as Lean
 axioms in a module that does not compile. A clean conditional theorem is a real

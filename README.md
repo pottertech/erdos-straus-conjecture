@@ -65,8 +65,9 @@ One maintained project at the root (Lean/Mathlib **v4.30.0** — the tag is veri
 **Builds green (verified locally 2026-11-18; enforced in CI):**
 
 - root library — root module + `Basic`, `CenteredCriterion`, `Identities`, `Mod12Case1` + `Main` exe — via `lake exe cache get && lake build`: 8,481 jobs, exit 0 (2026-11-19);
-- eight additional modules, all verified compiling on v4.30.0 and built in CI: `DivisorResidue`, `ClassicalIdentities`, `OmegaCases`, `CenteredEquivalence`, `MainTheorem`, `Theorem4`, `NewTheorems`, `CenteredCriterion`.
+- nine additional modules, all verified compiling on v4.30.0 and built in CI: `DivisorResidue`, `ClassicalIdentities`, `OmegaCases`, `CenteredEquivalence`, `MainTheorem`, `Theorem4`, `NewTheorems`, `CenteredCriterion`, `Reduction`.
 - `CenteredCriterion.lean` (added 2026-11-19, 0 sorries) machine-verified the constructive core used by every layer document: from `T ∣ (n·x)²` with `T ≡ −n·x (mod u)`, `u = 4x − n > 0`, it produces explicit positive `y, z` with `4·x·y·z = n·(x·y + x·z + y·z)`.
+- `Reduction.lean` (added 2026-11-19, 0 sorries, 0 axioms) machine-verified the route-2 conditional reduction (`ROUTE2_CONDITIONAL_REDUCTION.md`): the scaling lemma (solution for `n` ⇒ solution for `n·k`), the **unconditional** coverage of every prime `n ≢ 1 (mod 24)`, and `full_conjecture_of_h24` — the full conjecture follows from the single-class hypothesis "every prime ≡ 1 (mod 24) has a representation". This strictly strengthens the standing determination: the hard core is now exactly one prime residue class.
 
 **Resolved on 2026-11-19 (issue #6):**
 
@@ -79,7 +80,7 @@ One maintained project at the root (Lean/Mathlib **v4.30.0** — the tag is veri
 
 | Axiom | File | Meaning |
 |---|---|---|
-| `erdos_straus_mod_12_1_not_div_5_conjecture` | `Mod12Case1.lean` | **assumes the residual open class itself** (n ≡ 1 mod 12, 5 ∤ n, n ≥ 13) — the conjecture's hard core, taken as hypothesis; see `STATUS.md` |
+| `erdos_straus_mod_12_1_not_div_5_conjecture` | `Mod12Case1.lean` | **assumes the residual open class itself** (n ≡ 1 mod 12, 5 ∤ n, n ≥ 13) — the conjecture's hard core, taken as hypothesis; see `STATUS.md`. Machine-checked note (2026-11-19, `Reduction.lean`): its formal content follows from the strictly weaker hypothesis (H24) "every prime ≡ 1 (mod 24) has a representation"; see `ROUTE2_CONDITIONAL_REDUCTION.md` |
 | `divisor_residue_criterion_reverse` | `DivisorResidue.lean` | reverse direction of the divisor-residue criterion |
 
 Removed on cleanup passes: two placeholder axioms stated as `True` (`burgess_bound`, `grh_character_sum` — unused) on 2026-11-18, and the two unused axiomatic Burgess statements (`C_burgess`, `burgess_least_qnr_bound`) on 2026-11-19.
@@ -94,7 +95,7 @@ Removed on cleanup passes: two placeholder axioms stated as `True` (`burgess_bou
 
 1. **smoke-math** — `scripts/smoke_test.py` (stdlib only): reproduces the exact-criterion sweep (51 cross-checked pairs, 0 mismatches, first-success distribution {3: 6, 7: 10, 11: 1}, the single u=11 case being exactly n = 1129).
 2. **repo-audit** — `audit_all.sh` (convenience mode): sorry census vs documented count, axiom whitelist, and full certificate checks (the committed dataset `results/layer4_certificates.jsonl` — 166,011 records, verified per-record, max A = 107, exact domain coverage).
-3. **lean-build** — elan + `lake exe cache get`, then the root library and the seven-module certified set.
+3. **lean-build** — elan + `lake exe cache get`, then the root library and the nine-module certified set.
 
 The earlier workflows (`verify.yml`, `lean_action_ci.yml`) failed continuously on main from 2026-08-29 because they referenced files that do not exist (`code/verify.py`, `requirements.txt`, `paper/manuscript.tex`); they were retired and consolidated here (issue #5).
 

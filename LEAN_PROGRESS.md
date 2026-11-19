@@ -1,6 +1,6 @@
 # Lean Formalization Progress
 
-> **⚠️ Note (2026-11-18):** The build-status and "zero `sorry`" statements in this log do **not** match the repo's verified state. The current census (enforced by `scripts/audit_all.sh`) is **8 unfinished `sorry` proof terms in the root project** (`OmegaCases.lean`: 3, `StructuralLemmas.lean`: 5) plus 4 documented axioms, one of which (`erdos_straus_mod_12_1_not_div_5_conjecture`) *assumes* the residual open class. See `README.md` and `CORRECTED_CLAIM_AUDIT.md`.
+> **⚠️ Note (updated 2026-11-19):** The build-status and "zero `sorry`" statements in this log do **not** match the repo's verified state. The current census (enforced by `scripts/audit_all.sh`) is **3 unfinished `sorry` proof terms in the root project** (all in `OmegaCases.lean`) plus **2 documented axioms**, one of which (`erdos_straus_mod_12_1_not_div_5_conjecture`) *assumes* the residual open class — now known, machine-checked (`Reduction.lean`), to follow from the weaker hypothesis (H24) "every prime ≡ 1 (mod 24) has a representation" (`ROUTE2_CONDITIONAL_REDUCTION.md`). `StructuralLemmas.lean` was retired to `lean-archive/orphan-modules/` on 2026-11-19; its 5 unfinished goals are counted in the archive's total of 14. See `README.md` and `CORRECTED_CLAIM_AUDIT.md`.
 
 **Date:** August 25, 2026
 **Project:** Erdős-Straus Conjecture — A-Boundedness Formalization
