@@ -32,14 +32,19 @@ quadratic residue modulo every m, no finite system of polynomial identities cove
 classes. Identity-hunting alone cannot finish this, no matter how many moduli are
 classified.
 
-## 4. Close the repo's open items so the work can be judged
+## 4. Close the repo's open items so the work can be judged — ✅ done 2026-11-19
 
-- **Merge PR #4** after two decisions: (a) reconcile the branch's `ci.yml`/`verify.yml`
-  with main's consolidated CI; (b) the 166,011-certificate dataset — commit it under
-  `results/` or document its generation procedure so the strict audit can pass.
-- **Clear issue #6**: fix or formally retire `NewTheorems.lean` (false `decide` witness at
-  ~line 24) and `StructuralLemmas.lean` (tactic errors plus 5 unfinished goals); restate
-  the main theorem as conditional rather than letting an axiom carry the residual class.
+- **PR #4 merged** (d28913b) after reconciling the branch's `ci.yml`/`verify.yml` with
+  main's consolidated CI (the branch's four failing workflow files were dropped; post-
+  merge main CI green, run 44447916354).
+- **Issue #6 closed**: `NewTheorems.lean` fixed (verified witness 4/73 = 1/20 + 1/210 +
+  1/30660; module in the CI build set), its two unused Burgess axioms removed (paper
+  route per #2), `StructuralLemmas.lean` retired to `lean-archive/orphan-modules/`.
+  Census now 3 unfinished goals in the root project; axiom whitelist down to 2
+  (the residual-class hypothesis + the divisor-residue reverse criterion).
+- **Issue #7 open**: the certificate generator is buggy (fails at n=15649; exact
+  criterion certifies A=7) — dataset stays out of the repo (generation documented,
+  strict audit gated) until fixed and the full range regenerates green.
 
 None of #4 solves the conjecture; it makes routes 1–2 possible — nobody reviews work they
 cannot build or audit.
