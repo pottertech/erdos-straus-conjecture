@@ -140,15 +140,15 @@ echo ""
 # ============================================
 echo "--- 4. SORRY CENSUS (documented state check) ---"
 LEAN_DIRS="ErdosStrausConjecture/"
-# Documented in README.md (2026-11-18 census): 8 unfinished proof terms.
+# Documented in README.md (2026-11-19 census): 3 unfinished proof terms.
 # Do NOT change this number silently — update README.md and this script
 # together when Lean proofs are added or removed.
-EXPECTED_SORRY_COUNT=8
+EXPECTED_SORRY_COUNT=3
 # Exclude .bak files and docstring/comment mentions; only count actual proof terms
 SORRY_COUNT=$(grep -rn "sorry" $LEAN_DIRS --include='*.lean' 2>/dev/null | grep -v "\.bak" | grep -v "^.*:.*--.*sorry" | grep -v "^.*:.*#.*sorry" | grep -v "^.*:.*-\\/.*sorry" | grep -v "sorry.*indicates" | grep -v "sorry.*formal" | wc -l | tr -d ' ')
 SORRY_COMMENTS=$(grep -rn "sorry" $LEAN_DIRS --include='*.lean' 2>/dev/null | grep -v "\.bak" | grep "^.*:.*--.*sorry" | wc -l | tr -d ' ')
 echo "sorry proof terms: $SORRY_COUNT (documented: $EXPECTED_SORRY_COUNT)"
-echo "  documented locations: OmegaCases.lean x3, StructuralLemmas.lean x5"
+echo "  documented locations: OmegaCases.lean x3"
 echo "sorry in comments: $SORRY_COMMENTS (informational)"
 if [ "$SORRY_COUNT" -eq "$EXPECTED_SORRY_COUNT" ]; then
     pass
@@ -171,8 +171,6 @@ echo "--- 5. AXIOM WHITELIST (exact file:name enforcement) ---"
 EXPECTED_AXIOMS=(
     "ErdosStrausConjecture/Mod12Case1.lean:erdos_straus_mod_12_1_not_div_5_conjecture"
     "ErdosStrausConjecture/DivisorResidue.lean:divisor_residue_criterion_reverse"
-    "ErdosStrausConjecture/NewTheorems.lean:C_burgess"
-    "ErdosStrausConjecture/NewTheorems.lean:burgess_least_qnr_bound"
 )
 
 # Discover all axioms in Lean source, normalized to file:name

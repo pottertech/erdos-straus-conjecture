@@ -65,29 +65,27 @@ One maintained project at the root (Lean/Mathlib **v4.30.0** — the tag is veri
 **Builds green (verified locally 2026-11-18; enforced in CI):**
 
 - root library — root module + `Basic`, `Identities`, `Mod12Case1` + `Main` exe — via `lake exe cache get && lake build`: 8,479 jobs, exit 0;
-- five additional modules verified compiling on v4.30.0 and included in the CI build: `DivisorResidue`, `ClassicalIdentities`, `OmegaCases`, `CenteredEquivalence`, `MainTheorem`.
+- seven additional modules, all verified compiling on v4.30.0 and built in CI: `DivisorResidue`, `ClassicalIdentities`, `OmegaCases`, `CenteredEquivalence`, `MainTheorem`, `Theorem4`, `NewTheorems`.
 
-**Known broken, excluded from the CI build until revalidated:**
+**Resolved on 2026-11-19 (issue #6):**
 
-- `NewTheorems.lean` — a `decide` at line ~24 verifies a **false arithmetic identity**: 4·20·263·51180 = 1,076,827,200 ≠ 1,057,711,600 = 73·(20·263 + 20·51180 + 263·51180). Lean correctly rejects it, and the witness does not satisfy 4/73 exactly. The witness must be replaced before this module is built or cited.
-- `StructuralLemmas.lean` — tactic errors at lines 210/218/220 on v4.30.0 (authored/tested on Lean 4.33.1), plus 5 unfinished goals.
+- `NewTheorems.lean` — `decide` had exposed a **false witness** in `example_73` (4·20·263·51180 = 1,076,827,200 ≠ 1,057,711,600 = 73·(20·263 + 20·51180 + 263·51180), which does not satisfy 4/73). Replaced with the verified witness 4/73 = 1/20 + 1/210 + 1/30660; the module compiles and is built in CI. Its two unused axiomatic Burgess statements (`C_burgess`, `burgess_least_qnr_bound`) were removed — unproven analytic inputs belong in the completed conditional paper (ROADMAP #2), not as dead Lean axioms.
+- `StructuralLemmas.lean` — tactic errors on v4.30.0 plus 5 unfinished goals, and imported by nothing. Formally retired to `lean-archive/orphan-modules/`.
 
-**Unfinished goals** (census enforced by `scripts/audit_all.sh` §4): **17 `sorry`/`admit` proof terms across 7 files** — root project 8 (`OmegaCases.lean` ×3, `StructuralLemmas.lean` ×5), `lean-archive/` 9. Earlier comments claiming "zero sorries" predate this census and are flagged where they appear.
+**Unfinished goals** (census enforced by `scripts/audit_all.sh` §4): **17 `sorry`/`admit` proof terms across 8 files** — root project 3 (`OmegaCases.lean` ×3, enforced against the documented count), `lean-archive/` 14 (9 in the retired side projects, 5 in `orphan-modules/StructuralLemmas.lean`). Earlier comments claiming "zero sorries" predate the census and are flagged where they appear.
 
 **Documented axioms** (whitelist enforced by `audit_all.sh` §5):
 
 | Axiom | File | Meaning |
 |---|---|---|
-| `erdos_straus_mod_12_1_not_div_5_conjecture` | `Mod12Case1.lean` | **assumes the residual open class itself** (n ≡ 1 mod 12, 5 ∤ n, n ≥ 13) — the hardest case is an assumption, not a result |
+| `erdos_straus_mod_12_1_not_div_5_conjecture` | `Mod12Case1.lean` | **assumes the residual open class itself** (n ≡ 1 mod 12, 5 ∤ n, n ≥ 13) — the conjecture's hard core, taken as hypothesis; see `STATUS.md` |
 | `divisor_residue_criterion_reverse` | `DivisorResidue.lean` | reverse direction of the divisor-residue criterion |
-| `C_burgess` | `NewTheorems.lean` | Burgess-type constant |
-| `burgess_least_qnr_bound` | `NewTheorems.lean` | least-QNR distribution input (currently in a module that does not compile) |
 
-Two placeholder axioms stated as `True` (`burgess_bound`, `grh_character_sum` in `Basic.lean` — both unused, they proved nothing) were removed on 2026-11-18.
+Removed on cleanup passes: two placeholder axioms stated as `True` (`burgess_bound`, `grh_character_sum` — unused) on 2026-11-18, and the two unused axiomatic Burgess statements (`C_burgess`, `burgess_least_qnr_bound`) on 2026-11-19.
 
 **Strongest honest theorem:** `erdos_straus_except_residual_open_class` (`MainTheorem.lean`) — everything except the residual open class, conditional on the whitelisted axioms. It compiles on the pinned toolchain and is in the CI build set.
 
-**Retired projects** (`lean-archive/`, moved 2026-11-18): `ErdosStrausLean/` (Test* scratch project — 8 `sorry`s while its `LEAN_PROGRESS.md` claims zero; superseded by `OmegaCases`/`StructuralLemmas`), and `ErdosStraus/` (older stub). Do not build or cite them.
+**Retired** (`lean-archive/`): the `ErdosStrausLean/` and `ErdosStraus/` side projects (moved 2026-11-18) and `orphan-modules/StructuralLemmas.lean` (moved 2026-11-19 — see Resolved above). Do not build or cite these.
 
 ## CI
 
@@ -95,7 +93,7 @@ Two placeholder axioms stated as `True` (`burgess_bound`, `grh_character_sum` in
 
 1. **smoke-math** — `scripts/smoke_test.py` (stdlib only): reproduces the exact-criterion sweep (51 cross-checked pairs, 0 mismatches, first-success distribution {3: 6, 7: 10, 11: 1}, the single u=11 case being exactly n = 1129).
 2. **repo-audit** — `audit_all.sh` (convenience mode): sorry census vs documented count, axiom whitelist, and certificate checks whenever `results/layer4_certificates.jsonl` is present (the dataset itself is not currently in the repository).
-3. **lean-build** — elan + `lake exe cache get`, then the root library and the five verified modules.
+3. **lean-build** — elan + `lake exe cache get`, then the root library and the seven-module certified set.
 
 The earlier workflows (`verify.yml`, `lean_action_ci.yml`) failed continuously on main from 2026-08-29 because they referenced files that do not exist (`code/verify.py`, `requirements.txt`, `paper/manuscript.tex`); they were retired and consolidated here (issue #5).
 

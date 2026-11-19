@@ -1,13 +1,15 @@
 import Mathlib
 import ErdosStrausConjecture.Basic
 
--- ⚠ STATUS (2026-11-18): this module does NOT compile with the pinned
--- toolchain (Lean/Mathlib v4.30.0). Line ~24 asks `decide` to verify
--- 4·20·263·51180 = 73·(20·263 + 20·51180 + 263·51180), which is arithmetically
--- false (1,076,827,200 ≠ 1,057,711,600) — a false witness that Lean correctly
--- rejects, and that does not satisfy 4/73 as an exact fraction either.
--- Replace the witness before this module is built or cited. See README.md
--- (Lean section).
+-- STATUS (2026-11-19): compiles on the pinned toolchain (Lean/Mathlib
+-- v4.30.0); included in the CI build set. A 2026-11-18 note had recorded a
+-- false witness in `example_73` (Lean's `decide` rejected it, correctly:
+-- 4·20·263·51180 ≠ 73·(20·263 + 20·51180 + 263·51180)). It was replaced with
+-- the verified witness 4/73 = 1/20 + 1/210 + 1/30660 (checked with exact
+-- Fraction arithmetic before the edit). The two unused Burgess axioms that
+-- were declared here were removed on 2026-11-19: unproven analytic inputs
+-- belong in the completed paper route (ROADMAP.md #2), not as dead Lean
+-- axioms.
 
 namespace ErdosStrausConjecture
 
@@ -28,8 +30,8 @@ theorem example_61 : IsErdosStraus 61 := by
   rfl
 
 theorem example_73 : IsErdosStraus 73 := by
-  refine ⟨20, 263, 51180, Nat.succ_pos 19, Nat.succ_pos 262, Nat.succ_pos 51179, ?_⟩
-  decide
+  refine ⟨20, 210, 30660, Nat.succ_pos 19, Nat.succ_pos 209, Nat.succ_pos 30659, ?_⟩
+  rfl
 
 -- ============================================
 -- THEOREM 2: n ≡ 5 (mod 8) → A = 3 works
@@ -49,15 +51,10 @@ theorem example_73 : IsErdosStraus 73 := by
 -- This file previously contained a duplicate stub with sorry; it has been removed.
 -- The proven version uses linear_combination + Int.ofNat_inj (Zify strategy).
 
--- ============================================
--- PROPOSITION 8 (stated as axiom): Burgess bound
--- ============================================
-
-axiom C_burgess (ε : ℝ) : ℝ
-
-axiom burgess_least_qnr_bound (n : ℕ) (ε : ℝ) (hε : ε > 0)
-    (hn : Nat.Prime n) (hnmod4 : n % 4 = 1) :
-    ∃ (A : ℕ), A ≥ 3 ∧ A % 4 = 3 ∧ Nat.Prime A ∧
-    (A : ℝ) ≤ C_burgess ε * (n : ℝ) ^ (0.0919 + ε)
+-- Note (2026-11-19): the two axiomatic Burgess statements (`C_burgess`,
+-- `burgess_least_qnr_bound`) that were previously declared here were removed:
+-- they were unused by every theorem in the project, and unproven analytic
+-- inputs have no place in the certified build (see ROADMAP.md #2 — their
+-- home is the completed conditional paper).
 
 end ErdosStrausConjecture
