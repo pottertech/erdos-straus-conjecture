@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-28
 
-> **Independent replication (2026-11-19):** every table below was re-derived from scratch by `analysis/u31_layer_analysis.py` (shift-divisor + exact u = 7, 11, 15, 23, extended 31…63) with **identical counts at every stage**, including single residual survivor 8,803,369. Verification script: `analysis/u31_classification_verify.py`. The u=31 layer now has its own exact characterization: see `MOD31_EXACT_REDUCTION.md` (span criterion — 0 mismatches on all 283 stage entrants; QR-pure obstruction 60/93; cube-QNR rescue theorem with explicit witnesses).
+> **Independent replication (2026-11-19):** every table below was re-derived from scratch by `analysis/u31_layer_analysis.py` (shift-divisor + exact u = 7, 11, 15, 23, extended 31…63) with **identical counts at every stage**, including single residual survivor 8,803,369. Verification script: `analysis/u31_classification_verify.py`. The u=31 layer now has its own exact characterization: see `MOD31_EXACT_REDUCTION.md` (span criterion — 0 mismatches on all 283 stage entrants; QR-pure obstruction 60/93; cube-QNR rescue theorem with explicit witnesses). The u=35 layer is characterized as a **coupled-CRT span** — forced factor 3, 0 mismatches on all 93 stage entrants, all 67 failures non-QR-pure: see `MOD35_CRT_SPAN.md` (run via the OSR stack venv).
 
 This document records the current proof-level cascade after replacing the invalid three-target shortcut with the exact centered product-set criterion.
 
