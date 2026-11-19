@@ -21,6 +21,15 @@ contribution and the natural home for the Burgess route.
 
 ## 3. Aim the mathematics at the one gap that matters
 
+> **Progress 2026-11-19:** the u=31 layer now has an exact characterization
+> (`MOD31_EXACT_REDUCTION.md`): span criterion verified with 0 mismatches on all 283
+> stage entrants ≤ 10^7; QR-pure obstruction covers 60/93 failures; the cube-QNR
+> rescue theorem (explicit witnesses, `q ≡ 29/15/30 mod 31` unconditional,
+> `q ≡ 27/22 mod 31` when `n ≡ 1 or 49 mod 96`) excludes all remaining failures from
+> admitting such factors. The full corrected cascade was independently re-derived
+> with identical counts at every stage. The open part is unchanged: no covering
+> theorem yet; the 33 non-QR-pure u=31 failures are span-delicate and fingerprinted.
+
 The residual primes (n ≡ 1 mod 24; every odd prime factor of n+1 and every prime factor of
 n+4 ≡ 1 mod 4) need a **termination theorem**: a proof that the modular cascade — or some
 bounded set of u values — always succeeds. The plausible shape is a hybrid: finite cascade
