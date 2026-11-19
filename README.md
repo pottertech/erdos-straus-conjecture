@@ -1,6 +1,6 @@
 # Erdős–Straus Conjecture: exact verifiers, cascade reductions, and a Lean formalization
 
-**The conjecture is not proved in this repository.** It states that for every integer n ≥ 2 there exist positive integers x, y, z with 4/n = 1/x + 1/y + 1/z.
+**The conjecture is not proved in this repository** — see [STATUS.md](STATUS.md) for the standing determination (2026-11-19): the exact residual gap and what would change it. It states that for every integer n ≥ 2 there exist positive integers x, y, z with 4/n = 1/x + 1/y + 1/z.
 
 What is here, with verified status as of 2026-11-18:
 
