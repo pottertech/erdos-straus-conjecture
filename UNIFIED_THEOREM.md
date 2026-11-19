@@ -5,7 +5,7 @@
 > 3. **The resulting `87.5%` deterministic-coverage claim.**
 > 4. **Every CRT cascade** whose failure sets were computed from the old `{−x, −xn, −xn²}` three-target shortcut.
 >
-> The claim that the conjecture "is known to hold for all n up to 10²¹+" refers to a 36-prime sample across 12 decades — sampling, not exhaustive verification. The literature's exhaustive record is ~10^18; this repository's own exhaustive checking reaches 10^8.
+> The claim that the conjecture "is known to hold for all n up to 10²¹+" refers to a 36-prime sample across 12 decades — sampling, not exhaustive verification. The literature's exhaustive record is ~10^18; this repository's own exhaustive checking reaches 10^9 (see `verification_100M_1B.json` and the README's verification table).
 >
 > **Read instead:** `CORRECTED_CLAIM_AUDIT.md` (what was withdrawn and why), `DETERMINISTIC_CASCADE_STATUS.md` (current honest position), `CENTERED_PRODUCT_SET_THEOREM.md` (the exact criterion). Lemmas in §1 that use the old shortcut must be revalidated against the exact criterion before reuse. The text below is preserved unmodified for the record.
 
