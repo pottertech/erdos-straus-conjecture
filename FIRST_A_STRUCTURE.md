@@ -168,7 +168,19 @@ Re-run over the true cohort (`analysis/u31_layer_corrected.py`,
   73: 15}; failure first-A histogram {39: 22, 47: 15, 35: 17, 43: 5, 51: 1,
   55: 2, 59: 2, 107: 1}.
 
-## 10. Reproduce
+## 11. u = 39 layer (new work, corrected semantics from the start)
+
+`analysis/u39_layer.py` / `analysis/u39_layer.json`,
+`MOD39_EXACT_REDUCTION.md`: u = 3·13, cohort 48 entrants (22 solve, 26
+fail); exact criterion and coupled span verified 0/48 both ways; reduced
+parity-coupled criterion (13-span reach with odd weight on the 2-mod-3
+primes) verified 48/48; saturation at min(m, 6) (periods 2 and 12, lcm
+12); subgroup relaxation exact on 46/48 (bound-limited exceptions
+n = 118,801 and n = 1,915,201); purity structurally dead (forced 2 has log
+pair (1, 1)); compact residue-form deferred. One more layer now carries
+corrected, dataset-grounded semantics.
+
+## 12. Reproduce
 
 ```bash
 python3 analysis/layer4/first_a_mining.py            # T1-T4 tables
