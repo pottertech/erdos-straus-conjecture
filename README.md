@@ -34,6 +34,8 @@ Proved deterministic layers (finite-group-algebra statements; the finite numbers
 
 Finite cross-check through 10^7 (exact criterion): 48,711 corrected prime hard cases → 283 survivors after the five layers (≈ 99.42% reduction). Extending the same sweep through further moduli (31 → 63) leaves a single survivor, **n = 8,803,369**, whose first working u is 107 (centered witness with support 3).
 
+> **Correction (2026-11-19):** a dataset reconciliation (`FIRST_A_STRUCTURE.md`) found the stage chain above omits the admissible layers u = 19 and 27, and its base includes 12,961 theorem2-solved 13-mod-24 primes. Corrected: true residual base is 35,750 (12,961 phantoms); the true chains — structured 7,272 → 2,137 → 1,054 → 681 → 388 → 150 → 109 → 35 → …, full residual 35,750 → 7,144 → 2,681 → 1,732 → 849 → 308 → 217 → 65 → … — terminate at the same single survivor (8,803,369, u = 107). The per-record span/exact layer verifications remain valid for the entrant sets they checked.
+
 **Open:** a theorem-level obstruction at u = 31; a bounded-support deterministic cascade theorem; the structure of the residual class.
 
 ## Verification status — read the labels

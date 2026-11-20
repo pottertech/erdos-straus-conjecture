@@ -1,5 +1,14 @@
 # Mod-35 Layer: Coupled-CRT Span, Forced Factor 3
 
+> **⚠️ Correction (2026-11-19, `FIRST_A_STRUCTURE.md`):** this document's 93
+> stage entrants come from the deprived chain analyzed in
+> `MOD31_EXACT_REDUCTION.md` (layer set omits u = 19 and 27). The per-record
+> coupled-CRT verification (0 mismatches on all 93 entrants) stands as a
+> statement about that set; the true u = 35 stage over the full residual
+> class has 65 entrants (17 solve, 48 fail) — see
+> `FIRST_A_STRUCTURE.md` §4.3. The coupled-CRT criterion itself is
+> unchanged and exact.
+
 **Date:** 2026-11-19
 **Status:** exact criterion (coupled-CRT span) verified with 0 mismatches on all 93 stage entrants ≤ 10^7; compact closed form deferred — see "Why the coupled case is harder"
 

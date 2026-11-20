@@ -40,6 +40,14 @@ contribution and the natural home for the Burgess route.
 > admitting such factors. The full corrected cascade was independently re-derived
 > with identical counts at every stage. The open part is unchanged: no covering
 > theorem yet; the 33 non-QR-pure u=31 failures are span-delicate and fingerprinted.
+>
+> **Update 2026-11-19 (2b):** a full dataset reconciliation
+> (`FIRST_A_STRUCTURE.md`) corrected the cascade's stage semantics: the layer
+> set omitted u = 19 and u = 27, and the 48,711 base included 12,961
+> theorem2-solved phantoms. The true full-residual chain is
+> 35,750 → 7,144 → 2,681 → 1,732 → 849 → 308 → 217 → 65 → 48 → 26 → 21 →
+> 6 → 5 → 3 → 1 survivor (8,803,369, u = 107). The per-record span/exact
+> verifications stand; the layer counts now carry correction banners.
 
 The residual primes (n ≡ 1 mod 24; every odd prime factor of n+1 and every prime factor of
 n+4 ≡ 1 mod 4) need a **termination theorem**: a proof that the modular cascade — or some

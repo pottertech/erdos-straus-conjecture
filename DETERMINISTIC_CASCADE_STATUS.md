@@ -90,6 +90,21 @@ Starting from all corrected prime hard cases below `10^7`:
 | after exact u=15 | 681 |
 | after exact u=23 | 283 |
 
+> **⚠️ Correction (2026-11-19, `FIRST_A_STRUCTURE.md`):** two defects in this
+> table's chain semantics, both confirmed against the verified certificate
+> dataset: (1) the base 48,711 includes 12,961 theorem2-solved 13-mod-24
+> primes (the b₃ test in `is_hard_prime` does not exclude them); the true
+> residual base is 35,750. (2) The layer set omits the admissible stages
+> u = 19 and u = 27, so every survivor count past u = 15 is inflated (the
+> 174 cases with true first-A 19/27 are counted as late-stage survivors).
+> The corrected chains — structured subclass 7,272 → 2,137 → 1,054 → 681 →
+> 388 → 150 → 109 → 35 → 23 → 14 → 12 → 4 → 3 → 2 → 1, and full residual
+> 35,750 → 7,144 → 2,681 → 1,732 → 849 → 308 → 217 → 65 → 48 → 26 → 21 →
+> 6 → 5 → 3 → 1 — terminate at the same single survivor
+> (n = 8,803,369, first works u = 107). Per-stage counts:
+> `FIRST_A_STRUCTURE.md` §4.3. The per-record span/exact verifications in
+> the layer documents remain valid for the entrant sets they checked.
+
 Thus these deterministic layers reduce the corrected hard-prime sample by
 
 \[
