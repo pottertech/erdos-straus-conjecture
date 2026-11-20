@@ -148,7 +148,27 @@ factorization structure of n(n+35)/4 (the log pairs), not only on a residue
 of n. The exact bounded coupled-span check, with the saturation reduction,
 remains the working criterion; the compact form stays deferred.
 
-## 8. Reproduce
+## 9. Corrected u = 31 cohort and its fingerprints
+
+Re-run over the true cohort (`analysis/u31_layer_corrected.py`,
+`analysis/u31_layer_corrected.json`): entrants 217 (first-A ≥ 31), successes
+152 (first-A = 31), failures 65 (first-A ≥ 35). Results:
+
+- **Exact verdict vs dataset:** 0 mismatches on all 217. **Log-span
+  criterion (root 3, target 15) vs dataset:** 0 mismatches on all 217.
+- **QR-pure obstruction:** 47 of the 65 failures are QR-pure at 31, and 0
+  successes are — the parity-obstruction direction holds on the corrected
+  cohort (this analysis is meaningful at u = 31, unlike u = 35: the forced
+  factor 2 has even log, log₃2 = 24).
+- **Cube-QNR rescue:** 0 of 65 failures admit a rescue witness (direction
+  unchanged); 15 of the 152 successes are covered by the simple witness
+  form, the rest by wider spans.
+- **Span-delicate failures (non-QR-pure, no rescue): 18** — was 33 in the
+  deprived chain. Failure slices by n mod 96: {1: 23, 25: 14, 49: 13,
+  73: 15}; failure first-A histogram {39: 22, 47: 15, 35: 17, 43: 5, 51: 1,
+  55: 2, 59: 2, 107: 1}.
+
+## 10. Reproduce
 
 ```bash
 python3 analysis/layer4/first_a_mining.py            # T1-T4 tables

@@ -6,13 +6,18 @@
 > ("corrected prime hard cases", 48,711) includes 12,961 theorem2-solved
 > 13-mod-24 primes alongside the 35,750 true residual cases. The per-record
 > span/exact verifications here (0 mismatches on all 283 entrants) remain
-> valid for the entrant set they checked; however the "residual narrowing"
-> semantics change: the true u = 31 stage over the full residual class has
-> 217 entrants (152 solve, 65 fail), and the true structured-subclass
-> survivors after u = 27 are 109, after u = 31 35. Corrected chains:
-> `FIRST_A_STRUCTURE.md` §4.3. **Status (updated):** exact criterion stated
-> and verified per-record; layer-set corrected; full residue-class closed
-> form remains open.
+> valid for the entrant set they checked. **Corrected cohort
+> (`analysis/u31_layer_corrected.py`, 0 mismatches vs exact and vs the
+> verified dataset on all records):** the true u = 31 stage has 217 entrants
+> (152 solve, 65 fail); the QR-pure obstruction covers **47 of the 65 true
+> failures** (0 QR-pure successes, direction unchanged); 0 of the 65
+> failures admit the cube-QNR rescue (theorem direction unchanged); the
+> span-delicate (non-QR-pure, no-rescue) failure count is **18**, all 65
+> fingerprinted; slice split of failures by n mod 96:
+> {1: 23, 25: 14, 49: 13, 73: 15}. Full corrected chains:
+> `FIRST_A_STRUCTURE.md` §4.3. **Status:** exact criterion stated and
+> verified per-record on both cohorts; layer-set corrected; full
+> residue-class closed form remains open.
 
 **Date:** 2026-11-19
 **Status:** exact criterion stated and verified (0 mismatches, all 283 stage entrants ≤ 10^7); QR-pure and cube-QNR components proved; full residue-class closed form open (see "What remains")
