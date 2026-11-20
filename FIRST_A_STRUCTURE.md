@@ -112,7 +112,43 @@ True u = 35 stage: entrants 65, solve 17, fail 48. Both chains terminate:
   verified facts through 10^7, and termination of the u-method on the
   residual class remains an empirical observation, not a theorem.
 
-## 6. Reproduce
+## 7. Corrected u = 35 cohort and the saturation lemma
+
+Re-run over the true cohort (`analysis/u35_layer_corrected.py`,
+`analysis/u35_layer_corrected.json`): entrants 65 (first-A ≥ 35), successes 17
+(first-A = 35), failures 48 (first-A ≥ 39). Results:
+
+- **Exact verdict vs dataset:** 0 mismatches on all 65.
+- **Coupled-CRT span criterion vs exact:** 0 mismatches on all 65.
+- **Purity:** NO record in the cohort — success or failure — is QR-pure at 5
+  or at 7. This is structural, not empirical: the forced factor 3 of
+  x = (n+35)/4 has log pair (3, 1), odd in both components, so the old
+  claim "all failures are non-QR-pure" was trivially true of the whole
+  cohort. The discriminator is not purity.
+- **Component-wise relaxations do not separate:** single-component integer
+  spans explain only 10 of the 48 failures; the remaining 38 fail purely
+  through the coefficient coupling.
+- **Subgroup relaxation:** dropping all exponent caps, the generated
+  subgroup of (Z/4) × (Z/6) contains (2,3) on 63 of 65 records; the two
+  exceptions (n = 878,641, n = 7,559,161) fail only through exponent
+  bounds.
+
+**Saturation lemma (proved; applies at u = 35).** In the coupled span check,
+the coefficient acting on a factor with log pair (a, b) may be reduced
+modulo 12, because the 5-component is periodic with period 4, the
+7-component with period 6, and their lcm is 12. Consequently every exponent
+cap m may be replaced by min(m, 6) without changing the criterion; in
+particular, when every exponent is ≥ 6 the criterion collapses to the
+subgroup condition of (Z/4) × (Z/6). This is why the two exceptions above
+are exactly the bound-limited records.
+
+**Status of the closed form.** A residue-class closed form for the u = 35
+stage does not follow from these data: the criterion depends on the
+factorization structure of n(n+35)/4 (the log pairs), not only on a residue
+of n. The exact bounded coupled-span check, with the saturation reduction,
+remains the working criterion; the compact form stays deferred.
+
+## 8. Reproduce
 
 ```bash
 python3 analysis/layer4/first_a_mining.py            # T1-T4 tables
