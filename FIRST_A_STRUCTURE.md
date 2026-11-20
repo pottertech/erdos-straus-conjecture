@@ -180,7 +180,20 @@ n = 118,801 and n = 1,915,201); purity structurally dead (forced 2 has log
 pair (1, 1)); compact residue-form deferred. One more layer now carries
 corrected, dataset-grounded semantics.
 
-## 12. Reproduce
+## 12. Completing the chain down to 107
+
+`analysis/layer_sweep_43_107.py` / `analysis/layer_sweep_43_107.json`,
+`LAYER_SWEEP_43_TO_107.md`: stages 43, 47, 51, 55, 59, 63, 107 over their
+corrected cohorts (26/21/6/5/3/1/1 entrants). Exact criterion agrees with
+the verified dataset on **all 42 records**; span criterion agrees with
+exact everywhere; subgroup-relaxation quality is layer-dependent (exact at
+47/51/55/107-family, 12-record-bounded-exception at u = 43, 1 at u = 59).
+With this, every stage of the corrected chain 7 → 107 is characterized by
+span methods, verified record by record, terminating at
+n = 8,803,369 (first works u = 107). No covering theorem is claimed;
+termination through 10^7 remains empirical.
+
+## 13. Reproduce
 
 ```bash
 python3 analysis/layer4/first_a_mining.py            # T1-T4 tables
