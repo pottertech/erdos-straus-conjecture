@@ -42,11 +42,14 @@ Finite cross-check through 10^7 (exact criterion): 48,711 corrected prime hard c
 
 | Ladder | Range | Nature |
 |---|---|---|
-| Exhaustive solution search (repo pipelines) | every checked hard case solved through 10^9 (results in `verification_*.json`; e.g. 10^8–10^9: 2,852,233 cases, 0 failures, max A = 151) | exhaustive |
+| Exact-criterion sweep, [10^7, 10^9) | 3,194,231 prime hard cases, 0 failures, max first-u = 227 (n = 32,349,601); exact one-divisor criterion, u ≡ 3 (mod 4) ≤ 251 (`sweep_exact/verification_10M_1B_exact_rerun.json`; populations reconcile the committed pipelines exactly) | exhaustive |
+| Exact-criterion sweep, [10^8, 10^9) | 2,850,823 solved / 2,850,823, 0 failures, max first-u = 167 (`sweep_exact/verification_100M_1B_exact_rerun.json`) | exhaustive |
+
+Note (2026-11-21): the previously cited `verification_100M_1B.json` ("2,852,233 cases, max A = 151") is **retired** — it predates the 2026-08-28 exact-criterion fix (withdrawn three-target shortcut) and its total reconciles to no artifact family; even the exact-criterion predecessor carried a missing-factor-2 bug in `factor_x` whose 7 recorded "no-solutions" are disproven by explicit witnesses (`sweep_exact/seven_case_witnesses.json`; all resolve within u ≤ 251, three at u = 3). See `sweep_exact/README.md`. The "lone failure" framing below predates this resolution.
 | Exact-criterion hard-case cascade | prime hard cases through 10^7 | exhaustive |
 | Largest-A sampling | 36 hard-case primes over 12 decades (10^10–10^21), max A = 7 | **sampling, not exhaustion** |
 
-The lone "failure" in the 10M–100M run is the outlier n = 8,803,369, which resolves at u = 107 (see `OUTLIER_8803369_FAILURE_STATES.md`) — it is not an open case.
+The "lone failure" in the 10M–100M run is the outlier n = 8,803,369, which resolves at u = 107 (see `OUTLIER_8803369_FAILURE_STATES.md`) — it is not an open case. In the corrected re-run, no stage records any failure at all through 10^9; the deep-u tail is thin: exactly the records with first-u above 107 (the corrected sweep's max is 227, attained once).
 
 The literature's exhaustive-verification record is ≈ 10^18. Older repo wording ("known to hold for all n up to 10^21+") referred to the sampling row, not exhaustion; it is corrected here and in the banners of the withdrawn documents.
 
