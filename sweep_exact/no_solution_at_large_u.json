@@ -1,0 +1,49 @@
+{
+  "u_max": 3001,
+  "criterion": "exact one-divisor (centered span)",
+  "u_values": "prime, u = 3 (mod 4)",
+  "cases": [
+    {
+      "n": 71310241,
+      "hard": true,
+      "first_u": 71,
+      "resolves_above_251": false
+    },
+    {
+      "n": 318545761,
+      "hard": true,
+      "first_u": 31,
+      "resolves_above_251": false
+    },
+    {
+      "n": 340912609,
+      "hard": true,
+      "first_u": 31,
+      "resolves_above_251": false
+    },
+    {
+      "n": 360055609,
+      "hard": true,
+      "first_u": 151,
+      "resolves_above_251": false
+    },
+    {
+      "n": 524792461,
+      "hard": true,
+      "first_u": 3,
+      "resolves_above_251": false
+    },
+    {
+      "n": 550027501,
+      "hard": true,
+      "first_u": 3,
+      "resolves_above_251": false
+    },
+    {
+      "n": 923573401,
+      "hard": true,
+      "first_u": 71,
+      "resolves_above_251": false
+    }
+  ]
+}

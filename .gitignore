@@ -6,6 +6,8 @@ build/
 *.trace
 *.ir
 *.c
+# sweep engine source (reproducibility)
+!sweep_exact/exact_span_sweep.c
 
 # Python
 __pycache__/
