@@ -8,6 +8,7 @@ build/
 *.c
 # sweep engine source (reproducibility)
 !sweep_exact/exact_span_sweep.c
+!sweep_exact/sweep_dump_nonparametric.c
 
 # Python
 __pycache__/

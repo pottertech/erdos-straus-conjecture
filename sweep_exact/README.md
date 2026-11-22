@@ -39,7 +39,12 @@ sweep artifacts. Everything here runs under the exact one-divisor criterion
    at every admissible `u`, so its divisor enumeration was corrupted on
    exactly that half of the population: the 7 recorded "no solutions" are
    spurious (witnesses above), and the 21.3% non-parametric share is an
-   enumeration artifact (corrected share: 1,024 / 3,194,231 = 0.032%).
+   enumeration artifact — the run's own `nonp[1024]` capture array **capped at 1,024**: the
+   uncapped re-run (`sweep_dump_nonparametric.c`, committed next to this file) streams
+   every record and finds **327,504 / 3,194,231 = 10.25%**
+   (`nonparametric_1e7_1e9.jsonl`, each with its full witness; 15.5% of the ≤10^7 hard
+   cohort — 7,545 records in the certificate layer — so the identity-shaped families gain
+   share as the range grows).
    `factor_x` treats any post-trial remainder as a single prime and iterates
    a non-ascending divisor list with a break-at-limit — both silently drop
    valid divisors.
