@@ -5,6 +5,18 @@ literature), four workstreams, in order of value:
 
 ## 1. Outside expert review — highest value
 
+> **Update (2026-11-20):** the first outside review of the v1 packet
+> (`ROUTE2_CONDITIONAL_REDUCTION.md` + v13) returned. Verdict: the central
+> conditional reduction is **sound**; arithmetic reproduced exactly (all
+> prime counts to 10^7, and the class of 8,803,369); no counterexample.
+> Requested corrections — §6.1's noncyclic-group exposition, the §4
+> residue-enumeration slip, the span-coefficient equivalence, the dataset
+> population split, effective-procedure and Mordell-framework
+> qualifications, and a Lean axiom-dependency audit — are all implemented
+> in **v1.1**; the audit ran (`#print axioms` on the six principal
+> theorems: standard foundational trio only, no project axioms). Remaining
+> pre-submission item on the referee list: formal bibliographic entries.
+
 The v13 draft (`docs/manuscript_v13.md` on the open PR branch) and Kevin Potter's
 divisor-residue criterion are the repo's strongest claim to new mathematics. Get a working
 number theorist to read them closely — journal submission or an informal send to a
