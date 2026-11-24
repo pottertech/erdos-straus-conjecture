@@ -5,7 +5,7 @@ dependency closure by a second implementation of the Lean 4 type-checking
 kernel (not Lean itself), per the reviewer's requirement 1–9 and the
 standing "independent Lean compilation" acceptance item.
 
-## What ran
+## Historical reproduction instructions (v1.5/v1.6 exports; retained as provenance — the CURRENT release reproduces via `scripts/nanoda_gate.sh`, which supersedes the manual commands below)
 
 1. **Exporter:** [lean4export](https://github.com/leanprover/lean4export)
    pinned at `a3e35a5` (2026-05-26) — the upstream commit whose

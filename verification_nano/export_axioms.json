@@ -8,24 +8,25 @@
  "decl_counts": {
   "inductive": 438,
   "def": 3509,
-  "thm": 8169,
+  "thm": 8176,
   "opaque": 13
  },
  "principal_thms_fully_qualified": {
-  "erdos_straus_except_residual_open_class": "ErdosStrausConjecture.erdos_straus_except_residual_open_class",
-  "finite_search_equivalence": "ErdosStrausConjecture.finite_search_equivalence",
-  "full_conjecture_of_h24": "ErdosStrausConjecture.full_conjecture_of_h24",
-  "mod8_of_12": "ErdosStrausConjecture.mod8_of_12",
-  "param_exists_iff_onesided": "ErdosStrausConjecture.param_exists_iff_onesided",
-  "parametric_divisibility": "ErdosStrausConjecture.parametric_divisibility",
-  "parametric_divisibility_iff": "ErdosStrausConjecture.parametric_divisibility_iff",
-  "prime_non24_isErdosStraus": "ErdosStrausConjecture.prime_non24_isErdosStraus",
-  "residue_classification": "ErdosStrausConjecture.residue_classification",
-  "scaling": "ErdosStrausConjecture.scaling",
-  "theorem2": "ErdosStrausConjecture.theorem2",
-  "u_method_core": "ErdosStrausConjecture.u_method_core",
-  "u_method_witness": "ErdosStrausConjecture.u_method_witness",
-  "witness_extraction": "ErdosStrausConjecture.witness_extraction"
+  "ErdosStrausConjecture.erdos_straus_except_residual_open_class": 1,
+  "ErdosStrausConjecture.finite_search_equivalence": 1,
+  "ErdosStrausConjecture.full_conjecture_of_h24": 1,
+  "ErdosStrausConjecture.h213_parametric_u3": 1,
+  "ErdosStrausConjecture.mod8_of_12": 1,
+  "ErdosStrausConjecture.param_exists_iff_onesided": 1,
+  "ErdosStrausConjecture.parametric_divisibility": 1,
+  "ErdosStrausConjecture.parametric_divisibility_iff": 1,
+  "ErdosStrausConjecture.prime_non24_isErdosStraus": 1,
+  "ErdosStrausConjecture.residue_classification": 1,
+  "ErdosStrausConjecture.scaling": 1,
+  "ErdosStrausConjecture.theorem2": 1,
+  "ErdosStrausConjecture.u_method_core": 1,
+  "ErdosStrausConjecture.u_method_witness": 1,
+  "ErdosStrausConjecture.witness_extraction": 1
  },
  "source_sha_note": "digest of the export bytes recorded separately in SHA256SUMS"
 }

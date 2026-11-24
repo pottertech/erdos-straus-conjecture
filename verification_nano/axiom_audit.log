@@ -13,4 +13,5 @@
 'ErdosStrausConjecture.parametric_divisibility' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.param_exists_iff_onesided' depends on axioms: [propext, Quot.sound]
 'ErdosStrausConjecture.parametric_divisibility_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosStrausConjecture.h213_parametric_u3' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.theorem2' depends on axioms: [propext, Classical.choice, Quot.sound]

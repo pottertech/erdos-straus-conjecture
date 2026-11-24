@@ -32,4 +32,5 @@ dependency closure of each proof term.
 #print axioms ErdosStrausConjecture.parametric_divisibility
 #print axioms ErdosStrausConjecture.param_exists_iff_onesided
 #print axioms ErdosStrausConjecture.parametric_divisibility_iff
+#print axioms ErdosStrausConjecture.h213_parametric_u3
 #print axioms ErdosStrausConjecture.theorem2

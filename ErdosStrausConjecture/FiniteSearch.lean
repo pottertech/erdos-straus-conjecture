@@ -369,3 +369,36 @@ theorem parametric_divisibility_iff (n x T u : ℕ)
       rw [Nat.mul_assoc ((T + n * x) / u) k T] at hkey
       exact Nat.eq_of_mul_eq_mul_left hy0 hkey
     exact ⟨k, by rw [← h9, Nat.mul_comm k T]⟩
+/-- **The `p ≡ 13 (mod 24)` class admits a parametric witness at `u = 3`
+(eighth review section 5, formalized).** For `p = 24k+13`,
+`x = (p+3)/4 = 6k+4` is even, so `M = p*x` is even and `M ≡ 1 (mod 3)`
+(both factors are `1 mod 3`). The divisor `T = 2 ≡ −1 (mod 3)` therefore
+satisfies every witness condition: `2 ∣ M^2` (as `2 ∣ M`),
+`2 ∣ M`, and `(2 + M) mod 3 = 0`. Combined with the
+admissible-`u` lower bound this yields `F(p) = 3` for every prime
+`p ≡ 13 (mod 24)`, explaining exactly the empirical u = 3 population
+`3,194,231 - 2,364,031 = 830,200` (the full sweep population minus its
+(H24) subclass). -/
+theorem h213_parametric_u3 (p k : ℕ) (hp : p = 24 * k + 13) :
+    ∃ T : ℕ, T ∣ (p * ((p + 3) / 4)) ^ 2 ∧
+      T ∣ p * ((p + 3) / 4) ∧ (T + p * ((p + 3) / 4)) % 3 = 0 := by
+  have hx : (p + 3) / 4 = 6 * k + 4 := by
+    rw [hp]
+    omega
+  have h2k : 2 ∣ 6 * k + 4 := ⟨3 * k + 2, by ring⟩
+  have hp3 : p % 3 = 1 := by
+    rw [hp]
+    omega
+  have hx3 : (6 * k + 4) % 3 = 1 := by omega
+  have hM2 : 2 ∣ p * ((p + 3) / 4) := by
+    rw [hx]
+    exact h2k.mul_left p
+  refine ⟨2, ?_, hM2, ?_⟩
+  · refine ⟨p * ((p + 3) / 4) * (p * ((p + 3) / 4) / 2), ?_⟩
+    have h2x : p * ((p + 3) / 4)
+        = 2 * (p * ((p + 3) / 4) / 2) := by
+      rw [Nat.mul_comm 2 (p * ((p + 3) / 4) / 2), Nat.div_mul_cancel hM2]
+    linear_combination (p * ((p + 3) / 4)) * h2x
+  · have hMmod : p * ((p + 3) / 4) % 3 = 1 := by
+      rw [hx, Nat.mul_mod, hp3, hx3]
+    rw [Nat.add_mod, hMmod]

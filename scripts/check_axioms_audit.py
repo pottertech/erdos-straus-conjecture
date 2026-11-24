@@ -27,6 +27,7 @@ TRIO_ONLY = [
     "ErdosStrausConjecture.finite_search_equivalence",
     "ErdosStrausConjecture.parametric_divisibility",
     "ErdosStrausConjecture.parametric_divisibility_iff",
+    "ErdosStrausConjecture.h213_parametric_u3",
     "ErdosStrausConjecture.theorem2",
 ]
 PROPEXT_ONLY = ["ErdosStrausConjecture.scaling"]

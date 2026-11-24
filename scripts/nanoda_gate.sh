@@ -32,6 +32,7 @@ THMS=(
   ErdosStrausConjecture.finite_search_equivalence
   ErdosStrausConjecture.parametric_divisibility
   ErdosStrausConjecture.parametric_divisibility_iff
+  ErdosStrausConjecture.h213_parametric_u3
   ErdosStrausConjecture.param_exists_iff_onesided
   ErdosStrausConjecture.theorem2
 )
@@ -44,13 +45,25 @@ MODULES=(
 )
 
 cd "$REPO"
-echo "[1/5] tool revision assertions (V16-03)"
+echo "[1/5] tool provenance (V16-03 revisions + V17-02 executables)"
 NANODA_REV="${NANODA_EXPECT:-0da9f98}"
 LEAN4EXPORT_REV="${LEAN4EXPORT_EXPECT:-a3e35a5}"
 ACTUAL_NANODA="$(git -C "$INDEP/nanoda_lib" rev-parse --short HEAD)"
 ACTUAL_LEAN4EXPORT="$(git -C "$INDEP/lean4export" rev-parse --short HEAD)"
 [ "$ACTUAL_NANODA" = "$NANODA_REV" ] || { echo "nanoda_lib HEAD $ACTUAL_NANODA != pinned $NANODA_REV"; exit 1; }
 [ "$ACTUAL_LEAN4EXPORT" = "$LEAN4EXPORT_REV" ] || { echo "lean4export HEAD $ACTUAL_LEAN4EXPORT != pinned $LEAN4EXPORT_REV"; exit 1; }
+# clean tracked source trees (an unclean tree means the binary could differ from the pin)
+[ -z "$(git -C "$INDEP/nanoda_lib" status --porcelain --untracked-files=no)" ] \
+  || { echo "nanoda_lib working tree is dirty"; exit 1; }
+[ -z "$(git -C "$INDEP/lean4export" status --porcelain --untracked-files=no)" ] \
+  || { echo "lean4export working tree is dirty"; exit 1; }
+# rebuild both executables from their pinned sources and record binary hashes
+(cd "$INDEP/nanoda_lib" && cargo build --release) > /tmp/tool_build_nanoda.log 2>&1 &
+NANODA_BUILD_PID=$!
+(cd "$INDEP/lean4export" && lake build) > /tmp/tool_build_lean4export.log 2>&1
+wait $NANODA_BUILD_PID
+echo "nanoda binary     $(shasum -a 256 "$NANODA_BIN" | awk '{print $1}')"
+echo "lean4export binary $(shasum -a 256 "$LEAN4EXPORT" | awk '{print $1}')"
 
 echo "[2/5] lake build (log captured)"
 lake build 2>&1 | tee temp_lean_build.log
@@ -58,7 +71,7 @@ cp temp_lean_build.log verification_nano/lean_build.log
 lake env lean scripts/print_axioms.lean > /tmp/print_axioms_gate.out || {
   echo "print_axioms execution failed"; exit 1; }
 NAMECOUNT=$(grep -c "depends on axioms" /tmp/print_axioms_gate.out)
-[ "$NAMECOUNT" -eq 14 ] || { echo "expected 13 audited results, got $NAMECOUNT"; exit 1; }
+[ "$NAMECOUNT" -eq 15 ] || { echo "expected 13 audited results, got $NAMECOUNT"; exit 1; }
 python3 scripts/check_axioms_audit.py < /tmp/print_axioms_gate.out
 cp /tmp/print_axioms_gate.out verification_nano/axiom_audit.log
 
@@ -101,5 +114,7 @@ shasum -a 256 \
   sweep_exact/nonparametric_1e7_1e9.jsonl \
   > verification_nano/SHA256SUMS
 RAW_SHA="$(shasum -a 256 "$EXPORT" | awk '{print $1}')"
+[ "$EXPORT_SHA" = "$RAW_SHA" ] || {
+  echo "Export changed during verification ($EXPORT_SHA -> $RAW_SHA)"; exit 1; }
 echo "# uncompressed export: SHA-256 $RAW_SHA (zipped above)" >> verification_nano/SHA256SUMS
 echo "NANODA GATE: PASS"
