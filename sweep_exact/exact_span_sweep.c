@@ -180,23 +180,34 @@ static void make_x_sieve(void) {
     }
 }
 
+static int cmp_i64(const void *a, const void *b);   /* defined below */
+
 /* ---------------- divisor list of x^2, ascending ------------------- */
 static i64 divs[400000]; static int ndivs;
 static i64 divtmp[400000];
-static void divisors_of_square(const Fac *fx) {
+static void divisors_of_square(const Fac *fx, i64 Mcap) {
+    /* V14-01: accumulate in i128 and keep only divisors <= Mcap = M.
+       A candidate is d1 = d1n * divs[b] with d1n in {1,n,n^2} >= 1, so any
+       divisor above M is unusable; capping removes the exponent-overshoot
+       products (pass accumulation can exceed 2e) that overflowed i64. */
     ndivs = 1; divs[0] = 1;
     for (int i = 0; i < fx->n; i++) {
         int cnt = 0;
-        i64 pe = 1;
+        i128 pe = 1;
         for (int k = 0; k <= 2 * fx->e[i]; k++) {
-            for (int j = 0; j < ndivs; j++) divtmp[cnt++] = divs[j] * pe;
-            pe *= fx->p[i];
+            if (pe > (i128)Mcap) break;
+            for (int j = 0; j < ndivs && cnt < 400000; j++) {
+                i128 cand = (i128)divs[j] * pe;
+                if (cand > (i128)Mcap) continue;
+                divtmp[cnt++] = (i64)cand;
+            }
+            pe *= (i128)fx->p[i];
         }
         for (int j = 0; j < cnt; j++) divs[j] = divtmp[j];
         ndivs = cnt;
-        /* keep ascending (each multiplier pass preserves order within blocks) */
+        if (cnt >= 400000) break;   /* capacity guard */
     }
-    /* sort ascending (insertion not feasible at 40k; qsort) */
+    qsort(divs, ndivs, sizeof(i64), cmp_i64);
 }
 
 static int cmp_i64(const void *a, const void *b) {
@@ -205,7 +216,8 @@ static int cmp_i64(const void *a, const void *b) {
 }
 
 /* ---------------- the u-method solve (mirrors theirs) -------------- */
-typedef struct { i64 u, x; int is_param; } Sol;
+typedef struct { i64 u, x; int is_param, pexists; } Sol;
+static int param_exists_at(i64 u, i64 n, i64 x, i64 M, i64 target, i128 M2);
 
 static i64 isqrt_i64(i64 n) {
     if (n < 0) return 0;
@@ -230,10 +242,9 @@ static int solve_umethod(i64 n, Sol *out) {
         if (n % u == 0 || x % u == 0) continue;   /* gcd(M,u)=1 required */
 
         Fac fx; full_factor(x, &fx);
-        divisors_of_square(&fx);
-        qsort(divs, ndivs, sizeof(i64), cmp_i64);
-
         i64 M = n * x;
+        divisors_of_square(&fx, M);
+        qsort(divs, ndivs, sizeof(i64), cmp_i64);
         i128 M2 = (i128)M * (i128)M;
         i64 target = (-M) % u; if (target < 0) target += u;
         i64 sqrt_D = M;   /* sqrt(M^2) = M exactly (matches Python isqrt(D)) */
@@ -244,8 +255,9 @@ static int solve_umethod(i64 n, Sol *out) {
         for (int a = 0; a < 3; a++) {
             i64 d1n = nfs[a];
             for (int b = 0; b < 3; b++) {
-                i64 d1 = d1n * xfs[b];
-                if (d1 > sqrt_D) continue;
+                i128 d1c = (i128)d1n * (i128)xfs[b];   /* V14-01: widen before the bound check */
+                if (d1c > (i128)sqrt_D) continue;
+                i64 d1 = (i64)d1c;
                 if (d1 % u != target) continue;
                 i128 mm = M2; if (mm % d1 != 0) continue;
                 i128 d2 = mm / d1;
@@ -255,6 +267,7 @@ static int solve_umethod(i64 n, Sol *out) {
                 if (y <= 0) continue;
                 int isp = (z % y == 0);
                 out->u = u; out->x = x; out->is_param = isp;
+                out->pexists = param_exists_at(u, n, x, M, target, M2);
                 return 1;
             }
         }
@@ -263,8 +276,9 @@ static int solve_umethod(i64 n, Sol *out) {
         for (int a = 0; a < 3; a++) {
             i64 d1n = nfs[a];
             for (int b = 0; b < ndivs; b++) {
-                i64 d1 = d1n * divs[b];
-                if (d1 > sqrt_D) break;
+                i128 d1c = (i128)d1n * (i128)divs[b];   /* V14-01: widen before the bound check */
+                if (d1c > (i128)sqrt_D) break;
+                i64 d1 = (i64)d1c;
                 if (d1 % u != target) continue;
                 i128 mm = M2; if (mm % d1 != 0) continue;
                 i128 d2 = mm / d1;
@@ -274,8 +288,46 @@ static int solve_umethod(i64 n, Sol *out) {
                 if (y <= 0) continue;
                 int isp = (z % y == 0);
                 out->u = u; out->x = x; out->is_param = isp;
+                out->pexists = param_exists_at(u, n, x, M, target, M2);
                 return 1;
             }
+        }
+    }
+    return 0;
+}
+
+/* V14-02: does ANY witness at (n,u) exist whose selected pair is parametric,
+   i.e. z % y == 0 for the witness's (y,z)?  Scan the same two divisor
+   branches as solve_umethod, testing only the parametric condition. */
+static int param_exists_at(i64 u, i64 n, i64 x, i64 M, i64 target, i128 M2) {
+    i64 nfs[3] = {1, n, n * n};
+    i64 xfs[3] = {1, x, x * x};
+    for (int a = 0; a < 3; a++) {
+        for (int b = 0; b < 3; b++) {
+            i128 d1c = (i128)nfs[a] * (i128)xfs[b];
+            if (d1c > (i128)M) continue;
+            i64 d1 = (i64)d1c;
+            if (d1 % u != target) continue;
+            if (M2 % d1 != 0) continue;
+            i128 d2 = M2 / d1;
+            if ((d2 + M) % u != 0) continue;
+            i64 y = (d1 + M) / u;
+            i128 z = (d2 + M) / u;
+            if (y > 0 && z % y == 0) return 1;
+        }
+    }
+    for (int a = 0; a < 3; a++) {
+        for (int b = 0; b < ndivs; b++) {
+            i128 d1c = (i128)nfs[a] * (i128)divs[b];
+            if (d1c > (i128)M) break;
+            i64 d1 = (i64)d1c;
+            if (d1 % u != target) continue;
+            if (M2 % d1 != 0) continue;
+            i128 d2 = M2 / d1;
+            if ((d2 + M) % u != 0) continue;
+            i64 y = (d1 + M) / u;
+            i128 z = (d2 + M) / u;
+            if (y > 0 && z % y == 0) return 1;
         }
     }
     return 0;
@@ -414,6 +466,7 @@ int main(int argc, char **argv) {
     i64 nonp[1024]; i64 nnonp = 0;
     i64 nnonp_total = 0;
     i64 h24 = 0, h213 = 0;
+    i64 c_param_first = 0, c_both_npfirst = 0, c_noparam = 0;
     i64 max_u = 0, max_u_n = 0, nsol = 0;
     double t1 = now_s();
 
@@ -424,7 +477,10 @@ int main(int argc, char **argv) {
             nsol++;
             u_dist[s.u]++;
             if (s.u > max_u) { max_u = s.u; max_u_n = hard[i]; }
-            if (!s.is_param) { nnonp_total++; if (nnonp < 1024) nonp[nnonp++] = hard[i]; }
+            if (s.is_param) c_param_first++;
+        else if (s.pexists) c_both_npfirst++;
+        else c_noparam++;
+        if (!s.is_param) { nnonp_total++; if (nnonp < 1024) nonp[nnonp++] = hard[i]; }
         } else {
             if (nfail < 64) no_sol[nfail] = hard[i];
             nfail++;
@@ -443,6 +499,9 @@ int main(int argc, char **argv) {
     printf("  \"total_hard_cases\": %lld,\n", nh);
     printf("  \"h24_hard_cases\": %lld,\n", h24);
     printf("  \"h213_hard_cases\": %lld,\n", h213);
+    printf("  \"witness_param_first\": %lld,\n", c_param_first);   /* V14-02: first-selected witness parametric */
+    printf("  \"witness_both_nonparam_first\": %lld,\n", c_both_npfirst);  /* both types exist, nonparametric selected first */
+    printf("  \"witness_no_param_at_first_u\": %lld,\n", c_noparam);  /* research target (V14-02) */
     printf("  \"solutions_found\": %lld,\n", nsol);
     printf("  \"no_solution_count\": %d,\n", nfail);
     printf("  \"no_solution_cases\": [");

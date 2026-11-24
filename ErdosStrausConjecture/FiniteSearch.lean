@@ -1,5 +1,6 @@
 import Mathlib
 import ErdosStrausConjecture.Basic
+import ErdosStrausConjecture.CenteredCriterion
 
 /-!
 # Finite-search extraction for the Erdős–Straus parameter (Theorem 5.2)
@@ -31,7 +32,7 @@ theorem witness_extraction
     (hxy : x ≤ y) (hxz : x ≤ z)
     (heq : 4 * x * y * z = p * (x * y + x * z + y * z)) :
     ∃ u T : ℕ,
-      0 < u ∧ u ≤ 2 * p ∧ u % 4 = 3 ∧
+      u + p = 4 * x ∧ 0 < u ∧ u ≤ 2 * p ∧ u % 4 = 3 ∧
       Nat.Coprime (p * x) u ∧
       0 < T ∧ T ∣ (p * x) ^ 2 ∧ (T + p * x) % u = 0 ∧
       ((p * x) ^ 2 / T + p * x) % u = 0 := by
@@ -109,7 +110,8 @@ theorem witness_extraction
     rw [Nat.mul_add]; omega
   have hQpx : (4 * x * z - p * (x + z)) + p * x = 4 * x * z - p * z := by
     rw [Nat.mul_add]; omega
-  refine ⟨4 * x - p, 4 * x * y - p * (x + y), ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨4 * x - p, 4 * x * y - p * (x + y), ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · omega  -- u + p = 4 * x (V14-03: the exported defining equation), from hplt
   · omega  -- 0 < u, from hplt
   · omega  -- u ≤ 2p, from h4x3p
   · omega  -- u % 4 = 3, from hp4
@@ -152,3 +154,53 @@ theorem witness_extraction
     have hdvd2 : (4 * x - p) ∣ 4 * x * z - p * z :=
       ⟨z, by rw [Nat.sub_mul]⟩
     rw [hMWdiv, hQpx, Nat.mod_eq_zero_of_dvd hdvd2]
+
+/-- **Theorem 5.2 composed (the complete biconditional; V14-03).** For an odd
+prime `p ≡ 1 (mod 4)`, `p` has an Erdös–Straus representation exactly when
+the span witness of the finite-search equivalence exists at the paper's
+parameter `u = 4x − p`. This theorem composes the extraction direction
+(`witness_extraction`, above) with the constructive reverse
+(`u_method_witness`, `CenteredCriterion.lean`), so the manuscript's
+Theorem 5.2 is itself a single machine-checked equivalence rather than two
+separate ingredients. -/
+theorem finite_search_equivalence (p : ℕ) (hpr : Nat.Prime p) (hp4 : p % 4 = 1) :
+    (∃ x y z : ℕ, 0 < x ∧ 0 < y ∧ 0 < z ∧
+        4 * x * y * z = p * (x * y + x * z + y * z)) ↔
+      (∃ x u T : ℕ, 0 < x ∧ u + p = 4 * x ∧ 0 < u ∧ u ≤ 2 * p ∧ u % 4 = 3 ∧
+        Nat.Coprime (p * x) u ∧ 0 < T ∧ T ∣ (p * x) ^ 2 ∧
+        (T + p * x) % u = 0 ∧ ((p * x) ^ 2 / T + p * x) % u = 0) := by
+  constructor
+  · rintro ⟨x, y, z, hx1, hy1, hz1, heq⟩
+    rcases Nat.le_total x y with hxy | hyx
+    · rcases Nat.le_total x z with hxz | hzx
+      · -- x is the smallest denominator
+        obtain ⟨u, T, hw⟩ :=
+          witness_extraction p x y z hpr hp4 hx1 hy1 hz1 hxy hxz heq
+        exact ⟨x, u, T, hx1, hw⟩
+      · -- z < x ≤ y: z carries the smallest denominator
+        have hzy : z ≤ y := by omega
+        obtain ⟨u, T, hw⟩ :=
+          witness_extraction p z x y hpr hp4 hz1 hx1 hy1 hzx hzy
+            (by linear_combination heq)
+        exact ⟨z, u, T, hz1, hw⟩
+    · -- y < x
+      rcases Nat.le_total y z with hyz | hzy
+      · -- y smallest
+        obtain ⟨u, T, hw⟩ :=
+          witness_extraction p y x z hpr hp4 hy1 hx1 hz1 hyx hyz
+            (by linear_combination heq)
+        exact ⟨y, u, T, hy1, hw⟩
+      · -- z smallest (z < y < x)
+        have hzx : z ≤ x := by omega
+        obtain ⟨u, T, hw⟩ :=
+          witness_extraction p z y x hpr hp4 hz1 hy1 hx1 hzy hzx
+            (by linear_combination heq)
+        exact ⟨z, u, T, hz1, hw⟩
+  · rintro ⟨x, u, T, hx1, hu4x, hu0, hu2p, hu3, hcopr, hT0, hTdvd, hTmod, hTmod2⟩
+    have hp0 : 0 < p := hpr.pos
+    have hudef : u = 4 * x - p := by omega
+    have hcopr' : Nat.Coprime u (p * x) := Nat.coprime_comm.mp hcopr
+    have hcong : u ∣ T + p * x := Nat.dvd_of_mod_eq_zero hTmod
+    obtain ⟨y', z', hy2, hz2, hbody⟩ :=
+      u_method_witness p x T u hp0 hx1 hu0 hudef hcopr' hTdvd hT0 hcong
+    exact ⟨x, y', z', hx1, hy2, hz2, hbody⟩

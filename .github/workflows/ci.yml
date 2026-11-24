@@ -47,7 +47,9 @@ jobs:
         run: |
           lake build
           lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem ErdosStrausConjecture.Theorem4 ErdosStrausConjecture.NewTheorems ErdosStrausConjecture.CenteredCriterion ErdosStrausConjecture.Reduction ErdosStrausConjecture.FiniteSearch
-      - name: Proof-term axiom audit as CI regression gate (fourth external review V13-03)
+      - name: Proof-term axiom audit as CI regression gate (V13-03; hardened per V14-04)
+        shell: bash
         run: |
+          set -euo pipefail
           lake env lean scripts/print_axioms.lean | tee /tmp/axioms.txt
           python3 scripts/check_axioms_audit.py < /tmp/axioms.txt

@@ -14,18 +14,20 @@ import re
 import sys
 
 TRIO = {"propext", "Classical.choice", "Quot.sound"}
+NS = "ErdosStrausConjecture."
 TRIO_ONLY = [
-    "mod8_of_12",
-    "prime_non24_isErdosStraus",
-    "full_conjecture_of_h24",
-    "erdos_straus_except_residual_open_class",
-    "residue_classification",
-    "u_method_core",
-    "u_method_witness",
-    "witness_extraction",
-    "theorem2",
+    "ErdosStrausConjecture.mod8_of_12",
+    "ErdosStrausConjecture.prime_non24_isErdosStraus",
+    "ErdosStrausConjecture.full_conjecture_of_h24",
+    "ErdosStrausConjecture.erdos_straus_except_residual_open_class",
+    "ErdosStrausConjecture.residue_classification",
+    "ErdosStrausConjecture.u_method_core",
+    "ErdosStrausConjecture.u_method_witness",
+    "ErdosStrausConjecture.witness_extraction",
+    "ErdosStrausConjecture.finite_search_equivalence",
+    "ErdosStrausConjecture.theorem2",
 ]
-PROPEXT_ONLY = ["scaling"]
+PROPEXT_ONLY = ["ErdosStrausConjecture.scaling"]
 FORBIDDEN_SUBSTRINGS = ["sorryAx", "erdos_straus_mod_12_1_not_div_5_conjecture",
                         "divisor_residue_criterion_reverse"]
 
@@ -58,21 +60,20 @@ def main() -> None:
             errors.append(f"unparseable audit line: {line!r}")
             continue
         name = m.group(1)
-        short = name.split(".")[-1]
         axioms = {a.strip() for a in m.group(2).split(",") if a.strip()}
-        results.setdefault(short, []).append(axioms)
+        results.setdefault(name, []).append(axioms)
 
-    for short in PROPEXT_ONLY:
-        if short not in results:
-            errors.append(f"missing audit result for {short}")
-        elif len(results[short]) != 1 or results[short][0] != {"propext"}:
-            errors.append(f"{short}: unexpected axioms {results[short]}")
+    for fname in PROPEXT_ONLY:
+        if fname not in results:
+            errors.append(f"missing audit result for {fname}")
+        elif len(results[fname]) != 1 or results[fname][0] != {"propext"}:
+            errors.append(f"{fname}: unexpected axioms {results[fname]}")
 
-    for short in TRIO_ONLY:
-        if short not in results:
-            errors.append(f"missing audit result for {short}")
-        elif len(results[short]) != 1 or results[short][0] != TRIO:
-            errors.append(f"{short}: unexpected axioms {results[short]}")
+    for fname in TRIO_ONLY:
+        if fname not in results:
+            errors.append(f"missing audit result for {fname}")
+        elif len(results[fname]) != 1 or results[fname][0] != TRIO:
+            errors.append(f"{fname}: unexpected axioms {results[fname]}")
 
     unexpected = set(results) - set(TRIO_ONLY) - set(PROPEXT_ONLY)
     if unexpected:
@@ -84,7 +85,7 @@ def main() -> None:
             print("  -", e)
         sys.exit(1)
     print(f"AXIOM AUDIT GATE: PASS ({len(TRIO_ONLY) + len(PROPEXT_ONLY)} "
-          f"principal results, expected axiom sets exact)")
+          f"principal results, fully-qualified names, expected axiom sets exact)")
 
 
 if __name__ == "__main__":

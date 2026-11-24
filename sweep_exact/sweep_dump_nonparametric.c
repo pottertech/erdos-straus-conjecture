@@ -179,23 +179,34 @@ static void make_x_sieve(void) {
     }
 }
 
+static int cmp_i64(const void *a, const void *b);   /* defined below */
+
 /* ---------------- divisor list of x^2, ascending ------------------- */
 static i64 divs[400000]; static int ndivs;
 static i64 divtmp[400000];
-static void divisors_of_square(const Fac *fx) {
+static void divisors_of_square(const Fac *fx, i64 Mcap) {
+    /* V14-01: accumulate in i128 and keep only divisors <= Mcap = M.
+       A candidate is d1 = d1n * divs[b] with d1n in {1,n,n^2} >= 1, so any
+       divisor above M is unusable; capping removes the exponent-overshoot
+       products (pass accumulation can exceed 2e) that overflowed i64. */
     ndivs = 1; divs[0] = 1;
     for (int i = 0; i < fx->n; i++) {
         int cnt = 0;
-        i64 pe = 1;
+        i128 pe = 1;
         for (int k = 0; k <= 2 * fx->e[i]; k++) {
-            for (int j = 0; j < ndivs; j++) divtmp[cnt++] = divs[j] * pe;
-            pe *= fx->p[i];
+            if (pe > (i128)Mcap) break;
+            for (int j = 0; j < ndivs && cnt < 400000; j++) {
+                i128 cand = (i128)divs[j] * pe;
+                if (cand > (i128)Mcap) continue;
+                divtmp[cnt++] = (i64)cand;
+            }
+            pe *= (i128)fx->p[i];
         }
         for (int j = 0; j < cnt; j++) divs[j] = divtmp[j];
         ndivs = cnt;
-        /* keep ascending (each multiplier pass preserves order within blocks) */
+        if (cnt >= 400000) break;   /* capacity guard */
     }
-    /* sort ascending (insertion not feasible at 40k; qsort) */
+    qsort(divs, ndivs, sizeof(i64), cmp_i64);
 }
 
 static int cmp_i64(const void *a, const void *b) {
@@ -229,10 +240,9 @@ static int solve_umethod(i64 n, Sol *out) {
         if (n % u == 0 || x % u == 0) continue;   /* gcd(M,u)=1 required */
 
         Fac fx; full_factor(x, &fx);
-        divisors_of_square(&fx);
-        qsort(divs, ndivs, sizeof(i64), cmp_i64);
-
         i64 M = n * x;
+        divisors_of_square(&fx, M);
+        qsort(divs, ndivs, sizeof(i64), cmp_i64);
         i128 M2 = (i128)M * (i128)M;
         i64 target = (-M) % u; if (target < 0) target += u;
         i64 sqrt_D = M;   /* sqrt(M^2) = M exactly (matches Python isqrt(D)) */
@@ -243,8 +253,9 @@ static int solve_umethod(i64 n, Sol *out) {
         for (int a = 0; a < 3; a++) {
             i64 d1n = nfs[a];
             for (int b = 0; b < 3; b++) {
-                i64 d1 = d1n * xfs[b];
-                if (d1 > sqrt_D) continue;
+                i128 d1c = (i128)d1n * (i128)xfs[b];   /* V14-01: widen before the bound check */
+                if (d1c > (i128)sqrt_D) continue;
+                i64 d1 = (i64)d1c;
                 if (d1 % u != target) continue;
                 i128 mm = M2; if (mm % d1 != 0) continue;
                 i128 d2 = mm / d1;
@@ -263,8 +274,9 @@ static int solve_umethod(i64 n, Sol *out) {
         for (int a = 0; a < 3; a++) {
             i64 d1n = nfs[a];
             for (int b = 0; b < ndivs; b++) {
-                i64 d1 = d1n * divs[b];
-                if (d1 > sqrt_D) break;
+                i128 d1c = (i128)d1n * (i128)divs[b];   /* V14-01: widen before the bound check */
+                if (d1c > (i128)sqrt_D) break;
+                i64 d1 = (i64)d1c;
                 if (d1 % u != target) continue;
                 i128 mm = M2; if (mm % d1 != 0) continue;
                 i128 d2 = mm / d1;
