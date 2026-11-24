@@ -216,8 +216,11 @@ static i64 isqrt_i64(i64 n) {
 
 static int solve_umethod(i64 n, Sol *out) {
     i64 uvals_l[64]; int nu = 0;
-    for (int i = 0; i < nplist && plist[i] <= MAX_U; i++)
-        if (plist[i] % 4 == 3) uvals_l[nu++] = plist[i];
+    /* FULL admissible set: every integer u = 3 (mod 4), prime or composite
+       (mirrors the certificate generator's u-list; the earlier engine
+       enumerated primes only and missed composite layers 15, 27, 35, ...). */
+    for (i64 i = 3; i <= MAX_U; i++)
+        if (i % 4 == 3) uvals_l[nu++] = i;
 
     for (int k = 0; k < nu; k++) {
         i64 u = uvals_l[k];
@@ -312,6 +315,15 @@ static int selftest(void) {
         printf("selftest: 1129 first_u=%lld is_param=%d\n", s.u, s.is_param);
         if (s.u != 11) { printf("selftest FAIL: expected first u=11 for 1129\n"); return 1; }
     } else { printf("selftest FAIL: 1129 expected to succeed\n"); return 1; }
+    if (solve_umethod(8803369, &s)) {
+        printf("selftest: 8803369 first_u=%lld\n", s.u);
+        if (s.u != 107) { printf("selftest FAIL: expected first u=107 for 8803369\n"); return 1; }
+    } else { printf("selftest FAIL: 8803369 expected to succeed\n"); return 1; }
+    if (solve_umethod(32349601, &s)) {
+        printf("selftest: 32349601 first_u=%lld is_param=%d\n", s.u, s.is_param);
+        if (s.u < 15 || (s.u != 15 && s.u != 107)) { printf("selftest FAIL: expected u=15 or 107 for 32349601\n"); return 1; }
+        if (s.u != 15) { printf("selftest FAIL: expected first u=15 for 32349601 (external-review certificate F-01)\n"); return 1; }
+    } else { printf("selftest FAIL: 32349601 expected to succeed\n"); return 1; }
 
     /* independent brute-force cross-check on prime hard cases in [10^5, 3*10^5] */
     i64 *hard = NULL; i64 nh = 0, caph = 0;
@@ -325,7 +337,7 @@ static int selftest(void) {
            criterion but an independently written divisor enumeration. */
         i64 brute_u = 0;
         for (i64 u = 3; u <= 251 && !brute_u; u += 4) {
-            if (nplist == 0 || !is_prime_u64((u64)u)) continue;
+            /* all admissible u (composite included) */
             if ((n + u) % 4) continue;
             i64 x = (n + u) >> 2;
             if (n % u == 0 || x % u == 0) continue;
