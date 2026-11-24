@@ -75,7 +75,7 @@ cp temp_lean_build.log verification_nano/lean_build.log
 lake env lean scripts/print_axioms.lean > /tmp/print_axioms_gate.out || {
   echo "print_axioms execution failed"; exit 1; }
 NAMECOUNT=$(grep -c "depends on axioms" /tmp/print_axioms_gate.out)
-[ "$NAMECOUNT" -eq 15 ] || { echo "expected 13 audited results, got $NAMECOUNT"; exit 1; }
+[ "$NAMECOUNT" -eq 15 ] || { echo "expected 15 audited results, got $NAMECOUNT"; exit 1; }
 python3 scripts/check_axioms_audit.py < /tmp/print_axioms_gate.out
 cp /tmp/print_axioms_gate.out verification_nano/axiom_audit.log
 

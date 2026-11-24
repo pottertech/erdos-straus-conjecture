@@ -136,3 +136,13 @@ Also recorded (ninth review §3.1): `h213_parametric_u3`'s arithmetic requires n
 85. (Editorial) The review's typographical corrections applied (duplicated `F(p)` definition removed — the v1.9 insertion had left the original lead sentence in place; duplicated approximation removed; 14-result → 15-result; the "Current (v1.8) execution" framing carried forward in the review's wording; punctuation and row-label fixes).
 86. (Publication presentation) The review's §7 assessment is acknowledged ("Mathematical correctness: very good; claim discipline: very good"); the §6.5 four-subsection consolidation is adopted for the next pass, with this CHANGELOG continuing to hold the per-defect history.
 
+**Revision note (v1.11, 2026-11-24) — final copyedit per the eleventh review (of v1.10): publication closeout.** The review found no mathematical blocker (framework accepted and frozen; all eight accessible evidence checksums independently verified; export-validator correction confirmed at source level). Closeout items:
+
+87. (V110-01) The duplicated `F(p)` definition lead-in removed (the v1.9 insertion had left the original sentence fragment ahead of the replacement); the domain phrasing standardized.
+88. (V110-02) The damaged Remark 1 sentence replaced wholesale with the review's wording ("The documented axiom quantifies over a broader domain than necessary. Theorem 5.1 establishes that its content is logically equivalent to (H24).").
+89. (V110-03) The §6.2 rendering artifacts fixed at source: the emphasis spans that rendered literally were rewritten (`**not**` and `*reachability*` to plain wording), and an unbalanced inline-code span (`(ℤ/uℤ)*`) repaired — the manuscript now has zero odd-backtick lines.
+90. (V110-04) The verification/publication wording synchronized: the kernel-verification paragraph describes the proof execution on the paper-v1.9 source tree (Lean sources byte-identical through v1.10) and Appendix A's provenance row distinguishes the verification baseline from the publication tag.
+91. (V110-05) The release-gate diagnostic corrected (15, not 13, audited results).
+92. (Proofreading) The review's table applied: the `5 (mod 8)` class statement phrased as witness-existence at `u = 3`, the least-non-residue sentence bound-phrased, the "factor_x tests only odd primes" wording, the distribution-specification sentence, and the exact-integer-arithmetic phrasing.
+93. (PDF presentation) Page numbers added via the print template; long tables permitted to break across pages with repeating headers (fixing the split axiom table and the near-empty page 15); section heads kept with their first paragraph.
+
