@@ -43,7 +43,11 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Fetch prebuilt Mathlib cache
         run: lake exe cache get
-      - name: Build Lean project (root lib + the full nine-module certified set)
+      - name: Build Lean project (root lib + the full ten-module certified set)
         run: |
           lake build
           lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem ErdosStrausConjecture.Theorem4 ErdosStrausConjecture.NewTheorems ErdosStrausConjecture.CenteredCriterion ErdosStrausConjecture.Reduction ErdosStrausConjecture.FiniteSearch
+      - name: Proof-term axiom audit as CI regression gate (fourth external review V13-03)
+        run: |
+          lake env lean scripts/print_axioms.lean | tee /tmp/axioms.txt
+          python3 scripts/check_axioms_audit.py < /tmp/axioms.txt

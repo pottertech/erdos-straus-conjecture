@@ -17,7 +17,8 @@
  *                exists d | (n*x)^2 with d == -n*x (mod u), gcd(M,u)=1,
  *                x = (n+u)/4; two mirrored branches (guaranteed divisors
  *                {1,n,n^2} x {1,x,x^2}, then full {1,n,n^2} x divisors(x^2));
- *                u prime, u = 3 (mod 4), u <= 251; first success wins.
+ *                every integer u = 3 (mod 4), u <= 255, composite layers
+ *                included (F-01, second review); first success wins.
  *   parametric : z % y == 0 as in the committed script.
  *
  * Output: sweep_exact/verification_10M_1B_exact_rerun.json (schema mirrors the
@@ -40,7 +41,7 @@ typedef __int128 i128;
 
 static i64 RANGE_START = 10000001;
 static i64 RANGE_END   = 999999999;   /* inclusive, mirrors chunk_end logic */
-static i64 MAX_U = 255;               /* mirrored constant; u primes <= 251 */
+static i64 MAX_U = 255;               /* every integer u = 3 (mod 4) <= 255 (F-01: composites included) */
 
 /* ---------------- base prime sieve (to 50000: membership trial primes;
    to 32000 covers sqrt(1e9) for the segmented sieve) --------------- */
@@ -317,6 +318,10 @@ static int selftest(void) {
         printf("selftest: 8803369 first_u=%lld\n", s.u);
         if (s.u != 107) { printf("selftest FAIL: expected first u=107 for 8803369\n"); return 1; }
     } else { printf("selftest FAIL: 8803369 expected to succeed\n"); return 1; }
+    if (solve_umethod(651412441, &s)) {
+        printf("selftest: 651412441 first_u=%lld\n", s.u);
+        if (s.u != 83) { printf("selftest FAIL: expected first u=83 for 651412441\n"); return 1; }
+    } else { printf("selftest FAIL: 651412441 expected to succeed\n"); return 1; }
     if (solve_umethod(32349601, &s)) {
         printf("selftest: 32349601 first_u=%lld is_param=%d\n", s.u, s.is_param);
         if (s.u < 15 || (s.u != 15 && s.u != 107)) { printf("selftest FAIL: expected u=15 or 107 for 32349601\n"); return 1; }
@@ -334,7 +339,7 @@ static int selftest(void) {
            testing d % u == -M and M^2 % d == 0, d2 congruent. Uses the same
            criterion but an independently written divisor enumeration. */
         i64 brute_u = 0;
-        for (i64 u = 3; u <= 251 && !brute_u; u += 4) {
+        for (i64 u = 3; u <= MAX_U && !brute_u; u += 4) {
             /* all admissible u (composite included) */
             if ((n + u) % 4) continue;
             i64 x = (n + u) >> 2;
@@ -407,16 +412,19 @@ int main(int argc, char **argv) {
     i64 u_dist[4096]; memset(u_dist, 0, sizeof(u_dist));
     i64 no_sol[64]; int nfail = 0;
     i64 nonp[1024]; i64 nnonp = 0;
+    i64 nnonp_total = 0;
+    i64 h24 = 0, h213 = 0;
     i64 max_u = 0, max_u_n = 0, nsol = 0;
     double t1 = now_s();
 
     for (i64 i = 0; i < nh; i++) {
         Sol s;
+        if (hard[i] % 24 == 1) h24++; else h213++;
         if (solve_umethod(hard[i], &s)) {
             nsol++;
             u_dist[s.u]++;
             if (s.u > max_u) { max_u = s.u; max_u_n = hard[i]; }
-            if (!s.is_param && nnonp < 1024) nonp[nnonp++] = hard[i];
+            if (!s.is_param) { nnonp_total++; if (nnonp < 1024) nonp[nnonp++] = hard[i]; }
         } else {
             if (nfail < 64) no_sol[nfail] = hard[i];
             nfail++;
@@ -433,6 +441,8 @@ int main(int argc, char **argv) {
     printf("  \"range\": [%lld, %lld],\n", RANGE_START, RANGE_END);
     printf("  \"max_u_searched\": %lld,\n", MAX_U);
     printf("  \"total_hard_cases\": %lld,\n", nh);
+    printf("  \"h24_hard_cases\": %lld,\n", h24);
+    printf("  \"h213_hard_cases\": %lld,\n", h213);
     printf("  \"solutions_found\": %lld,\n", nsol);
     printf("  \"no_solution_count\": %d,\n", nfail);
     printf("  \"no_solution_cases\": [");
@@ -441,7 +451,7 @@ int main(int argc, char **argv) {
     printf("],\n");
     printf("  \"max_u\": %lld,\n", max_u);
     printf("  \"max_u_n\": %lld,\n", max_u_n);
-    printf("  \"non_parametric_count\": %lld,\n", nnonp);
+    printf("  \"non_parametric_count\": %lld,\n", nnonp_total);
     printf("  \"u_distribution\": {");
     int first = 1;
     for (i64 u = 3; u <= 255; u += 4) {
@@ -455,7 +465,7 @@ int main(int argc, char **argv) {
     printf("  \"meta\": {\"criterion\": \"exact one-divisor (committed verifier semantics)\",\n");
     printf("    \"population\": \"primes p, p %% 12 == 1, 5 not| p, check_B3_fast predicate\",\n");
     printf("    \"engine\": \"exact_span_sweep.c (independent C re-implementation)\",\n");
-    printf("    \"selftest\": \"1129 -> first u=11; independent brute-force cross-check\"}\n");
+    printf("    \"selftest\": \"anchors 1129->11, 8803369->107, 32349601->15, 651412441->83; independent brute-force cross-check\"}\n");
     printf("}\n");
     fprintf(stderr, "[done] total %.0fs\n", now_s() - t0);
     return 0;

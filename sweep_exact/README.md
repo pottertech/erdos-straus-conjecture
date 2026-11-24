@@ -1,9 +1,11 @@
-# Exact-criterion sweep re-run (2026-11-21)
+# Exact-criterion sweep re-run (2026-11-21; corrected to the composite-inclusive u-set 2026-11-23)
 
 Corrected, independently re-implemented replacement for the retired hard-case
 sweep artifacts. Everything here runs under the exact one-divisor criterion
 (`CENTERED_PRODUCT_SET_THEOREM.md`: exists `d | (n·x)^2` with
-`d ≡ -n·x (mod u)`, `gcd(M, u) = 1`, `u = 4x - n` prime ≡ 3 (mod 4) ≤ 251).
+`d ≡ -n·x (mod u)`, `gcd(M, u) = 1`, `u = 4x - n` ≡ 3 (mod 4) ≤ 255 — every
+integer `u ≡ 3 (mod 4)` in range, composite layers included, per external
+review F-01; the pre-F-01 engine enumerated prime `u` only).
 
 ## Files
 
@@ -11,13 +13,31 @@ sweep artifacts. Everything here runs under the exact one-divisor criterion
   verifiers (`verify_10M_to_1B.py`: prime population via `check_B3_fast`,
   two-branch divisor enumeration, `is_parametric` = `z % y == 0` on the
   first-found pair). Built-in self-test: independent brute-force enumeration
-  on prime hard cases in `[10^5, 3·10^5)` (1,326 cases, 0 mismatches) plus the
-  pinned regression anchor `n = 1129 → first u = 11`.
+  on prime hard cases in `[10^5, 3·10^5)` (1,326 cases, 0 mismatches) plus
+  four pinned regression anchors `n = 1129 → first u = 11`,
+  `8803369 → 107`, `32349601 → 15`, `651412441 → 83` (the fourth added per
+  the fourth external review's independent finding; both `u = 83` records
+  are pinned). The engine also emits the native (H24)/(≡ 13 mod 24) split
+  and an uncapped non-parametric total (2026-11-23).
 - `verification_10M_1B_exact_rerun.json` — `[10^7+1, 10^9)`:
-  3,194,231 / 3,194,231 solved, 0 failures, max first-u 227 (n = 32,349,601).
+  3,194,231 / 3,194,231 solved, 0 failures, max first-u **83**
+  (n = 287,567,281; the second `u = 83` record is n = 651,412,441);
+  non-parametric 317,569 (uncapped); (H24) split 2,364,031 / 830,200.
   Reconciles the committed `verify_10M_to_1B.py` population exactly.
 - `verification_100M_1B_exact_rerun.json` — `[10^8+1, 10^9)`:
-  2,850,823 / 2,850,823 solved, 0 failures, max first-u 167 (n = 332,555,521).
+  2,850,823 / 2,850,823 solved, 0 failures, max first-u **83** (first attained
+  at n = 287,567,281; the second `u = 83` record is n = 651,412,441 — both
+  pinned in the engine self-test per the fourth review). Regenerated
+  2026-11-23 with the full composite-inclusive u-set and the uncapped
+  non-parametric counter (the previously committed copy predated the F-01
+  fix and showed a stale prime-only maximum of 167, n = 332,555,521 —
+  superseded; the stale copy is retained only in git history for
+  provenance). Native (H24)/(≡ 13 mod 24) split: 2,110,409 / 740,414.
+- `verification_10M_100M_exact_rerun.json` — `[10^7+1, 10^8)` (new,
+  2026-11-23): 343,408 / 343,408 solved, 0 failures, max first-u 63,
+  non-parametric 34,506, (H24) split 253,622; closes the three-way
+  decomposition of the `[10^7, 10^9)` sweep exactly (343,408 + 2,850,823
+  = 3,194,231).
   Total reconciles exactly with the sum of the committed `corrected.py`
   sub-range artifacts (345,956 + 2,504,867).
 - `no_solution_at_large_u.py` / `no_solution_at_large_u.json` — targeted

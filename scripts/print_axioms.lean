@@ -1,5 +1,6 @@
 import ErdosStrausConjecture.Reduction
 import ErdosStrausConjecture.CenteredCriterion
+import ErdosStrausConjecture.FiniteSearch
 import ErdosStrausConjecture.MainTheorem
 
 /-!
