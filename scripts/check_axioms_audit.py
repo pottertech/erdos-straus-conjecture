@@ -25,9 +25,11 @@ TRIO_ONLY = [
     "ErdosStrausConjecture.u_method_witness",
     "ErdosStrausConjecture.witness_extraction",
     "ErdosStrausConjecture.finite_search_equivalence",
+    "ErdosStrausConjecture.parametric_divisibility",
     "ErdosStrausConjecture.theorem2",
 ]
 PROPEXT_ONLY = ["ErdosStrausConjecture.scaling"]
+QUOT_ONLY = ["ErdosStrausConjecture.param_exists_iff_onesided"]
 FORBIDDEN_SUBSTRINGS = ["sorryAx", "erdos_straus_mod_12_1_not_div_5_conjecture",
                         "divisor_residue_criterion_reverse"]
 
@@ -75,7 +77,15 @@ def main() -> None:
         elif len(results[fname]) != 1 or results[fname][0] != TRIO:
             errors.append(f"{fname}: unexpected axioms {results[fname]}")
 
-    unexpected = set(results) - set(TRIO_ONLY) - set(PROPEXT_ONLY)
+    QUOT = {"propext", "Quot.sound"}
+    for fname in QUOT_ONLY:
+        if fname not in results:
+            errors.append(f"missing audit result for {fname}")
+        elif len(results[fname]) != 1 or results[fname][0] != QUOT:
+            errors.append(f"{fname}: unexpected axioms {results[fname]}")
+
+    unexpected = (set(results) - set(TRIO_ONLY) - set(PROPEXT_ONLY)
+                  - set(QUOT_ONLY))
     if unexpected:
         errors.append(f"unexpected audited names: {sorted(unexpected)}")
 
@@ -84,8 +94,9 @@ def main() -> None:
         for e in errors:
             print("  -", e)
         sys.exit(1)
-    print(f"AXIOM AUDIT GATE: PASS ({len(TRIO_ONLY) + len(PROPEXT_ONLY)} "
-          f"principal results, fully-qualified names, expected axiom sets exact)")
+    print(f"AXIOM AUDIT GATE: PASS ({len(TRIO_ONLY) + len(PROPEXT_ONLY) + len(QUOT_ONLY)} "
+          "principal "
+          "results, fully-qualified names, expected axiom sets exact)")
 
 
 if __name__ == "__main__":

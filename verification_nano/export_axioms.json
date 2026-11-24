@@ -1,0 +1,28 @@
+{
+ "axioms": [
+  "choice",
+  "propext",
+  "sound"
+ ],
+ "decl_counts": {
+  "inductive": 438,
+  "def": 3509,
+  "thm": 8166,
+  "opaque": 13
+ },
+ "principal_thms": {
+  "scaling": "scaling",
+  "mod8_of_12": "mod8_of_12",
+  "residue_classification": "residue_classification",
+  "theorem2": "theorem2",
+  "erdos_straus_except_residual_open_class": "erdos_straus_except_residual_open_class",
+  "prime_non24_isErdosStraus": "prime_non24_isErdosStraus",
+  "full_conjecture_of_h24": "full_conjecture_of_h24",
+  "u_method_core": "u_method_core",
+  "u_method_witness": "u_method_witness",
+  "witness_extraction": "witness_extraction",
+  "finite_search_equivalence": "finite_search_equivalence",
+  "parametric_divisibility": "parametric_divisibility",
+  "param_exists_iff_onesided": "param_exists_iff_onesided"
+ }
+}

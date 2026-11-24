@@ -31,6 +31,8 @@ positivity_analysis.json
 problem3_failure_analysis.json
 fail_cases_min_A_100k.json
 *.log
+# Verification-evidence logs are release artifacts (sixth review V15-02) — unignored:
+!verification_nano/*.log
 
 # PDFs (build locally)
 *.pdf

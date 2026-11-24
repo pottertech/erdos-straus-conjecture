@@ -29,4 +29,6 @@ dependency closure of each proof term.
 #print axioms ErdosStrausConjecture.u_method_witness
 #print axioms ErdosStrausConjecture.witness_extraction
 #print axioms ErdosStrausConjecture.finite_search_equivalence
+#print axioms ErdosStrausConjecture.parametric_divisibility
+#print axioms ErdosStrausConjecture.param_exists_iff_onesided
 #print axioms ErdosStrausConjecture.theorem2
