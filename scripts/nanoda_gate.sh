@@ -101,14 +101,21 @@ PY
 NANODA_EXIT=$?
 grep -q "no typechecker errors" "$LOG" || { echo "nanoda reported typechecker errors"; exit 1; }
 
-echo "[5/5] evidence refresh"
+echo "[5/5] evidence refresh (V19-01 ordering: finalize provenance BEFORE hashing; checksum-verify before PASS)"
 # regenerate the export-axiom enumeration from the fresh export bytes (V16-03/V16-04)
 python3 scripts/extract_export_axioms.py "$EXPORT" verification_nano/export_axioms.json
-# V18-04: persist the full tool-provenance manifest
+
+# (1) post-verification export hash; (2) assert equality with the pre-check
+RAW_SHA="$(shasum -a 256 "$EXPORT" | awk '{print $1}')"
+[ "$EXPORT_SHA" = "$RAW_SHA" ] || {
+  echo "Export changed during verification ($EXPORT_SHA -> $RAW_SHA)"; exit 1; }
+
+# (3) finalize the provenance JSON with its final contents
 LEAN_VER="$(grep -m1 'version' /tmp/tool_build_lean4export.log 2>/dev/null | head -c 60 || true)"
 RUST_VER="$(rustc --version 2>/dev/null || true)"
 PROJ_SHA="$(git rev-parse HEAD)"
 UTC_TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+RELEASE_TAG="${RELEASE_TAG:-unreleasedWorkingTree}"
 cat > verification_nano/verification_provenance.json <<JSON
 {
   "nanoda_source_commit": "$NANODA_SRC_FULL",
@@ -119,11 +126,17 @@ cat > verification_nano/verification_provenance.json <<JSON
   "rust_version": "$RUST_VER",
   "verification_utc": "$UTC_TS",
   "project_source_revision": "$PROJ_SHA",
+  "publication_release": "$RELEASE_TAG",
+  "export_sha256_uncompressed": "$RAW_SHA",
   "export_sha256_pre_check": "$EXPORT_SHA",
-  "export_sha256_post_check": "(patched after the Nanoda run; verified equal)"
+  "export_sha256_post_check": "$RAW_SHA"
 }
 JSON
+
+# (4) compress the export
 gzip -9 -c "$EXPORT" > verification_nano/principal_export.ndjson.gz
+
+# (5) generate the manifest over the FINAL bytes of every artifact
 shasum -a 256 \
   verification_nano/principal_export.ndjson.gz \
   verification_nano/nanoda_config_strict.json \
@@ -137,14 +150,10 @@ shasum -a 256 \
   results/layer4_certificates.jsonl \
   sweep_exact/nonparametric_1e7_1e9.jsonl \
   > verification_nano/SHA256SUMS
-RAW_SHA="$(shasum -a 256 "$EXPORT" | awk '{print $1}')"
-[ "$EXPORT_SHA" = "$RAW_SHA" ] || {
-  echo "Export changed during verification ($EXPORT_SHA -> $RAW_SHA)"; exit 1; }
-python3 - verification_nano/verification_provenance.json "$RAW_SHA" <<'PY'
-import json, sys
-d = json.load(open(sys.argv[1]))
-d["export_sha256_post_check"] = sys.argv[2]
-json.dump(d, open(sys.argv[1], "w"), indent=2)
-PY
-echo "# uncompressed export: SHA-256 $RAW_SHA (zipped above)" >> verification_nano/SHA256SUMS
+
+# (6) verify every recorded checksum against the committed bytes
+( cd "$REPO" && shasum -a 256 -c verification_nano/SHA256SUMS ) \
+  || { echo "SHA256SUMS verification FAILED"; exit 1; }
+
+# (7) only now report PASS
 echo "NANODA GATE: PASS"

@@ -70,10 +70,10 @@ def main() -> None:
             else:
                 still.append((nid, pre, tail))
         if len(still) == len(pending):
-            # unresolved prefixes: fall back to the bare tail
-            for nid, pre, tail in still:
-                if nid not in raw:
-                    raw[nid] = tail
+            # V19-02: NEVER insert a fallback (bare-tail) name into the
+            # authoritative table. Unresolved ids stay out of `raw`
+            # entirely; every consumer already fails closed on missing ids
+            # (hygienic `num`-shaped names are handled separately upstream).
             pending = []
             break
         pending = still
