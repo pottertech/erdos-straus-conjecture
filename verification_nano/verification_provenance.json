@@ -1,0 +1,12 @@
+{
+  "nanoda_source_commit": "0da9f98feadd3a0a2ef4b3dbcf52a298a6fef929",
+  "nanoda_binary_sha256": "89574c8aef9c899ebc69aa17702f4db160b9041985909f109b7fce1a373d3bc9",
+  "lean4export_source_commit": "a3e35a584f59b390667db7269cd37fca8575e4bf",
+  "lean4export_binary_sha256": "2363864b90c11d4b6e39f1f6678605405f52d489c6877004af3bad5e7a35b9d8",
+  "lean_version": "leanprover/lean4:v4.30.0 (toolchain pin; repo build)",
+  "rust_version": "rustc 1.97.1 (8bab26f4f 2026-07-14) (Homebrew)",
+  "verification_utc": "2026-11-24T16:57:39Z",
+  "project_source_revision": "a4077e6c3e4fe2d6369cdf57c9b50e722a2798f3",
+  "export_sha256_pre_check": "95a175a22903ad2d0957b0551df50b5d07e63cd6517a0c56fe007bab51ac1767",
+  "export_sha256_post_check": "95a175a22903ad2d0957b0551df50b5d07e63cd6517a0c56fe007bab51ac1767"
+}

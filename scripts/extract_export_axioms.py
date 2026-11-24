@@ -13,6 +13,11 @@ not names. This script:
      qualified name,
   4. asserts the axiom set is exactly the standard trio BEFORE writing.
 
+  Output schema note (ninth review V18-05): since v1.8 the principal
+  theorems are recorded as a JSON object mapping each fully qualified name
+  to its occurrence count (always exactly 1) rather than a bare name list;
+  the count-based form is the intended representation, proving uniqueness.
+
 Usage: extract_export_axioms.py <export.ndjson> <out.json>
 Exit 1 on any structural violation. Sixth review V16-04.
 """
@@ -102,7 +107,11 @@ def main() -> None:
     if dupes:
         print("DUPLICATE principal declarations:", dupes)
         sys.exit(1)
-    axnames = sorted(raw.get(a, f"#unresolved-{a}") for a in axids)
+    unresolved_ax = [a for a in axids if a not in raw]
+    if unresolved_ax:
+        print("UNRESOLVED axiom name ids:", unresolved_ax)
+        sys.exit(1)
+    axnames = sorted(raw[a] for a in axids)
     if axnames != TRIO:
         print("AXIOM SET MISMATCH:", axnames)
         sys.exit(1)
