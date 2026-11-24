@@ -2,7 +2,9 @@
 'ErdosStrausConjecture.mod8_of_12' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.prime_non24_isErdosStraus' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.full_conjecture_of_h24' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ErdosStrausConjecture.erdos_straus_except_residual_open_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ErdosStrausConjecture.erdos_straus_except_residual_open_class' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'ErdosStrausConjecture.residue_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.u_method_core' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.u_method_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -10,4 +12,5 @@
 'ErdosStrausConjecture.finite_search_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.parametric_divisibility' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.param_exists_iff_onesided' depends on axioms: [propext, Quot.sound]
+'ErdosStrausConjecture.parametric_divisibility_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ErdosStrausConjecture.theorem2' depends on axioms: [propext, Classical.choice, Quot.sound]

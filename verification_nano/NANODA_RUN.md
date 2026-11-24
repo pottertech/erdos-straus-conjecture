@@ -1,4 +1,4 @@
-# Independent proof-kernel verification (Nanoda) — v1.5/v1.6 gate record
+# Independent proof-kernel verification (Nanoda) — v1.5/v1.6/v1.7 gate record
 
 **Gate:** fully independent re-verification of the principal theorem
 dependency closure by a second implementation of the Lean 4 type-checking
@@ -33,7 +33,7 @@ standing "independent Lean compilation" acceptance item.
      ErdosStrausConjecture.theorem2 > principal_export.ndjson
    ```
 
-   Export: 1,097,786 NDJSON lines, 53,696,217 bytes,
+   Historical v1.5 export: 1,097,786 NDJSON lines, 53,696,217 bytes,
    SHA-256 `b424d34a87069e5726d91585ea7c9b07cbf23912770c8024d324e208c5a808cf`.
 4. **Check** (config `nanoda_config.json` committed beside this file;
    `permitted_axioms` = `propext`, `Classical.choice`, `Quot.sound` only;
@@ -124,5 +124,10 @@ terms were re-checked by a second implementation of the Lean kernel,
 independent of Lean's own C++ checker, restricted to the exact axiom
 baseline the paper's Appendix A declares. Reproduction: clone the two
 pinned revisions, rebuild both, re-run the export from the tagged
-repository state (`paper-v1.5`), re-check, and compare the export
-SHA-256 above byte-for-byte.
+repository state — **`paper-v1.6` for the 13-theorem v1.6 export,
+`paper-v1.7` for the current 14-theorem export** (V16-01's
+`parametric_divisibility_iff` was added at v1.7) — re-check, and compare
+the export SHA-256 above byte-for-byte. Or run `scripts/nanoda_gate.sh`,
+which asserts both pinned tool revisions, rebuilds, audits, exports,
+strict-checks, and refreshes every evidence file and `SHA256SUMS` in one
+invocation.

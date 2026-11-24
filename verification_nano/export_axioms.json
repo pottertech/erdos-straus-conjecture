@@ -1,28 +1,31 @@
 {
  "axioms": [
-  "choice",
-  "propext",
-  "sound"
+  "Classical.choice",
+  "Quot.sound",
+  "propext"
  ],
+ "axioms_fully_qualified": true,
  "decl_counts": {
   "inductive": 438,
   "def": 3509,
-  "thm": 8166,
+  "thm": 8169,
   "opaque": 13
  },
- "principal_thms": {
-  "scaling": "scaling",
-  "mod8_of_12": "mod8_of_12",
-  "residue_classification": "residue_classification",
-  "theorem2": "theorem2",
-  "erdos_straus_except_residual_open_class": "erdos_straus_except_residual_open_class",
-  "prime_non24_isErdosStraus": "prime_non24_isErdosStraus",
-  "full_conjecture_of_h24": "full_conjecture_of_h24",
-  "u_method_core": "u_method_core",
-  "u_method_witness": "u_method_witness",
-  "witness_extraction": "witness_extraction",
-  "finite_search_equivalence": "finite_search_equivalence",
-  "parametric_divisibility": "parametric_divisibility",
-  "param_exists_iff_onesided": "param_exists_iff_onesided"
- }
+ "principal_thms_fully_qualified": {
+  "erdos_straus_except_residual_open_class": "ErdosStrausConjecture.erdos_straus_except_residual_open_class",
+  "finite_search_equivalence": "ErdosStrausConjecture.finite_search_equivalence",
+  "full_conjecture_of_h24": "ErdosStrausConjecture.full_conjecture_of_h24",
+  "mod8_of_12": "ErdosStrausConjecture.mod8_of_12",
+  "param_exists_iff_onesided": "ErdosStrausConjecture.param_exists_iff_onesided",
+  "parametric_divisibility": "ErdosStrausConjecture.parametric_divisibility",
+  "parametric_divisibility_iff": "ErdosStrausConjecture.parametric_divisibility_iff",
+  "prime_non24_isErdosStraus": "ErdosStrausConjecture.prime_non24_isErdosStraus",
+  "residue_classification": "ErdosStrausConjecture.residue_classification",
+  "scaling": "ErdosStrausConjecture.scaling",
+  "theorem2": "ErdosStrausConjecture.theorem2",
+  "u_method_core": "ErdosStrausConjecture.u_method_core",
+  "u_method_witness": "ErdosStrausConjecture.u_method_witness",
+  "witness_extraction": "ErdosStrausConjecture.witness_extraction"
+ },
+ "source_sha_note": "digest of the export bytes recorded separately in SHA256SUMS"
 }

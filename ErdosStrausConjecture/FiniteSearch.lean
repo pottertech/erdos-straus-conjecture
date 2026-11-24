@@ -299,3 +299,73 @@ theorem param_exists_iff_onesided (n x u : ℕ)
       ⟨d, by rw [hc]; ring⟩,
       by rw [hcm2, hw, Nat.mul_comm c (u * w),
         Nat.mul_assoc u w c, Nat.mul_mod_right u (w * c)]⟩
+/-- **Parametric divisibility, complete biconditional (seventh review V16-01).**
+Under the paper's witness conditions with positivity, `T ∣ n*x` holds
+exactly when `y ∣ z` (with `y = (T + n*x)/u` and
+`z = ((n*x)^2/T + n*x)/u`). Forward: `parametric_divisibility`.
+Reverse: from `z*u*T = (n*x)*(y*u)` (multiply the witness identity by
+`u*T`, then substitute `z*u = (n*x)^2/T + n*x` and `y*u = T + n*x`) cancel
+`u > 0`, then substitute the assumed `y ∣ z` witness and cancel `y > 0`. -/
+theorem parametric_divisibility_iff (n x T u : ℕ)
+    (hu0 : 0 < u) (hnx : 0 < n * x) (hTpos : 0 < T)
+    (hcopr : Nat.Coprime u (n * x))
+    (hT2 : T ∣ (n * x) ^ 2)
+    (hcong : u ∣ T + n * x) :
+    T ∣ n * x ↔
+      ((T + n * x) / u) ∣ ((n * x) ^ 2 / T + n * x) / u := by
+  constructor
+  · intro hTdivM
+    exact parametric_divisibility n x T u hu0 hcopr hT2 hTdivM hcong
+  · rintro ⟨k, hk⟩
+    have hmul1 : ((n * x) ^ 2 / T) * T = (n * x) ^ 2 :=
+      Nat.div_mul_cancel hT2
+    have huz : u ∣ (n * x) ^ 2 / T + n * x := by
+      have h5 : u ∣ ((n * x) ^ 2 / T) * (T + n * x) :=
+        hcong.mul_left ((n * x) ^ 2 / T)
+      have h5b : ((n * x) ^ 2 / T) * (T + n * x)
+          = n * x * (n * x + (n * x) ^ 2 / T) := by
+        linear_combination hmul1
+      have h6 : u ∣ n * x * ((n * x) ^ 2 / T + n * x) := by
+        rw [Nat.add_comm ((n * x) ^ 2 / T) (n * x), ← h5b]
+        exact h5
+      exact Nat.Coprime.dvd_of_dvd_mul_left hcopr h6
+    have hz : ((n * x) ^ 2 / T + n * x) / u * u =
+        ((n * x) ^ 2 / T + n * x) := Nat.div_mul_cancel huz
+    have hsum : 0 < T + n * x := Nat.add_pos_left hTpos (n * x)
+    have hy0 : 0 < (T + n * x) / u :=
+      Nat.div_pos (Nat.le_of_dvd hsum hcong) hu0
+    have hy : (T + n * x) / u * u = T + n * x :=
+      Nat.div_mul_cancel hcong
+    have hfinal : ((T + n * x) / u * (n * x)) * u = (n * x) * (T + n * x) := by
+      calc ((T + n * x) / u * (n * x)) * u
+          = ((T + n * x) / u) * ((n * x) * u) :=
+            Nat.mul_assoc ((T + n * x) / u) (n * x) u
+        _ = ((T + n * x) / u) * (u * (n * x)) := by
+            rw [Nat.mul_comm (n * x) u]
+        _ = (((T + n * x) / u) * u) * (n * x) := by
+            rw [← Nat.mul_assoc ((T + n * x) / u) u (n * x)]
+        _ = (T + n * x) * (n * x) := by rw [hy]
+        _ = (n * x) * (T + n * x) := Nat.mul_comm (T + n * x) (n * x)
+    have hcross : ((n * x) ^ 2 / T + n * x) / u * T * u =
+        ((T + n * x) / u * (n * x)) * u := by
+      calc ((n * x) ^ 2 / T + n * x) / u * T * u
+          = ((n * x) ^ 2 / T + n * x) / u * (T * u) :=
+            Nat.mul_assoc (((n * x) ^ 2 / T + n * x) / u) T u
+        _ = ((n * x) ^ 2 / T + n * x) / u * (u * T) := by
+            rw [Nat.mul_comm T u]
+        _ = (((n * x) ^ 2 / T + n * x) / u * u) * T :=
+            (Nat.mul_assoc (((n * x) ^ 2 / T + n * x) / u) u T).symm
+        _ = ((n * x) ^ 2 / T + n * x) * T := by rw [hz]
+        _ = ((n * x) ^ 2 / T) * T + (n * x) * T := Nat.add_mul _ _ _
+        _ = (n * x) ^ 2 + (n * x) * T := by rw [hmul1]
+        _ = (n * x) * (T + n * x) := by
+            rw [Nat.mul_add (n * x) T (n * x)]
+            ring
+        _ = ((T + n * x) / u * (n * x)) * u := hfinal.symm
+    have hkey : ((n * x) ^ 2 / T + n * x) / u * T
+        = ((T + n * x) / u) * (n * x) := Nat.mul_right_cancel hu0 hcross
+    have h9 : k * T = n * x := by
+      rw [hk] at hkey
+      rw [Nat.mul_assoc ((T + n * x) / u) k T] at hkey
+      exact Nat.eq_of_mul_eq_mul_left hy0 hkey
+    exact ⟨k, by rw [← h9, Nat.mul_comm k T]⟩

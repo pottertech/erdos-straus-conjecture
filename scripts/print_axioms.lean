@@ -31,4 +31,5 @@ dependency closure of each proof term.
 #print axioms ErdosStrausConjecture.finite_search_equivalence
 #print axioms ErdosStrausConjecture.parametric_divisibility
 #print axioms ErdosStrausConjecture.param_exists_iff_onesided
+#print axioms ErdosStrausConjecture.parametric_divisibility_iff
 #print axioms ErdosStrausConjecture.theorem2

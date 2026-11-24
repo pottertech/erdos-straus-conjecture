@@ -1,3 +1,4 @@
-Checked 13083 declarations with no typechecker errors, 1 pretty printer errors: [
+export SHA-256 (pre-check): 67a69e35348bcbe9ae5f66e4a139b542f795bc32118751524bb7267f31efe471
+Checked 13086 declarations with no typechecker errors, 1 pretty printer errors: [
     "Unable to print axioms",
 ]

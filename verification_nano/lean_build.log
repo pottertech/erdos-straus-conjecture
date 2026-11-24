@@ -1,4 +1,4 @@
-⚠ [8475/8477] Replayed ErdosStrausConjecture.Basic
+⚠ [8475/8481] Replayed ErdosStrausConjecture.Basic
 warning: ErdosStrausConjecture/Basic.lean:305:5: unused variable `h_even`
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
@@ -23,14 +23,17 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: ErdosStrausConjecture/Basic.lean:365:5: unused variable `hcong`
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-⚠ [8477/8477] Built ErdosStrausConjecture.FiniteSearch (86s)
-info: ErdosStrausConjecture/FiniteSearch.lean:252:4: Try this:
-  [apply] ring_nf
-  
-  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
-    
-  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
-warning: ErdosStrausConjecture/FiniteSearch.lean:270:5: unused variable `hu0`
+⚠ [8479/8481] Replayed ErdosStrausConjecture.ShortRelations
+warning: ErdosStrausConjecture/ShortRelations.lean:25:6: 'push_cast' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ErdosStrausConjecture/ShortRelations.lean:38:5: unused variable `hn`
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-Build completed successfully (8477 jobs).
+warning: ErdosStrausConjecture/ShortRelations.lean:123:5: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ShortRelations.lean:138:6: 'push_cast' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Build completed successfully (8481 jobs).
