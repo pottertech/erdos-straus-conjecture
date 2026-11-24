@@ -46,4 +46,4 @@ jobs:
       - name: Build Lean project (root lib + the full nine-module certified set)
         run: |
           lake build
-          lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem ErdosStrausConjecture.Theorem4 ErdosStrausConjecture.NewTheorems ErdosStrausConjecture.CenteredCriterion ErdosStrausConjecture.Reduction
+          lake build ErdosStrausConjecture.DivisorResidue ErdosStrausConjecture.ClassicalIdentities ErdosStrausConjecture.OmegaCases ErdosStrausConjecture.CenteredEquivalence ErdosStrausConjecture.MainTheorem ErdosStrausConjecture.Theorem4 ErdosStrausConjecture.NewTheorems ErdosStrausConjecture.CenteredCriterion ErdosStrausConjecture.Reduction ErdosStrausConjecture.FiniteSearch

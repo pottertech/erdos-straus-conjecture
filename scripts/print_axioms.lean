@@ -26,4 +26,5 @@ dependency closure of each proof term.
 #print axioms ErdosStrausConjecture.residue_classification
 #print axioms ErdosStrausConjecture.u_method_core
 #print axioms ErdosStrausConjecture.u_method_witness
+#print axioms ErdosStrausConjecture.witness_extraction
 #print axioms ErdosStrausConjecture.theorem2
