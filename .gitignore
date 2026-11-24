@@ -34,3 +34,6 @@ fail_cases_min_A_100k.json
 
 # PDFs (build locally)
 *.pdf
+
+sweep_exact/exact_span_sweep
+sweep_exact/sweep_dump_nonparametric
