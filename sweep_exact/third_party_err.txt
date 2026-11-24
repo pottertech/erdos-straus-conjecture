@@ -1,0 +1,22 @@
+factor sieve ready
+prime sieve ready
+MAX83 287567281
+MAX83 651412441
+        4.34 real         4.07 user         0.05 sys
+           262324224  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               16181  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                2728  involuntary context switches
+         36759644963  instructions retired
+         13135445149  cycles elapsed
+           261947896  peak memory footprint
