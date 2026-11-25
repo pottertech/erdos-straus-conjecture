@@ -125,7 +125,11 @@ delicate share is NOT dominated by the unit-pair shape.
 
 **Statement.** The x-divisor witness shape is a small-layer property: at
 u = 3 and u = 7 (58% of the sweep) the smallest parametric witnesses are
-p-free at 100.0%, decaying smoothly to ~65-92% at the deeper layers; the
+p-free at 100.0% in EVERY populated slice of those layers (2,713,109
+parametric-witness records, zero mismatches; the E-010 correction: the
+95.7% figures initially quoted were the holder rates, not the p-free
+shares), decaying smoothly to ~65-92% at the deeper layers (the
+single-record layers above u = 71 excluded); the
 5-intersection slices ((p + u) ≡ 0 (mod 5)) carry the same weakening
 (100.0% at u = 7, 96.4% at u = 11, 84.8% at u = 19, 84.5% at u = 31).
 
