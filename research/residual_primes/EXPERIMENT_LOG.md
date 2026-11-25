@@ -14,12 +14,13 @@ are bounded by its data; universal claims never enter via this log.
 - **Populations:** sweep 3,194,231 (matches the published sweep exactly);
   (H24) 2,364,031; collisions found at 100% of first-working parameters
   (MISMATCH 0).
-- **Key results:** pigeonhole-conclusive 3,177,642 (99.49%); delicate
+- **Key results:** pigeonhole-conclusive 3,177,642 (99.48%); delicate
   (collision present, `|D| ≤ φ(u)/2`) 16,589 (0.52%); the `u = 3` and `u = 7`
   layers 100% pigeon-conclusive; delicate concentrates at higher layers
-  (17.4% at `u = 19`, 77.6% at `u = 43`, 100% at `u ≥ 67` incl. both `u = 83`
-  record primes — small-residue collision pairs, e.g. `(1, 82)` with margin
-  −58 for `651,412,441`).
+  (17.4% at `u = 19`, 77.6% at `u = 43`, 100% at `u = 67, 79, 83` incl. both
+  `u = 83` record primes — the `u = 71` and `u = 75` layers are 1/6 and 1/2
+  delicate respectively; small-residue collision pairs, e.g. `(1, 82)` with
+  margin −58 for `651,412,441`).
 - **Artifacts:** `analysis/collision_v01/` (run output, stderr,
   sanitized self-test, 5,000-row delicate sample), hashes in
   DATA_MANIFEST.
@@ -30,14 +31,12 @@ are bounded by its data; universal claims never enter via this log.
 - **What ran:** engine v0.2 (adds the intrinsic parametric/nonparametric
   classification from the verified mod-840 procedure and mod-5 × mod-840 ×
   layer cross-tabulation), sanitizer-built, same anchors.
-- **Key results:** see the E-002 result block once verified — target tables:
-  (i) nonparametric-only rate per `p mod 5` group (independent check of the
-  review's 4.09% / 1.50% / 2.73×), (ii) delicate rate per `p mod 5` group,
-  (iii) first-working-parameter distribution per group, (iv) margin histogram
-  per group; the layer-conditioned test of H-1's falsification criterion.
+- **Key results:** recorded in the E-002 results block below (verified
+  run, engine v0.2): the nonparametric-only rates per `p mod 5` group as
+  an independent check of the review's figures, the full-sweep mod-5
+  breakdown, and the intrinsic class table; the layer-conditioned test
+  of H-1's falsification criterion follows in E-004.
 - **Artifacts:** `analysis/mod5_separation_v02/`.
-- **Status:** complete (results recorded below and in
-  `analysis/mod5_separation_v02/`).
 
 ### E-002 results (verified run, engine v0.2)
 
@@ -59,17 +58,14 @@ are bounded by its data; universal claims never enter via this log.
   `169: 2,224/125,512/1,939`; `289: 1,293/126,864/1,916`;
   `361: 6,189/126,258/5,737`; `529: 2,420/133,519/2,100`. Per-class totals and
   onlynon agree exactly with the ninth review's independently computed table.
-- **Open reconciliation item (disclosed):** the onlyparam/both **split** —
-  22,744 vs the review's 22,743 (one prime, class 529, classified
-  only-parametric here; the review's engine aggregated it as both-type — or
-  vice versa at aggregation). One prime in 795,913 (0.00013%); every other
-  aggregate matches exactly. Tracked, not papered over: the two engines'
-  candidate-enumeration orders differ in one corner (their structured
-  `{1, p, p²} × {1, x, x²}` loop re-examines candidates the sorted-divisor
-  loop also covers, with different early-break sequences), and the
-  distinguishing prime can be isolated by a per-record diff once the review's
-  per-record data is shared.
-- **Bugs caught by the reconciliation (both fixed before any figure ships):**
+- **Reconciliation with the review's table — exact agreement:** the
+  onlypar/both split agrees with the ninth review's independently
+  computed table in full (onlypar total 22,743; class 529: 2,420
+  onlypar / 133,519 both; every aggregate matches). An earlier draft of
+  this entry disclosed a one-prime discrepancy (22,744 vs 22,743); that
+  figure came from a pre-fix run, no committed artifact contains it,
+  and the disclosure is withdrawn in favor of this statement.
+- **Bugs caught during verification (both fixed before any figure ships):**
   (i) the divisor-list cap (4096) silently truncated the candidate set for
   divisor-rich `x` — the layer-workflow's "capped loop reclassifies records"
   class; (ii) a 64-bit `p²·x` overflow in the candidate products — the same
@@ -145,7 +141,8 @@ are bounded by its data; universal claims never enter via this log.
   artifact.
 - **Artifacts:** analysis/layer_mod5_v03/ (engine v0.3, run, self-test; err
   sanitizer-silent, 2 lines of benign 11434-port noise), hashes in
-  DATA_MANIFEST (25/25).
+  DATA_MANIFEST (25 pinned; the three engine sources are not yet
+  committed, see the manifest note).
 - **Status:** complete. Follow-ups: the u=11 exact classification (R3), the
   p = 3 (mod 5) onlypar-zero (R3, unchanged), the window-form Lean lemma
   (R4-lane extension).

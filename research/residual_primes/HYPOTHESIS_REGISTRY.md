@@ -22,7 +22,10 @@ u=11-layer mechanism (R3 flagship).
 **Supporting data (as reported).** Review-computed grouped rates, 2.73× ratio;
 consistent with the Paper-1 mod-840 observation (classes {1, 121, 361} are the
 `+1 (mod 5)` group; {169, 289, 529} the `−1 (mod 5)` group; delicate rates
-2.53%/1.94%/2.60% vs 2.14%/0.96%/2.26% respectively in Lane L1).
+2.54%/1.94%/2.60% vs 2.15%/0.96%/2.26% respectively in Lane L1).
+Percentages in this registry are rounded to two decimals from the
+committed counts; the engine's `rate_del` fields are truncated
+percent-times-100 values and are not quoted directly.
 
 **R2 quantification plan.** Independently recompute, per `p mod 5` group and
 crossed with mod-840 class and first-working layer:
@@ -78,6 +81,6 @@ from pigeonhole-conclusive primes deterministically, H-2 upgrades.
 ## H-3 — Universal cardinality guarantee (target theorem, not a hypothesis)
 
 **Target.** For every residual prime there exists an admissible `u` with
-`|D_u(M)| > φ(u)/2`. Empirical support: 99.49% of first-working parameters
+`|D_u(M)| > φ(u)/2`. Empirical support: 99.48% of first-working parameters
 already satisfy it. This is the L4/R6/R8 objective — a theorem candidate, not
 an established result; it does NOT enter the registry until proved.

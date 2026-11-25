@@ -9,6 +9,10 @@ build/
 # sweep engine source (reproducibility)
 !sweep_exact/exact_span_sweep.c
 !sweep_exact/sweep_dump_nonparametric.c
+# Paper 2 collision-margin engines (hash-pinned in research/residual_primes/DATA_MANIFEST.md)
+!sweep_exact/collision_margin_engine.c
+!research/residual_primes/analysis/mod5_separation_v02/collision_margin_engine_v02.c
+!research/residual_primes/analysis/layer_mod5_v03/collision_margin_engine_v03.c
 
 # Python
 __pycache__/

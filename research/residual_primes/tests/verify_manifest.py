@@ -3,29 +3,50 @@
 
 Usage: python3 tests/verify_manifest.py [repo_root]
 Exit 0 iff every manifest entry matches. Run before reusing any dataset.
+
+The manifest's artifact tables are the source of truth for the expected
+row count: every table row that looks like an artifact entry must parse
+as (path, sha256, bytes), and each entry's digest AND byte size are
+checked against the committed file. A row that fails to parse fails
+the run; there is no minimum-count threshold to hide behind.
 """
 import hashlib
 import os
 import re
 import sys
 
+ROW_RE = re.compile(r"\| `([^`]+)` \| `([0-9a-f]{64})` \| (\d+) \|")
+CANDIDATE_RE = re.compile(r"^\| `[^`]+` \|")
+
 
 def main() -> int:
     root = sys.argv[1] if len(sys.argv) > 1 else os.getcwd()
     doc = os.path.join(root, "research", "residual_primes", "DATA_MANIFEST.md")
     text = open(doc, encoding="utf-8").read()
-    rows = re.findall(r"\| `([^`]+)` \| `([0-9a-f]{64})` \| \d+ \|", text)
-    if len(rows) < 19:
-        print(f"FAIL: expected 19 manifest rows, parsed {len(rows)}")
-        return 1
+    rows = []
     bad = 0
-    for path, want in rows:
+    for line in text.splitlines():
+        match = ROW_RE.search(line)
+        if match:
+            rows.append((match.group(1), match.group(2), int(match.group(3))))
+        elif CANDIDATE_RE.match(line):
+            print(f"UNPARSED MANIFEST ROW: {line.strip()}")
+            bad += 1
+    if not rows:
+        print("FAIL: no manifest rows parsed")
+        return 1
+    for path, want, want_bytes in rows:
         full = os.path.join(root, path)
         if not os.path.isfile(full):
             print(f"MISSING: {path}")
             bad += 1
             continue
-        got = hashlib.sha256(open(full, "rb").read()).hexdigest()
+        data = open(full, "rb").read()
+        if len(data) != want_bytes:
+            print(f"SIZE MISMATCH: {path}\n  want {want_bytes}\n  got  {len(data)}")
+            bad += 1
+            continue
+        got = hashlib.sha256(data).hexdigest()
         if got != want:
             print(f"HASH MISMATCH: {path}\n  want {want}\n  got  {got}")
             bad += 1
