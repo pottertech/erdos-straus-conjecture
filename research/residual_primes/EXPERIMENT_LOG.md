@@ -183,3 +183,27 @@ are bounded by its data; universal claims never enter via this log.
   (29/29).
 - **Status:** complete. Lanes queued next: the R4-window formalization,
   the p = 3 (mod 5) onlypar-zero probe.
+
+## E-006 — R4-lane extension: the factorization-window form machine-checked (2026-11-25)
+
+- **What was proved:** module
+  `ErdosStrausConjecture/ResidualPrimes/WindowForm.lean`: with the window
+  element encoded as `(f.prod (fun q e => ((q ^ e : ℕ) : ZMod u)))` for
+  Finsupps `f, g ≤ M.factorization` (the exponent pairs a–b with
+  0 ≤ a, b ≤ e₁, i.e. the |t| ≤ e₁ window), the window span equals the
+  centered quotient set: `window_iff_inCentered` — closing the bridge to the
+  ninth review's §5.3 formulation and to `CollisionReachability`'s
+  collision/criterion equivalences. The supporting lemma
+  `cast_prod_finsupp` distributes the residue cast over Finsupp products.
+- **Verification:** lake env lean exit 0, lake build exit 0, 0 sorry; axiom
+  census: cast_prod_finsupp on [propext, Quot.sound], window_iff_inCentered
+  on [propext, Classical.choice, Quot.sound]; the joint audited set is now
+  24 + 2 = 26.
+- **Scope carried:** no coprimality is required for the formal identity
+  (the two encodings are the same set); the span interpretation (|t| ≤ e
+  with unit inverses) applies under the Paper-1 admissibility hypothesis
+  gcd(M, u) = 1, stated in the module docstring.
+- **Artifacts:** the module, axiom_audit_window.txt,
+  ErdosStrausConjecture_src/WindowForm.lean, hashes in DATA_MANIFEST (33/33).
+- **Status:** complete. Remaining R3-item: the p = 3 (mod 5) onlypar-zero
+  probe (next session).
