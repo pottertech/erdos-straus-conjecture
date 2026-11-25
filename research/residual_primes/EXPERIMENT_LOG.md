@@ -242,3 +242,40 @@ are bounded by its data; universal claims never enter via this log.
   DATA_MANIFEST (35/35).
 - **Status:** complete for the layer structure; the fingerprint probe
   queued.
+
+## E-008 — lane-3 remainder: the u = 7 g = 3 both-class fingerprint (2026-11-25)
+
+- **What ran:** engine v0.5 (v0.4 + the u = 7 g = 3 slice fingerprint: the
+  per-record 5 | x check; the M 5-depth; the minimal parametric- and
+  nonparametric-witness shapes in enumeration order: p-containment, the 5
+  valuation, and whether the non-witness rides beyond M's 5-depth), built
+  with sanitizers, self-test PASS; the sweep anchors reproduce exactly
+  (SWEEP 3194231 / PIGEON 3177642 / DELICATE 16589 / MISMATCH 0).
+- **Verified results over the u = 7, p ≡ 3 (mod 5) slice, 788,565 records:**
+  - 5 ∣ x: **788,565 / 788,565, zero mismatches in either direction**
+    (consistent with `five_divides_x_u7`).
+  - The M 5-depth: v_5(M) = 1 for 630,921 (80.0%), v_5(M) ≥ 2 for 157,644
+    (20.0%); never deeper.
+  - **The minimal parametric witness is p-free (a divisor of x alone) in
+    771,731 / 771,731 both-class records (100%)**; 90% of these carry
+    exactly one 5-power (v_5 = 1: 688,438), 10% are 5-free (77,837).
+  - **The minimal nonparametric witness is also p-free in 788,565 / 788,565
+    records (100%)** (both-class and only-non records alike); v_5 = 0:
+    93,767 (11.9%), v_5 = 1: 544,249 (69.1%), v_5 ≥ 2 in the remainder.
+  - The beyond-M-depth flag: **71,444 (9.1%) of the non-witnesses have
+    v_5(d) > v_5(M)** (the deeper-5 window makes d ∣ M² with d ∡ M);
+    the other 90.9% divide x to a depth within M's window yet fail the
+    divisor test for other-factor reasons.
+- **The mechanism reading (kept as a hypothesis, H-4):** at u = 7 with
+  5 ∣ x, both witness kinds live in the x-divisors - the p-factor is
+  never needed - and the 5÷-orbit mod 7 (5³ ≡ −1, machine-checked
+  `five_pow_three_eq_neg_one_mod_seven`) is what lets the deeper-5 window
+  produce the nonparametric companions. Falsification: any record whose
+  minimal witnesses both require the p-factor, or any u = 7 g = 3 record
+  with a parametric witness but no nonparametric companion, kills the
+  uniform-shape reading.
+- **Artifacts:** analysis/u7_g3_probe_v05/ (engine v0.5, run), hashes in
+  DATA_MANIFEST (37/37).
+- **Status:** complete for this slice. The two-layer p ≡ 3 (mod 5) picture
+  (E-007) and this fingerprint close the lane-3 questions posed at launch;
+  R6 (the delicate class) is next.
