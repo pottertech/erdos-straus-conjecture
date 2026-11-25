@@ -69,6 +69,9 @@ these datasets carry no universal claims.
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11.log` | `c4333958400fad4545c10bfe794c3d655f79dcc371033eb73dc3ca7d43e9c0a3` | 116 |
 
 | `ErdosStrausConjecture/ResidualPrimes/WindowForm.lean` | `364910f98645cbb4fc41c71169886685bda119e69ca7660198352379eded0f5b` | 3299 |
+| `ErdosStrausConjecture/ResidualPrimes/U3Boundary.lean` | `55d0134fe39b1006d8a0786c079e40de34b69079a8ce8e064f418adf668ac3a1` | 8673 |
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u3.txt` | `9c39fa8b70002c11f7c6856f7e73f1ba367fc17bbac53c2ee195f4dfc4f8f99f` | 497 |
+| `research/residual_primes/ErdosStrausConjecture_src/lake_build_u3.log` | `0ffe315b72a359070cb726151f95c13195006b622b73178b6486d98c8e9d1463` | 1773 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_window.txt` | `f502a11a8b6bf19cce3e93ce02424a55a081a1c24d14eb6b4878b803491a557a` | 174 |
 | `research/residual_primes/ErdosStrausConjecture_src/WindowForm.lean` | `364910f98645cbb4fc41c71169886685bda119e69ca7660198352379eded0f5b` | 3299 |
 

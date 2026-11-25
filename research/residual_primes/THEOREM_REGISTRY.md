@@ -126,8 +126,27 @@ WindowForm’s two audited on `propext, Quot.sound` and the trio respectively
 (E-006), bringing the total to 28: the U11Exact additions `five_divides_x_u7`
 and `five_pow_three_eq_neg_one_mod_seven` audited on `propext, Quot.sound`
 (E-007).
+U3Boundary's five audited (all trio; E-012) bring the joint audited set to
+15 + 18 = 33.
 
-## 4. Rejected / superseded
+## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
+
+Machine-checked 2026-11-25; compile exit 0 (8477 jobs); axiom census (all
+five): exactly `[propext, Classical.choice, Quot.sound]`; no project axioms;
+0 `sorry`. Audit artifact: `ErdosStrausConjecture_src/axiom_audit_u3.txt`
+(build log `lake_build_u3.log`), hash-pinned in DATA_MANIFEST. Empirical
+counterpart: E-011 (the sweep-wide census, engine v0.8) — the boundary
+statement the run verified at population scale.
+
+| Theorem | Statement | Registry lane |
+| --- | --- | --- |
+| `ResidualPrimes.prod_mod_one_of_primes_mod` | prime divisors all 1 (mod 3) (with 0 < T) ⟹ T ≡ 1 (mod 3) | support |
+| `ResidualPrimes.u3_span_of_even_x` | 4·x = n + 3 ∧ 2 ∣ x ∧ 3 ∤ x ⟹ the u = 3 span criterion holds at `T = 2` | principal |
+| `ResidualPrimes.isErdosStraus_of_even_x` | the same hypotheses yield an explicit positive solution (the sharpened, primality-free F(p) = 3 family) | principal |
+| `ResidualPrimes.u3_span_fails_of_odd_x` | under the hard-case predicate (x's prime divisors ≡ 1 (mod 3)), x odd ⟹ no u = 3 span candidate exists | principal |
+| `ResidualPrimes.u3_span_iff_even_of_hard` | the boundary: u = 3 span ⟺ 2 ∣ x (under the hard-case predicate) | principal |
+
+## 5. Rejected / superseded
 
 None at initiation. Rejected hypotheses move here with a correction banner
 (what was claimed, why it failed, what remains valid).

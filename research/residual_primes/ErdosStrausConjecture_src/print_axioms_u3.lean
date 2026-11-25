@@ -1,0 +1,7 @@
+import ErdosStrausConjecture.ResidualPrimes.U3Boundary
+
+#print axioms ResidualPrimes.prod_mod_one_of_primes_mod
+#print axioms ResidualPrimes.u3_span_of_even_x
+#print axioms ResidualPrimes.isErdosStraus_of_even_x
+#print axioms ResidualPrimes.u3_span_fails_of_odd_x
+#print axioms ResidualPrimes.u3_span_iff_even_of_hard
