@@ -10,3 +10,6 @@ import ErdosStrausConjecture.ResidualPrimes.U7Layer
 #print axioms ResidualPrimes.u7_span_of_fivex_pm1
 #print axioms ResidualPrimes.u7_span_of_fivex_pm2
 #print axioms ResidualPrimes.u7_span_of_fivex_pm3
+#print axioms ResidualPrimes.prod_in_orbit_clo_two
+#print axioms ResidualPrimes.u7_span_fails_of_orbit_primes
+#print axioms ResidualPrimes.u7_pigeon_of_orbit_breaker

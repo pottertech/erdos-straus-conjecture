@@ -8,3 +8,6 @@
 'ResidualPrimes.u7_span_of_fivex_pm1' depends on axioms: [propext, Quot.sound]
 'ResidualPrimes.u7_span_of_fivex_pm2' depends on axioms: [propext, Quot.sound]
 'ResidualPrimes.u7_span_of_fivex_pm3' depends on axioms: [propext, Quot.sound]
+'ResidualPrimes.prod_in_orbit_clo_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.u7_span_fails_of_orbit_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.u7_pigeon_of_orbit_breaker' depends on axioms: [propext, Classical.choice, Quot.sound]
