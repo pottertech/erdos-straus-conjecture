@@ -1,3 +1,13 @@
+# Recent research entries (Paper 2 — living; the Paper-1 lineage above is frozen)
+
+## 2026-11-24 — Paper 2 R4/R5 complete (branch paper2-residual-primes)
+- `ResidualPrimes.CollisionReachability`: 7 audited results (pigeonhole
+  sufficiency + the collision/centered equivalences), axiom trio only,
+  0 sorry; axiom audit hash-pinned in research/residual_primes/DATA_MANIFEST.md.
+- EXPERIMENT_LOG E-003. Joint audited set 15 (Paper 1) + 7 = 22.
+
+---
+
 # CHANGELOG — Route 2 conditional-reduction manuscript
 
 Per-finding response records for the external review program. The standing

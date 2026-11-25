@@ -82,9 +82,27 @@ are bounded by its data; universal claims never enter via this log.
   resolution yet): the next sub-run cross-tabulates first-working layers by
   mod-5 group to test H-1's falsification criterion #1.
 
-## E-003 — R4: collision equivalence formalized (pending)
+## E-003 — R4/R5: the collision criterion machine-checked (2026-11-24)
 
-Target: `ErdosStrausConjecture/ResidualPrimes/CollisionReachability.lean`,
-theorem `opposite_collision_iff` (the collision equivalence) and
-`pigeonhole_reachability` (the cardinality bound), 15 → 17 audited principal
-theorems, CI-gated.
+- **What was proved:** module `ErdosStrausConjecture/ResidualPrimes/CollisionReachability.lean`
+  (self-contained Mathlib, no project axioms):
+  `pigeonhole_reachability` (2|D| > phi(u) ⟹ collision, R5), and the R4
+  equivalences: the collision condition ⟺ the pair condition
+  (∃ d₁ d₂ ∣ M, (d₁ + d₂) % u = 0) ⟺ −1 ∈ D·D⁻¹ (the centered product
+  set in its D·D⁻¹ formulation), plus the three lemmas feeding them
+  (`card_le_totient_of_all_isUnit`, `isUnit_mem_union`, `card_negResidues_eq`)
+  and the bridge `hasOppositePair_iff_centered_neg_one`.
+- **Verification:** `lake env lean` exit 0 (0 errors), `lake build` exit 0,
+  0 `sorry`, 0 `admit`; axiom census via `#print axioms` on all seven
+  declarations — each depends on exactly `[propext, Classical.choice,
+  Quot.sound]`; the joint audited set is 15 (Paper 1, frozen) + 7 = 22.
+- **Artifacts:** the module, the axiom audit output
+  `ErdosStrausConjecture_src/axiom_audit_collision.txt`, and the build log,
+  all hash-pinned in DATA_MANIFEST.
+- **Scope carried:** the factorization-window characterization of the
+  centered product set (∏ q^[−e, e] = D·D⁻¹) is the R4-lane extension, NOT
+  claimed in this module (the D·D⁻¹ formulation is used, per the ninth
+  review's §5.3 observation).
+- **Status:** complete. The review's boxed criterion is now machine-checked;
+  the research target H-3 (universal reachability) has its formal skeleton.
+
