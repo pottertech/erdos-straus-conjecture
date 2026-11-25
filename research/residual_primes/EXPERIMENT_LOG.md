@@ -671,6 +671,61 @@ behind H-6 and is the base R8 builds on.
   r7 = 2/4 via the full-unit-group structure) is the next R8 piece;
   R9 (independent validation) thereafter.
 
+## E-017 - R8 piece 8: the generator census and the hard-core D-set shapes (2026-11-25)
+
+- **What ran:** engine v0.13 (v0.12 + the generator census for the depth-0
+  spanners of r7 = 2/4 (|D| = 6 records): the order-6 generator residues
+  3 and 5 in D with the 125 | x' flag, and the fail D-set-shape
+  histograms (the 6-bit mask) with the mask x v2(x') bucket cross),
+  sanitizer-built; the selftest artifact stays byte-identical to
+  v0.6-v0.12 (same SHA-256 `934ec74d...`) and v0.12's entire 336-line run
+  output reappears byte-identically inside the v0.13 run (352 lines,
+  0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the depth-0 spanners of r7 = 2/4: 124,508 + 132,464; the
+  fail records 414,261 mask-set-classified.
+- **Verified results (the full-scale census):**
+  - **Both order-6 generators of (Z/7)* are divisor-residues of M' for
+    EVERY depth-0 spanner of r7 = 2/4:** gen3 = gen5 = 124,508 / 124,508
+    (r7 = 2) and 132,464 / 132,464 (r7 = 4) - 0-mismatch per record
+    (U7D6GEN; the 125 | x' flag 0 by the depth-0 definition).
+  - **The fail D-sets are fixed shapes, always inside the 2-orbit:**
+    r7 = 1: mask {1, 2} = 38,813 and {1, 2, 4} = 96,161; r7 = 2:
+    `D' = {1, 2, 4}` for ALL 135,528; r7 = 4: `D' = {1, 2, 4}` for ALL
+    143,759. **No fail record's D-set ever contains a generator residue
+    (3 or 5) or 6** - the u = 7 fail/span boundary within
+    (H24, r7 = 1/2/4, 5-free) is the D-set-shape boundary:
+    D' = the 2-orbit closure {1, 2, 4} (or its v2 = 1 restriction
+    {1, 2}) vs D' containing an order-6 generator.
+  - **The v2 cross (U7FAILSETVM):** the r7 = 1 {1, 2}-shaped fail records
+    are ALL at v2(x') = 1 (38,813); the {1, 2, 4}-shaped fail records
+    spread across the v2 buckets (r7 = 1: 27,168 / 33,699 / 35,294;
+    r7 = 2: 66,386 / 33,960 / 35,182; r7 = 4: 70,688 / 35,618 / 37,453
+    at v2 = 1 / 2 / >= 3 respectively).
+  - **The E-014 v2-label correction:** the U7FAILPROFILE buckets are
+    0-indexed at v2 = 1 (the bucket [0] = the v2 = 0 slot is empty - all
+    x' are even): E-014's 65,981 / 68,993 read as "v2 = 2 / v2 >= 3" are
+    in fact the v2 = 1 and v2 >= 2 buckets (the corrected cross:
+    65,981 = 38,813 + 27,168 - the {1,2}-shape plus the {1,2,4}-shape at
+    v2 = 1; 68,993 = 33,699 + 35,293-rounding-check - the {1,2,4}-shape
+    at v2 >= 2), and the E-014 "carry v2(x') >= 2" claim is correspondingly
+    corrected: the fail records carry v2(x') >= 1, split as above.
+- **Mechanism reading (registered as H-7 with falsification criteria):**
+  the u = 7 span/fail boundary in the failing residue classes is the
+  D-set-shape boundary - fail iff the divisor-residue set of M' never
+  leaves the 2-orbit closure {1, 2, 4}; span iff an order-6 generator
+  (3 or 5) is a divisor-residue of M'. The open question is the
+  factorization-side characterization of which x' compositions realize
+  the generator residues (the census-verified witness structures exist
+  per record; the composition-level iff is open).
+- **Artifacts:** analysis/u7_gen_v013/ (engine v0.13, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (73/73
+  verifier rows).
+- **Status:** complete for the census. R8's next object: the
+  composition-level iff for the generator residues (H-7's formal
+  direction); R9 (independent validation) thereafter.
+
+
 
 
 
