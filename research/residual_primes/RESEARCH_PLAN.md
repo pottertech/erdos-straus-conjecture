@@ -15,7 +15,7 @@ closes a universal claim; parity-slip audits on every odd-factor filter.
 | R5 | Formalize the sufficient cardinality theorem (`|D| > φ(u)/2 ⟹` collision) in Lean | complete (E-003; `pigeonhole_reachability`) |
 | R6 | Derive stronger structural sufficient conditions | complete (E-009: the delicate class mechanized — 82.8% unit-pair / 17.2% small-residue tail; H-5) |
 | R7 | Coverage across multiple parameter layers | complete (E-010: the witness-shape table over all 40 populated slices; H-6; the small-layer p-free statement) |
-| R8 | Attempt a universal reachability theorem | in progress (E-011: the rescue census 16,589/16,589 pigeon-certifiable off-parameter at u ≤ 255; E-012: the u = 3 boundary formalized — five trio-audited theorems, span-at-3 ⟺ 2 ∣ x under the hard predicate, joint audited 15 + 18 = 33; the u = 7 layer is next) |
+| R8 | Attempt a universal reachability theorem | in progress (E-011: the rescue census 16,589/16,589 pigeon-certifiable off-parameter at u ≤ 255; E-012: the u = 3 boundary span-at-3 ⟺ 2 ∣ x; E-013: the u = 7 layer classified — span 100% at p ≡ 3, 5, 6 (mod 7), fail only at p ≡ 1, 2, 4 — with seven audited theorems; joint audited 15 + 25 = 40; the failing classes are next) |
 | R9 | Independently validate and publish established results | open |
 
 ## Claim-discipline gates (applies to every phase)

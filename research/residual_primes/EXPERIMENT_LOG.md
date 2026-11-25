@@ -483,4 +483,62 @@ behind H-6 and is the base R8 builds on.
   formal reason its first-working parameter is ≥ 7; the u = 7 layer is
   the next R8 target.
 
+## E-013 — R8 piece 4: the u = 7 layer classification and its formalization (2026-11-25)
+
+- **What ran:** engine v0.9 (v0.8 + the u = 7 layer classification for the
+  (H24) records: per `p mod 7` class the population, the admissibility
+  (gcd(7, M') = 1), the span/fail split (fw = 7 vs fw > 7), the
+  |D_7(M')| histogram over the fail records, the 2 ∣ x counter, and the
+  per-record explicit-witness congruence checks (T = n at `p ≡ 3 (mod 7)`,
+  T = x at `p ≡ 6 (mod 7)`)), sanitizer-built; the selftest artifact stays
+  byte-identical to v0.6/v0.7/v0.8 and v0.8's entire 301-line run output
+  reappears byte-identically inside the v0.9 run (317 lines, 0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the (H24) class 2,364,031 exhaustively partitioned by the
+  U7 rows (the class sums equal 2,364,031).
+- **Verified results (the full-scale census):**
+  - **The u = 7 layer's residue boundary is exact:** span-holds for
+    `p ≡ 3 (mod 7)`: 389,797 / 389,797 (100%); `p ≡ 5 (mod 7)`:
+    389,841 / 389,841 (100%); `p ≡ 6 (mod 7)`: 390,029 / 390,029 (100%);
+    while `p ≡ 1, 2, 4 (mod 7)` FAIL at 134,974 / 135,528 / 143,759
+    records respectively and span for the remainder of those classes
+    (254,489 / 254,424 / 271,190 — through deeper-window witnesses).
+    The three 100% classes sum to 1,169,667 records; the (H24) u = 7
+    span population across all six classes is 1,949,770.
+  - **The explicit-witness classes verify 0-mismatch at population scale:**
+    wit_ok = 389,797 / 389,797 at `p ≡ 3 (mod 7)` (the `T = n` span:
+    `n + n·x ≡ 0 (mod 7)` and `n·x² + n·x ≡ 0`, both forced by
+    `n ≡ 3 (mod 7)` and `x ≡ 2n (mod 7)`), and wit_ok = 390,029 / 390,029
+    at `p ≡ 6 (mod 7)` (the `T = x` span). wit_ok = 0 for the other four
+    classes as claimed.
+  - **The fail records are all pigeon-fails at |D_7| = 3 exactly** for
+    `p ≡ 2, 4 (mod 7)` (135,528 and 143,759 in the single |D| = 3 slot),
+    and `p ≡ 1 (mod 7)` splits 38,813 at |D| = 2 and 96,161 at |D| = 3,
+    consistent with the audited R5 chain (pigeon ⟹ collision ⟹ span:
+    below the first-working parameter no pigeon can hold — the sub-fw
+    consistency census stays 0 / 3,042,449).
+  - **Inadmissible = 0 in every class** (structurally: `p ≡ 21 (mod 28)`
+    forces `p = 7·(12k + 7)`, composite for every sweep prime — so
+    7 ∣ M' never occurs in the (H24) class).
+- **What was formalized:** `ErdosStrausConjecture/ResidualPrimes/U7Layer.lean`
+  (mirrored with its audit artifacts): seven new machine-checked theorems —
+  `mem_divResidues` and `cast_ne_of_mod_ne` (support), the two constructive
+  spans `u7_span_of_mod7_three` / `u7_span_of_mod7_six` (`T = n` / `T = x`),
+  and the three pigeon certificates `u7_pigeon_of_mod7_three` /
+  `u7_pigeon_of_mod7_five` / `u7_pigeon_of_mod7_six` via the audited
+  `pigeonhole_reachability` with the four-residue divisor sets
+  ({1, n, x, n·x} = {1, 3, 6, 4} / {1, 6, 5, 2}; {1, n, x, 2} = {1, 5, 3, 2}
+  at residue 5, using 2 ∣ x, which holds for every sweep (H24) prime).
+- **Verification:** compile exit 0; axiom census: the two span theorems on
+  exactly `[propext, Quot.sound]`, the three pigeon theorems and the two
+  supports on the standard trio; 0 `sorry`; audit artifact
+  `axiom_audit_u7.txt` (build log `lake_build_u7.log`), hash-pinned.
+- **Artifacts:** analysis/u7_layer_v09/ (engine v0.9, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (57/57
+  verifier rows).
+- **Status:** complete. The joint audited set: 15 + 25 = 40. R8 continues:
+  the failing classes (p ≡ 1, 2, 4 (mod 7), the 414,261 fail records) are
+  the next structural object; R9 (independent validation) thereafter.
+
+
 
