@@ -76,13 +76,19 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u7_layer_v09/full_run.txt` | `75dd93e16147cbe4e6accf0f43cac6f1ebba66c1e1c0c861406b7b98ae3e7e68` | 16777 |
 | `research/residual_primes/analysis/u7_layer_v09/full_run_stderr.txt` | `d28111cfdd34b41ae933796c351a8c29e371d372b361a1641998373f15ce89c3` | 78 |
 | `research/residual_primes/analysis/u7_layer_v09/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
-| `ErdosStrausConjecture/ResidualPrimes/U7Layer.lean` | `d3300f70b2bba01f1328c70af287ff5c7b51f4a9615b3f52f8c606f1e97a8570` | 15109 |
-| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u7.txt` | `d5a301617858708fcaac74286c05cf85dab08bb685ff5335ac67ad39c3255bdb` | 641 |
-| `research/residual_primes/ErdosStrausConjecture_src/lake_build_u7.log` | `90e840fd3dc8feedd8f94b0b2ef95f530a6697e7ad6a481f5d6ba72cb5d1adb2` | 1692 |
+| `ErdosStrausConjecture/ResidualPrimes/U7Layer.lean` | `f1ca6bdc0c74b97c9210f0b81f0da937ba97a94687e17a554665a214546515ca` | 17934 |
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u7.txt` | `a8c176cf5c9b65f826ba6ceb021200026cad2d0fdaec3edb73a562c22da01702` | 878 |
+| `research/residual_primes/ErdosStrausConjecture_src/lake_build_u7.log` | `497ec4a8da6e7309ee7d3305da1e4691599b0210717d0cd38018523c0a3d2cba` | 2718 |
 | `research/residual_primes/analysis/u7_fail_v010/collision_margin_engine_v10.c` | `adc68dc4fc5dce5988db9b4569facc95094cbffe5176a881506ef9cf7b9c5efa` | 43318 |
 | `research/residual_primes/analysis/u7_fail_v010/full_run.txt` | `7aaa4a9cfa4b8705aeaf45b3eda959d7e852b9bc7f949dacd1f2a87361b769a7` | 17288 |
 | `research/residual_primes/analysis/u7_fail_v010/full_run_stderr.txt` | `fe7b014d89ca3a7009fa8e5c747e5d86cde8daf24685cfd919252f4a23c2f4d7` | 78 |
 | `research/residual_primes/analysis/u7_fail_v010/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `research/residual_primes/analysis/u7_span_depth_v011/collision_margin_engine_v011.c` | `5d5315278bcfa5275fd058305b142ca5f619d9c5acf8f23d14ed1fe98d5a50b8` | 44093 |
+| `research/residual_primes/analysis/u7_span_depth_v011/full_run.txt` | `ed37bdfd136796ddd7852ffa7be80db596cb054f4c11c55edd621d9c2d8ab827` | 17525 |
+| `research/residual_primes/analysis/u7_span_depth_v011/full_run_stderr.txt` | `2fa7c92b7a29bb1ae210d87658c8c950758380897bcda6edde96109d68c5c40f` | 78 |
+| `research/residual_primes/analysis/u7_span_depth_v011/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+
+
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_window.txt` | `f502a11a8b6bf19cce3e93ce02424a55a081a1c24d14eb6b4878b803491a557a` | 174 |
 | `research/residual_primes/ErdosStrausConjecture_src/WindowForm.lean` | `364910f98645cbb4fc41c71169886685bda119e69ca7660198352379eded0f5b` | 3299 |
 

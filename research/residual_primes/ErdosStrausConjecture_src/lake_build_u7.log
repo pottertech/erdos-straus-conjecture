@@ -27,6 +27,24 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: ErdosStrausConjecture/Basic.lean:365:5: unused variable `hcong`
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [8478/8478] Built ErdosStrausConjecture.ResidualPrimes.U7Layer (59s)
+⚠ [8478/8478] Built ErdosStrausConjecture.ResidualPrimes.U7Layer (73s)
+warning: ErdosStrausConjecture/ResidualPrimes/U7Layer.lean:291:40: unused variable `hn0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U7Layer.lean:291:54: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U7Layer.lean:311:40: unused variable `hn0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U7Layer.lean:311:54: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U7Layer.lean:330:40: unused variable `hn0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U7Layer.lean:330:54: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
 Build completed successfully (8478 jobs).
 BUILD_EXIT=0

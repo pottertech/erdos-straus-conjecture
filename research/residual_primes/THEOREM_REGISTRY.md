@@ -130,6 +130,9 @@ U3Boundary's five audited (all trio; E-012) bring the joint audited set to
 15 + 18 = 33.
 U7Layer's seven audited (the two spans on `propext, Quot.sound`, the
 rest on the trio; E-013) bring the joint audited set to 15 + 25 = 40.
+The three conditional 5-window spans audited on exactly
+`propext, Quot.sound` (E-015) bring the joint audited set to
+15 + 28 = 43.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
@@ -166,6 +169,9 @@ E-013 (engine v0.9, the full-scale u = 7 census).
 | `ResidualPrimes.u7_pigeon_of_mod7_three` | 4·x = n + 7 ∧ n ≡ 3 (mod 7) ⟹ hasOppositePair 7 (n·x) (pigeon via the audited R5 theorem) | principal |
 | `ResidualPrimes.u7_pigeon_of_mod7_five` | the same at n ≡ 5 (mod 7) with 2 ∣ x (the sweep's n ≡ 1 (mod 8) family) | principal |
 | `ResidualPrimes.u7_pigeon_of_mod7_six` | the same at n ≡ 6 (mod 7) | principal |
+| `ResidualPrimes.u7_span_of_fivex_pm1` | 4·x = n + 7 ∧ n ≡ \u00b11 (mod 7) ∧ 125 ∣ x ⟹ the u = 7 span at `T = 5` | principal |
+| `ResidualPrimes.u7_span_of_fivex_pm2` | the same at n ≡ \u00b12 (mod 7), 125 ∣ x, span at `T = 125` | principal |
+| `ResidualPrimes.u7_span_of_fivex_pm3` | the same at n ≡ \u00b13 (mod 7), 3125 ∣ x, span at `T = 3125` | principal |
 
 ## 6. Rejected / superseded
 

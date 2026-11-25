@@ -283,4 +283,63 @@ theorem u7_pigeon_of_mod7_six (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
   have htot : Nat.totient 7 = 6 := by rw [Nat.totient_prime Nat.prime_seven]
   exact pigeonhole_reachability 7 (n * x) (by norm_num) (Nat.Coprime.symm hcopr) (by rw [htot]; omega)
 
+/-- **The u = 7 span at residue 1 or 6 (the 5-window, depth ≥ 1).**
+For `4·x = n + 7`, `n ≡ ±1 (mod 7)` and `125 ∣ x` (so
+`5 ∣ x` at depth ≥ 3, hence `5 ∣ n·x`), the span
+criterion holds at `T = 5`: for both classes `n·x ≡ 2 (mod 7)`,
+so `T + n·x ≡ 5 + 2 ≡ 0`. -/
+theorem u7_span_of_fivex_pm1 (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
+    (hu4 : 4 * x = n + 7) (hn : n % 7 = 1 ∨ n % 7 = 6) (hv5 : 125 ∣ x) :
+    u7Span n x := by
+  have h5M : 5 ∣ n * x := Nat.dvd_trans (show (5 : ℕ) ∣ 125 from ⟨25, by ring⟩)
+      (dvd_mul_of_dvd_right hv5 n)
+  refine ⟨5, by rw [Nat.pow_two]; exact dvd_mul_of_dvd_right h5M (n * x), ?_⟩
+  rcases hn with h1 | h6
+  · have hx7 : x % 7 = 2 := by
+      have hex : (4 * x) % 7 = 1 := by rw [hu4, Nat.add_mod_right, h1]
+      omega
+    rw [Nat.add_mod, Nat.mul_mod, h1, hx7]
+  · have hx7 : x % 7 = 5 := by
+      have hex : (4 * x) % 7 = 6 := by rw [hu4, Nat.add_mod_right, h6]
+      omega
+    rw [Nat.add_mod, Nat.mul_mod, h6, hx7]
+
+/-- **The u = 7 span at residue 2 or 5 (the 5-window,·depth ≥ 3).**
+For `4·x = n + 7`, `n ≡ ±2 (mod 7)` and `125 ∣ x`, the
+span criterion holds at `T = 125 ≡ 6 (mod 7)`: for both classes
+`n·x ≡ 1 (mod 7)`, so `T + n·x ≡ 6 + 1 ≡ 0`. -/
+theorem u7_span_of_fivex_pm2 (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
+    (hu4 : 4 * x = n + 7) (hn : n % 7 = 2 ∨ n % 7 = 5) (hv5 : 125 ∣ x) :
+    u7Span n x := by
+  have h125M : 125 ∣ n * x := dvd_mul_of_dvd_right hv5 n
+  refine ⟨125, by rw [Nat.pow_two]; exact dvd_mul_of_dvd_right h125M (n * x), ?_⟩
+  rcases hn with h2 | h5
+  · have hx7 : x % 7 = 4 := by
+      have hex : (4 * x) % 7 = 2 := by rw [hu4, Nat.add_mod_right, h2]
+      omega
+    rw [Nat.add_mod, Nat.mul_mod, h2, hx7]
+  · have hx7 : x % 7 = 3 := by
+      have hex : (4 * x) % 7 = 5 := by rw [hu4, Nat.add_mod_right, h5]
+      omega
+    rw [Nat.add_mod, Nat.mul_mod, h5, hx7]
+
+/-- **The u = 7 span at residue 3 or 4 (the 5-window, depth ≥ 5).**
+For `4·x = n + 7`, `n ≡ ±3 (mod 7)` and `3125 ∣ x`, the
+span criterion holds at `T = 3125 ≡ 3 (mod 7)`: for both classes
+`n·x ≡ 4 (mod 7)`, so `T + n·x ≡ 3 + 4 ≡ 0`. -/
+theorem u7_span_of_fivex_pm3 (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
+    (hu4 : 4 * x = n + 7) (hn : n % 7 = 3 ∨ n % 7 = 4) (hv5 : 3125 ∣ x) :
+    u7Span n x := by
+  have h3125M : 3125 ∣ n * x := dvd_mul_of_dvd_right hv5 n
+  refine ⟨3125, by rw [Nat.pow_two]; exact dvd_mul_of_dvd_right h3125M (n * x), ?_⟩
+  rcases hn with h3 | h4
+  · have hx7 : x % 7 = 6 := by
+      have hex : (4 * x) % 7 = 3 := by rw [hu4, Nat.add_mod_right, h3]
+      omega
+    rw [Nat.add_mod, Nat.mul_mod, h3, hx7]
+  · have hx7 : x % 7 = 1 := by
+      have hex : (4 * x) % 7 = 4 := by rw [hu4, Nat.add_mod_right, h4]
+      omega
+    rw [Nat.add_mod, Nat.mul_mod, h4, hx7]
+
 end ResidualPrimes
