@@ -106,3 +106,46 @@ are bounded by its data; universal claims never enter via this log.
 - **Status:** complete. The review's boxed criterion is now machine-checked;
   the research target H-3 (universal reachability) has its formal skeleton.
 
+## E-004 — R3: layer x mod-5 conditioning (H-1 falsification test #1) (2026-11-25)
+
+- **What ran:** engine v0.3 (v0.2 + the first-working-layer x mod-5 cross
+  tables, full sweep and mod-840-cohort restricted), sanitizer-built; the
+  v0.2 anchors reproduce exactly (SWEEP 3194231 / PIGEON 3177642 / DELICATE
+  16589 / MISMATCH 0; MOD5, MOD5MOD840 and INTR840 rows byte-identical).
+- **Verified cross table (mod-840 cohort, XULAYER840 rows; full table in
+  analysis/layer_mod5_v03/r3_full_run.txt):** rates of only-nonparametric
+  classification within each first-working layer, +1 (mod 5) vs -1 (mod 5):
+  u=7: 0/190,978 vs 0/190,674 (0.00% both);
+  **u=11: 9,973/134,455 = 7.42% vs 0/145,060 = 0.00%**;
+  u=15: 0/32,271 vs 0/27,488 (0.00% both);
+  u=19: 4,225/25,136 = 16.81% vs 3,664/17,668 = 20.74%;
+  u=23: 10.73% vs 11.80%; u=27: 20.87% vs 22.99%; u=31: 18.77% vs 11.91%;
+  higher layers populated but small (both groups, rates 6-100% with n at
+  most about 400).
+- **Layer-marginal counterfactuals (computed from the cross table):**
+  applying the +1 group's within-layer rates to the -1 group's layer sizes
+  gives **4.03%** (actual aggregate: 4.09%); the reverse gives **1.84%**
+  (actual: 1.50%). The aggregate 2.73x gap is therefore a **layer-composition
+  artifact**, driven almost entirely by the **u = 11 layer**: the 10,312-prime
+  aggregate difference has 9,973 accounted for by that single layer
+  (7.42% vs 0.00%, denominators about 140k each).
+- **Mechanism hypothesis (reformulated H-1):** at u = 11 with p = 4 (mod 5),
+  x = (p+11)/4 satisfies **5 divides x identically**
+  ((4+11) x 4^-1 = 0 (mod 5)); and 5 has order 5 in (Z/11)* (5^5 = 1 (mod 11),
+  a quadratic residue), so the isolated 5-window {5^t : |t| <= e} never
+  reaches -1 = 10 (mod 11) - while every such prime nonetheless HAS a
+  parametric witness (0/145,060 lack one). The exact u=11 structure is the
+  R3-lane flagship (the MOD31-pattern target: "u = 11, 5|x => parametric
+  witness", verifiable 0-mismatch over the 145,060 committed records and
+  then as a clean Lean target).
+- **H-1 disposition:** the aggregate "modulo-5 separation" is NOT a uniform
+  per-layer effect; it localizes to the u = 11 layer with the 5-divisor
+  arithmetic above. H-1 is reformulated (registry update) - kept OPEN as the
+  u=11-layer mechanism, with the aggregate framing marked as a composition
+  artifact.
+- **Artifacts:** analysis/layer_mod5_v03/ (engine v0.3, run, self-test; err
+  sanitizer-silent, 2 lines of benign 11434-port noise), hashes in
+  DATA_MANIFEST (25/25).
+- **Status:** complete. Follow-ups: the u=11 exact classification (R3), the
+  p = 3 (mod 5) onlypar-zero (R3, unchanged), the window-form Lean lemma
+  (R4-lane extension).

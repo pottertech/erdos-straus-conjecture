@@ -1,0 +1,120 @@
+SWEEP 3194231 H24 2364031 PIGEON 3177642 DELICATE 16589 MISMATCH 0
+BY840 1 all=129979 pigeon=126678 delicate=3301 rate_del=253
+BY840 121 all=129963 pigeon=127436 delicate=2527 rate_del=194
+BY840 169 all=129675 pigeon=126893 delicate=2782 rate_del=214
+BY840 289 all=130073 pigeon=128818 delicate=1255 rate_del=96
+BY840 361 all=138184 pigeon=134586 delicate=3598 rate_del=260
+BY840 529 all=138039 pigeon=134913 delicate=3126 rate_del=226
+BYU 3 all=830200 pigeon=830200 delicate=0
+BYU 7 all=1949770 pigeon=1949770 delicate=0
+BYU 11 all=279515 pigeon=273440 delicate=6075
+BYU 15 all=59759 pigeon=59759 delicate=0
+BYU 19 all=42804 pigeon=35370 delicate=7434
+BYU 23 all=21626 pigeon=20351 delicate=1275
+BYU 27 all=3818 pigeon=2820 delicate=998
+BYU 31 all=4668 pigeon=4263 delicate=405
+BYU 35 all=691 pigeon=628 delicate=63
+BYU 39 all=733 pigeon=649 delicate=84
+BYU 43 all=192 pigeon=43 delicate=149
+BYU 47 all=303 pigeon=258 delicate=45
+BYU 51 all=36 pigeon=14 delicate=22
+BYU 55 all=49 pigeon=39 delicate=10
+BYU 59 all=44 pigeon=23 delicate=21
+BYU 63 all=10 pigeon=9 delicate=1
+BYU 67 all=2 pigeon=0 delicate=2
+BYU 71 all=6 pigeon=5 delicate=1
+BYU 75 all=2 pigeon=1 delicate=1
+BYU 79 all=1 pigeon=0 delicate=1
+BYU 83 all=2 pigeon=0 delicate=2
+MARGIN 16589 0 905847 0 188849 0 1744460 0 78152 0 217834 0 6340 0 3521 0 4205 0 11714 0 2149 0 11633 0 698 0 204 0 258 0 1626 0 14 0 9 0 15 0 18 0 8 0 12 0 8 0 63 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 2
+DELICATE_TOTAL 16589 (sample capped at 5000 in delicate_sample.jsonl)
+MOD5 1 all=1064669 onlypar=47361 both=976082 onlynon=41226 rate_onlynon=387
+MOD5MOD840 1 all=398126 onlynon=16267 rate=408
+MOD5 2 all=0 onlypar=0 both=0 onlynon=0 rate_onlynon=0
+MOD5MOD840 2 all=0 onlynon=0 rate=0
+MOD5 3 all=1065189 onlypar=0 both=1048355 onlynon=16834 rate_onlynon=158
+MOD5MOD840 3 all=0 onlynon=0 rate=0
+MOD5 4 all=1064373 onlypar=36499 both=996851 onlynon=31023 rate_onlynon=291
+MOD5MOD840 4 all=397787 onlynon=5955 rate=149
+INTR840 1 onlypar=5648 both=118829 onlynon=5502
+INTR840 121 onlypar=4969 both=119966 onlynon=5028
+INTR840 169 onlypar=2224 both=125512 onlynon=1939
+INTR840 289 onlypar=1293 both=126864 onlynon=1916
+INTR840 361 onlypar=6189 both=126258 onlynon=5737
+INTR840 529 onlypar=2420 both=133519 onlynon=2100
+XULAYER 3 1 all=276660 nop=0 rate=0
+XULAYER 3 3 all=276624 nop=0 rate=0
+XULAYER 3 4 all=276916 nop=0 rate=0
+XULAYER 7 1 all=580861 nop=24959 rate=429
+XULAYER840 7 1 all=190978 nop=0 rate=0
+XULAYER 7 3 all=788565 nop=16834 rate=213
+XULAYER 7 4 all=580344 nop=25068 rate=431
+XULAYER840 7 4 all=190674 nop=0 rate=0
+XULAYER 11 1 all=134455 nop=9973 rate=741
+XULAYER840 11 1 all=134455 nop=9973 rate=741
+XULAYER 11 4 all=145060 nop=0 rate=0
+XULAYER840 11 4 all=145060 nop=0 rate=0
+XULAYER 15 1 all=32271 nop=0 rate=0
+XULAYER840 15 1 all=32271 nop=0 rate=0
+XULAYER 15 4 all=27488 nop=0 rate=0
+XULAYER840 15 4 all=27488 nop=0 rate=0
+XULAYER 19 1 all=25136 nop=4225 rate=1680
+XULAYER840 19 1 all=25136 nop=4225 rate=1680
+XULAYER 19 4 all=17668 nop=3664 rate=2073
+XULAYER840 19 4 all=17668 nop=3664 rate=2073
+XULAYER 23 1 all=10232 nop=1098 rate=1073
+XULAYER840 23 1 all=10232 nop=1098 rate=1073
+XULAYER 23 4 all=11394 nop=1344 rate=1179
+XULAYER840 23 4 all=11394 nop=1344 rate=1179
+XULAYER 27 1 all=1926 nop=402 rate=2087
+XULAYER840 27 1 all=1926 nop=402 rate=2087
+XULAYER 27 4 all=1892 nop=435 rate=2299
+XULAYER840 27 4 all=1892 nop=435 rate=2299
+XULAYER 31 1 all=2040 nop=383 rate=1877
+XULAYER840 31 1 all=2040 nop=383 rate=1877
+XULAYER 31 4 all=2628 nop=313 rate=1191
+XULAYER840 31 4 all=2628 nop=313 rate=1191
+XULAYER 35 1 all=359 nop=67 rate=1866
+XULAYER840 35 1 all=359 nop=67 rate=1866
+XULAYER 35 4 all=332 nop=46 rate=1385
+XULAYER840 35 4 all=332 nop=46 rate=1385
+XULAYER 39 1 all=393 nop=25 rate=636
+XULAYER840 39 1 all=393 nop=25 rate=636
+XULAYER 39 4 all=340 nop=57 rate=1676
+XULAYER840 39 4 all=340 nop=57 rate=1676
+XULAYER 43 1 all=87 nop=31 rate=3563
+XULAYER840 43 1 all=87 nop=31 rate=3563
+XULAYER 43 4 all=105 nop=42 rate=4000
+XULAYER840 43 4 all=105 nop=42 rate=4000
+XULAYER 47 1 all=172 nop=37 rate=2151
+XULAYER840 47 1 all=172 nop=37 rate=2151
+XULAYER 47 4 all=131 nop=32 rate=2442
+XULAYER840 47 4 all=131 nop=32 rate=2442
+XULAYER 51 1 all=18 nop=5 rate=2777
+XULAYER840 51 1 all=18 nop=5 rate=2777
+XULAYER 51 4 all=18 nop=7 rate=3888
+XULAYER840 51 4 all=18 nop=7 rate=3888
+XULAYER 55 1 all=26 nop=10 rate=3846
+XULAYER840 55 1 all=26 nop=10 rate=3846
+XULAYER 55 4 all=23 nop=7 rate=3043
+XULAYER840 55 4 all=23 nop=7 rate=3043
+XULAYER 59 1 all=23 nop=8 rate=3478
+XULAYER840 59 1 all=23 nop=8 rate=3478
+XULAYER 59 4 all=21 nop=4 rate=1904
+XULAYER840 59 4 all=21 nop=4 rate=1904
+XULAYER 63 1 all=5 nop=1 rate=2000
+XULAYER840 63 1 all=5 nop=1 rate=2000
+XULAYER 63 4 all=5 nop=2 rate=4000
+XULAYER840 63 4 all=5 nop=2 rate=4000
+XULAYER 67 4 all=2 nop=0 rate=0
+XULAYER840 67 4 all=2 nop=0 rate=0
+XULAYER 71 1 all=2 nop=1 rate=5000
+XULAYER840 71 1 all=2 nop=1 rate=5000
+XULAYER 71 4 all=4 nop=1 rate=2500
+XULAYER840 71 4 all=4 nop=1 rate=2500
+XULAYER 75 4 all=2 nop=1 rate=5000
+XULAYER840 75 4 all=2 nop=1 rate=5000
+XULAYER 79 1 all=1 nop=1 rate=10000
+XULAYER840 79 1 all=1 nop=1 rate=10000
+XULAYER 83 1 all=2 nop=0 rate=0
+XULAYER840 83 1 all=2 nop=0 rate=0
