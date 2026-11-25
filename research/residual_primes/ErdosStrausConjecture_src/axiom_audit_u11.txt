@@ -1,0 +1,2 @@
+'ResidualPrimes.five_divides_x' depends on axioms: [propext, Quot.sound]
+'ResidualPrimes.five_pow_ne_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]

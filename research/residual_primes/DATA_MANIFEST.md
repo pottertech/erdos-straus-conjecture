@@ -7,7 +7,7 @@ re-production commands live in Paper 1 Appendix A and
 verification_nano/NANODA_RUN.md; the standing determination applies -
 these datasets carry no universal claims.
 
-## Verified computational datasets (25 artifacts)
+## Verified computational datasets (29 artifacts)
 
 | Path | SHA-256 | Bytes |
 | --- | --- | --- |
@@ -51,6 +51,11 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/layer_mod5_v03/collision_margin_engine_v03.c` | `1b1befe9ad92b074abaf1b3228dd756fcb7c696c082f735c728a107a73831cf1` | 16213 |
 | `research/residual_primes/analysis/layer_mod5_v03/r3_full_run.txt` | `ed5583954dbd37bc0b92889f47364970c2cc9a2bff2b3b13cfdfeedd6a6eeff9` | 5209 |
 | `research/residual_primes/analysis/layer_mod5_v03/v03_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+
+| `ErdosStrausConjecture/ResidualPrimes/U11Exact.lean` | `4f07c14687e958990796ae8241d8f111a5b45516154a7ac7a1f681c5ef57e063` | 2040 |
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u11.txt` | `15bbea1fd2ed79e444bf75d3a97bb119b70bf4d271769c359057a8cd8f9a09a0` | 169 |
+| `research/residual_primes/analysis/u11_exact_v04/collision_margin_engine_v04.c` | `1c9d060e96d7d0a2944e34d70b27439cc74b98bd675e543f5faa03dbd1d2f8e2` | 19359 |
+| `research/residual_primes/analysis/u11_exact_v04/full_run.txt` | `ddaa23c93f9857cbee084ef1ab8068ecd25c2bdd68176017b11b7b9206c46408` | 5332 |
 
 ## Frozen-source statement
 

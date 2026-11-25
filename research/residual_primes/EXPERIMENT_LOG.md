@@ -149,3 +149,40 @@ are bounded by its data; universal claims never enter via this log.
 - **Status:** complete. Follow-ups: the u=11 exact classification (R3), the
   p = 3 (mod 5) onlypar-zero (R3, unchanged), the window-form Lean lemma
   (R4-lane extension).
+
+## E-005 — R3 flagship: the u=11 exact classification (2026-11-25)
+
+- **What ran:** engine v0.4 (v0.3 + the u­11-slice fingerprint probe:
+  per-record 5–|x check and the minimal parametric-witness shape: whether the
+  qualifying divisor contains the p-factor and its 5-adic valuation, capped
+  at 3), sanitizer-built; the v0.3 anchors reproduce exactly (same SWEEP /
+  PIGEON / DELICATE / MISMATCH 0 / MOD5 / MOD5MOD840 / INTR840 / XULAYER
+  rows).
+- **Verified results over the full sweep [10^7, 10^9):**
+  - The u-11, p = 4 (mod 5) class: **145,060 / 145,060 records satisfy
+    5 | x, zero mismatches in either direction** (notfivex = 0) - the
+    arithmetic identity is per-record verified, and now machine-checked in
+    Lean (five_divides_x: given 4 | p + 11 and p = 4 (mod 5), 5 |
+    (p + 11)/4).
+  - The minimal qualifying divisor is **p-free in 145,060 / 145,060 cases**
+    (100% p-free, 0 p-containing): a divisor of x alone always witnesses.
+  - Its 5-adic valuation distribution: v5 = 0 for 87,021 (60.0%),
+    v5 = 1 for 58,039 (40.0%), v5 >= 2 for 0 - the witnesses are
+    5-adically shallow (no witness needs the second 5-power).
+  - The 5-window miss is machine-checked: five_pow_ne_neg_one: every
+    5-power in ZMod 11 differs from -1 (the isolated 5-window
+    {5^t : |t| <= e} reaches only {1, 5, 3, 4, 9}).
+- **Verification:** lake env lean exit 0, lake build exit 0, 0 sorry; axiom
+  census: five_divides_x on [propext, Quot.sound],
+  five_pow_ne_neg_one on [propext, Classical.choice, Quot.sound] - the joint
+  audited set is now 22 + 2 = 24.
+- **Scope discipline:** "every such prime has a parametric witness" is a
+  verified statement over the committed dataset (0-mismatch, the bound
+  [10^7, 10^9) named); the two Lean lemmas are unconditional theorems.
+  The conditional "5 | x gives a uniform witness formula" for ALL p remains
+  open (the witness shape is per-record diverse).
+- **Artifacts:** analysis/u11_exact_v04/ (engine v0.4, run, stderr),
+  ErdosStrausConjecture_src/axiom_audit_u11.txt, hashes in DATA_MANIFEST
+  (29/29).
+- **Status:** complete. Lanes queued next: the R4-window formalization,
+  the p = 3 (mod 5) onlypar-zero probe.
