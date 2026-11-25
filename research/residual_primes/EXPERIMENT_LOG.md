@@ -584,6 +584,46 @@ behind H-6 and is the base R8 builds on.
   its formalization (the 5-window route for the second disjunct) is the
   next R8 piece; R9 (independent validation) thereafter.
 
+## E-015 — R8 piece 6: the spanner-depth census and the conditional 5-window spans (2026-11-25)
+
+- **What ran:** engine v0.11 (v0.10 + the spanner 5-depth census: per
+  failing residue class the v₅(x') buckets of the u = 7 spanners with the
+  125 ∣ x' flag), sanitizer-built; the selftest artifact stays
+  byte-identical to v0.6-v0.10 (same SHA-256 `934ec74d…`) and v0.10's
+  entire 324-line run output reappears byte-identically inside the v0.11
+  run (327 lines, 0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the failing classes' spanners 780,103 classified by depth.
+- **Verified results:**
+  - **The spanner 5-depth table** (per class: depth 0 / 1 / 2 / ≥ 3):
+    r7 = 1: 124,680 / 103,865 / 20,762 / 5,182; r7 = 2: 124,508 /
+    103,900 / 20,772 / 5,244; r7 = 4: 132,464 / 111,036 / 22,172 /
+    5,518. **DEPTH-0 = 40.72% of the failing classes' spanners**: the
+    pure-x-divisor span mechanism does NOT route through the 5-window -
+    it serves 5-free and 5-divisible records alike (0-mismatch, three
+    near-identical class profiles). **The 125 ∣ x' spanner population for
+    the formal depth-gates: 15,944** (5,182 + 5,244 + 5,518).
+  - **The conditional 5-window spans formalized:** three new audited
+    theorems in `U7Layer.lean` — `u7_span_of_fivex_pm1` (n ≡ ±1 (mod 7),
+    125 ∣ x, span at `T = 5`), `u7_span_of_fivex_pm2` (n ≡ ±2 (mod 7),
+    125 ∣ x, span at `T = 125`), `u7_span_of_fivex_pm3` (n ≡ ±3 (mod 7),
+    3125 ∣ x, span at `T = 3125`): for the \u00b1-pairs the congruence
+    `T ≡ -M (mod 7)` collapses to a single value (M ≡ 2 / 1 / 4
+    respectively), so the residue disjunction costs one `rcases`-arm
+    each with the identical close.
+  - **Verification:** compile exit 0; axiom census: the three new spans on
+    exactly `[propext, Quot.sound]` (matching the u = 7 constructive-span
+    precedent); the joint audited set 15 + 28 = 43; the audit artifact
+    `axiom_audit_u7.txt` (build log `lake_build_u7.log`) and the module
+    REPINNED (the data-event rule) alongside the v0.11 artifacts (64/64
+    verifier rows).
+- **Artifacts:** analysis/u7_span_depth_v011/ (engine v0.11, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned.
+- **Status:** complete. The open structural object shrinks to the depth-0
+  spanner mechanism (381,652 records: the x-divisor witnesses for 5-free
+  x') and the |D| = 2/3 hard core; R9 (independent validation) thereafter.
+
+
 
 
 

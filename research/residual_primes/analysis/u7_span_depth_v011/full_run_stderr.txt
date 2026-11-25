@@ -1,0 +1,3 @@
+factor sieve ready
+prime sieve ready
+	4m16.53s real		4m13.04s user		0.95s sys

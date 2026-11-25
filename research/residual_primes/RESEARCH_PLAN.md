@@ -15,7 +15,7 @@ closes a universal claim; parity-slip audits on every odd-factor filter.
 | R5 | Formalize the sufficient cardinality theorem (`|D| > φ(u)/2 ⟹` collision) in Lean | complete (E-003; `pigeonhole_reachability`) |
 | R6 | Derive stronger structural sufficient conditions | complete (E-009: the delicate class mechanized — 82.8% unit-pair / 17.2% small-residue tail; H-5) |
 | R7 | Coverage across multiple parameter layers | complete (E-010: the witness-shape table over all 40 populated slices; H-6; the small-layer p-free statement) |
-| R8 | Attempt a universal reachability theorem | in progress (E-011: the rescue census 16,589/16,589 pigeon-certifiable off-parameter at u ≤ 255; E-012: the u = 3 boundary span-at-3 ⟺ 2 ∣ x; E-013: the u = 7 layer classified — span 100% at p ≡ 3, 5, 6 (mod 7), with seven audited theorems; E-014: the failing-class census — span ⟺ 5 ∣ x' with x-divisor witnesses 780,103/780,103, hard core 414,261; joint audited 15 + 25 = 40; the 5-window formalization is next) |
+| R8 | Attempt a universal reachability theorem | in progress (E-011: the rescue census 16,589/16,589 pigeon-certifiable off-parameter at u ≤ 255; E-012: the u = 3 boundary span-at-3 ⟺ 2 ∣ x; E-013/E-014: the u = 7 layer classified - span ⟺ (r7 ∈ {3,5,6}) ∨ (5 ∣ x'), hard core 414,261; E-015: the spanner-depth census (depth-0 = 40.72%, the 5-window spans formalized conditionally) - joint audited 15 + 28 = 43; the depth-0 mechanism and the hard core are next) |
 | R9 | Independently validate and publish established results | open |
 
 ## Claim-discipline gates (applies to every phase)

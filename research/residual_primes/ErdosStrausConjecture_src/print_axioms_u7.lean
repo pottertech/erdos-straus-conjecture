@@ -7,3 +7,6 @@ import ErdosStrausConjecture.ResidualPrimes.U7Layer
 #print axioms ResidualPrimes.u7_pigeon_of_mod7_three
 #print axioms ResidualPrimes.u7_pigeon_of_mod7_five
 #print axioms ResidualPrimes.u7_pigeon_of_mod7_six
+#print axioms ResidualPrimes.u7_span_of_fivex_pm1
+#print axioms ResidualPrimes.u7_span_of_fivex_pm2
+#print axioms ResidualPrimes.u7_span_of_fivex_pm3
