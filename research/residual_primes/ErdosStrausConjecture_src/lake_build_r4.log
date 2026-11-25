@@ -1,0 +1,5 @@
+⚠ [1214/1214] Built ErdosStrausConjecture.ResidualPrimes.CollisionReachability (2.7s)
+warning: ErdosStrausConjecture/ResidualPrimes/CollisionReachability.lean:187:46: unused variable `hu`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Build completed successfully (1214 jobs).

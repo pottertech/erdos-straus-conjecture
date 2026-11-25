@@ -1,13 +1,22 @@
 # DATA_MANIFEST.md — Paper 2 (frozen research datasets, R1)
 
-Every inventoried file is a committed repo artifact, hash-pinned below.
-tests/verify_manifest.py recomputes these digests and fails on any
-mismatch; run it before any analysis reuses a dataset. Provenance and
+Every inventoried file is hash-pinned below. All but the three engine
+sources are committed repo artifacts; the engines
+(`sweep_exact/collision_margin_engine.c`,
+`research/residual_primes/analysis/mod5_separation_v02/collision_margin_engine_v02.c`,
+`research/residual_primes/analysis/layer_mod5_v03/collision_margin_engine_v03.c`)
+are pinned from the author's verified local copies and are reported
+MISSING by the verifier until the author commits them (the .gitignore
+exceptions for all three paths are in place). With the engines
+outstanding, verification stands at 22 of 25.
+tests/verify_manifest.py recomputes these digests and byte sizes and
+fails on any mismatch or unparsed row; run it before any analysis
+reuses a dataset. Provenance and
 re-production commands live in Paper 1 Appendix A and
 verification_nano/NANODA_RUN.md; the standing determination applies -
 these datasets carry no universal claims.
 
-## Verified computational datasets (29 artifacts)
+## Verified computational datasets (30 artifacts)
 
 | Path | SHA-256 | Bytes |
 | --- | --- | --- |
@@ -39,7 +48,7 @@ these datasets carry no universal claims.
 | (H24) subclass | 2,364,031 | h24_hard_cases fields across the sweep artifacts |
 | Mod-840 classes | 795,913 total | third_party_mod840_output.txt (independently re-executed, entry-for-entry) |
 | Mod-840 nonparametric-only cohort | 22,222 | third_party_mod840_output.txt RES rows (sum verified) |
-| Nonparametric JSONL records | 317,569 | nonparametric_1e7_1e9.jsonl (byte-verified at v1.6, zero failures) |
+| Nonparametric JSONL records | 317,569 | nonparametric_1e7_1e9.jsonl (byte-verified at v1.6, zero failures; despite the extension the file is a single top-level JSON array, not line-delimited, and its records key the prime as `n`, not `p`) |
 | Certificate-layer records (to 10^7) | 166,011 | layer4_certificates.jsonl (byte-verified at v1.6, zero failures) |
 | Pigeonhole-conclusive / delicate | 3,177,642 / 16,589 | analysis/collision_v01/full_run.txt (MISMATCH 0) |
 | Mod-5 nonparametric-only rates (E-002) | 4.09% / 1.50%, ratio 2.73x | analysis/mod5_separation_v02/full_run.txt |
@@ -57,9 +66,14 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u11_exact_v04/collision_margin_engine_v04.c` | `1c9d060e96d7d0a2944e34d70b27439cc74b98bd675e543f5faa03dbd1d2f8e2` | 19359 |
 | `research/residual_primes/analysis/u11_exact_v04/full_run.txt` | `ddaa23c93f9857cbee084ef1ab8068ecd25c2bdd68176017b11b7b9206c46408` | 5332 |
 
+| `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11.log` | `c4333958400fad4545c10bfe794c3d655f79dcc371033eb73dc3ca7d43e9c0a3` | 116 |
+
 ## Frozen-source statement
 
-The proof sources and engines for these datasets are frozen at the Paper-1
-lineage (paper-v1.8 proof sources; Paper 2 adds research engines beside
-them). Any change to a hash above is a data event and requires a CHANGELOG
-entry.
+The datasets above are frozen as hash-pinned here. The pinned bytes are
+identical at Paper-1 tags paper-v1.8 and paper-v1.12 (spot-verified
+2026-11-24 against the manifest digests), and Paper 1's current release
+line is paper-v1.12, as MANUSCRIPT.md and THEOREM_REGISTRY.md state;
+the hashes in this manifest, not a tag name, are the freeze. Paper 2
+adds research engines beside them. Any change to a hash above is a
+data event and requires a CHANGELOG entry.

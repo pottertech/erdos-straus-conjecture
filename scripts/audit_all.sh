@@ -231,7 +231,34 @@ fi
 echo ""
 
 # ============================================
-# 6. Summary
+# 6. Paper 2 manifest verification (hash + size, every pinned artifact)
+# ============================================
+echo "--- 6. PAPER 2 MANIFEST VERIFICATION ---"
+MANIFEST_STATUS="SKIP"
+if [ -f "research/residual_primes/DATA_MANIFEST.md" ] && [ -f "research/residual_primes/tests/verify_manifest.py" ]; then
+    if python3 research/residual_primes/tests/verify_manifest.py . 2>&1; then
+        MANIFEST_STATUS="PASS"
+        pass
+        echo "Manifest verification: PASS ✅"
+    else
+        MANIFEST_STATUS="FAIL"
+        fail
+        echo "Manifest verification: FAIL ❌"
+    fi
+else
+    if [ "$STRICT" = true ]; then
+        MANIFEST_STATUS="FAIL"
+        fail
+        echo "Manifest verification: FAIL ❌ (files not found — strict mode)"
+    else
+        skip
+        echo "Manifest verification: SKIP ⚠️ (files not found)"
+    fi
+fi
+echo ""
+
+# ============================================
+# 7. Summary
 # ============================================
 echo "================================================================"
 echo "  AUDIT SUMMARY"
@@ -241,6 +268,7 @@ echo "Certificate verification: $CERT_STATUS"
 echo "Dataset integrity:       $DATASET_STATUS"
 echo "sorry proof terms:       $SORRY_COUNT (documented: $EXPECTED_SORRY_COUNT)"
 echo "axioms/conjectures:      $AXIOM_COUNT (whitelist: $AXIOM_STATUS)"
+echo "Paper 2 manifest:        $MANIFEST_STATUS"
 echo "Pass: $PASS_COUNT  Fail: $FAIL_COUNT  Skip: $SKIP_COUNT"
 echo "Mode: $( [ "$STRICT" = true ] && echo 'STRICT' || echo 'convenience' )"
 echo ""
