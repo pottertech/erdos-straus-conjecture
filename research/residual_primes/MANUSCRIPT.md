@@ -46,7 +46,7 @@ problem is establishing the middle layer universally.
 (pigeonhole; `−D` is the image of `D` under a bijection of the unit group).
 Neither universal reachability nor a universal cardinality guarantee has been
 established. Empirically (Lane L1, Paper-1 release `7cb5360`), the pigeonhole
-condition already concludes **99.49%** of first-working-parameter collisions
+condition already concludes **99.48%** of first-working-parameter collisions
 over the verified sweep population (3,177,642 of 3,194,231); the **delicate
 class — collision present, `|D| ≤ φ(u)/2` — counts 16,589 primes (0.52%)** and
 is the principal structural object of this paper.
@@ -63,7 +63,7 @@ obstruction. Full registry: `THEOREM_REGISTRY.md`.
 
 The classical mod-840 reduction restricts the unresolved prime classes to
 `p ≡ 1, 121, 169, 289, 361, 529 (mod 840)`. Each class reduces mod 5
-(`1, 1, 1, 4, 4, 4` respectively) — the two groups {1, 121, 361} and
+(`1, 1, 4, 4, 1, 4` respectively) — the two groups {1, 121, 361} and
 {169, 289, 529} are separated by the prime's residue **mod 5** (`+1` vs `−1`),
 which is the structure investigated in §5.
 
@@ -75,7 +75,7 @@ which is the structure investigated in §5.
 | (H24) hard cases | 2,364,031 | sweep artifact `h24_hard_cases` |
 | Mod-840 hard cases | 795,913 | ninth-review engine, re-executed, byte-verified |
 | Mod-840 nonparametric-only cohort | 22,222 | the focused starting cohort |
-| Pigeonhole-conclusive (Lane L1) | 3,177,642 (99.49%) | `analysis/collision_v01/` |
+| Pigeonhole-conclusive (Lane L1) | 3,177,642 (99.48%) | `analysis/collision_v01/` |
 | Delicate class | 16,589 (0.52%) | fingerprinted sample committed |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
