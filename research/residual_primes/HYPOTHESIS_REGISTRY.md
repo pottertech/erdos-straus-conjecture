@@ -84,3 +84,21 @@ from pigeonhole-conclusive primes deterministically, H-2 upgrades.
 `|D_u(M)| > φ(u)/2`. Empirical support: 99.48% of first-working parameters
 already satisfy it. This is the L4/R6/R8 objective — a theorem candidate, not
 an established result; it does NOT enter the registry until proved.
+
+
+## H-4 — the u = 7 x-divisor witness shape (E-008 fingerprint)
+
+**Statement.** For the u = 7, p ≡ 3 (mod 5) class (788,565 swept records,
+[10^7, 10^9)): both witness kinds (parametric and the minimal
+nonparametric companion) live in the x-divisors - the p-factor is never
+required - with the 5-orbit mod 7 (5³ ≡ −1) letting the deeper-5 window
+supply the nonparametric companions (9.1% beyond M's 5-depth).
+
+**Status:** empirical fingerprint - open. Candidate for a conditional
+theorem (a uniform-shape construction) after R6.
+
+**Falsification criteria.** Any u = 7 g = 3 record whose minimal witnesses
+both require the p-factor, or with a parametric witness but no
+nonparametric companion (the onlypar-zero violated), or a deeper-5 window
+that fails to supply the companion where the flag predicts one. A single
+counterexample demotes the uniform-shape reading to per-record.

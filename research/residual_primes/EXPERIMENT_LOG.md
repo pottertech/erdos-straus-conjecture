@@ -207,3 +207,75 @@ are bounded by its data; universal claims never enter via this log.
   ErdosStrausConjecture_src/WindowForm.lean, hashes in DATA_MANIFEST (33/33).
 - **Status:** complete. Remaining R3-item: the p = 3 (mod 5) onlypar-zero
   probe (next session).
+
+## E-007 — R3: the p ≡ 3 (mod 5) onlypar-zero — layer structure resolved (2026-11-25)
+
+- **Source of numbers:** the already-verified v0.3/v0.4 run output
+  (analysis/layer_mod5_v03/full_run.txt; the XULAYER g = 3 rows). No new
+  sweep.
+- **Verified layer structure (p ≡ 3 (mod 5), 1,065,189 primes):** the
+  first-working layers number exactly TWO:
+  - **u = 7: 788,565 primes (74.0% of the class, all first-working u ≡ 2
+    (mod 5)), onlynon = 16,834 (2.13%)** — the class's ONLY
+    only-nonparametric records, all in this layer;
+  - **u = 3: 276,624 primes (26.0%), onlynon = 0 (0.00%)** — and with the
+    class-wide onlypar = 0 (E-002), every one of these is dual-witnessed
+    (both).
+  The class-wide onlypar = 0 is thus: no p ≡ 3 (mod 5) prime lacks a
+  nonparametric companion witness.
+- **Arithmetic (machine-checked):** `five_divides_x_u7`: at u = 7 with
+  p ≡ 3 (mod 5), 5 ∣ (p + 7)/4 identically (74% of the class class);
+  `five_pow_three_eq_neg_one_mod_seven`: 5³ ≡ −1 (mod 7), so in the
+  u = 7 window the 5-orbit reaches −1 at depth 3 — in pointed contrast
+  with the u = 11 layer, where the 5-window never reaches −1 and the
+  separation is a NONparametric gap. The two 5-adic mechanisms act in
+  opposite directions: at u = 7 the deep-5 window strengthens parametric
+  availability (0.00% onlynon at u = 7 for the complement residues), at
+  u = 11 it suppresses it (0/145,060, E-004).
+- **Verification:** lake env lean exit 0, lake build exit 0, 0 sorry; axiom
+  census: both new theorems on [propext, Quot.sound]; the joint audited set
+  is 26 + 2 = 28.
+- **Open follow-up (the lane-3 remainder):** the both-class fingerprint at
+  u = 7 g = 3 (the witness-shape probe, v0.5) - whether the nonparametric
+  companions at u = 7 admit a uniform shape the way the u = 11 class does.
+- **Artifacts:** the extended U11Exact.lean, axiom_audit_u11b.txt, hashes in
+  DATA_MANIFEST (35/35).
+- **Status:** complete for the layer structure; the fingerprint probe
+  queued.
+
+## E-008 — lane-3 remainder: the u = 7 g = 3 both-class fingerprint (2026-11-25)
+
+- **What ran:** engine v0.5 (v0.4 + the u = 7 g = 3 slice fingerprint: the
+  per-record 5 | x check; the M 5-depth; the minimal parametric- and
+  nonparametric-witness shapes in enumeration order: p-containment, the 5
+  valuation, and whether the non-witness rides beyond M's 5-depth), built
+  with sanitizers, self-test PASS; the sweep anchors reproduce exactly
+  (SWEEP 3194231 / PIGEON 3177642 / DELICATE 16589 / MISMATCH 0).
+- **Verified results over the u = 7, p ≡ 3 (mod 5) slice, 788,565 records:**
+  - 5 ∣ x: **788,565 / 788,565, zero mismatches in either direction**
+    (consistent with `five_divides_x_u7`).
+  - The M 5-depth: v_5(M) = 1 for 630,921 (80.0%), v_5(M) ≥ 2 for 157,644
+    (20.0%); never deeper.
+  - **The minimal parametric witness is p-free (a divisor of x alone) in
+    771,731 / 771,731 both-class records (100%)**; 90% of these carry
+    exactly one 5-power (v_5 = 1: 688,438), 10% are 5-free (77,837).
+  - **The minimal nonparametric witness is also p-free in 788,565 / 788,565
+    records (100%)** (both-class and only-non records alike); v_5 = 0:
+    93,767 (11.9%), v_5 = 1: 544,249 (69.1%), v_5 ≥ 2 in the remainder.
+  - The beyond-M-depth flag: **71,444 (9.1%) of the non-witnesses have
+    v_5(d) > v_5(M)** (the deeper-5 window makes d ∣ M² with d ∡ M);
+    the other 90.9% divide x to a depth within M's window yet fail the
+    divisor test for other-factor reasons.
+- **The mechanism reading (kept as a hypothesis, H-4):** at u = 7 with
+  5 ∣ x, both witness kinds live in the x-divisors - the p-factor is
+  never needed - and the 5÷-orbit mod 7 (5³ ≡ −1, machine-checked
+  `five_pow_three_eq_neg_one_mod_seven`) is what lets the deeper-5 window
+  produce the nonparametric companions. Falsification: any record whose
+  minimal witnesses both require the p-factor, or any u = 7 g = 3 record
+  with a parametric witness but no nonparametric companion, kills the
+  uniform-shape reading.
+- **Artifacts:** analysis/u7_g3_probe_v05/ (engine v0.5, run), hashes in
+  DATA_MANIFEST (37/37).
+- **Status:** complete for this slice. The two-layer p ≡ 3 (mod 5) picture
+  (E-007) and this fingerprint close the lane-3 questions posed at launch;
+  R6 (the delicate class) is next.
