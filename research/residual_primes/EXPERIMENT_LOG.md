@@ -576,6 +576,9 @@ behind H-6 and is the base R8 builds on.
   - **The fail records sit entirely in the mod-840 hard classes**
     (non840 = 0 in every class) and carry v₂(x') ≥ 2 (v2_1 = 0:
     65,981 + 69,993-style splits at v₂ = 2 and v₂ ≥ 3 per class).
+    **Correction (E-017):** the v₂ labels in this bullet are off by one:
+    the buckets are v₂ = 1 (65,981 records) and v₂ ≥ 2 (68,993, not
+    69,993); the fail records carry v₂(x') ≥ 1, not ≥ 2.
   - **The u = 7 hard core:** 414,261 records = 17.52% of the (H24) class,
     = 38,813 at |D_7| = 2 plus 375,448 at |D_7| = 3 - all pigeon-fails at
     u = 7, all already rescued at some admissible u' ≤ 255 by the E-011
