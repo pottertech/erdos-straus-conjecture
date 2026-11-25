@@ -117,6 +117,13 @@ Candidate lemmas and remaining proof obligations for
 New theorems land in `ErdosStrausConjecture/ResidualPrimes/` with the
 Paper-1 audit discipline (0 `sorry`, axiom census, CI gate).
 
+Established so far (R4/R5, `CollisionReachability.lean`; seven audited
+results, axiom trio only): the pigeonhole sufficiency
+`2|D_u(M)| > phi(u) ⟹ D ∩ (−D) ≠ ∅`, and the exact equivalences
+`D ∩ (−D) ≠ ∅ ⟺ ∃ d₁ d₂ ∣ M, (d₁ + d₂) % u = 0 ⟺ −1 ∈ D·D⁻¹`. The review's
+boxed criterion is machine-checked; the factorization-window form
+(`∏ q^[−e, e]` = D·D⁻¹) remains the R4-lane extension.
+
 ## 11. Conclusion
 
 Established results, conjectures, and open questions grow with the

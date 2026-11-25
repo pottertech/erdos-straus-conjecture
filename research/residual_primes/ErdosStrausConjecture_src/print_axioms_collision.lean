@@ -1,0 +1,9 @@
+import ErdosStrausConjecture.ResidualPrimes.CollisionReachability
+
+#print axioms ResidualPrimes.pigeonhole_reachability
+#print axioms ResidualPrimes.card_le_totient_of_all_isUnit
+#print axioms ResidualPrimes.isUnit_mem_union
+#print axioms ResidualPrimes.card_negResidues_eq
+#print axioms ResidualPrimes.hasOppositePair_iff_collisionPair
+#print axioms ResidualPrimes.mem_centered_neg_one_iff_collisionPair
+#print axioms ResidualPrimes.hasOppositePair_iff_centered_neg_one

@@ -38,11 +38,27 @@ remain in context modules, census-enforced; not used by the principal results.)
 These enter the Paper-2 audited set upon R4/R5 completion (raising the joint
 audited count to 17); Paper 1's registry stays frozen at 15.
 
-## 3. Established in Paper 2 (empty at initiation)
+## 3. Established in Paper 2 (R4/R5, module `ResidualPrimes.CollisionReachability`)
 
-None yet. Entries land with: exact theorem statement, Lean module and proof,
-axiom audit output, and the experiment that motivated them
-(`EXPERIMENT_LOG.md`).
+Machine-checked 2026-11-24; compile exit 0; axiom census (all seven): exactly
+`[propext, Classical.choice, Quot.sound]`; no project axioms; 0 `sorry`.
+Axiom audit artifact: `ErdosStrausConjecture_src/axiom_audit_collision.txt`
+(hash-pinned in DATA_MANIFEST).
+
+| Theorem | Statement | Registry lane |
+| --- | --- | --- |
+| `ResidualPrimes.card_le_totient_of_all_isUnit` | any finset of units of `ZMod u` has at most `phi(u)` members (the review's pigeonhole lemma) | support |
+| `ResidualPrimes.isUnit_mem_union` | members of the union `D ∪ (−D)` are units under `gcd(M, u) = 1` | support |
+| `ResidualPrimes.card_negResidues_eq` | `−D` has the same cardinality as `D` | support |
+| `ResidualPrimes.pigeonhole_reachability` | **2·|D_u(M)| > phi(u) ⟹ D ∩ (−D) ≠ ∅** (R5 target) | principal |
+| `ResidualPrimes.hasOppositePair_iff_collisionPair` | the collision condition ⟺ the pair condition `∃ d₁ d₂ ∣ M, (d₁ + d₂) % u = 0` | principal |
+| `ResidualPrimes.mem_centered_neg_one_iff_collisionPair` | **−1 ∈ D·D⁻¹ ⟺** the collision-pair condition (R4 target) | principal |
+| `ResidualPrimes.hasOppositePair_iff_centered_neg_one` | the review's boxed criterion ⟺ membership of −1 in the centered product set | principal |
+
+Scope note (carried from the module docstring): the factorization-window
+characterization of the centered product set (`∏ q^−e..e`-products over
+`M`'s factorization equaling `D·D⁻¹`) is the R4-lane extension and is NOT
+claimed. The joint audited set stands at 15 (Paper 1, frozen) + 7 = 22.
 
 ## 4. Rejected / superseded
 

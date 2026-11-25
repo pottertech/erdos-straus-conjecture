@@ -1,0 +1,7 @@
+'ResidualPrimes.pigeonhole_reachability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.card_le_totient_of_all_isUnit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.isUnit_mem_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.card_negResidues_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.hasOppositePair_iff_collisionPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.mem_centered_neg_one_iff_collisionPair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.hasOppositePair_iff_centered_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]

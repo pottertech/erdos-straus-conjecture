@@ -7,7 +7,7 @@ re-production commands live in Paper 1 Appendix A and
 verification_nano/NANODA_RUN.md; the standing determination applies -
 these datasets carry no universal claims.
 
-## Verified computational datasets (19 artifacts)
+## Verified computational datasets (22 artifacts)
 
 | Path | SHA-256 | Bytes |
 | --- | --- | --- |
@@ -43,6 +43,10 @@ these datasets carry no universal claims.
 | Certificate-layer records (to 10^7) | 166,011 | layer4_certificates.jsonl (byte-verified at v1.6, zero failures) |
 | Pigeonhole-conclusive / delicate | 3,177,642 / 16,589 | analysis/collision_v01/full_run.txt (MISMATCH 0) |
 | Mod-5 nonparametric-only rates (E-002) | 4.09% / 1.50%, ratio 2.73x | analysis/mod5_separation_v02/full_run.txt |
+
+| `ErdosStrausConjecture/ResidualPrimes/CollisionReachability.lean` | `e6b127aef7c78504b03fd4aa5e9c1cca4886704195cef796d52f1243c2790741` | 9564 |
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_collision.txt` | `95583aad2f69fa79131e9e6bb7a4df04675f5241ddac698ad388365cb742cee6` | 733 |
+| `research/residual_primes/ErdosStrausConjecture_src/lake_build_r4.log` | `f625222c55621e422d1d682b815232cc97edc5cb1b23430648ff3620129b3208` | 314 |
 
 ## Frozen-source statement
 
