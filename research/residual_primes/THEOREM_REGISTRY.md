@@ -144,8 +144,10 @@ Machine-checked 2026-11-25; compile exit 0 (8477 jobs); axiom census (all
 five): exactly `[propext, Classical.choice, Quot.sound]`; no project axioms;
 0 `sorry`. Audit artifact: `ErdosStrausConjecture_src/axiom_audit_u3.txt`
 (build log `lake_build_u3.log`), hash-pinned in DATA_MANIFEST. Empirical
-counterpart: E-011 (the sweep-wide census, engine v0.8) — the boundary
-statement the run verified at population scale.
+counterpart: E-011 (the sweep-wide census, engine v0.8) — the
+population-scale picture the run verified (the constructive even-x
+direction is `u3_span_of_even_x`; the composed iff's even side is
+vacuous under the hard-case predicate, which rules out 2 ∣ x).
 
 | Theorem | Statement | Registry lane |
 | --- | --- | --- |
@@ -153,7 +155,7 @@ statement the run verified at population scale.
 | `ResidualPrimes.u3_span_of_even_x` | 4·x = n + 3 ∧ 2 ∣ x ∧ 3 ∤ x ⟹ the u = 3 span criterion holds at `T = 2` | principal |
 | `ResidualPrimes.isErdosStraus_of_even_x` | the same hypotheses yield an explicit positive solution (the sharpened, primality-free F(p) = 3 family) | principal |
 | `ResidualPrimes.u3_span_fails_of_odd_x` | under the hard-case predicate (x's prime divisors ≡ 1 (mod 3)), x odd ⟹ no u = 3 span candidate exists | principal |
-| `ResidualPrimes.u3_span_iff_even_of_hard` | the boundary: u = 3 span ⟺ 2 ∣ x (under the hard-case predicate) | principal |
+| `ResidualPrimes.u3_span_iff_even_of_hard` | the composed iff under the hard-case predicate: u = 3 span ⟺ 2 ∣ x, where the predicate rules out 2 ∣ x, so the criterion never holds under it | principal |
 
 ## 5. Established in Paper 2 (R8 piece 4, module `ResidualPrimes.U7Layer`)
 

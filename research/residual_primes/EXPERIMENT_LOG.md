@@ -476,8 +476,11 @@ behind H-6 and is the base R8 builds on.
 - **Verification:** compile exit 0 (8,477 jobs); axiom census: all five
   exactly `[propext, Classical.choice, Quot.sound]`; 0 `sorry`; audit
   artifact `axiom_audit_u3.txt` (build log `lake_build_u3.log`), both
-  hash-pinned in DATA_MANIFEST (50/50 verifier rows).
-- **Empirical agreement (E-011):** the boundary matches the engine v0.8
+  hash-pinned in DATA_MANIFEST (50/50 verifier rows). (2026-11-25 note:
+  the pinned build log predates a comment-only header edit to
+  U3Boundary.lean; its warning line references (:78) are :91 in the
+  current file. No proof content changed.)
+- **Empirical agreement (E-011):** the u = 3 picture matches the engine v0.8
   run at population scale — the sub-fw check verified the
   span-failing/no-collision equivalence at u = 3 for every (H24) record
   (the u = 3 sites of the 3,042,449 sub-fw sites, zero violations), and
