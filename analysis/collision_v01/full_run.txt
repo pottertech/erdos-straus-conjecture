@@ -1,0 +1,30 @@
+SWEEP 3194231 H24 2364031 PIGEON 3177642 DELICATE 16589 MISMATCH 0
+BY840 1 all=129979 pigeon=126678 delicate=3301 rate_del=253
+BY840 121 all=129963 pigeon=127436 delicate=2527 rate_del=194
+BY840 169 all=129675 pigeon=126893 delicate=2782 rate_del=214
+BY840 289 all=130073 pigeon=128818 delicate=1255 rate_del=96
+BY840 361 all=138184 pigeon=134586 delicate=3598 rate_del=260
+BY840 529 all=138039 pigeon=134913 delicate=3126 rate_del=226
+BYU 3 all=830200 pigeon=830200 delicate=0
+BYU 7 all=1949770 pigeon=1949770 delicate=0
+BYU 11 all=279515 pigeon=273440 delicate=6075
+BYU 15 all=59759 pigeon=59759 delicate=0
+BYU 19 all=42804 pigeon=35370 delicate=7434
+BYU 23 all=21626 pigeon=20351 delicate=1275
+BYU 27 all=3818 pigeon=2820 delicate=998
+BYU 31 all=4668 pigeon=4263 delicate=405
+BYU 35 all=691 pigeon=628 delicate=63
+BYU 39 all=733 pigeon=649 delicate=84
+BYU 43 all=192 pigeon=43 delicate=149
+BYU 47 all=303 pigeon=258 delicate=45
+BYU 51 all=36 pigeon=14 delicate=22
+BYU 55 all=49 pigeon=39 delicate=10
+BYU 59 all=44 pigeon=23 delicate=21
+BYU 63 all=10 pigeon=9 delicate=1
+BYU 67 all=2 pigeon=0 delicate=2
+BYU 71 all=6 pigeon=5 delicate=1
+BYU 75 all=2 pigeon=1 delicate=1
+BYU 79 all=1 pigeon=0 delicate=1
+BYU 83 all=2 pigeon=0 delicate=2
+MARGIN 16589 0 905847 0 188849 0 1744460 0 78152 0 217834 0 6340 0 3521 0 4205 0 11714 0 2149 0 11633 0 698 0 204 0 258 0 1626 0 14 0 9 0 15 0 18 0 8 0 12 0 8 0 63 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 2
+DELICATE_TOTAL 16589 (sample capped at 5000 in delicate_sample.jsonl)
