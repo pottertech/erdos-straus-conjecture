@@ -725,6 +725,59 @@ behind H-6 and is the base R8 builds on.
   composition-level iff for the generator residues (H-7's formal
   direction); R9 (independent validation) thereafter.
 
+## E-018 - R8 piece 9: the composition-level iff for the failing classes (2026-11-25)
+
+- **What ran:** engine v0.14 (v0.13 + the composition-level iff census:
+  for every (H24) record at `p = 1, 2, 4 (mod 7)` with `5 -| x'` the test
+  "x' has an odd prime divisor with residue 3, 5, or 6 (mod 7)" against
+  the actual span/fail split; any disagreement is a soft mismatch gate),
+  sanitizer-built; the selftest artifact stays byte-identical to
+  v0.6-v0.13 (same SHA-256 `934ec74d...`) and v0.13's entire 352-line run
+  output reappears byte-identically inside the v0.14 run (356 lines,
+  0 missing).
+- **The probe falsification en route:** the v0.14 probe first tested the
+  restrictor `{3, 5}` and produced 1,036 mismatches - the span-without-
+  condition records (480 / 310 / 246) exposed the missing residue: the
+  primes `q = 6 (mod 7)` are order 2 in `(Z/7)*`, but `6 * {1, 2, 4} =
+  {6, 5, 3}` escapes the 2-orbit closure, and together with {3, 5}
+  products closes the group. The condition was widened to
+  `q = 3, 5, 6 (mod 7)` (everything outside {1, 2, 4}) and the re-run is
+  0-mismatch.
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the iff domain: the (H24) failing-class records with
+  5 -| x': 1,194,364 - 389,463 + 389,952 + 414,949, all classified.
+- **Verified results (the full-scale if census):**
+  - **The composition-level iff for the failing classes holds with ZERO
+    mismatches across all 1,194,364 census-domain records:** the u = 7
+    span holds exactly when x' has an odd prime divisor congruent to 3,
+    5, or 6 (mod 7) (span_cond = span exactly: 124,680 / 124,508 /
+    132,464; span_notcond = 0), and the fail records never carry such a
+    prime (fail_cond = 0; fail_notcond = 134,974 / 135,528 / 143,759 =
+    the full fail counts).
+  - **The factorization-side reading:** the fail records' x' = 2^a
+    times an odd part every odd prime divisor of which is 1, 2, or 4
+    (mod 7) - i.e. all odd prime divisors inside the 2-orbit closure;
+    the span records' x' carries at least one odd prime outside the
+    closure (H-7's formal-direction condition).
+- **Mechanism note (the closure algebra):** products of {1, 2, 4}-
+  residues stay in {1, 2, 4} (the closure), so a 5-free record whose
+  odd primes are all in the closure has its whole M'-divisor-residue
+  window inside {1, 2, 4} - and `-M` is 5, 6, 3 respectively for
+  p = 1, 2, 4 (mod 7) - never reachable; the span criterion cannot fire.
+  Conversely an outside-closure odd prime q (residue 3, 5, or 6)
+  produces, with the 2-window divisors, four distinct divisor-residues
+  {1, x', q, 2q} in every class (with the residue 6 the q x 2-window
+  products are 6, 5, 3), giving 2|D| > phi(7), i.e. the audited
+  pigeonhole route to the span.
+- **Artifacts:** analysis/u7_iff_v014/ (engine v0.14, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (77/77
+  verifier rows).
+- **Status:** complete for the census. The formalization of the two
+  directions (the orbit-closure fail route and the four-residue pigeon
+  span route) in U7Layer.lean is the next R8 piece; R9 (independent
+  validation) thereafter.
+
+
 
 
 

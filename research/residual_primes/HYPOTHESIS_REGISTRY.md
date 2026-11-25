@@ -164,10 +164,13 @@ the record SPANS iff an order-6 generator residue (3 or 5) of
 generators present for every depth-0 spanner of residues 2 and 4,
 124,508 + 132,464 records).
 
-**Status:** empirical fingerprint - open as a mechanism claim.
-0-mismatch: the 414,261 fail records mask-set-classified (three fixed
-shapes); the generator census 124,508 + 132,464 span records with both
-generators present (0 misses).
+**Status:** empirical fingerprint with the composition-level iff
+CENSUS-VERIFIED (E-018): the record-level condition "x' has an odd prime
+divisor with residue 3, 5, or 6 (mod 7)" matches the span/fail split with
+ZERO mismatches over all 1,194,364 domain records (span_cond = span
+exactly: 124,680 / 124,508 / 132,464; fail_cond = 0). Open: the
+formalization of the two directions in U7Layer.lean (the orbit-closure
+fail route, the four-residue pigeon span route).
 
 **Supporting data.** `analysis/u7_gen_v013/full_run.txt` (U7D6GEN /
 U7FAILSET / U7FAILSETVM rows), hashes pinned in DATA_MANIFEST.

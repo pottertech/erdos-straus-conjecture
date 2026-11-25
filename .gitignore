@@ -24,6 +24,9 @@ build/
 !research/residual_primes/analysis/u7_span_depth_v011/collision_margin_engine_v011.c
 !research/residual_primes/analysis/u7_depth0_v012/collision_margin_engine_v012.c
 !research/residual_primes/analysis/u7_gen_v013/collision_margin_engine_v013.c
+!research/residual_primes/analysis/u7_iff_v014/collision_margin_engine_v014.c
+research/residual_primes/analysis/u7_iff_v014/cme_v014_san
+research/residual_primes/analysis/u7_iff_v014/delicate_rescue.jsonl
 research/residual_primes/analysis/u7_gen_v013/cme_v013_san
 research/residual_primes/analysis/u7_gen_v013/delicate_rescue.jsonl
 research/residual_primes/analysis/u7_depth0_v012/cme_v012_san
