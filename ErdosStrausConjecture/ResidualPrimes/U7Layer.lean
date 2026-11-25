@@ -342,4 +342,294 @@ theorem u7_span_of_fivex_pm3 (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
       omega
     rw [Nat.add_mod, Nat.mul_mod, h4, hx7]
 
+/-- **The 2-orbit closure.** A positive integer whose prime divisors are
+`1`, `2`, or `4 (mod 7)` is itself `1`, `2`, or `4 (mod 7)` - the residue
+set `{1, 2, 4}` is multiplicatively closed in `(Z/7)*`. -/
+theorem prod_in_orbit_clo_two (T : ℕ) (hT0 : 0 < T)
+    (hall : ∀ q : ℕ, q.Prime → q ∣ T →
+      q % 7 = 1 ∨ q % 7 = 2 ∨ q % 7 = 4) :
+    T % 7 = 1 ∨ T % 7 = 2 ∨ T % 7 = 4 := by
+  have key : ∀ t : ℕ, t ≤ T → 0 < t →
+      (∀ q : ℕ, q.Prime → q ∣ t →
+        q % 7 = 1 ∨ q % 7 = 2 ∨ q % 7 = 4) →
+      t % 7 = 1 ∨ t % 7 = 2 ∨ t % 7 = 4 := by
+    intro t
+    induction t using Nat.strongRecOn with | ind t ih
+    · intro _hle ht0 hall'
+      by_cases h1 : t = 1
+      · subst h1; exact Or.inl rfl
+      · have htgt1 : 1 < t := by omega
+        by_cases hpr : Nat.Prime t
+        · exact hall' t hpr (dvd_refl t)
+        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
+          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
+          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
+          have hqlt : q < t := Nat.lt_of_le_of_ne hlq hqne
+          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
+          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
+          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
+          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
+          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
+              r % 7 = 1 ∨ r % 7 = 2 ∨ r % 7 = 4 :=
+            fun r hr hrd => hall' r hr (hrd.trans htdq)
+          have hrec := ih (t / q) hlt hlqT htq0 hall2
+          have hqres : q % 7 = 1 ∨ q % 7 = 2 ∨ q % 7 = 4 := hall' q hqp hqt
+          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
+          rw [hdiv]
+          rcases hrec with hr | hr | hr
+          · rcases hqres with k | k | k
+            · rw [Nat.mul_mod, hr, k]; norm_num
+            · rw [Nat.mul_mod, hr, k]; norm_num
+            · rw [Nat.mul_mod, hr, k]; norm_num
+          · rcases hqres with k | k | k
+            · rw [Nat.mul_mod, hr, k]; norm_num
+            · rw [Nat.mul_mod, hr, k]; norm_num
+            · rw [Nat.mul_mod, hr, k]; norm_num
+          · rcases hqres with k | k | k
+            · rw [Nat.mul_mod, hr, k]; norm_num
+            · rw [Nat.mul_mod, hr, k]; norm_num
+            · rw [Nat.mul_mod, hr, k]; norm_num
+  exact key T (Nat.le_refl T) hT0 hall
+
+/-- **The u = 7 span fails when every odd prime divisor of `x` sits in the
+2-orbit closure** (E-018's composition-level ⟺, the fail direction).
+For `4·x = n + 7`, `n` prime with `n ≡ 1, 2, 4 (mod 7)`, and
+every prime divisor of `x` congruent to `1`, `2`, or `4 (mod 7)`, every
+divisor of `(n·x)^2` is `1`, `2`, or `4 (mod 7)`, while
+`-n·x ≡ 5, 6, 3 (mod 7)` respectively - never reachable, so no
+span candidate exists. -/
+theorem u7_span_fails_of_orbit_primes (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
+    (hu4 : 4 * x = n + 7) (hnp : n.Prime)
+    (hn : n % 7 = 1 ∨ n % 7 = 2 ∨ n % 7 = 4)
+    (hxp : ∀ q : ℕ, q.Prime → q ∣ x →
+      q % 7 = 1 ∨ q % 7 = 2 ∨ q % 7 = 4) :
+    ¬ u7Span n x := by
+  have hMres : (n * x) % 7 = 1 ∨ (n * x) % 7 = 2 ∨ (n * x) % 7 = 4 := by
+    rcases hn with e1 | e2 | e4
+    · have hx7 : x % 7 = 2 := by
+        have hex : (4 * x) % 7 = 1 := by rw [hu4, Nat.add_mod_right, e1]
+        omega
+      rw [Nat.mul_mod, e1, hx7]; norm_num
+    · have hx7 : x % 7 = 4 := by
+        have hex : (4 * x) % 7 = 2 := by rw [hu4, Nat.add_mod_right, e2]
+        omega
+      rw [Nat.mul_mod, e2, hx7]; norm_num
+    · have hx7 : x % 7 = 1 := by
+        have hex : (4 * x) % 7 = 4 := by rw [hu4, Nat.add_mod_right, e4]
+        omega
+      rw [Nat.mul_mod, e4, hx7]; norm_num
+  rintro ⟨T, hT, hcong⟩
+  have hT0 : 0 < T := by
+    by_contra hTz
+    have hTe : T = 0 := Nat.le_zero.mp (Nat.not_lt.mp hTz)
+    rw [hTe, Nat.zero_add] at hcong
+    omega
+  have hallT : ∀ q : ℕ, q.Prime → q ∣ T →
+      q % 7 = 1 ∨ q % 7 = 2 ∨ q % 7 = 4 := by
+    intro q hqp hqT
+    have hqM2 : q ∣ (n * x) ^ 2 := hqT.trans hT
+    have hqM : q ∣ n * x := hqp.dvd_of_dvd_pow hqM2
+    rcases (Nat.Prime.dvd_mul hqp).mp hqM with hqn | hqx
+    · have hqeq : q = n :=
+        Nat.prime_eq_prime_of_dvd_pow hqp hnp (by rw [pow_one]; exact hqn)
+      rw [hqeq]
+      exact hn
+    · exact hxp q hqp hqx
+  have hTres : T % 7 = 1 ∨ T % 7 = 2 ∨ T % 7 = 4 :=
+    prod_in_orbit_clo_two T hT0 hallT
+  rcases hTres with t1 | t2 | t4 <;> rcases hMres with m1 | m2 | m4 <;> omega
+
+/-- **The u = 7 span when `x` carries an outside-closure odd prime**
+(E-018's composition-level ⟺, the span direction). For `4·x =
+n + 7` with `2 ∣ x` and an odd prime `q ∣ x` in residue
+`3`, `5`, or `6 (mod 7)`, the divisor-residues
+`{1, x, q, 2·q}` are four distinct elements of `D_7(n·x)`
+(the residues `{1, 2n, q, 2q}` with `2q ∉ {1, 2n}` for
+`q ∉ {1, 2, 4}`), so `2|D| > φ(7)` and the audited pigeonhole
+theorem yields the collision. -/
+theorem u7_pigeon_of_orbit_breaker (n x : ℕ) (hn0 : 0 < n) (hx0 : 0 < x)
+    (hu4 : 4 * x = n + 7) (hcopr : Nat.Coprime (n * x) 7) (hx2 : 2 ∣ x)
+    (hn : n % 7 = 1 ∨ n % 7 = 2 ∨ n % 7 = 4)
+    (hq : ∃ q : ℕ, q.Prime ∧ q ∣ x ∧
+      (q % 7 = 3 ∨ q % 7 = 5 ∨ q % 7 = 6)) :
+    hasOppositePair 7 (n * x) := by
+  obtain ⟨q, hqp, hqx, hqr⟩ := hq
+  have hM0 : 0 < n * x := Nat.mul_pos hn0 hx0
+  have h2q : 2 * q ∣ x := by
+    have hq2 : q ≠ 2 := by
+      intro heq
+      rw [heq] at hqr
+      omega
+    have hd2q : ¬(2 ∣ q) := by
+      intro hd
+      rcases Nat.Prime.eq_one_or_self_of_dvd hqp 2 hd with h21 | h2q <;> omega
+    have hc2q : Nat.Coprime 2 q :=
+      (Nat.Prime.coprime_iff_not_dvd Nat.prime_two).mpr hd2q
+    exact Nat.Coprime.mul_dvd_of_dvd_of_dvd hc2q hx2 hqx
+  have h2qx : 2 * q ∣ n * x := dvd_mul_of_dvd_right h2q n
+  have hqxM : q ∣ n * x := dvd_mul_of_dvd_right hqx n
+  -- E-018's span direction: the four divisor-residues {n, x, q, 2*q}
+  -- (all residue pairs distinct for q ∉ {1, 2, 4} (mod 7)) close the
+  -- pigeon: 2·4 > φ(7) = 6.
+  have hcard : 4 ≤ (divResidues 7 (n * x)).card := by
+    have hmn : ((n : ℕ) : ZMod 7) ∈ divResidues 7 (n * x) :=
+      mem_divResidues 7 _ n ⟨x, by ring⟩ hM0
+    have hmx : ((x : ℕ) : ZMod 7) ∈ divResidues 7 (n * x) :=
+      mem_divResidues 7 _ x ⟨n, by ring⟩ hM0
+    have hmq : ((q : ℕ) : ZMod 7) ∈ divResidues 7 (n * x) :=
+      mem_divResidues 7 _ q hqxM hM0
+    have hm2 : ((2 * q : ℕ) : ZMod 7) ∈ divResidues 7 (n * x) :=
+      mem_divResidues 7 _ (2 * q) h2qx hM0
+    rcases hn with e | e | e
+    · have hx7 : x % 7 = 2 := by
+        have hex : (4 * x) % 7 = 1 := by rw [hu4, Nat.add_mod_right, e]
+        omega
+      have dn1 : ((n : ℕ) : ZMod 7) ≠ ((x : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n x 7 (by omega)
+      have dq1 : ((n : ℕ) : ZMod 7) ≠ ((q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n q 7 (by omega)
+      have dq2 : ((n : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n (2 * q) 7 (by omega)
+      have dx1 : ((x : ℕ) : ZMod 7) ≠ ((q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne x q 7 (by omega)
+      have dx2 : ((x : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne x (2 * q) 7 (by omega)
+      have d21 : ((q : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne q (2 * q) 7 (by omega)
+      have hdn : ((n : ℕ) : ZMod 7) ∉ (insert ((x : ℕ) : ZMod 7)
+          (insert ((q : ℕ) : ZMod 7) ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7)))) := by
+        intro hc
+        rcases Finset.mem_insert.mp hc with heq | hc2
+        · exact dn1 heq
+        rcases Finset.mem_insert.mp hc2 with heq2 | hc3
+        · exact dq1 heq2
+        · exact dq2 (Finset.mem_singleton.mp hc3)
+      have hdx : ((x : ℕ) : ZMod 7) ∉ (insert ((q : ℕ) : ZMod 7)
+          ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7))) := by
+        intro hc
+        rcases Finset.mem_insert.mp hc with heq | hc2
+        · exact dx1 heq
+        · exact dx2 (Finset.mem_singleton.mp hc2)
+      have hdq : ((q : ℕ) : ZMod 7) ∉ ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7)) := fun hc =>
+        d21 (Finset.mem_singleton.mp hc)
+      have h4 : (insert ((n : ℕ) : ZMod 7)
+          (insert ((x : ℕ) : ZMod 7)
+            (insert ((q : ℕ) : ZMod 7) ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7))))).card = 4 := by
+        rw [Finset.card_insert_of_notMem hdn, Finset.card_insert_of_notMem hdx,
+            Finset.card_insert_of_notMem hdq, Finset.card_singleton]
+      have hsub : (insert ((n : ℕ) : ZMod 7)
+          (insert ((x : ℕ) : ZMod 7)
+            (insert ((q : ℕ) : ZMod 7) {((2 * q : ℕ) : ZMod 7)}))) ⊆
+          divResidues 7 (n * x) := by
+        intro y hy
+        rcases Finset.mem_insert.mp hy with h1 | hy
+        · rw [h1]; exact hmn
+        rcases Finset.mem_insert.mp hy with h2 | hy
+        · rw [h2]; exact hmx
+        rcases Finset.mem_insert.mp hy with h3 | h4m
+        · rw [h3]; exact hmq
+        rw [Finset.mem_singleton.mp h4m]; exact hm2
+      exact h4.symm.le.trans (Finset.card_le_card hsub)
+    · have hx7 : x % 7 = 4 := by
+        have hex : (4 * x) % 7 = 2 := by rw [hu4, Nat.add_mod_right, e]
+        omega
+      have dn1 : ((n : ℕ) : ZMod 7) ≠ ((x : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n x 7 (by omega)
+      have dq1 : ((n : ℕ) : ZMod 7) ≠ ((q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n q 7 (by omega)
+      have dq2 : ((n : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n (2 * q) 7 (by omega)
+      have dx1 : ((x : ℕ) : ZMod 7) ≠ ((q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne x q 7 (by omega)
+      have dx2 : ((x : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne x (2 * q) 7 (by omega)
+      have d21 : ((q : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne q (2 * q) 7 (by omega)
+      have hdn : ((n : ℕ) : ZMod 7) ∉ (insert ((x : ℕ) : ZMod 7)
+          (insert ((q : ℕ) : ZMod 7) ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7)))) := by
+        intro hc
+        rcases Finset.mem_insert.mp hc with heq | hc2
+        · exact dn1 heq
+        rcases Finset.mem_insert.mp hc2 with heq2 | hc3
+        · exact dq1 heq2
+        · exact dq2 (Finset.mem_singleton.mp hc3)
+      have hdx : ((x : ℕ) : ZMod 7) ∉ (insert ((q : ℕ) : ZMod 7)
+          ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7))) := by
+        intro hc
+        rcases Finset.mem_insert.mp hc with heq | hc2
+        · exact dx1 heq
+        · exact dx2 (Finset.mem_singleton.mp hc2)
+      have hdq : ((q : ℕ) : ZMod 7) ∉ ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7)) := fun hc =>
+        d21 (Finset.mem_singleton.mp hc)
+      have h4 : (insert ((n : ℕ) : ZMod 7)
+          (insert ((x : ℕ) : ZMod 7)
+            (insert ((q : ℕ) : ZMod 7) ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7))))).card = 4 := by
+        rw [Finset.card_insert_of_notMem hdn, Finset.card_insert_of_notMem hdx,
+            Finset.card_insert_of_notMem hdq, Finset.card_singleton]
+      have hsub : (insert ((n : ℕ) : ZMod 7)
+          (insert ((x : ℕ) : ZMod 7)
+            (insert ((q : ℕ) : ZMod 7) {((2 * q : ℕ) : ZMod 7)}))) ⊆
+          divResidues 7 (n * x) := by
+        intro y hy
+        rcases Finset.mem_insert.mp hy with h1 | hy
+        · rw [h1]; exact hmn
+        rcases Finset.mem_insert.mp hy with h2 | hy
+        · rw [h2]; exact hmx
+        rcases Finset.mem_insert.mp hy with h3 | h4m
+        · rw [h3]; exact hmq
+        rw [Finset.mem_singleton.mp h4m]; exact hm2
+      exact h4.symm.le.trans (Finset.card_le_card hsub)
+    · have hx7 : x % 7 = 1 := by
+        have hex : (4 * x) % 7 = 4 := by rw [hu4, Nat.add_mod_right, e]
+        omega
+      have dn1 : ((n : ℕ) : ZMod 7) ≠ ((x : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n x 7 (by omega)
+      have dq1 : ((n : ℕ) : ZMod 7) ≠ ((q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n q 7 (by omega)
+      have dq2 : ((n : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne n (2 * q) 7 (by omega)
+      have dx1 : ((x : ℕ) : ZMod 7) ≠ ((q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne x q 7 (by omega)
+      have dx2 : ((x : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne x (2 * q) 7 (by omega)
+      have d21 : ((q : ℕ) : ZMod 7) ≠ ((2 * q : ℕ) : ZMod 7) :=
+        cast_ne_of_mod_ne q (2 * q) 7 (by omega)
+      have hdn : ((n : ℕ) : ZMod 7) ∉ (insert ((x : ℕ) : ZMod 7)
+          (insert ((q : ℕ) : ZMod 7) ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7)))) := by
+        intro hc
+        rcases Finset.mem_insert.mp hc with heq | hc2
+        · exact dn1 heq
+        rcases Finset.mem_insert.mp hc2 with heq2 | hc3
+        · exact dq1 heq2
+        · exact dq2 (Finset.mem_singleton.mp hc3)
+      have hdx : ((x : ℕ) : ZMod 7) ∉ (insert ((q : ℕ) : ZMod 7)
+          ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7))) := by
+        intro hc
+        rcases Finset.mem_insert.mp hc with heq | hc2
+        · exact dx1 heq
+        · exact dx2 (Finset.mem_singleton.mp hc2)
+      have hdq : ((q : ℕ) : ZMod 7) ∉ ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7)) := fun hc =>
+        d21 (Finset.mem_singleton.mp hc)
+      have h4 : (insert ((n : ℕ) : ZMod 7)
+          (insert ((x : ℕ) : ZMod 7)
+            (insert ((q : ℕ) : ZMod 7) ({((2 * q : ℕ) : ZMod 7)} : Finset (ZMod 7))))).card = 4 := by
+        rw [Finset.card_insert_of_notMem hdn, Finset.card_insert_of_notMem hdx,
+            Finset.card_insert_of_notMem hdq, Finset.card_singleton]
+      have hsub : (insert ((n : ℕ) : ZMod 7)
+          (insert ((x : ℕ) : ZMod 7)
+            (insert ((q : ℕ) : ZMod 7) {((2 * q : ℕ) : ZMod 7)}))) ⊆
+          divResidues 7 (n * x) := by
+        intro y hy
+        rcases Finset.mem_insert.mp hy with h1 | hy
+        · rw [h1]; exact hmn
+        rcases Finset.mem_insert.mp hy with h2 | hy
+        · rw [h2]; exact hmx
+        rcases Finset.mem_insert.mp hy with h3 | h4m
+        · rw [h3]; exact hmq
+        rw [Finset.mem_singleton.mp h4m]; exact hm2
+      exact h4.symm.le.trans (Finset.card_le_card hsub)
+  exact pigeonhole_reachability 7 (n * x) (by norm_num) hcopr
+    (by rw [Nat.totient_prime Nat.prime_seven]; omega)
+
 end ResidualPrimes
+
