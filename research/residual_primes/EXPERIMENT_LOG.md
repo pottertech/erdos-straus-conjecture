@@ -350,6 +350,29 @@ are bounded by its data; universal claims never enter via this log.
   Falsification: a small-layer record (u ≤ 7) whose minimal parametric
   witness requires the p-factor; or a populated large layer with the u = 7
   shares.
+
+**Correction to the E-010 per-slice reading (same commit cycle, caught on
+re-read of the run output):** the "other two u = 7 groups at 95.7% and
+95.7%" claim in the E-010 block was a misreading - 95.7% is the
+parametric-witness-holder share of the slice, not the p-free share. The
+XSHAPE rows show parp = 0 in every u ≤ 7 slice: among parametric
+witness holders, the p-free share is 100.0% in all three u = 7 groups
+(555,902/555,902; 771,731/771,731; 555,276/555,276) and in all three
+u = 3 groups. Second correction: the u = 75 and u = 79 "0.0%" shares in
+the by-layer table are single-record artifacts (n = 1 and n = 1; the u = 79
+record is in fact only-non) and are excluded from the monotone reading.
+
+**The small-layer theorem (R8 piece 1, verified data statement):** over the
+committed v0.7 run, the statement
+
+  "for every hard-case prime in [10^7, 10^9) with first-working u ≤ 7,
+   the minimal parametric witness is p-free (a divisor of x alone)"
+
+holds with zero mismatches over all 2,713,109 parametric-witness records
+(u = 3: 830,200; u = 7: 1,882,909); the u ≤ 7 slices' p-containing count
+is 0 in every group. This is recorded as the strongest verified fact
+behind H-6 and is the base R8 builds on.
+
 - **Artifacts:** analysis/layers_r7_v07/ (engine v0.7, run, self-test),
   hashes in DATA_MANIFEST (43/43).
 - **Status:** complete for the classification sweep. R8 (the universal
