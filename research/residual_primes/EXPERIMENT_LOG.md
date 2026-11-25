@@ -579,10 +579,9 @@ behind H-6 and is the base R8 builds on.
   full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (61/61
   verifier rows). The delicate-census JSONLs retained locally, NOT
   committed (the large-generated-dataset consent rule).
-- **Status:** complete for the census. The u = 7 span condition
-  (r7 ∈ {3, 5, 6}) ∨ (5 ∣ x') is now census-verified both directions;
-  its formalization (the 5-window route for the second disjunct) is the
-  next R8 piece; R9 (independent validation) thereafter.
+- **Status:** complete for the census (see the E-016 correction below:
+  the second disjunct's "exactly" reading is corrected there - 5-free
+  records SPLIT at the pigeon boundary rather than all failing).
 
 ## E-015 — R8 piece 6: the spanner-depth census and the conditional 5-window spans (2026-11-25)
 
@@ -622,6 +621,56 @@ behind H-6 and is the base R8 builds on.
 - **Status:** complete. The open structural object shrinks to the depth-0
   spanner mechanism (381,652 records: the x-divisor witnesses for 5-free
   x') and the |D| = 2/3 hard core; R9 (independent validation) thereafter.
+
+## E-016 - R8 piece 7: the depth-0 spanner mechanism and the hard-core profile (2026-11-25)
+
+- **CORRECTION (E-014, this entry):** the E-014 reading "the fail records
+  are EXACTLY the 5 | M' = 0 records" is falsified by the v0.12 spanner
+  census: the failing classes' SPANNERS include 381,652 depth-0 (5-free
+  x') records (the U7D0 rows below). What remains valid per-record:
+  5 | x' implies span (100% - the depth1+ spanner count 259,809 equals
+  the fivex counter 129,809 + its r7 = 2/4 twins exactly); every fail
+  record has 5 -| x'; the 5-free records split by the pigeon boundary
+  (|D_7| >= 4 span: 381,652; |D_7| <= 3 fail: 414,261). The u = 7 span
+  condition's second disjunct is the pigeon boundary over the 5-free
+  records, not the 5-divisibility itself.
+- **What ran:** engine v0.12 (v0.11 + the depth-0 spanner mechanism
+  census: per failing residue class the |D_7| buckets of the 5-free
+  spanners, the pigeon flag, the minimal class-A witness's odd-part
+  purity (a pure 2-power vs mixed), and the fail records'
+  (class, mod-840 class) cross-table), sanitizer-built; the selftest
+  artifact stays byte-identical to v0.6-v0.11 (same SHA-256 `934ec74d...`)
+  and v0.11's entire 327-line run output reappears byte-identically
+  inside the v0.12 run (336 lines, 0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the depth-0 spanners 381,652 = 124,680 + 124,508 + 132,464;
+  the fail records 414,261 cross-tabled.
+- **Verified results (the full-scale census):**
+  - **Every depth-0 spanner is pigeon-conclusive** (pigeon = the full
+    depth-0 count in every class, 0-mismatch), and **the minimal
+    class-A witness is NEVER a pure 2-power** (pure2power = 0 in every
+    class - the witnesses always carry an odd factor of x').
+  - **The |D_7| profile of the depth-0 spanners:** r7 = 1:
+    |D| = 4: 12,852, = 5: 24,675, = 6: 87,153 (the full unit group in
+    69.9% of the class); **r7 = 2 and r7 = 4: |D| = 6 EXACTLY for
+    124,508 and 132,464 records - the ENTIRE class spans with the full
+    unit group as its divisor-residue set** (every divisor-residue class
+    mod 7 realized).
+  - **The hard core's mod-840 cross-table** (the fail records by class):
+    r7 = 1: {1: 67,525, 169: 67,449}; r7 = 2: {121: 67,702,
+    289: 67,826}; r7 = 4: {361: 71,921, 529: 71,838} - the totals match
+    E-014's fail counts exactly, and the per-r7 pair structure is the
+    trivial 840-to-7 projection (each mod-840 class carries a fixed
+    p mod 7, since 7 | 840), with near-uniform 50-50 splits within each
+    pair.
+- **Artifacts:** analysis/u7_depth0_v012/ (engine v0.12, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (69/69
+  verifier rows).
+- **Status:** complete for the census. The formalization of the depth-0
+  pigeon route (a |D| >= 4 certificate for the 5-free spanners of
+  r7 = 2/4 via the full-unit-group structure) is the next R8 piece;
+  R9 (independent validation) thereafter.
+
 
 
 
