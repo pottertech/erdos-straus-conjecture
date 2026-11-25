@@ -568,10 +568,15 @@ behind H-6 and is the base R8 builds on.
     (structurally: 5 ∣ x' ⟺ p ≡ 3 (mod 5) at u = 7, since
     4x' = p + 7). The u = 7 span condition for the (H24) class is thus
     (r7 ∈ {3, 5, 6}) ∨ (5 ∣ x'), verified 0-mismatch both directions.
+    **Correction (E-015/E-018, 2026-11-25):** the 5-divisibility reading
+    in this bullet did not survive the E-015 depth census: 381,652
+    spanners have v₅(x') = 0 (depth 0), so 5-divisibility is not the
+    span boundary. The census-verified condition (E-018) is: span holds
+    iff x' has an odd prime factor with residue 3, 5, or 6 (mod 7).
   - **The fail records sit entirely in the mod-840 hard classes**
     (non840 = 0 in every class) and carry v₂(x') ≥ 2 (v2_1 = 0:
     65,981 + 69,993-style splits at v₂ = 2 and v₂ ≥ 3 per class).
-  - **The u = 7 hard core:** 414,261 records = 13.04% of the (H24) class,
+  - **The u = 7 hard core:** 414,261 records = 17.52% of the (H24) class,
     = 38,813 at |D_7| = 2 plus 375,448 at |D_7| = 3 - all pigeon-fails at
     u = 7, all already rescued at some admissible u' ≤ 255 by the E-011
     census (zero no-pigeon records sweep-wide).
@@ -597,7 +602,7 @@ behind H-6 and is the base R8 builds on.
   - **The spanner 5-depth table** (per class: depth 0 / 1 / 2 / ≥ 3):
     r7 = 1: 124,680 / 103,865 / 20,762 / 5,182; r7 = 2: 124,508 /
     103,900 / 20,772 / 5,244; r7 = 4: 132,464 / 111,036 / 22,172 /
-    5,518. **DEPTH-0 = 40.72% of the failing classes' spanners**: the
+    5,518. **DEPTH-0 = 48.92% of the failing classes' spanners**: the
     pure-x-divisor span mechanism does NOT route through the 5-window -
     it serves 5-free and 5-divisible records alike (0-mismatch, three
     near-identical class profiles). **The 125 ∣ x' spanner population for

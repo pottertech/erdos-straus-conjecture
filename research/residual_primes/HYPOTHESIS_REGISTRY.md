@@ -103,8 +103,12 @@ theorem (a uniform-shape construction) after R6. **R8 note (E-014):** the
 x-divisor span mechanism verified at population scale - all 780,103
 spanners of the failing residue classes (`p ≡ 1, 2, 4 (mod 7)`) carry a
 pure x-divisor span witness (class A census, zero misses), and the
-complement is exactly the 5 ∣ M' = 0 population (414,261 fail records,
-13.04% of (H24)) - the u = 7 hard core.
+complement, the 414,261 fail records (17.52% of (H24)), is exactly the
+population whose x' carries no odd prime factor with residue 3, 5, or 6
+(mod 7) (E-018, census-verified 0-mismatch) - the u = 7 hard core. The
+earlier E-014 reading of the complement as the 5 | M' = 0 population was
+falsified by the E-015 depth census: 381,652 spanners are 5-free
+(depth 0), so 5-divisibility is not the span boundary.
 
 **Falsification criteria.** Any u = 7 g = 3 record whose minimal witnesses
 both require the p-factor, or with a parametric witness but no
