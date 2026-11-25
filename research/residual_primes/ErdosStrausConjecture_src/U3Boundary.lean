@@ -8,15 +8,25 @@ The exact class boundary of the first `(mod 4)` layer of the u-method, the
 formal counterpart of the E-011 empirical census
 (`research/residual_primes/`, engine v0.8, experiment E-011):
 
-Within the sweep's hard-case predicate on `x` (every prime divisor
-`≡ 1 (mod 3)`), the u = 3 span criterion
+The u = 3 span criterion
 
   `∃ T, T ∣ (n·x)^2 ∧ (T + n·x) ≡ 0 (mod 3)`
 
-holds **exactly when `x` is even** (the `n ≡ 5 (mod 8)` class, which is
-Paper 1's unconditional `p ≡ 13 (mod 24)` family), and **fails for every
-odd `x`** (the residual `p ≡ 1 (mod 8)` class, whose first-working
-parameter is therefore `≥ 7`).
+is settled on both sides, by two different results that must not be
+conflated. The constructive side is `u3_span_of_even_x` below: for even
+`x` with `3 ∤ x` (and no hard-case predicate), the criterion holds at
+`T = 2`; this is the `n ≡ 5 (mod 8)` class, Paper 1's unconditional
+`p ≡ 13 (mod 24)` family. The exclusion side concerns the hard-case
+predicate on `x` used here (every prime divisor of `x` is
+`≡ 1 (mod 3)`, with no exemption): that predicate can never hold for
+even `x`, because `2` would be a prime divisor of `x` and
+`2 ≢ 1 (mod 3)`, so under the predicate `x` is odd and the criterion
+**fails for every such `x`** (the residual `p ≡ 1 (mod 8)` class, whose
+first-working parameter is therefore `≥ 7`). Note the predicate here is
+stronger than the sweep engine's, which exempts the factor `2`
+(engine v0.8, parity-slip rule); the composed statement
+`u3_span_iff_even_of_hard` is correct as an `↔`, but its even side is
+vacuous, since the predicate and `2 ∣ x` cannot hold together.
 
 Statements, all self-contained Mathlib + the audited u-method core:
 
@@ -29,10 +39,13 @@ Statements, all self-contained Mathlib + the audited u-method core:
    u = 3 layer (the sharpened form of Paper 1's `F(p) = 3` family).
 4. `u3_span_fails_of_odd_x` - the exclusion direction: under the hard-case
    predicate, no span candidate exists at `u = 3` for odd `x`.
-5. `u3_span_iff_even_of_hard` - the composed boundary; the E-011 run
-   verified it empirically over the full sweep `[10^7, 10^9)` (3,194,231
-   records, zero mismatches: the u = 3 population is exactly the non-(H24)
-   records, 830,200 = 3,194,231 - 2,364,031).
+5. `u3_span_iff_even_of_hard` - the composed boundary under the
+   hard-case predicate: the criterion holds iff `2 ∣ x`, which the
+   predicate itself rules out, so under the predicate the criterion
+   never holds. The E-011 run agrees empirically over the full sweep
+   `[10^7, 10^9)` (3,194,231 records, zero mismatches: the u = 3
+   population is exactly the non-(H24) records,
+   830,200 = 3,194,231 - 2,364,031).
 -/
 
 namespace ResidualPrimes
@@ -174,8 +187,12 @@ theorem u3_span_fails_of_odd_x (n x : ℕ) (hx0 : 0 < x)
   rw [hsum] at hcong
   exact absurd hcong (by decide : ¬ ((2 : ℕ) = 0))
 
-/-- **The u = 3 layer boundary (E-011/E-012).** Within the hard-case
-predicate, the span criterion at `u = 3` holds exactly when `x` is even. -/
+/-- **The u = 3 layer boundary (E-011/E-012).** Under the hard-case
+predicate the span criterion at `u = 3` holds iff `x` is even, but the
+predicate rules out even `x` (a prime divisor `2` would need
+`2 ≡ 1 (mod 3)`), so under the predicate the criterion never holds; the
+constructive even-`x` result is `u3_span_of_even_x`, which assumes no
+hard-case predicate. -/
 theorem u3_span_iff_even_of_hard (n x : ℕ) (hx0 : 0 < x)
     (hu4 : 4 * x = n + 3) (hnp : n.Prime)
     (hxp : ∀ q : ℕ, q.Prime → q ∣ x → q % 3 = 1) :

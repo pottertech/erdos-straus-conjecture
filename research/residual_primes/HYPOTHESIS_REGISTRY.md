@@ -85,7 +85,7 @@ from pigeonhole-conclusive primes deterministically, H-2 upgrades.
 verified sweep [10^7, 10^9)** after E-011 — 3,177,642 (99.49%) certified at
 the first-working parameter and the remaining 16,589 delicate records each
 rescued at an admissible u' with fw < u' <= 255 (`rescued_pigeon` =
-16,589/16,589, zero no-pigeon records; 29 distinct pigeon-site layers).
+16,589/16,589, zero no-pigeon records; 59 distinct pigeon-site layers).
 This is the L4/R6/R8 objective — a theorem candidate, not an established
 result; it does NOT enter the registry until proved.
 
