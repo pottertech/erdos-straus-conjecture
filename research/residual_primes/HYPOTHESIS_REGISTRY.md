@@ -81,9 +81,13 @@ from pigeonhole-conclusive primes deterministically, H-2 upgrades.
 ## H-3 — Universal cardinality guarantee (target theorem, not a hypothesis)
 
 **Target.** For every residual prime there exists an admissible `u` with
-`|D_u(M)| > φ(u)/2`. Empirical support: 99.48% of first-working parameters
-already satisfy it. This is the L4/R6/R8 objective — a theorem candidate, not
-an established result; it does NOT enter the registry until proved.
+`|D_u(M)| > φ(u)/2`. Empirical support: 99.48%-plus-rescue = **100% over the
+verified sweep [10^7, 10^9)** after E-011 — 3,177,642 (99.49%) certified at
+the first-working parameter and the remaining 16,589 delicate records each
+rescued at an admissible u' with fw < u' <= 255 (`rescued_pigeon` =
+16,589/16,589, zero no-pigeon records; 29 distinct pigeon-site layers).
+This is the L4/R6/R8 objective — a theorem candidate, not an established
+result; it does NOT enter the registry until proved.
 
 
 ## H-4 — the u = 7 x-divisor witness shape (E-008 fingerprint)
@@ -113,7 +117,10 @@ small non-unit residues (d₁ ≤ u/2 always; d₁ > u/2 never, by the minimal
 scan).
 
 **Status:** empirical fingerprint (0-mismatch, 16,589/16,589 classified) —
-open as a mechanism claim.
+open as a mechanism claim. **R8 note (E-011):** all 16,589 delicate records,
+including the 2,847-record tail, are pigeon-certifiable at another
+admissible parameter (u <= 255); the tail's first-working small-residue
+collision and its cardinality certificate are separate facts.
 
 **Falsification criteria.** Any delicate record whose minimal pair is a
 non-unit residue with d₁ ≤ u/2 AND −1 ∉ D_u(M) where the tail

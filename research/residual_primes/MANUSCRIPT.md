@@ -77,6 +77,7 @@ which is the structure investigated in §5.
 | Mod-840 nonparametric-only cohort | 22,222 | the focused starting cohort |
 | Pigeonhole-conclusive (Lane L1) | 3,177,642 (99.48%) | `analysis/collision_v01/` |
 | Delicate class | 16,589 (0.52%) | fingerprinted sample committed |
+| Delicate rescue census (E-011) | 16,589 / 16,589 pigeon-certified off-parameter (bound u ≤ 255) | `analysis/rescue_r8_v08/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -111,6 +112,20 @@ Exact structural classifications for individual parameter layers (the
 
 Candidate lemmas and remaining proof obligations for
 `∀ p ≡ 1 (mod 24): ∃ u: D_u(M) ∩ (−D_u(M)) ≠ ∅`.
+
+**E-011 empirical base (2026-11-25).** Over the verified sweep [10^7, 10^9)
+(3,194,231 hard-case primes, MISMATCH 0), the existential cardinality target
+(∃ admissible `u` with `|D_u(M)| > φ(u)/2`) is certified for the ENTIRE
+population at the bound `u ≤ 255`: 3,177,642 (99.49%) by the pigeon bound at
+the first-working parameter, and each of the remaining 16,589 delicate
+records by an off-parameter admissible pigeon site (`rescued_pigeon` =
+16,589/16,589; zero no-pigeon records; 29 distinct site layers with a
+nearest-layer concentration). The sweep-wide sub-first-working census
+(3,042,449 span-failing admissible sites: zero collisions, zero pigeons)
+verifies the chain pigeonhole ⟹ collision ⟹ centered span at population
+scale. This is computational support for the target, not a universal proof;
+the theorem attempt continues against the registry-tracked mechanisms
+(`research/residual_primes/EXPERIMENT_LOG.md`, E-011).
 
 ## 10. Lean formalization
 
