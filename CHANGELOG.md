@@ -146,3 +146,14 @@ Also recorded (ninth review §3.1): `h213_parametric_u3`'s arithmetic requires n
 92. (Proofreading) The review's table applied: the `5 (mod 8)` class statement phrased as witness-existence at `u = 3`, the least-non-residue sentence bound-phrased, the "factor_x tests only odd primes" wording, the distribution-specification sentence, and the exact-integer-arithmetic phrasing.
 93. (PDF presentation) Page numbers added via the print template; long tables permitted to break across pages with repeating headers (fixing the split axiom table and the near-empty page 15); section heads kept with their first paragraph.
 
+**Revision note (v1.12, 2026-11-24) — response to the twelfth review (of v1.11): remediation program closed.** The review's verdict: "Accept v1.11 and close the general remediation program" — no mathematical publication blockers, PDF presentation PASS, principal sources byte-identical. Items:
+
+94. (V111-01) The kernel-verification provenance paragraph replaced with the review's exact carrying-forward sentence (execution on the paper-v1.9 tree, recorded in the paper-v1.10 manifest, carried forward to v1.11 without re-execution); Appendix A distinguishes the verification-source revision, the manifest's recorded publication release (historical, not retroactively altered), and the current release. The historical manifest itself was not modified.
+95. (V111-02) The `5 (mod 8)` statement reworded: every positive integer in the class admits the explicit representation with `u = 4x − n = 3` — without implying that the admissible-span coprimality condition holds for composite members (the review's `n = 21` example: `M = 126`, `gcd(3, 126) = 3`, recorded).
+96. (V111-03) The `F(p)` domain-ambiguity fixed: "the remaining finite-search objective is to establish `F(p) ≤ 2p−3` for every prime `p ≡ 1 (mod 24)`. This is equivalent to (H24)."
+97. (V111-04) Parameter-ceiling descriptions made implementation-consistent (repository 255, independent engines 251, observed maximum 83; the v1.4 harmonization history moved to this CHANGELOG).
+98. (V111-05) The concluding open question scoped precisely: every prime satisfying **both** the (H24) residue condition **and** the hard-case population predicate.
+99. (Proofreading) seven-case partition; "succeeds for `p` if and only if"; "no unfinished proofs in the principal results"; the nested parenthetical simplified; "at the first-working parameter" retained at the count summaries; "type-checker" normalized in the narrative (quoted gate output left verbatim); the author's note shortened to "Corrections and independent verification are welcome."; the positioning-statement review reference moved to this CHANGELOG.
+
+The publication-quality restructure (journal edition) remains acknowledged as optional, per the review's §7 table. The remediation program is closed; the research manuscript on the 22,222-prime mod-840 cohort and universal opposite-residue reachability is the next deliverable.
+
