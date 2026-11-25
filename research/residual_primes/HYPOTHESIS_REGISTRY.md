@@ -102,3 +102,20 @@ both require the p-factor, or with a parametric witness but no
 nonparametric companion (the onlypar-zero violated), or a deeper-5 window
 that fails to supply the companion where the flag predicts one. A single
 counterexample demotes the uniform-shape reading to per-record.
+
+
+## H-5 — the delicate class is dominantly the one-sided-satisfied tail (E-009)
+
+**Statement.** Of the 16,589 delicate records ([10^7, 10^9)), 82.8% carry
+the unit collision pair (1, u − 1) — equivalently −1 ∈ D_u(M) — so the
+collision already IS a parametric witness; the remaining 17.2% collide by
+small non-unit residues (d₁ ≤ u/2 always; d₁ > u/2 never, by the minimal
+scan).
+
+**Status:** empirical fingerprint (0-mismatch, 16,589/16,589 classified) —
+open as a mechanism claim.
+
+**Falsification criteria.** Any delicate record whose minimal pair is a
+non-unit residue with d₁ ≤ u/2 AND −1 ∉ D_u(M) where the tail
+classification predicts a unit pair; conversely a new sweep range whose
+delicate share is NOT dominated by the unit-pair shape.
