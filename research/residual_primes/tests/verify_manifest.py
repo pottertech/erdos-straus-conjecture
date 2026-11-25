@@ -15,14 +15,19 @@ def main() -> int:
     doc = os.path.join(root, "research", "residual_primes", "DATA_MANIFEST.md")
     text = open(doc, encoding="utf-8").read()
     rows = re.findall(r"\| `([^`]+)` \| `([0-9a-f]{64})` \| \d+ \|", text)
-    if len(rows) < 19:
-        print(f"FAIL: expected 19 manifest rows, parsed {len(rows)}")
+    if len(rows) < 30:
+        print(f"FAIL: expected 30 manifest rows, parsed {len(rows)}")
         return 1
     bad = 0
     for path, want in rows:
         full = os.path.join(root, path)
         if not os.path.isfile(full):
             print(f"MISSING: {path}")
+            bad += 1
+            continue
+        tracked = os.system(f"git -C {os.getcwd()} ls-files --error-unmatch {path} > /dev/null 2>&1") == 0
+        if not tracked and os.environ.get("SKIP_GIT_TRACKING_CHECK") is None:
+            print(f"NOT GIT-TRACKED: {path} (present on disk but untracked)")
             bad += 1
             continue
         got = hashlib.sha256(open(full, "rb").read()).hexdigest()
