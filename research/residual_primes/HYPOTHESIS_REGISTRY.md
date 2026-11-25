@@ -119,3 +119,19 @@ open as a mechanism claim.
 non-unit residue with d₁ ≤ u/2 AND −1 ∉ D_u(M) where the tail
 classification predicts a unit pair; conversely a new sweep range whose
 delicate share is NOT dominated by the unit-pair shape.
+
+
+## H-6 — the small-layer x-divisor uniformity (E-010 classification)
+
+**Statement.** The x-divisor witness shape is a small-layer property: at
+u = 3 and u = 7 (58% of the sweep) the smallest parametric witnesses are
+p-free at 100.0%, decaying smoothly to ~65-92% at the deeper layers; the
+5-intersection slices ((p + u) ≡ 0 (mod 5)) carry the same weakening
+(100.0% at u = 7, 96.4% at u = 11, 84.8% at u = 19, 84.5% at u = 31).
+
+**Status:** empirical classification (0-mismatch, 40 populated slices) —
+open as a monotone mechanism.
+
+**Falsification criteria.** A populated layer u ≤ 7 whose minimal
+parametric witness requires the p-factor (a single record); or a populated
+deeper layer exhibiting the u = 7 shares.

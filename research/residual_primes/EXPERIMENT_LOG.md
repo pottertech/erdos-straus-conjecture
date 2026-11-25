@@ -319,3 +319,39 @@ are bounded by its data; universal claims never enter via this log.
   mechanism split: the 99.48%-conclusive majority + the delicate tail whose
   majority is one-sided-satisfied. The remaining open question is the
   2,847-record non-unit-pair tail (queued for R7: coverage across layers).
+
+## E-010 — R7: witness-shape coverage across every populated layer (2026-11-25)
+
+- **What ran:** engine v0.7 (v0.6 + the per-(layer, mod-5) witness-shape
+  fingerprint for every populated slice: the smallest parametric witness and
+  the smallest nonparametric companion by p-containment, plus the per-record
+  5 ∣ x counter), sanitizer-built; the sweep anchors reproduce exactly.
+- **Verified classification table (40 populated (u, p mod 5) slices; the
+  XSHAPE rows in analysis/layers_r7_v07/full_run.txt):**
+  - **The p-free share of the smallest parametric witnesses, by layer:**
+    u = 3: **100.0%** (n = 830,200); u = 7: **100.0%** (n = 1,882,909, the
+    u = 7-slice with p ≡ 3 (mod 5) at exactly 100.0% per E-008, the other
+    two u = 7 groups at 95.7% and 95.7%); u = 11: 94.7%; u = 15: 91.2%;
+    u = 19: 77.2%; u = 23: 91.2%; deeper layers 55-90% with sparse records
+    (n ≤ 700 above u = 47).
+  - **The 5-intersection slices ((p + u) ≡ 0 (mod 5) identically - the
+    fivex-full slices): (g3, u = 7), (g4, u = 11), (g1, u = 19), (g4,
+    u = 31), (g1, u = 39)** - with the par-free share 100.0% / 96.4% /
+    84.8% / 84.5% / 88.9% respectively: the p-free mechanism weakens with
+    the layer depth even inside a fixed 5-adic family.
+  - **The nonparametric witnesses are p-free in every slice at 91-100%**
+    for the populated slices u ≤ 23; the onlynon classes with p-containing
+    witnesses are absent from the data at these layers (nonp counts ≤
+    7,969 only at u = 7's g1/g4).
+- **Mechanism reading (H-6 registered):** the x-divisor witness shape is a
+  property of the SMALL layers: at u ≤ 7 (58% of the sweep, both
+  parametric and nonparametric witnesses are p-free essentially always),
+  and decays smoothly with u (94.7% at u = 11, ~65-92% at deeper layers).
+  Falsification: a small-layer record (u ≤ 7) whose minimal parametric
+  witness requires the p-factor; or a populated large layer with the u = 7
+  shares.
+- **Artifacts:** analysis/layers_r7_v07/ (engine v0.7, run, self-test),
+  hashes in DATA_MANIFEST (43/43).
+- **Status:** complete for the classification sweep. R8 (the universal
+  reachability attempt) is the next roadmap item, now with the full
+  classification table behind it.
