@@ -99,7 +99,12 @@ required - with the 5-orbit mod 7 (5³ ≡ −1) letting the deeper-5 window
 supply the nonparametric companions (9.1% beyond M's 5-depth).
 
 **Status:** empirical fingerprint - open. Candidate for a conditional
-theorem (a uniform-shape construction) after R6.
+theorem (a uniform-shape construction) after R6. **R8 note (E-014):** the
+x-divisor span mechanism verified at population scale - all 780,103
+spanners of the failing residue classes (`p ≡ 1, 2, 4 (mod 7)`) carry a
+pure x-divisor span witness (class A census, zero misses), and the
+complement is exactly the 5 ∣ M' = 0 population (414,261 fail records,
+13.04% of (H24)) - the u = 7 hard core.
 
 **Falsification criteria.** Any u = 7 g = 3 record whose minimal witnesses
 both require the p-factor, or with a parametric witness but no
