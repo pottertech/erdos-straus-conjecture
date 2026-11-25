@@ -414,10 +414,15 @@ behind H-6 and is the base R8 builds on.
   - **R5 consistency at the rescue sites: pig_no_coll = 0** (every
     qualifying off-parameter pigeon site carries the collision, as
     `pigeonhole_reachability` requires).
-  - **The rescue-site map:** 29 distinct pigeon-site layers across
-    u' in 15..255 (u' = 11 unused: it is below the delicate fw floor;
-    u' = 163 and u' = 235 carry collision sites but zero pigeon sites).
-    The certified (minimum) rescue sites: u' = 23 (6,654 records),
+  - **The rescue-site map:** pigeon sites occur at 59 distinct layers
+    across u' in 15..255 (the committed full_run.txt RESCUE8U block
+    lists 61 layers, with pig > 0 at 59 of them and 149,680 pigeon
+    sightings in total; u' = 11 unused: it is below the delicate fw
+    floor; u' = 163 and u' = 235 carry collision sites but zero pigeon
+    sites). The minimum rescue sites below are read from the run's
+    rescue map (delicate_rescue.jsonl, retained with the run output and
+    not committed to this repo), so those per-site figures are run
+    records, not repo-checkable certificates: u' = 23 (6,654 records),
     u' = 15 (2,690), u' = 31 (2,414), u' = 19 (1,909), u' = 27 (952),
     u' = 35/39 (551/557), with a nearest-layer concentration: fw = 11
     records (6,075) rescue at u' in {15: 2,690, 19: 1,909, 23: 1,419};
@@ -463,7 +468,11 @@ behind H-6 and is the base R8 builds on.
     F(p) = 3 family),
   - `u3_span_fails_of_odd_x` (under the hard-case predicate, no span
     candidate exists at u = 3 for odd x), and
-  - `u3_span_iff_even_of_hard` (the boundary: span-at-3 ⟺ 2 ∣ x).
+  - `u3_span_iff_even_of_hard` (the composed boundary under the
+    hard-case predicate: span-at-3 ⟺ 2 ∣ x, where the predicate itself
+    rules out 2 ∣ x, so under the predicate the criterion never holds;
+    the constructive even-x result is `u3_span_of_even_x`, which assumes
+    no hard-case predicate).
 - **Verification:** compile exit 0 (8,477 jobs); axiom census: all five
   exactly `[propext, Classical.choice, Quot.sound]`; 0 `sorry`; audit
   artifact `axiom_audit_u3.txt` (build log `lake_build_u3.log`), both
@@ -474,14 +483,20 @@ behind H-6 and is the base R8 builds on.
   (the u = 3 sites of the 3,042,449 sub-fw sites, zero violations), and
   the fw census pinned the u = 3 population at exactly the non-(H24)
   records (830,200 = 3,194,231 − 2,364,031, the
-  `h213_parametric_u3` regression invariant); the formal ⟵ direction
-  carries the constructive T = 2 witness the engine computes for that
-  class, and the ⟹ direction is the class exclusion the sub-fw census
-  observed at every (H24) record.
+  `h213_parametric_u3` regression invariant); the constructive T = 2
+  witness the engine computes for the even-x class is carried by
+  `u3_span_of_even_x` (no hard-case predicate), and the exclusion
+  direction is the class exclusion the sub-fw census observed at every
+  (H24) record whose x meets the predicate.
 - **Status:** complete. The joint audited set: 15 + 18 = 33. The
-  residual-class first entry follows: every (H24) hard case now has a
-  formal reason its first-working parameter is ≥ 7; the u = 7 layer is
-  the next R8 target.
+  residual-class first entry follows: every hard case in the theorem's
+  stated form (prime n, 4x = n + 3, every prime divisor of x
+  ≡ 1 (mod 3)) now has a formal reason its first-working parameter is
+  ≥ 7, because the span criterion cannot hold at u = 3 for such x.
+  (H24) alone (p ≡ 1 (mod 24)) is weaker than the theorem's hypothesis
+  and does not suffice: the exclusion needs the predicate on x, and a
+  u = 3 witness can exist when x has a prime divisor ≢ 1 (mod 3).
+  The u = 7 layer is the next R8 target.
 
 ## E-013 — R8 piece 4: the u = 7 layer classification and its formalization (2026-11-25)
 

@@ -69,7 +69,7 @@ these datasets carry no universal claims.
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11.log` | `c4333958400fad4545c10bfe794c3d655f79dcc371033eb73dc3ca7d43e9c0a3` | 116 |
 
 | `ErdosStrausConjecture/ResidualPrimes/WindowForm.lean` | `364910f98645cbb4fc41c71169886685bda119e69ca7660198352379eded0f5b` | 3299 |
-| `ErdosStrausConjecture/ResidualPrimes/U3Boundary.lean` | `55d0134fe39b1006d8a0786c079e40de34b69079a8ce8e064f418adf668ac3a1` | 8673 |
+| `ErdosStrausConjecture/ResidualPrimes/U3Boundary.lean` | `2957eea51c2d58c6d2e3e9c782316217ca5c855e697fa7d31546170f6f8eb4db` | 9731 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u3.txt` | `9c39fa8b70002c11f7c6856f7e73f1ba367fc17bbac53c2ee195f4dfc4f8f99f` | 497 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u3.log` | `0ffe315b72a359070cb726151f95c13195006b622b73178b6486d98c8e9d1463` | 1773 |
 | `research/residual_primes/analysis/u7_layer_v09/collision_margin_engine_v09.c` | `aa7c5f515e0ca3ca6f3d9aab961e204396fdb014f483aaa8193dd78207235003` | 38904 |

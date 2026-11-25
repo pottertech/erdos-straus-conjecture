@@ -119,7 +119,7 @@ Candidate lemmas and remaining proof obligations for
 population at the bound `u ≤ 255`: 3,177,642 (99.49%) by the pigeon bound at
 the first-working parameter, and each of the remaining 16,589 delicate
 records by an off-parameter admissible pigeon site (`rescued_pigeon` =
-16,589/16,589; zero no-pigeon records; 29 distinct site layers with a
+16,589/16,589; zero no-pigeon records; 59 distinct site layers with a
 nearest-layer concentration). The sweep-wide sub-first-working census
 (3,042,449 span-failing admissible sites: zero collisions, zero pigeons)
 verifies the chain pigeonhole ⟹ collision ⟹ centered span at population
