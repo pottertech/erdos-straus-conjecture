@@ -79,6 +79,8 @@ these datasets carry no universal claims.
 | `ErdosStrausConjecture/ResidualPrimes/U7Layer.lean` | `13ca88a3248322047e5424b6bbc911144ab6f2593b13f0e61a35e8bd364629cb` | 32292 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u7.txt` | `2a8c12daa0c8ed631656ed46fc47f7a67cd3c662a4f1423482b944247a0e4c0d` | 1185 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u7.log` | `1fd21a9ef78756ec3d30e645db643e0fd1ce67212c661e216482f57f1e5f10f0` | 3044 |
+| `research/residual_primes/analysis/crossval_r9/r9_crossval.py` | `79692a2192216ca42d9602d41b1cdd62965604b075a1a8d8ca2b9bd1e488dbaa` | 8218 |
+| `research/residual_primes/analysis/crossval_r9/crossval_run.txt` | `be33f2666c1197740c94297f74d8ed68d59f8d2ddede63c69f09785ef5b94c56` | 470 |
 | `research/residual_primes/analysis/u7_depth0_v012/collision_margin_engine_v012.c` | `94345ff42991aed7782d86ed3016ad942266880c7a579f2573dd25a9b8622c49` | 47981 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run.txt` | `89e538cb6d0e7ce4d9462fece8257ebed7d4919ac779485af064338caa4c0fad` | 17982 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run_stderr.txt` | `ced48829b8f603759a67be0da6c0f2e8a2d76b56f595a14eaf1019f9a0a77f0a` | 78 |
