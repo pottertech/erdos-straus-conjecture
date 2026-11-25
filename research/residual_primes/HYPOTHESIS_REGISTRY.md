@@ -12,7 +12,12 @@ differs by the prime's residue modulo 5: `p ≡ 1 (mod 5)` at 4.09% vs
 `p ≡ 4 (mod 5)` at 1.50% (2.73×) over the review's independently verified
 populations.
 
-**Status:** empirical association — open. Not a proved causal relationship.
+**Status:** open, reformulated by E-004 (2026-11-25): the aggregate 2.73x
+separation is a layer-composition artifact — it localizes to the u = 11
+layer (7.42% vs 0.00%, with 5 | x identically for p = 4 (mod 5) at u = 11,
+and ord(5) = 5 in (Z/11)* so the isolated 5-window never reaches -1). The
+aggregate framing is retained for continuity; the research target is the
+u=11-layer mechanism (R3 flagship).
 
 **Supporting data (as reported).** Review-computed grouped rates, 2.73× ratio;
 consistent with the Paper-1 mod-840 observation (classes {1, 121, 361} are the

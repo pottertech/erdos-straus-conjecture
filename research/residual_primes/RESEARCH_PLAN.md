@@ -10,7 +10,7 @@ closes a universal claim; parity-slip audits on every odd-factor filter.
 | --- | --- | --- |
 | R1 | Freeze and inventory the research datasets (SHA-256 manifest, re-runnable check) | in progress: `DATA_MANIFEST.md`, `tests/verify_manifest.py` |
 | R2 | Analyze the modulo-5 separation (verify the review's 4.09% / 1.50% / 2.73× figures independently; decompose into layer-composition vs per-layer mechanism) | running (engine v0.2) |
-| R3 | Exact structural classifications for individual parameter layers (the `MOD31_EXACT_REDUCTION.md` pattern) | open |
+| R3 | Exact structural classifications for individual parameter layers | conditioning complete (E-004); u=11 exact classification open |
 | R4 | Formalize the opposite-residue collision equivalence in Lean (`−1 ∈ S_u(M) ⟺ D ∩ (−D) ≠ ∅`) | complete (E-003; D·D⁻¹ form; window form is the extension) |
 | R5 | Formalize the sufficient cardinality theorem (`|D| > φ(u)/2 ⟹` collision) in Lean | complete (E-003; `pigeonhole_reachability`) |
 | R6 | Derive stronger structural sufficient conditions | open |
