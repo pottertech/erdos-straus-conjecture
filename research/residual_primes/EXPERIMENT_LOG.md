@@ -562,23 +562,21 @@ behind H-6 and is the base R8 builds on.
     B and C ZERO, span_miss = 0. The u = 7 x-divisor span mechanism
     (H-4's reading) therefore covers not only the u = 7 g₃ class but the
     ENTIRE spanner population of the failing residue classes.
-  - **The fail records are exactly the 5 ∣ M' = 0 records:**
-    v₅(x') = 0 for all 414,261 fail records (135,000-class buckets:
-    134,974 + 135,528 + 143,759), and v₅(x') ≥ 1 for every spanner
-    (structurally: 5 ∣ x' ⟺ p ≡ 3 (mod 5) at u = 7, since
-    4x' = p + 7). The u = 7 span condition for the (H24) class is thus
-    (r7 ∈ {3, 5, 6}) ∨ (5 ∣ x'), verified 0-mismatch both directions.
-    **Correction (E-015/E-018, 2026-11-25):** the 5-divisibility reading
-    in this bullet did not survive the E-015 depth census: 381,652
-    spanners have v₅(x') = 0 (depth 0), so 5-divisibility is not the
-    span boundary. The census-verified condition (E-018) is: span holds
-    iff x' has an odd prime factor with residue 3, 5, or 6 (mod 7).
+  - **The fail records are exactly the records whose x' carries no
+    odd prime factor with residue 3, 5, or 6 (mod 7)** (E-018,
+    census-verified 0-mismatch over the tested population). All
+    414,261 fail records have v₅(x') = 0 (135,000-class buckets:
+    134,974 + 135,528 + 143,759), but 5-divisibility is not the
+    boundary: 381,652 spanners also have v₅(x') = 0 (the E-015 depth-0
+    population). (Corrected 2026-11-25: the original reading, that the
+    fails are exactly the 5 | M' = 0 records and the span condition is
+    (r7 in {3, 5, 6}) or (5 | x'), was falsified by the E-015 depth
+    census.)
   - **The fail records sit entirely in the mod-840 hard classes**
-    (non840 = 0 in every class) and carry v₂(x') ≥ 2 (v2_1 = 0:
-    65,981 + 69,993-style splits at v₂ = 2 and v₂ ≥ 3 per class).
-    **Correction (E-017):** the v₂ labels in this bullet are off by one:
-    the buckets are v₂ = 1 (65,981 records) and v₂ ≥ 2 (68,993, not
-    69,993); the fail records carry v₂(x') ≥ 1, not ≥ 2.
+    (non840 = 0 in every class) and carry v₂(x') ≥ 1: the buckets are
+    v₂ = 1 (65,981 records) and v₂ ≥ 2 (68,993). (Corrected 2026-11-25
+    per E-017: the original labels read v₂ = 2 and v₂ ≥ 3 and printed
+    69,993.)
   - **The u = 7 hard core:** 414,261 records = 17.52% of the (H24) class,
     = 38,813 at |D_7| = 2 plus 375,448 at |D_7| = 3 - all pigeon-fails at
     u = 7, all already rescued at some admissible u' ≤ 255 by the E-011
