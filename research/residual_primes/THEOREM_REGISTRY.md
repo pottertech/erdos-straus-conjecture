@@ -128,6 +128,8 @@ and `five_pow_three_eq_neg_one_mod_seven` audited on `propext, Quot.sound`
 (E-007).
 U3Boundary's five audited (all trio; E-012) bring the joint audited set to
 15 + 18 = 33.
+U7Layer's seven audited (the two spans on `propext, Quot.sound`, the
+rest on the trio; E-013) bring the joint audited set to 15 + 25 = 40.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
@@ -146,7 +148,26 @@ statement the run verified at population scale.
 | `ResidualPrimes.u3_span_fails_of_odd_x` | under the hard-case predicate (x's prime divisors ≡ 1 (mod 3)), x odd ⟹ no u = 3 span candidate exists | principal |
 | `ResidualPrimes.u3_span_iff_even_of_hard` | the boundary: u = 3 span ⟺ 2 ∣ x (under the hard-case predicate) | principal |
 
-## 5. Rejected / superseded
+## 5. Established in Paper 2 (R8 piece 4, module `ResidualPrimes.U7Layer`)
+
+Machine-checked 2026-11-25; compile exit 0; axiom census: the two span
+theorems exactly `[propext, Quot.sound]`, the three pigeon theorems and the
+two supports on the standard trio; no project axioms; 0 `sorry`. Audit
+artifact: `ErdosStrausConjecture_src/axiom_audit_u7.txt` (build log
+`lake_build_u7.log`), hash-pinned in DATA_MANIFEST. Empirical counterpart:
+E-013 (engine v0.9, the full-scale u = 7 census).
+
+| Theorem | Statement | Registry lane |
+| --- | --- | --- |
+| `ResidualPrimes.mem_divResidues` | a divisor of `M` (with `0 < M`) contributes its residue to `divResidues u M` | support |
+| `ResidualPrimes.cast_ne_of_mod_ne` | unequal `% 7` residues cast to unequal `ZMod 7` elements | support |
+| `ResidualPrimes.u7_span_of_mod7_three` | 4·x = n + 7 ∧ n ≡ 3 (mod 7) ⟹ the u = 7 span criterion holds at `T = n` | principal |
+| `ResidualPrimes.u7_span_of_mod7_six` | 4·x = n + 7 ∧ n ≡ 6 (mod 7) ⟹ the u = 7 span criterion holds at `T = x` | principal |
+| `ResidualPrimes.u7_pigeon_of_mod7_three` | 4·x = n + 7 ∧ n ≡ 3 (mod 7) ⟹ hasOppositePair 7 (n·x) (pigeon via the audited R5 theorem) | principal |
+| `ResidualPrimes.u7_pigeon_of_mod7_five` | the same at n ≡ 5 (mod 7) with 2 ∣ x (the sweep's n ≡ 1 (mod 8) family) | principal |
+| `ResidualPrimes.u7_pigeon_of_mod7_six` | the same at n ≡ 6 (mod 7) | principal |
+
+## 6. Rejected / superseded
 
 None at initiation. Rejected hypotheses move here with a correction banner
 (what was claimed, why it failed, what remains valid).

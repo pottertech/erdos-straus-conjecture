@@ -1,0 +1,9 @@
+import ErdosStrausConjecture.ResidualPrimes.U7Layer
+
+#print axioms ResidualPrimes.mem_divResidues
+#print axioms ResidualPrimes.cast_ne_of_mod_ne
+#print axioms ResidualPrimes.u7_span_of_mod7_three
+#print axioms ResidualPrimes.u7_span_of_mod7_six
+#print axioms ResidualPrimes.u7_pigeon_of_mod7_three
+#print axioms ResidualPrimes.u7_pigeon_of_mod7_five
+#print axioms ResidualPrimes.u7_pigeon_of_mod7_six
