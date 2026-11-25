@@ -540,5 +540,50 @@ behind H-6 and is the base R8 builds on.
   the failing classes (p ≡ 1, 2, 4 (mod 7), the 414,261 fail records) are
   the next structural object; R9 (independent validation) thereafter.
 
+## E-014 — R8 piece 5: the failing-class span-witness census (2026-11-25)
+
+- **What ran:** engine v0.10 (v0.9 + the failing-class fingerprints: for the
+  (H24) records at `p ≡ 1, 2, 4 (mod 7)` the span-witness existence census
+  over the full `M'²`-divisor window (p-scales times the x²-divisors,
+  enumerated unsorted; classes by priority A: a pure x-divisor witness,
+  B: a p-free deeper-window witness, C: a p-containing witness; a class-4
+  miss is a soft engine-mismatch gate), and for the fail records the
+  v₂(x') / v₅(x') buckets and the mod-840 membership), sanitizer-built;
+  the selftest artifact stays byte-identical to v0.6-v0.9 (same SHA-256)
+  and v0.9's entire 317-line run output reappears byte-identically inside
+  the v0.10 run (324 lines, 0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the failing classes' (H24) population 1,194,364
+  = 389,463 + 389,952 + 414,949, exhaustively split span 780,103 /
+  fail 414,261 by the census.
+- **Verified results (the full-scale census):**
+  - **Every span witness in the failing classes is a PURE x-divisor:**
+    spanA = span exactly (254,489 + 254,424 + 271,190 = 780,103), classes
+    B and C ZERO, span_miss = 0. The u = 7 x-divisor span mechanism
+    (H-4's reading) therefore covers not only the u = 7 g₃ class but the
+    ENTIRE spanner population of the failing residue classes.
+  - **The fail records are exactly the 5 ∣ M' = 0 records:**
+    v₅(x') = 0 for all 414,261 fail records (135,000-class buckets:
+    134,974 + 135,528 + 143,759), and v₅(x') ≥ 1 for every spanner
+    (structurally: 5 ∣ x' ⟺ p ≡ 3 (mod 5) at u = 7, since
+    4x' = p + 7). The u = 7 span condition for the (H24) class is thus
+    (r7 ∈ {3, 5, 6}) ∨ (5 ∣ x'), verified 0-mismatch both directions.
+  - **The fail records sit entirely in the mod-840 hard classes**
+    (non840 = 0 in every class) and carry v₂(x') ≥ 2 (v2_1 = 0:
+    65,981 + 69,993-style splits at v₂ = 2 and v₂ ≥ 3 per class).
+  - **The u = 7 hard core:** 414,261 records = 13.04% of the (H24) class,
+    = 38,813 at |D_7| = 2 plus 375,448 at |D_7| = 3 - all pigeon-fails at
+    u = 7, all already rescued at some admissible u' ≤ 255 by the E-011
+    census (zero no-pigeon records sweep-wide).
+- **Artifacts:** analysis/u7_fail_v010/ (engine v0.10, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (61/61
+  verifier rows). The delicate-census JSONLs retained locally, NOT
+  committed (the large-generated-dataset consent rule).
+- **Status:** complete for the census. The u = 7 span condition
+  (r7 ∈ {3, 5, 6}) ∨ (5 ∣ x') is now census-verified both directions;
+  its formalization (the 5-window route for the second disjunct) is the
+  next R8 piece; R9 (independent validation) thereafter.
+
+
 
 
