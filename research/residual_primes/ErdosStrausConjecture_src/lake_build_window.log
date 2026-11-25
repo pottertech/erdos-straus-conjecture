@@ -1,0 +1,6 @@
+⚠ [8474/8476] Replayed ErdosStrausConjecture.ResidualPrimes.CollisionReachability
+warning: ErdosStrausConjecture/ResidualPrimes/CollisionReachability.lean:187:46: unused variable `hu`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8476/8476] Built ErdosStrausConjecture.ResidualPrimes.WindowForm (49s)
+Build completed successfully (8476 jobs).
