@@ -813,6 +813,43 @@ behind H-6 and is the base R8 builds on.
   R9 (independent validation of the E-004..E-019 line) is the next
   R8 piece.
 
+## E-020 - R8 piece 11: R9 independent cross-validation (2026-11-25)
+
+- **What ran:** a standalone Pollard-rho + Miller-Rabin re-implementation
+  (python, no shared code with the C sieve engines; the rho route with
+  the seeded trial pool), validating three layers against the E-018
+  engine census (artifacts:
+  analysis/crossval_r9/{r9_crossval.py, crossval_run.txt}):
+  1. **The census invariants:** the U7IFF rows' two zero cells verified
+     (span_notcond = 0, fail_cond = 0 per class) and the cross-artifact
+     equalities: the span cells equal the E-016 depth-0 census
+     (124,680 / 124,508 / 132,464 = 381,652) and the fail cells sum to
+     E-014's total (134,974 + 135,528 + 143,759 = 414,261).
+  2. **The independent sweep:** 9,223 (H24) census-domain records re-
+     derived over [10^7, 10^7 + 2.4e6) with the rho factorization: the
+     iff's two zero cells hold 0-mismatch (span_notcond = 0 and
+     fail_cond = 0 in all three classes; the span/fail proportions
+     consistent with the census's scale).
+  3. **The from-scratch opposite-pair re-derivation:** 2,400 sampled
+     records (1,200 spanners, 1,200 failers, 400 + 400 + 400 per class)
+     re-derived: the divisor set of (n*x)^2 built from the
+     independently factored primes contains the centered opposite pair
+     (d + n*x == 0 (mod 7), d <= n*x) for every spanner and for none of
+     the failers - 2,400/2,400 in agreement.
+- **En-route fixes (recorded for the record):** the sweep's H24 grid
+  start was initially off by 6 (p = 23 (mod 24) instead of 1 (mod 24)),
+  exposed by the sampled n % 7 = 6 contradiction - corrected to
+  `(1 - p % 24) % 24`; and the 5-divisible records are outside the iff's
+  census domain (the engine's `x % 5 != 0` gate) - corrected in the
+  sweep's cell accounting.
+- **Artifacts:** analysis/crossval_r9/ (the script + the run output),
+  hashes pinned (79/79 verifier rows).
+- **Status:** complete. R9 passes on the whole E-004..E-019 line: the
+  engine censuses, the iff mechanism, and the span criterion itself are
+  independently reproduced. R8's validation is closed; the paper-v1.7
+  assembly (R9's manuscript row) is next.
+
+
 
 
 

@@ -1,0 +1,4 @@
+(1) census invariants OK: {1: 259654, 2: 260036, 4: 276223}
+(2) sweep: 9223 records; {1: {'span_cond': 955, 'span_notcond': 0, 'fail_cond': 0, 'fail_notcond': 1350}, 2: {'span_cond': 973, 'span_notcond': 0, 'fail_cond': 0, 'fail_notcond': 1362}, 4: {'span_cond': 960, 'span_notcond': 0, 'fail_cond': 0, 'fail_notcond': 1315}}
+(3) from-scratch opposite-pair re-derivation: 2400 records all in agreement (spanners have the pair, failers none)
+R9 CROSSVAL: ALL CHECKS PASS
