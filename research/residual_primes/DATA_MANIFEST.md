@@ -16,7 +16,7 @@ re-production commands live in Paper 1 Appendix A and
 verification_nano/NANODA_RUN.md; the standing determination applies -
 these datasets carry no universal claims.
 
-## Verified computational datasets (37 artifacts)
+## Verified computational datasets (40 artifacts)
 
 | Path | SHA-256 | Bytes |
 | --- | --- | --- |
@@ -77,6 +77,10 @@ these datasets carry no universal claims.
 
 | `research/residual_primes/analysis/u7_g3_probe_v05/collision_margin_engine_v05.c` | `ba259e6499ba6db7bfcfead174e2d2cf759c9f9124415f58eb03e14b6c6e8353` | 23604 |
 | `research/residual_primes/analysis/u7_g3_probe_v05/full_run.txt` | `5b212bb9879995452ec6bf9f3735638e1aafba009dabe19f7f3fd72b8af0125f` | 5618 |
+
+| `research/residual_primes/analysis/delicate_r6_v06/collision_margin_engine_v06.c` | `df6f085531673c22bf1cc5a910bbe597e2b7453e850e339a2a99ce52c30edcfd` | 25135 |
+| `research/residual_primes/analysis/delicate_r6_v06/full_run.txt` | `a3ceb2b287c4d79fae338722186169f632045a6ec0b0f6533af872cbd7207db5` | 6334 |
+| `research/residual_primes/analysis/delicate_r6_v06/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
 
 ## Frozen-source statement
 

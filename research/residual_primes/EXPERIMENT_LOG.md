@@ -279,3 +279,43 @@ are bounded by its data; universal claims never enter via this log.
 - **Status:** complete for this slice. The two-layer p ≡ 3 (mod 5) picture
   (E-007) and this fingerprint close the lane-3 questions posed at launch;
   R6 (the delicate class) is next.
+
+## E-009 — R6: the delicate class mechanized (the minimal-pair fingerprints) (2026-11-25)
+
+- **What ran:** engine v0.6 (v0.5 + the delicate-class minimal-collision-pair
+  fingerprints and the per-(layer, mod-5) delicate cross-rows XDEL),
+  sanitizer-built; the sweep anchors reproduce exactly (the population
+  checks SWEEP/H24/PIGEON/MISMATCH 0 identical, and the delicate total
+  reconciles as the former counter plus the new fingerprint counter at
+  33,178 = 2 × 16,589).
+- **Verified results over the full sweep [10^7, 10^9) (16,589 delicate
+  records):**
+  - **The minimal collision pair is the unit pair (1, u − 1) in 13,742 of
+    16,589 delicate records (82.8%).** Since 1 always divides M, the unit
+    pair exists in D × (−D) exactly when −1 ∈ D_u(M) — i.e. the
+    one-sided (parametric) criterion succeeds while |D| stays below half
+    the unit group.
+  - The remaining 2,847 (17.2%) have d₁ ≤ u/4 in 1,808 records and
+    u/4 < d₁ ≤ u/2 in 1,039. d₁ > u/2 never occurs (a property of the
+    minimal-pair scan: r is scanned from 1, so the smaller member of any
+    pair is hit first). Square-root pairs (d₁² = u): 0.
+  - The delicate mass concentrates at u = 19 (7,434) and u = 11 (6,075),
+    with u = 23 (1,275), u = 27 (998), u = 31 (405) and u = 43 (149) the
+    next tiers; per mod-5 group: u ≡ 1 (mod 5) dominates u = 11
+    (6,075 = the entire u = 11 layer's delicate mass; E-004's mechanism:
+    the 5–window at u = 11 keeps −1 out of every pure-5 product while the
+    p–free witnesses still collide), while at u = 19 the −1 (mod 5) group
+    carries the majority (5,682 of 7,434).
+- **Mechanism reading (H-5 registered):** the delicate class is (i) the
+  −1 ∈ D_u(M) records whose |D| is still below the pigeonhole half —
+  82.8%, with the (1, −e1)-pair — and (ii) a 17.2% tail where the
+  collision is by small non-unit residues. The practical consequence: for
+  82.8% of the delicate class the collision is ALREADY a parametric
+  witness (−1 ∈ D ⟺ −1 ∈ S_u per CollisionReachability), so the paper's
+  reduction applies, and the remaining interest is the 2,847-record tail.
+- **Artifacts:** analysis/delicate_r6_v06/ (engine v0.6, run, self-test),
+  hashes in DATA_MANIFEST (40/40).
+- **Status:** complete. H-3 (the universal-cardinality target) now has its
+  mechanism split: the 99.48%-conclusive majority + the delicate tail whose
+  majority is one-sided-satisfied. The remaining open question is the
+  2,847-record non-unit-pair tail (queued for R7: coverage across layers).
