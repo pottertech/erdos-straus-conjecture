@@ -131,8 +131,12 @@ U3Boundary's five audited (all trio; E-012) bring the joint audited set to
 U7Layer's seven audited (the two spans on `propext, Quot.sound`, the
 rest on the trio; E-013) bring the joint audited set to 15 + 25 = 40.
 The three conditional 5-window spans audited on exactly
-`propext, Quot.sound` (E-015) bring the joint audited set to
-15 + 28 = 43.
+`propext, Quot.sound` (E-015) and the three E-019 items on the trio
+(the 2-orbit closure lemma `prod_in_orbit_clo_two`, both directions of
+E-018's composition-level iff: the fail route
+`u7_span_fails_of_orbit_primes` and the span route
+`u7_pigeon_of_orbit_breaker`, `U7Layer.lean` at 13 theorems) bring the
+joint audited set to 15 + 31 = 46.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 

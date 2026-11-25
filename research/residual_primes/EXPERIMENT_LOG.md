@@ -777,6 +777,43 @@ behind H-6 and is the base R8 builds on.
   span route) in U7Layer.lean is the next R8 piece; R9 (independent
   validation) thereafter.
 
+## E-019 - R8 piece 10: the composition-level iff formalized in U7Layer (2026-11-25)
+
+- **What landed:** U7Layer.lean extended with the two-direction Lean
+  formalization of E-018's census-verified iff (0-`sorry`, exit 0):
+  - `prod_in_orbit_clo_two` (the 2-orbit closure lemma): a positive
+    integer whose prime divisors are `1`, `2`, or `4 (mod 7)` is itself
+    `1`, `2`, or `4 (mod 7)` (the strong-induction skeleton of
+    prod_mod_one, the residue-set closed under multiplication).
+  - `u7_span_fails_of_orbit_primes` (the fail direction): for
+    `4 * x = n + 7`, `n` prime with `n = 1, 2, 4 (mod 7)`, and every
+    prime divisor of `x` in the closure, no span candidate exists
+    (every divisor of `(n * x)^2` is `1`, `2`, or `4 (mod 7)` by the
+    closure lemma via its prime-divisor walk, while `-n * x` is
+    `5`, `6`, `3 (mod 7)` respectively - never reachable).
+  - `u7_pigeon_of_orbit_breaker` (the span direction): for `4 * x =
+    n + 7` with `n = 1, 2, 4 (mod 7)` and an odd prime
+    `q | x` in residue `3`, `5`, or `6 (mod 7)`, the four
+    divisor-residues `{n, x, q, 2*q}` are pairwise distinct (the
+    residue arithmetic is disjoint across the three classes: the
+    `x`-residue is `{2, 4, 1}` and the `q`-residue is `{3, 5, 6}`
+    with `2q` in `{6, 3, 5}`), so `2|D| > phi(7)` and the audited
+    pigeonhole theorem yields the collision (with the `2q | x` step
+    via Nat.Coprime.mul_dvd_of_dvd_of_dvd, the residue-6 case escaping
+    the closure via `6 * {1, 2, 4} = {6, 5, 3}`).
+- **Axiom census:** all three items audited `[propext,
+  Classical.choice, Quot.sound]` (the trio; the axiom_audit_u7.txt
+  artifact: 13 theorems listed); `joint audited set: 15 + 31 = 46`.
+- **Artifacts:** ErdosStrausConjecture/ResidualPrimes/U7Layer.lean
+  (13 theorems), ErdosStrausConjecture_src/axiom_audit_u7.txt,
+  ErdosStrausConjecture_src/lake_build_u7.log, hashes pinned (81/81
+  verifier rows).
+- **Status:** complete. The composition-level iff (E-018's census) is
+  now machine-checked in both directions for the failing classes.
+  R9 (independent validation of the E-004..E-019 line) is the next
+  R8 piece.
+
+
 
 
 
