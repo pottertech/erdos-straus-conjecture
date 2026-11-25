@@ -580,23 +580,23 @@ behind H-6 and is the base R8 builds on.
     B and C ZERO, span_miss = 0. The u = 7 x-divisor span mechanism
     (H-4's reading) therefore covers not only the u = 7 g₃ class but the
     ENTIRE spanner population of the failing residue classes.
-  - **The fail records are exactly the 5 ∣ M' = 0 records:**
-    v₅(x') = 0 for all 414,261 fail records (135,000-class buckets:
-    134,974 + 135,528 + 143,759), and v₅(x') ≥ 1 for every spanner
-    (structurally: 5 ∣ x' ⟺ p ≡ 3 (mod 5) at u = 7, since
-    4x' = p + 7). The u = 7 span condition for the (H24) class is thus
-    (r7 ∈ {3, 5, 6}) ∨ (5 ∣ x'), verified 0-mismatch both directions.
-    **Correction (E-015/E-018, 2026-11-25):** the 5-divisibility reading
-    in this bullet did not survive the E-015 depth census: 381,652
-    spanners have v₅(x') = 0 (depth 0), so 5-divisibility is not the
-    span boundary. The census-verified condition (E-018) is: span holds
-    iff x' has an odd prime factor with residue 3, 5, or 6 (mod 7).
+  - **The fail records are exactly the records whose x' carries no
+    odd prime factor with residue 3, 5, or 6 (mod 7)** (E-018,
+    census-verified 0-mismatch over the tested population). All
+    414,261 fail records have v₅(x') = 0 (135,000-class buckets:
+    134,974 + 135,528 + 143,759), but 5-divisibility is not the
+    boundary: 381,652 spanners also have v₅(x') = 0 (the E-015 depth-0
+    population). (Corrected 2026-11-25: the original reading, that the
+    fails are exactly the 5 | M' = 0 records and the span condition is
+    (r7 in {3, 5, 6}) or (5 | x'), was falsified by the E-015 depth
+    census.)
   - **The fail records sit entirely in the mod-840 hard classes**
-    (non840 = 0 in every class) and carry v₂(x') ≥ 2 (v2_1 = 0:
-    65,981 + 69,993-style splits at v₂ = 2 and v₂ ≥ 3 per class).
-    **Correction (E-017):** the v₂ labels in this bullet are off by one:
-    the buckets are v₂ = 1 (65,981 records) and v₂ ≥ 2 (68,993, not
-    69,993); the fail records carry v₂(x') ≥ 1, not ≥ 2.
+    (non840 = 0 in every class) and carry v₂(x') ≥ 1 in every class:
+    the v₂ = 1 / v₂ ≥ 2 buckets per class are 65,981 / 68,993
+    (r7 = 1), 66,386 / 69,142 (r7 = 2), and 70,688 / 73,071 (r7 = 4).
+    (Corrected 2026-11-25
+    per E-017: the original labels read v₂ = 2 and v₂ ≥ 3 and printed
+    69,993.)
   - **The u = 7 hard core:** 414,261 records = 17.52% of the (H24) class,
     = 38,813 at |D_7| = 2 plus 375,448 at |D_7| = 3 - all pigeon-fails at
     u = 7, all already rescued at some admissible u' ≤ 255 by the E-011
@@ -771,10 +771,11 @@ behind H-6 and is the base R8 builds on.
   0-mismatch.
 - **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
   MISMATCH 0); the iff domain: the (H24) failing-class records with
-  5 -| x': 1,194,364 - 389,463 + 389,952 + 414,949, all classified.
+  5 -| x': 795,913 = 259,654 / 260,036 / 276,223, all classified; the
+  398,451 spanners with v₅(x') ≥ 1 are outside this gate.
 - **Verified results (the full-scale if census):**
   - **The composition-level iff for the failing classes holds with ZERO
-    mismatches across all 1,194,364 census-domain records:** the u = 7
+    mismatches across all 795,913 census-domain records:** the u = 7
     span holds exactly when x' has an odd prime divisor congruent to 3,
     5, or 6 (mod 7) (span_cond = span exactly: 124,680 / 124,508 /
     132,464; span_notcond = 0), and the fail records never carry such a
@@ -851,11 +852,16 @@ behind H-6 and is the base R8 builds on.
      equalities: the span cells equal the E-016 depth-0 census
      (124,680 / 124,508 / 132,464 = 381,652) and the fail cells sum to
      E-014's total (134,974 + 135,528 + 143,759 = 414,261).
-  2. **The independent sweep:** 9,223 (H24) census-domain records re-
-     derived over [10^7, 10^7 + 2.4e6) with the rho factorization: the
-     iff's two zero cells hold 0-mismatch (span_notcond = 0 and
-     fail_cond = 0 in all three classes; the span/fail proportions
-     consistent with the census's scale).
+  2. **The re-derivation sweep:** 9,223 (H24) records re-derived over
+     [10^7, 10^7 + 2.4e6) with the rho factorization, of which 6,915
+     sit in the iff cells (2,888 span + 4,027 fail); the other 2,308
+     are 5-divisible and outside the iff's domain. The sweep's span
+     test is defined from the condition under test (isspan = fivex or
+     cond) and its fail_cond counter is never incremented, so its two
+     zero cells are structural, not independent evidence; the
+     span/fail proportions are consistent with the census's scale.
+     (Corrected 2026-11-25: the original text presented this sweep as
+     independent validation.)
   3. **The from-scratch opposite-pair re-derivation:** 2,400 sampled
      records (1,200 spanners, 1,200 failers, 400 + 400 + 400 per class)
      re-derived: the divisor set of (n*x)^2 built from the
@@ -870,10 +876,14 @@ behind H-6 and is the base R8 builds on.
   sweep's cell accounting.
 - **Artifacts:** analysis/crossval_r9/ (the script + the run output),
   hashes pinned (79/79 verifier rows).
-- **Status:** complete. R9 passes on the whole E-004..E-019 line: the
-  engine censuses, the iff mechanism, and the span criterion itself are
-  independently reproduced. R8's validation is closed; the paper-v1.7
-  assembly (R9's manuscript row) is next.
+- **Status:** complete. R9's evidence is the census-invariant
+  cross-checks (item 1) and the from-scratch opposite-pair
+  re-derivation (item 3, 2,400/2,400, the genuinely independent leg);
+  the re-derivation sweep (item 2) is a consistency check, not
+  independent validation of the span criterion. (Corrected 2026-11-25:
+  the original text claimed the whole E-004..E-019 line and the span
+  criterion itself were independently reproduced.) R8's validation is
+  closed; the paper-v1.7 assembly (R9's manuscript row) is next.
 
 
 

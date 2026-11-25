@@ -171,8 +171,14 @@ generators present for every depth-0 spanner of residues 2 and 4,
 **Status:** empirical fingerprint with the composition-level iff
 CENSUS-VERIFIED (E-018): the record-level condition "x' has an odd prime
 divisor with residue 3, 5, or 6 (mod 7)" matches the span/fail split with
-ZERO mismatches over all 1,194,364 domain records (span_cond = span
-exactly: 124,680 / 124,508 / 132,464; fail_cond = 0). Open: the
+ZERO mismatches over the 795,913 records the v0.14 census tests
+(the v₅(x') = 0 population: 381,652 span + 414,261 fail; span_cond =
+span exactly: 124,680 / 124,508 / 132,464; fail_cond = 0). The 398,451
+spanners with v₅(x') ≥ 1 are outside the tested population; the
+condition extends to them by arithmetic (5 is an odd prime with
+residue 5 (mod 7), itself in {3, 5, 6}, and no fail record is
+5-divisible), so the iff covers all 1,194,364 records, census-tested
+on 795,913 of them. Open: the
 formalization of the two directions in U7Layer.lean (the orbit-closure
 fail route, the four-residue pigeon span route).
 
