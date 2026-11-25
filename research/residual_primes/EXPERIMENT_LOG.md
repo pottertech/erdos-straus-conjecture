@@ -378,3 +378,73 @@ behind H-6 and is the base R8 builds on.
 - **Status:** complete for the classification sweep. R8 (the universal
   reachability attempt) is the next roadmap item, now with the full
   classification table behind it.
+
+## E-011 — R8: the delicate rescue census and the per-layer reachability table (2026-11-25)
+
+- **What ran:** engine v0.8 (v0.7 + three additions: (i) the sub-fw
+  theorem-consistency check inside the first-working scan, (ii) the
+  per-(layer, mod-5) reachability counters with the delicate
+  unit-pair/small/large buckets, (iii) the delicate rescue scan over every
+  admissible u' with fw < u' <= 255, u' = 3 (mod 4), gcd(M', u') = 1),
+  sanitizer-built; the sweep anchors reproduce byte-identically (the
+  sanitized selftest artifact is BYTE-IDENTICAL to the committed v0.6/v0.7
+  artifact — same SHA-256 `934ec74d…`), and v0.7's entire 197-line run
+  output reappears byte-identically inside the v0.8 run output (0 missing
+  lines; reconciliation checked line-by-line).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical:
+  SWEEP 3194231 H24 2364031 PIGEON 3177642 DELICATE 33178 MISMATCH 0);
+  delicate 16,589 (del_total); sub-fw check sites counted separately.
+- **Verified results:**
+  - **The rescue census (H-3's existential form): rescued_pigeon = 16,589 /
+    16,589 (100%); no_pigeon_anywhere = 0.** Every delicate record — the
+    99.49% pigeonhole-conclusive population already certified at its
+    first-working parameter plus the residual 16,589 — has an admissible
+    u' (fw < u' <= 255, u' = 3 (mod 4), gcd(M', u') = 1) with 2|D_{u'}(M')|
+    > phi(u')/2. Combined with the first-working certification, the
+    statement "exists an admissible u with |D_u(M)| > phi(u)/2" now holds
+    with the bound u <= 255 for the ENTIRE sweep population, zero
+    mismatches. This is the strongest empirical base H-3 has had; it
+    remains a target theorem, not an established result.
+  - **The sub-fw consistency census: checks = 3,042,449, collision = 0,
+    pigeon = 0.** At every admissible span-failing u below its record's
+    first-working parameter, neither the collision nor the pigeon bound
+    occurs — the machine-checked chain (pigeonhole => collision, collision
+    => the centered span, R4/R5) verified sweep-wide, previously only
+    anchor-sampled.
+  - **R5 consistency at the rescue sites: pig_no_coll = 0** (every
+    qualifying off-parameter pigeon site carries the collision, as
+    `pigeonhole_reachability` requires).
+  - **The rescue-site map:** 29 distinct pigeon-site layers across
+    u' in 15..255 (u' = 11 unused: it is below the delicate fw floor;
+    u' = 163 and u' = 235 carry collision sites but zero pigeon sites).
+    The certified (minimum) rescue sites: u' = 23 (6,654 records),
+    u' = 15 (2,690), u' = 31 (2,414), u' = 19 (1,909), u' = 27 (952),
+    u' = 35/39 (551/557), with a nearest-layer concentration: fw = 11
+    records (6,075) rescue at u' in {15: 2,690, 19: 1,909, 23: 1,419};
+    fw = 19 (7,434) at {23: 5,235, 31: 1,089, 27: 580}; fw = 23 (1,275)
+    at {31: 610, 27: 361}; ...; the two fw = 83 records rescue at u' = 87
+    and u' = 119. The per-(layer, mod-5) table (XREACH rows, 40 populated
+    slices) reconciles 0-mismatch: del sums to 16,589, pigeon + del to
+    3,194,231, and the delicate buckets per slice sum to the committed
+    16,589 / 13,742 (unit pair) / 1,808 / 1,039 / 0.
+  - **The R7-queued tail question:** the 2,847 non-unit-pair delicate
+    records are inside the pigeon-rescued set — their first-working
+    collision (the H-5 mechanism) and their H-3 pigeon certificate live at
+    DIFFERENT admissible parameters; the delicate class definition
+    (first-worker pigeon-fail) is orthogonal to the rescue certificate.
+  - **Independent spot-checks (stdlib-only re-derivation, separate from
+    the engine):** p = 10,004,521 (fw = 11, margin 2|D| - phi = -2, unit
+    pair): rescue site u' = 15 with |D| = 6 > 4 = phi(15)/2; p = 651,412,441
+    (fw = 83, margin -58, pair (1, 82)): rescue site u' = 87 with
+    |D| = 56 > 28. Both rescue sites and both fw margins re-derived by
+    independent factorization, 0 mismatches.
+- **Artifacts:** analysis/rescue_r8_v08/ (engine v0.8, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt; hashes pinned in
+  DATA_MANIFEST, 47/47 verifier rows). The per-record evidence
+  delicate_rescue.jsonl (16,589 rows: p, fw, |D|, phi, margin, pair class,
+  rescue sites) is retained in the run directory but NOT committed (the
+  large-generated-dataset consent rule).
+- **Status:** complete. R8's empirical base is unified; the universal
+  theorem attempt (the reachability target per layer as formalizable
+  statements over the rescue structure) is the next R8 piece.
+

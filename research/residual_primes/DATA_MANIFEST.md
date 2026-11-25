@@ -85,6 +85,10 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/layers_r7_v07/collision_margin_engine_v07.c` | `50b78e5f184eae1622bf03799aba5f8bc3439ca0e66b2883a23f3d28cefea99e` | 29083 |
 | `research/residual_primes/analysis/layers_r7_v07/full_run.txt` | `1952e0dab641a12a295014636bebe050cdcab5e317a53ad05ba4d60f117b35f9` | 9219 |
 | `research/residual_primes/analysis/layers_r7_v07/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `research/residual_primes/analysis/rescue_r8_v08/collision_margin_engine_v08.c` | `63fd0b7229ba793d79c96c444337f2f3f141569e16640aa3e8da11b32baddc15` | 35913 |
+| `research/residual_primes/analysis/rescue_r8_v08/full_run.txt` | `8547eb3bf6101333bdfa4f683213086cb07cf526977bfe3605c838ec13616075` | 16008 |
+| `research/residual_primes/analysis/rescue_r8_v08/full_run_stderr.txt` | `de905eab2fd8c1f638123b61b5532aaa44fd991f634d85ef39541bec422d2dcf` | 78 |
+| `research/residual_primes/analysis/rescue_r8_v08/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
 
 ## Frozen-source statement
 
