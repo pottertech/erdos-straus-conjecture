@@ -448,3 +448,39 @@ behind H-6 and is the base R8 builds on.
   theorem attempt (the reachability target per layer as formalizable
   statements over the rescue structure) is the next R8 piece.
 
+## E-012 — R8 piece 3: the u = 3 layer boundary formalized (2026-11-25)
+
+- **What was formalized:** `ErdosStrausConjecture/ResidualPrimes/U3Boundary.lean`
+  (mirrored with its audit artifacts in
+  `research/residual_primes/ErdosStrausConjecture_src/`): five new
+  machine-checked theorems —
+  - `prod_mod_one_of_primes_mod` (the multiplicative residue closure:
+    prime divisors all 1 (mod 3) ⟹ the integer ≡ 1 (mod 3)),
+  - `u3_span_of_even_x` (for 4·x = n + 3, 2 ∣ x, 3 ∤ x: the u = 3 span
+    criterion holds at T = 2), with the corollary
+    `isErdosStraus_of_even_x` (the explicit positive y, z through the
+    audited u-method core: the primality-free sharpening of Paper 1's
+    F(p) = 3 family),
+  - `u3_span_fails_of_odd_x` (under the hard-case predicate, no span
+    candidate exists at u = 3 for odd x), and
+  - `u3_span_iff_even_of_hard` (the boundary: span-at-3 ⟺ 2 ∣ x).
+- **Verification:** compile exit 0 (8,477 jobs); axiom census: all five
+  exactly `[propext, Classical.choice, Quot.sound]`; 0 `sorry`; audit
+  artifact `axiom_audit_u3.txt` (build log `lake_build_u3.log`), both
+  hash-pinned in DATA_MANIFEST (50/50 verifier rows).
+- **Empirical agreement (E-011):** the boundary matches the engine v0.8
+  run at population scale — the sub-fw check verified the
+  span-failing/no-collision equivalence at u = 3 for every (H24) record
+  (the u = 3 sites of the 3,042,449 sub-fw sites, zero violations), and
+  the fw census pinned the u = 3 population at exactly the non-(H24)
+  records (830,200 = 3,194,231 − 2,364,031, the
+  `h213_parametric_u3` regression invariant); the formal ⟵ direction
+  carries the constructive T = 2 witness the engine computes for that
+  class, and the ⟹ direction is the class exclusion the sub-fw census
+  observed at every (H24) record.
+- **Status:** complete. The joint audited set: 15 + 18 = 33. The
+  residual-class first entry follows: every (H24) hard case now has a
+  formal reason its first-working parameter is ≥ 7; the u = 7 layer is
+  the next R8 target.
+
+

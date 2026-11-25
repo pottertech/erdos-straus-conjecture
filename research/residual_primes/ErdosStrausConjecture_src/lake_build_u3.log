@@ -1,0 +1,34 @@
+⚠ [8475/8477] Replayed ErdosStrausConjecture.Basic
+warning: ErdosStrausConjecture/Basic.lean:305:5: unused variable `h_even`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:306:5: unused variable `h_target_odd`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:363:36: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:363:49: unused variable `hx`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:363:62: unused variable `hu`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:364:14: unused variable `hd1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:364:29: unused variable `hd1_le`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/Basic.lean:365:5: unused variable `hcong`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8477/8477] Built ErdosStrausConjecture.ResidualPrimes.U3Boundary (86s)
+warning: ErdosStrausConjecture/ResidualPrimes/U3Boundary.lean:78:37: unused variable `hn0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U3Boundary.lean:78:51: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Build completed successfully (8477 jobs).
+BUILD_EXIT=0

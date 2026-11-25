@@ -1,0 +1,5 @@
+'ResidualPrimes.prod_mod_one_of_primes_mod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.u3_span_of_even_x' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.isErdosStraus_of_even_x' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.u3_span_fails_of_odd_x' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.u3_span_iff_even_of_hard' depends on axioms: [propext, Classical.choice, Quot.sound]
