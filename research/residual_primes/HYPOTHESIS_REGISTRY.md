@@ -151,3 +151,33 @@ open as a monotone mechanism.
 **Falsification criteria.** A populated layer u ≤ 7 whose minimal
 parametric witness requires the p-factor (a single record); or a populated
 deeper layer exhibiting the u = 7 shares.
+
+## H-7 - the D-set-shape boundary in the failing residue classes (E-017)
+
+**Statement.** Within the (H24) records at `p = 1, 2, 4 (mod 7)` with
+`5 -| x'` (the E-014/E-016 fail-side family, x' = (p + 7)/4), the u = 7
+span/fail boundary is exactly the D-set-shape boundary: the record FAILS
+iff `D_7(M')` is contained in the 2-orbit closure `{1, 2, 4}` (observed
+shapes: `{1, 2}` at v2(x') = 1 for residue 1; `{1, 2, 4}` otherwise);
+the record SPANS iff an order-6 generator residue (3 or 5) of
+`(Z/7)*` is a divisor-residue of `M'` (observed 0-mismatch: both
+generators present for every depth-0 spanner of residues 2 and 4,
+124,508 + 132,464 records).
+
+**Status:** empirical fingerprint - open as a mechanism claim.
+0-mismatch: the 414,261 fail records mask-set-classified (three fixed
+shapes); the generator census 124,508 + 132,464 span records with both
+generators present (0 misses).
+
+**Supporting data.** `analysis/u7_gen_v013/full_run.txt` (U7D6GEN /
+U7FAILSET / U7FAILSETVM rows), hashes pinned in DATA_MANIFEST.
+
+**Falsification criteria.**
+- A fail record whose D-set contains 3, 5, or 6 (a generator or the
+  negation-pair partner of 1) demotes the shape boundary to per-record;
+- a depth-0 span record of residues 2 or 4 with a missing generator
+  (an |D| < 6 D-set without both 3 and 5) demotes the both-generators
+  claim;
+- a composition-level iff (which x' factorizations realize the generator
+  residues) that survives a fresh sweep range upgrades H-7 toward the
+  formal direction.
