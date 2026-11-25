@@ -503,7 +503,8 @@ behind H-6 and is the base R8 builds on.
     while `p ≡ 1, 2, 4 (mod 7)` FAIL at 134,974 / 135,528 / 143,759
     records respectively and span for the remainder of those classes
     (254,489 / 254,424 / 271,190 — through deeper-window witnesses).
-    The (H24) u = 7 span population 1,882,909 = the THREE 100% classes.
+    The three 100% classes sum to 1,169,667 records; the (H24) u = 7
+    span population across all six classes is 1,949,770.
   - **The explicit-witness classes verify 0-mismatch at population scale:**
     wit_ok = 389,797 / 389,797 at `p ≡ 3 (mod 7)` (the `T = n` span:
     `n + n·x ≡ 0 (mod 7)` and `n·x² + n·x ≡ 0`, both forced by
@@ -512,7 +513,7 @@ behind H-6 and is the base R8 builds on.
     classes as claimed.
   - **The fail records are all pigeon-fails at |D_7| = 3 exactly** for
     `p ≡ 2, 4 (mod 7)` (135,528 and 143,759 in the single |D| = 3 slot),
-    and `p ≡ 1 (mod 7)` splits 26,454 at |D| = 2 and 108,520 at |D| = 3,
+    and `p ≡ 1 (mod 7)` splits 38,813 at |D| = 2 and 96,161 at |D| = 3,
     consistent with the audited R5 chain (pigeon ⟹ collision ⟹ span:
     below the first-working parameter no pigeon can hold — the sub-fw
     consistency census stays 0 / 3,042,449).
@@ -536,7 +537,7 @@ behind H-6 and is the base R8 builds on.
   full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (57/57
   verifier rows).
 - **Status:** complete. The joint audited set: 15 + 25 = 40. R8 continues:
-  the failing classes (p ≡ 1, 2, 4 (mod 7), the 481,122 fail records) are
+  the failing classes (p ≡ 1, 2, 4 (mod 7), the 414,261 fail records) are
   the next structural object; R9 (independent validation) thereafter.
 
 
