@@ -45,4 +45,28 @@ theorem five_pow_ne_neg_one (t : ℕ) : (5 : ZMod 11) ^ t ≠ (-1 : ZMod 11) := 
   rw [pow_add, pow_mul 5 5 k, h5, one_pow, one_mul]
   interval_cases r <;> decide
 
+
+/-- With `4 ∣ p + 7` and `p ≡ 3 (mod 5)`, the span parameter
+`x = (p + 7)/4` is divisible by 5 (the u = 7 layer's identity, E-007). -/
+theorem five_divides_x_u7 (p : ℕ) (h4 : 4 ∣ p + 7) (h5 : (p : ZMod 5) = 3) :
+    (((p + 7) / 4 : ℕ) : ZMod 5) = 0 := by
+  have hq0 : (p + 7) / 4 * 4 = p + 7 := Nat.div_mul_cancel h4
+  have hunit : (((4 : ℕ)) : ZMod 5) * (((4 : ℕ)) : ZMod 5) = (1 : ZMod 5) := by
+    decide
+  calc (((p + 7) / 4 : ℕ) : ZMod 5)
+      = (((p + 7) / 4 : ℕ) : ZMod 5) * (1 : ZMod 5) := by rw [mul_one]
+    _ = (((p + 7) / 4 : ℕ) : ZMod 5) *
+          ((((4 : ℕ)) : ZMod 5) * (((4 : ℕ)) : ZMod 5)) := by rw [hunit]
+    _ = ((((p + 7) / 4 : ℕ) : ZMod 5) * (((4 : ℕ)) : ZMod 5)) *
+          (((4 : ℕ)) : ZMod 5) := by ring
+    _ = ((p + 7 : ℕ) : ZMod 5) * (((4 : ℕ)) : ZMod 5) := by
+        rw [← Nat.cast_mul, hq0]
+    _ = (0 : ZMod 5) := by rw [Nat.cast_add, h5]; decide
+
+/-- `5³ ≡ −1 (mod 7)`: in the u = 7 layer the 5-orbit reaches ∑ at
+depth 3, in contrast with the u = 11 case where the 5-window never reaches
+− (E-007). -/
+theorem five_pow_three_eq_neg_one_mod_seven : (5 : ZMod 7) ^ 3 = (-1 : ZMod 7) := by
+  decide
+
 end ResidualPrimes

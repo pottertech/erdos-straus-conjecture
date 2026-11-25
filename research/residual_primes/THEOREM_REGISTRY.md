@@ -113,6 +113,8 @@ Axiom audit artifact: `ErdosStrausConjecture_src/axiom_audit_collision.txt`
 | `ResidualPrimes.five_pow_ne_neg_one` (U11Exact) | every 5-power in ZMod 11 differs from −1 (the 5-window miss) | principal (R3) |
 | `ResidualPrimes.cast_prod_finsupp` (WindowForm) | the residue cast distributes over Finsupp products | support (R4) |
 | `ResidualPrimes.window_iff_inCentered` (WindowForm) | the factorization-window span ⟺ D·D⁻¹ (the §5.3 bridge) | principal (R4) |
+| `ResidualPrimes.five_divides_x_u7` (U11Exact) | 4 ∣ p + 7 ∧ p ≡ 3 (mod 5) ⟹ 5 ∣ (p + 7)/4 | principal (R3) |
+| `ResidualPrimes.five_pow_three_eq_neg_one_mod_seven` (U11Exact) | 5³ ≡ −1 (mod 7) (the u = 7 window reach) | principal (R3) |
 
 Scope note (carried from the module docstring): the factorization-window
 characterization of the centered product set (`∏ q^−e..e`-products over
@@ -121,7 +123,9 @@ claimed. The joint audited set stands at 15 (Paper 1, frozen) + 9 = 24:
 the U11Exact pair audited on `propext, Quot.sound` (`five_divides_x`) and
 the trio (`five_pow_ne_neg_one`); see E-005.
 WindowForm’s two audited on `propext, Quot.sound` and the trio respectively
-(E-006), bringing the total to 26.
+(E-006), bringing the total to 28: the U11Exact additions `five_divides_x_u7`
+and `five_pow_three_eq_neg_one_mod_seven` audited on `propext, Quot.sound`
+(E-007).
 
 ## 4. Rejected / superseded
 

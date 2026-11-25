@@ -207,3 +207,38 @@ are bounded by its data; universal claims never enter via this log.
   ErdosStrausConjecture_src/WindowForm.lean, hashes in DATA_MANIFEST (33/33).
 - **Status:** complete. Remaining R3-item: the p = 3 (mod 5) onlypar-zero
   probe (next session).
+
+## E-007 — R3: the p ≡ 3 (mod 5) onlypar-zero — layer structure resolved (2026-11-25)
+
+- **Source of numbers:** the already-verified v0.3/v0.4 run output
+  (analysis/layer_mod5_v03/full_run.txt; the XULAYER g = 3 rows). No new
+  sweep.
+- **Verified layer structure (p ≡ 3 (mod 5), 1,065,189 primes):** the
+  first-working layers number exactly TWO:
+  - **u = 7: 788,565 primes (74.0% of the class, all first-working u ≡ 2
+    (mod 5)), onlynon = 16,834 (2.13%)** — the class's ONLY
+    only-nonparametric records, all in this layer;
+  - **u = 3: 276,624 primes (26.0%), onlynon = 0 (0.00%)** — and with the
+    class-wide onlypar = 0 (E-002), every one of these is dual-witnessed
+    (both).
+  The class-wide onlypar = 0 is thus: no p ≡ 3 (mod 5) prime lacks a
+  nonparametric companion witness.
+- **Arithmetic (machine-checked):** `five_divides_x_u7`: at u = 7 with
+  p ≡ 3 (mod 5), 5 ∣ (p + 7)/4 identically (74% of the class class);
+  `five_pow_three_eq_neg_one_mod_seven`: 5³ ≡ −1 (mod 7), so in the
+  u = 7 window the 5-orbit reaches −1 at depth 3 — in pointed contrast
+  with the u = 11 layer, where the 5-window never reaches −1 and the
+  separation is a NONparametric gap. The two 5-adic mechanisms act in
+  opposite directions: at u = 7 the deep-5 window strengthens parametric
+  availability (0.00% onlynon at u = 7 for the complement residues), at
+  u = 11 it suppresses it (0/145,060, E-004).
+- **Verification:** lake env lean exit 0, lake build exit 0, 0 sorry; axiom
+  census: both new theorems on [propext, Quot.sound]; the joint audited set
+  is 26 + 2 = 28.
+- **Open follow-up (the lane-3 remainder):** the both-class fingerprint at
+  u = 7 g = 3 (the witness-shape probe, v0.5) - whether the nonparametric
+  companions at u = 7 admit a uniform shape the way the u = 11 class does.
+- **Artifacts:** the extended U11Exact.lean, axiom_audit_u11b.txt, hashes in
+  DATA_MANIFEST (35/35).
+- **Status:** complete for the layer structure; the fingerprint probe
+  queued.

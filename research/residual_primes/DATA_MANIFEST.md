@@ -16,7 +16,7 @@ re-production commands live in Paper 1 Appendix A and
 verification_nano/NANODA_RUN.md; the standing determination applies -
 these datasets carry no universal claims.
 
-## Verified computational datasets (33 artifacts)
+## Verified computational datasets (35 artifacts)
 
 | Path | SHA-256 | Bytes |
 | --- | --- | --- |
@@ -71,6 +71,9 @@ these datasets carry no universal claims.
 | `ErdosStrausConjecture/ResidualPrimes/WindowForm.lean` | `364910f98645cbb4fc41c71169886685bda119e69ca7660198352379eded0f5b` | 3299 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_window.txt` | `f502a11a8b6bf19cce3e93ce02424a55a081a1c24d14eb6b4878b803491a557a` | 174 |
 | `research/residual_primes/ErdosStrausConjecture_src/WindowForm.lean` | `364910f98645cbb4fc41c71169886685bda119e69ca7660198352379eded0f5b` | 3299 |
+
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u11b.txt` | `ec3393fec0a5fe32698cff05ec7e50007e3fba2c7b2bdc95c74795743d752cbc` | 170 |
+| `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11b.log` | `58d3332d9137f4de5c03d6eb40c5302729cf35e582d65630f2517504ab0d2df5` | 116 |
 
 ## Frozen-source statement
 
