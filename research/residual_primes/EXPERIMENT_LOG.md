@@ -1471,6 +1471,51 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   sanitized_selftest.txt; hashes pinned below, verifier rows 119).
 - **Status:** complete.
 
+## E-032 - R8 piece 24: the u = 15 span-side mechanism census (engine v0.26) (2026-11-26)
+
+- **What ran:** engine v0.26 (`analysis/u15_span_v026/`), a byte-superset
+  of v0.25 (the reconcile: v0.25's 690 lines in order inside 711,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 still holds in
+  the extended engine.
+- **Verified results (full scale):**
+  - **The spanner D15-shapes are FIXED again (7 shapes):** r15 = 4:
+    uniformly the FULL unit group mask
+    {1, 2, 4, 7, 8, 11, 13, 14} (|D| = 8, 27,488 records - the
+    maximal pigeonhole certificate, 2|D| = 16 > 8 decisively);
+    r15 = 1: 6 shapes over the 32,271 spanners (the top: the full
+    unit group 14,251, then the 7-element 7,300, the 6-element
+    5,593 and 3,936, plus two rarer shapes). The span-side sets
+    are closed near the unit complement.
+  - **The route structure:** every spanner is certified by the
+    x'-window hit (a = 0), the p-scaled window (a = 1), or both:
+    r15 = 4: the a = 0 route 7,269 hits-only + 14,955 both
+    (22,224 = 80.9% carry an a = 0 hit); the a = 1-only route
+    5,264 (19.1%) - the off-orbit p-pair (1, 4) is itself a
+    generator needed for a minority of spans. r15 = 1: EVERY
+    spanner carries both routes mechanically (the p-pair
+    (1, 1) = the identity, so the two windows coincide). U15SNONE
+    = 0 (consistency with E-031's algebra).
+  - **The odd-pair generators (the mechanism):** the spanner's
+    off-orbit odd-prime pair count (the (mod 3, mod 5) pairs of
+    the odd primes q | x' outside the 2-orbit
+    {(1,1), (2,2), (1,4), (2,3)}): 0: 1,693 / 1: 15,267 / 2:
+    13,862 / 3: 1,448 / 4: 1 at r15 = 1 (the mode 1-2; 1,693
+    spans carry NO off-orbit odd pair - the orbit + the
+    p-scale suffices); r15 = 4: 0: 870 / 1: 14,276 / 2: 11,150 /
+    3: 1,191 / 4: 1. ONE off-orbit odd-prime pair suffices for
+    about half the spans of each class.
+- **The mechanism status:** the u = 15 span-side is mechanized in
+  census-cell terms: the pair-window algebra generates D15 (E-031,
+  exact), the fail shapes = the orbit windows, the span shapes =
+  the orbit + off-orbit odd pairs (mostly exactly one) + the
+  p-scale; the r15 = 4 spans all carry the full unit group. Open
+  at u = 15: the deficit-exactness Lean theorem (E-031's
+  candidate) and the natural next layer.
+- **Artifacts:** `analysis/u15_span_v026/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 122).
+- **Status:** complete.
+
 
 
 
