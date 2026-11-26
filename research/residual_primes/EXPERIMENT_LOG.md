@@ -986,6 +986,47 @@ behind H-6 and is the base R8 builds on.
     are the next census objects). The Lean layer follows the E-019
     pattern once the composition-level iff is settled.
 
+## E-022 - R8 piece 13: the QR-purity dichotomy at u = 11, part 1 (2026-11-26)
+
+- **What ran:** engine v0.17 (v0.16 + the odd-part-purity census: per
+  record the QR-purity of the odd part of `x'` (every odd prime divisor
+  in `{1, 3, 4, 5, 9} (mod 11)`) crossed with the `v2` bucket and the
+  span/fail fact), sanitizer-built; the selftest artifact stays
+  byte-identical (the same SHA-256 `934ec74d...`) and v0.16's entire
+  486-line run output reappears byte-identically inside the v0.17 run
+  (500 lines, 0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the 9 populated classes.
+- **Verified results (the full-scale census):**
+  - **The dichotomy is pure at full scale:** the QR-pure cell
+    (`allQR = 1`: every odd prime divisor of `x'` in `QR`) has
+    **`span = 0` in EVERY class** - the QR-pure records never span.
+    The impure cell (`allQR = 0`: at least one non-QR odd prime)
+    carries 100% of the spanners (cond_span = span exactly, the
+    E-021 part-2 necessary direction re-derived structurally) and
+    splits into spanners and failers at the ~14.5% / 85.5% rate.
+  - **The class-constant population identified:** the non-firing fail
+    population of the QR classes (E-021 part 2's class-constant
+    ~116.3k) is exactly the QR-pure fail cell: 116,235 / 116,339 /
+    116,211 / 116,437 / 116,474 (r11 = 1 / 3 / 4 / 5 / 9).
+  - **The v2 bucket is degenerate at u = 11:** every record sits at
+    `v2(x') = 0` - for the (H24) primes (`p = 1 (mod 8)`) the layer
+    relation `4x' = p + 11` gives `4 | x'` never: `(p + 11)/4` is
+    always odd, so the u = 7-style 2-window layer does not exist
+    here. The census confirms the degenerate bucket (all cells
+    `v2b >= 1` are empty and suppressed).
+  - **The remaining mechanism object:** the impure-but-failing cell
+    (e.g. r11 = 1: 126,757 fail records with a non-QR odd prime but
+    no span witness) - the span-vs-fail split inside it is the next
+    census object (which non-QR prime composition classes span).
+- **Artifacts:** analysis/u11_split_v017/ (engine v0.17, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (91/91
+  verifier rows).
+- **Status:** part 1 complete. E-022 part 2 (the impure-cell
+  decomposition: the non-QR prime composition classes and their span
+  rates) is the next census pass.
+
+
 
 
 
