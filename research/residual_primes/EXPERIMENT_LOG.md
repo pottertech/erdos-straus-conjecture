@@ -1541,6 +1541,37 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   the E-016-scale skeleton) and the r15 = 7 predicate-exclusion
   theorem on the hard-case predicate's Lean shape.
 
+## E-035 - R8 piece 27: the u = 15 Lean layer part 2 - the deficit bound (2026-11-26)
+
+- **What landed:** U15Layer.lean extended to 9 theorems (0-`sorry`,
+  compile exit 0, 8476 jobs): the D-set-as-Finset foundation piece and
+  the deficit bound:
+  - `crtPair` (the decode `(r % 3, r % 5)`) and `uDset` (the
+    divisor-residue set as `(Nat.divisors M).image (fun d => d % u)`)
+    - the foundation defs.
+  - `uDset_mem_elim` / `uDset_mem_of_dvd` - the membership interface
+    (with the `M != 0` side condition via `Nat.mem_divisors`).
+  - `crtPair_injOn15` - the CRT decode is injective on the residues
+    below 15 (the omega-derivable inversion: the pairs determine the
+    residue mod 15 in the bounded range).
+  - **`uDset15_card_le` - the deficit bound theorem:** `(uDset 15
+    M).card <= (uDset 3 M).card * (uDset 5 M).card` - every realized
+    pair is a member of both layer sets (the composite routing) and
+    the CRT decode does not collapse the image - the nonnegativity of
+    the E-030 census deficit `|D3| * |D5| - |D15|` IS A THEOREM.
+- **Consequence:** the composite-layer foundation piece is closed -
+  all further composite-layer formalizations (the E-031
+  window-generation exactness, the deficit-exactness) now have the
+  D-set language available (uDset at any modulus, the card interface).
+- **Axiom census:** all four new theorems on the trio; the audit
+  re-pinned (verifier rows 126).
+- **Artifacts:** U15Layer.lean (9 theorems), the re-pinned
+  axiom_audit_u15_layer.txt (9 theorems), lake_build_u15_layer.log.
+- **Status:** part 2 complete. Staged: the deficit-EXACTNESS (the
+  E-031 window algebra as a theorem - |D15| equals the pair-window
+  fold, hence the exact deficit cells) and the r15 = 7
+  predicate-exclusion theorem.
+
 
 
 
