@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.9 (2026-11-26: the u = 15 composite-layer program E-029–E-032 incorporated)
+**Version:** v1.10 (2026-11-26: the prime-layer chain E-034–E-037 incorporated: the u = 15 Lean layer, the u = 19 and u = 23 censuses)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -81,6 +81,8 @@ which is the structure investigated in §5.
 | Delicate rescue census (E-011) | 16,589 / 16,589 pigeon-certified off-parameter (bound u ≤ 255) | `analysis/rescue_r8_v08/` |
 | u = 11 3-fate census (E-024) | 1,949,770 fw=7 / 279,515 fw=11 / 134,746 fw>11 = 2,364,031 exact | `analysis/u11_gate_v021/` |
 | u = 15 layer census (E-029) | 3 populated classes 788,009/787,457/788,565 = 2,364,031 exact; the spans 59,759 + the still-failers 74,987 = 134,746 exact | `analysis/u15_class_v023/` |
+| u = 19 layer census (E-036) | all 18 classes populated; the spans 42,804 + the residual 32,183 = 74,987 exact | `analysis/u19_class_v027/` |
+| u = 23 layer census (E-037) | all 22 classes populated; the spans 21,626 + the residual 10,557 = 32,183 exact | `analysis/u23_class_v028/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -289,6 +291,30 @@ needed for 19.1% of the spans — and the off-orbit odd-prime pairs number
 0–4 per spanner with the mode 1–2: **one off-orbit odd-prime pair suffices
 for about half the spans** of each class, while 2,563 spans need none (the
 orbit + the p-scale sufficing).
+
+*The prime-layer chain (E-034–E-037).* The census ladder extends to the
+next prime layers, `u = 19` and `u = 23`. The prime layers differ from the
+composite ones in two ways, both theorems now: the coprimality is automatic
+(the E-034 module `U15Layer.lean` proves `x` and `M = p·x` coprime to `u = 15`
+for `4·x = p + 15` — the census analog `admfail = 0` holds at 19 and 23, and
+no structural class exclusions exist — all 18 (resp. 22) unit classes
+populated, total 2,364,031 exact), and the `fw = 3` boundary holds at every
+layer (`fw = 3` count = 0). The rescue chain closes exactly at both layers:
+the u = 19 spans 42,804 + the true `fw > 19` failers 32,183 = 74,987 = the
+u = 15 still-failers exact (the u = 19 layer rescues **57.09%**), and the
+u = 23 spans 21,626 + the residual 10,557 = 32,183 exact (the u = 23 layer
+rescues **67.20%**). The chain now reads
+
+> u = 3 (0 spans) → 7 (1,949,770, 82.49%) → 11 (279,515, 11.82%) →
+> 15 (59,759, 2.53%) → 19 (42,804, 1.81%) → 23 (21,626, 0.91%) →
+> the residual **10,557 (0.447% of the hard-case class)**,
+
+zero collisions among the true failers at every nontrivial layer, and the
+composite-layer deficit bound is a theorem (`uDset15_card_le`: the
+divisor-residue set at 15 never exceeds the product of the layer sets at 3
+and 5 — the nonnegativity of the E-030 deficit as a theorem — with the
+D-set-as-Finset foundation `uDset` now available at any modulus). The Lean
+joint audited set stands at **65**.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
