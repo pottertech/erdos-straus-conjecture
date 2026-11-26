@@ -93,6 +93,43 @@ theorem u11_span_mod11_ten (p x : ℕ) (hx0 : 0 < x) (hnp : p.Prime)
     rw [Nat.mul_mod, h10, hxmod]
   omega
 
+theorem qr_closed_mod11 (a b : ℕ)
+    (ha : a % 11 = 1 ∨ a % 11 = 3 ∨ a % 11 = 4 ∨ a % 11 = 5 ∨ a % 11 = 9)
+    (hb : b % 11 = 1 ∨ b % 11 = 3 ∨ b % 11 = 4 ∨ b % 11 = 5 ∨ b % 11 = 9) :
+    (a * b) % 11 = 1 ∨ (a * b) % 11 = 3 ∨ (a * b) % 11 = 4 ∨
+      (a * b) % 11 = 5 ∨ (a * b) % 11 = 9 := by
+  rcases ha with e | e | e | e | e
+  · rcases hb with k | k | k | k | k
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+  · rcases hb with k | k | k | k | k
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+  · rcases hb with k | k | k | k | k
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+  · rcases hb with k | k | k | k | k
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+  · rcases hb with k | k | k | k | k
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+    · rw [Nat.mul_mod, e, k]; norm_num
+
 /-- **The QR-side membership closure**: a positive integer whose prime
 divisors all carry QR residues is itself one of `1, 3, 4, 5, 9 (mod 11)`
 (the quadratic residues; `-1` is a non-residue since `11 = 3 (mod 4)`). -/
@@ -167,6 +204,75 @@ theorem prod_mod_qr (T : ℕ) (hT0 : 0 < T)
             · rw [Nat.mul_mod, e, k]; norm_num
             · rw [Nat.mul_mod, e, k]; norm_num
   exact key T (Nat.le_refl T) hT0 hall
+
+/-- **The QR-purity dichotomy (E-022/E-026, full scale).** For
+`4·x = p + 11` with `p` prime, `p` a QR (mod 11), and `x` QR-pure
+(every odd prime divisor of `x` in the QRs), the u = 11 span criterion
+fails: every divisor of `(p·x)^2` carries a QR residue (the x factors
+are QR and `x` is odd, so no factor of 2 appears anywhere), while
+`-(p·x)` carries a non-QR residue (`-1` is a non-residue because
+`11 = 3 (mod 4)`). -/
+theorem u11_span_fails_of_qr_pure_x (p x : ℕ) (hx0 : 0 < x) (hnp : p.Prime)
+    (hx : 4 * x = p + 11) (h8 : p % 8 = 1)
+    (hqr : p % 11 = 1 ∨ p % 11 = 3 ∨ p % 11 = 4 ∨ p % 11 = 5 ∨ p % 11 = 9)
+    (hxp : ∀ q : ℕ, q.Prime → q ∣ x →
+      (q % 11 = 1 ∨ q % 11 = 3 ∨ q % 11 = 4 ∨ q % 11 = 5 ∨ q % 11 = 9)) :
+    ∀ d : ℕ, d ∣ p ^ 2 * x ^ 2 → (d + p * x) % 11 ≠ 0 := by
+  have hxodd : ¬ (2 ∣ x) := u11_x_odd p x hx h8
+  have hxQRres : x % 11 = 1 ∨ x % 11 = 3 ∨ x % 11 = 4 ∨ x % 11 = 5 ∨ x % 11 = 9 :=
+    prod_mod_qr x hx0 hxp
+  have hMQR : (p * x) % 11 = 1 ∨ (p * x) % 11 = 3 ∨ (p * x) % 11 = 4 ∨
+      (p * x) % 11 = 5 ∨ (p * x) % 11 = 9 :=
+    qr_closed_mod11 p x hqr hxQRres
+  intro d hd hcong
+  have hpn1 : 1 < p := Nat.Prime.one_lt hnp
+  have hp0 : (0 : ℕ) < p := by omega
+  have hx0p : (0 : ℕ) < x := hx0
+  have hN0 : 0 < p ^ 2 * x ^ 2 := by positivity
+  have hd0 : 0 < d := Nat.pos_of_dvd_of_pos hd hN0
+  have hdQR : d % 11 = 1 ∨ d % 11 = 3 ∨ d % 11 = 4 ∨ d % 11 = 5 ∨ d % 11 = 9 := by
+    refine prod_mod_qr d hd0 ?_
+    intro q hqp hqd
+    have hqN : q ∣ p ^ 2 * x ^ 2 := hqd.trans hd
+    rcases (Nat.Prime.dvd_mul hqp).mp hqN with hqp2 | hqx2
+    · have hqeq : q = p := Nat.prime_eq_prime_of_dvd_pow hqp hnp hqp2
+      rw [hqeq]; exact hqr
+    · have hqx : q ∣ x := Nat.Prime.dvd_of_dvd_pow hqp hqx2
+      exact hxp q hqp hqx
+  -- the contradiction: the sum of two QR residues is never 0 (mod 11)
+  have hsum : (d + p * x) % 11 ≠ 0 := by
+    rcases hdQR with e | e | e | e | e
+    · rcases hMQR with k | k | k | k | k
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+    · rcases hMQR with k | k | k | k | k
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+    · rcases hMQR with k | k | k | k | k
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+    · rcases hMQR with k | k | k | k | k
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+    · rcases hMQR with k | k | k | k | k
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+      · rw [Nat.add_mod, e, k]; norm_num
+  exact hsum hcong
 
 end ResidualPrimes
 
