@@ -108,10 +108,10 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u11_gate_v021/full_run_stderr_v022.txt` | `8904d7eb954a97f4dcb6c1257f4ec840863f1d378cfca45ec5dad5e8a4704767` | 78 |
 | `research/residual_primes/analysis/u11_gate_v021/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
 | `research/residual_primes/analysis/u11_gate_v021/sanitized_selftest_v022.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
-| `ErdosStrausConjecture/ResidualPrimes/U11Layer.lean` | `6b9400cdc621c3e1f7127bf5011f733e1f1e1677364de9175a2089e47dec767a` | 4303 |
-| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u11_layer.txt` | `ffdbfa4a6c0bec82798ca182e5d5dbc58fa8fd290279420fbdf8b16e2989b071` | 328 |
+| `ErdosStrausConjecture/ResidualPrimes/U11Layer.lean` | `38a447c522b59676c1b744e6aec3958a1199d9b5177c59bf2a4d8921fb788918` | 7958 |
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u11_layer.txt` | `f6032e3c8e12f8d5272e54f0f3da6813fa3e074c46f6f442266dc711865b9585` | 416 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11_layer.log` | `52373301989a17e7e601e7027292d64711adfc5aa5eeeef89a442b582361026a` | 42 |
-| `research/residual_primes/ErdosStrausConjecture_src/print_axioms_u11.lean` | `049e7d372dfbffb1c32d5430acfb2383816a8955e7f12f359d523e1fa3d1cf67` | 248 |
+| `research/residual_primes/ErdosStrausConjecture_src/print_axioms_u11.lean` | `dfbf17137e280926384e38fda14e552f58f93d169c582fbacad6e97542545a79` | 289 |
 | `research/residual_primes/analysis/u7_depth0_v012/collision_margin_engine_v012.c` | `94345ff42991aed7782d86ed3016ad942266880c7a579f2573dd25a9b8622c49` | 47981 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run.txt` | `89e538cb6d0e7ce4d9462fece8257ebed7d4919ac779485af064338caa4c0fad` | 17982 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run_stderr.txt` | `ced48829b8f603759a67be0da6c0f2e8a2d76b56f595a14eaf1019f9a0a77f0a` | 78 |
