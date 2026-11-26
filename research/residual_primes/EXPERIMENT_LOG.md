@@ -1225,6 +1225,46 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   and the route-decomposition exactness theorem (E-023), followed by
   the fw = 7 spanner-cell census (the engine pass).
 
+## E-026 - R8 piece 17: the fw = 7 spanner-cell census reading (2026-11-26)
+
+- **What ran:** no new engine - the E-024 v0.22 full run already carries
+  the 3-fate cells (the fate dimension includes fw = 7); this piece is
+  the data reading over the pinned `analysis/u11_gate_v021/full_run.txt`
+  against the E-025 module (part 2's Lean theorems are staged in the
+  EXPERIMENT_LOG notes below; the u11_span_fails_of_qr_pure_x theorem
+  and the route-exactness theorem follow next).
+- **Verified results (the fw = 7 fate cells, full scale):**
+  - **The fw = 7 spanner population is class-constant:** 216,932 /
+    216,863 / 216,923 / 213,553 / 217,205 / 217,018 / 216,827 / 217,134 /
+    217,315 for r11 = 1 / 2 / 3 / 4 / 5 / 6 / 7 / 9 / 10 (82.5% of every
+    class, spread 213.6k - 217.3k = 1.7%) - the u = 7 layer's span rate
+    is composition-independent across the u = 11 residue classes.
+  - **The class-constant ~116.3k QR-pure population of the QR classes
+    decomposes exactly into the fw = 7 and fw > 11 fates:** at r11 = 1:
+    92,419 (fw = 7, QR-pure) + 23,816 (fw > 11, QR-pure) = 116,235 =
+    the E-021 part-2 mixed reading exactly (the other QR classes
+    likewise, to the record). The QR-pure records split 79.5% span at
+    fw = 7 / 20.5% failure through fw = 11.
+  - **The fw > 11 failers are overwhelmingly QR-pure:** 23,816 of
+    26,060 = 91.4% at r11 = 1 (the other QR classes similar) - the
+    u11_x_odd/QR-purity theorem's census shape confirmed from the
+    failure side: the impure-x' records mostly escape failure.
+  - **The fw = 7 spanner's odd-part composition (QR classes, the
+    count histogram):** cnt = 0: 92,419 (42.6% of the class's fw = 7
+    spanners); cnt = 2: 116,678 (53.8%); cnt = 4: 7,722 (3.6%);
+    cnt = 6: 112; cnt = 8: 1 - and EVERY fw = 7 spanner of the impure
+    sub-cells (cnt >= 2) carries a non-QR odd prime, i.e. the E-021
+    part-2 necessary direction holds for the fw = 7 fate as well
+    (the QR-pure fw = 7 spanners = 0 in the cnt = 0 cell's span fate,
+    where the row reads span = 0).
+- **Artifacts:** none new; the reading is over the pinned
+  `analysis/u11_gate_v021/full_run.txt` (the E-024 pins).
+- **Status:** complete. The u = 11 census chain now reads: every (H24)
+  record splits by (fw, the x' composition) with the QR-purity the
+  span-boundary at u = 11 and the u = 7 layer carrying 82.5%
+  population-wide. R8's next objects: the QR-purity Lean theorem
+  (formalization pass), and the r11 in {1, 2, 4} x'^2-only echo.
+
 
 
 
