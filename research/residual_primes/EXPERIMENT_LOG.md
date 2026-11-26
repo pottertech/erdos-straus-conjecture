@@ -934,6 +934,58 @@ behind H-6 and is the base R8 builds on.
   span condition at u = 11, the collision-vs-span relation) is the next
   census pass; the Lean layer follows the E-019 pattern.
 
+- **Part 2 (E-021, 2026-11-25, the same run day):** engine v0.16
+  (v0.15 + the composition-level condition census: the per-record
+  non-QR-odd-prime scan vs the span fact, and the collision x span/fail
+  4-way cells), sanitizer-built; the selftest artifact stays
+  byte-identical (the same SHA-256 `934ec74d...`) and v0.15's entire
+  467-line run output reappears byte-identically inside the v0.16 run
+  (486 lines, 0 missing).
+
+  - **The Legendre-split candidate condition.** With `2` a primitive
+    root mod 11 and `-1` a non-residue (11 = 3 (mod 4)), the index-2
+    structure is the Legendre split: the quadratic residues
+    `QR = {1, 3, 4, 5, 9}`, the non-residues `{2, 6, 7, 8, 10}`. The
+    H-7 analog candidate: "`x'` has an odd prime divisor outside the
+    QRs".
+  - **The necessary direction holds 0-mismatch at full scale:**
+    `nocond_span = 0` in EVERY class - every u = 11 spanner's `x'`
+    carries an odd prime divisor which is a quadratic non-residue
+    (cond_span = the span exactly: 19,535 / 40,090 / 21,575 / 23,351 /
+    21,652 / 40,196 / 45,447 / 21,856 / 45,813). Also
+    **span ⟹ collision, 0-mismatch**: `nocoll_span = 0` in every class.
+  - **The sufficiency is falsified, and the failure mode splits
+    exactly by the QR status of `n_bar = r11`:** the mismatch census
+    counts 1,502,820 fail records that fire the condition.
+    - The classes with `n_bar` a NON-residue (`r11 in {2, 6, 7, 10}`):
+      the condition is TRIVIALLY TRUE for every record
+      (`cond_fail =` the full fail count per class; `nocond_fail = 0`)
+      - because `x_bar = 3 n_bar` is then a non-residue itself, and
+      products cannot keep all odd prime factors inside the QRs while
+      landing outside... the scan fires for essentially every
+      admissible x' of those classes.
+    - The classes with `n_bar` a QR (`r11 in {1, 3, 4, 5, 9}`): the
+      failers SPLIT - the firing portion is 52.17%, 52.19%, 52.13%,
+      52.18%, 52.20% of the class fail count; and strikingly the
+      NON-firing fail population is class-constant to within 0.2%
+      (116,235 / 116,339 / 116,211 / 116,437 / 116,474) - a
+      composition-density fact: the QR-only-odd-part x' population is
+      the same size in every QR class.
+  - **The collision cells (per class, the 4-way):** every spanner
+    collides; among the failers the collision rate again splits by the
+    class's QR status (the fully-pairing classes r11 = 7 / 10 vs the
+    r11 = 2 / 6 classes with a no-collision sub-shape visible in
+    U11FAILSET, e.g. the mask-94 shape).
+  - **Artifacts:** analysis/u11_iff_v016/ (engine v0.16, full_run.txt,
+    full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (87/87
+    verifier rows).
+  - **Status:** part 2 complete. The u = 11 layer's composition-level
+    reading: the non-QR-odd-prime presence is a necessary span
+    condition population-wide; the iff-style sufficient condition
+    remains open (the QR-class fail split and the no-collision sub-shapes
+    are the next census objects). The Lean layer follows the E-019
+    pattern once the composition-level iff is settled.
+
 
 
 
