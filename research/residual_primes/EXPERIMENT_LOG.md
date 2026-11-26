@@ -1516,6 +1516,31 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   sanitized_selftest.txt; hashes pinned below, verifier rows 122).
 - **Status:** complete.
 
+## E-034 - R8 piece 26: the u = 15 Lean layer part 1 (2026-11-26)
+
+- **What landed:** the new module
+  `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` (5 theorems,
+  0-`sorry`, compile exit 0, 8476 jobs):
+  - `u15_x_mod3_of_dvd` / `u15_x_mod5_of_dvd` - the divisibility
+    transfers (3/5-divisibility of x forces the same for p under
+    `4x = p + 15`), the omega-level core.
+  - `u15_x_residue` - the structural glue `x = 4p (mod 15)` (4 is its
+    own inverse mod 15).
+  - `u15_x_coprime` - the E-029 `inad = 0` census row as a theorem:
+    for `4x = p + 15` with `p` prime and `p > 5`, `x` is coprime to 15
+    (any common prime factor 3 or 5 transfers to p, contradicting
+    primality at `p > 5`).
+  - `u15_m_coprime` - the coprimality of `M = p * x` (both factors
+    individually in the CRT pair group, the seat of the E-031
+    algebra).
+- **Axiom census:** the two coprimality theorems on the trio, the
+  three light lemmas on `[propext, Quot.sound]`; 0 `sorry` throughout;
+  the audit pinned (verifier rows 125).
+- **Status:** part 1 complete. Staged next: the deficit bound
+  `|D15| <= |D3| * |D5|` (needs the D-set-as-Finset foundation piece -
+  the E-016-scale skeleton) and the r15 = 7 predicate-exclusion
+  theorem on the hard-case predicate's Lean shape.
+
 
 
 
