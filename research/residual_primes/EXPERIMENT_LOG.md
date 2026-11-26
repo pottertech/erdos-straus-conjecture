@@ -885,6 +885,56 @@ behind H-6 and is the base R8 builds on.
   criterion itself were independently reproduced.) R8's validation is
   closed; the paper-v1.7 assembly (R9's manuscript row) is next.
 
+## E-021 - R8 piece 12: the u = 11 layer census, part 1 - the class structure (2026-11-25)
+
+- **What ran:** engine v0.15 (v0.14 + the u = 11 layer census: per class
+  `r11 = p mod 11` the record table, the |D| histograms for spanners and
+  failers, the 11-bit fail D-set masks, and the fail record collision
+  census), sanitizer-built; the selftest artifact stays byte-identical to
+  v0.6-v0.14 (the same SHA-256 `934ec74d...`) and v0.14's entire 356-line
+  run output reappears byte-identically inside the v0.15 run (467 lines,
+  0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the u = 11 census covers all 2,364,031 (H24) records
+  across the 9 populated classes (each 262,274 - 263,128).
+- **Verified results (the full-scale census):**
+  - **The class-8 gap is structural:** no hard-case cohort record carries
+    `p = 8 (mod 11)`, because then `p + 3 = 0 (mod 11)` forces
+    `11 | (p + 3)/4`, and the hard-case predicate (every odd prime factor
+    of `(p + 3)/4 = 1 (mod 3)`) forbids the factor 11 (`11 = 2 (mod 3)`).
+    The exact analog of the E-013 "p = 21 (mod 28) forced composite" gap.
+  - **The span rates split into three tiers:** `r11 in {7, 10}` span at
+    17.33% and 17.41% (45,447 / 45,813), `r11 in {2, 6}` at 15.25% and
+    15.28% (40,090 / 40,196), and the remaining five classes at 7.44% -
+    8.90% (19,535 - 23,351). The u = 11 span total is 279,515 (11.82% of
+    the (H24) class); at u = 7 the span total was 1,585,284 across the
+    failing classes plus the three conclusive classes.
+  - **The collision census (the decisive structural finding):**
+    1,413,291 of the 2,084,516 u = 11 fail records (67.80%) carry a
+    divisor-residue collision (`hasOppositePair`: some
+    `d1 + d2 = 0 (mod 11)`, both divisor-residues) while the span
+    criterion (`exists d | M, d = -M (mod u)` - the engine's first-layer
+    span fact, E-012/E-013's route) still fails. At u = 7 NO fail record
+    ever carried a collision (the fail D-sets {1, 2} and {1, 2, 4}
+    never sum to 7), which is why the v0.7-era sub-first-working
+    collision gate passed on that layer. The pair and the -M-residue
+    span criterion are thus different predicates, and u = 11 is the
+    layer where the distinction is populated: the gate was reclassified
+    as a census row (`U11COLL...`) rather than an error gate.
+  - The fail D-set masks per class are recorded (`U11FAILSET r11 mask n`),
+    the largest single shape per class being the full-orbit mask 2046
+    (e.g. r11 = 2: 147,836 of 222,706 fails) - the full-group orbit with
+    ONE missing residue; the mask algebra for the composition-level iff
+    is the next census pass.
+- **Artifacts:** analysis/u11_class_v015/ (engine v0.15, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (83/83
+  verifier rows).
+- **Status:** complete for the class-structure census. E-021 part 2 (the
+  composition-level decomposition: which x' factorizations realize the
+  span condition at u = 11, the collision-vs-span relation) is the next
+  census pass; the Lean layer follows the E-019 pattern.
+
+
 
 
 
