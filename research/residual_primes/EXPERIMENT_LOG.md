@@ -1680,6 +1680,47 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** complete (the chain link + the collision-regime
   transition recorded).
 
+## E-040 - R8 piece 32: the u = 31 collision-failer mechanism census (engine v0.30) (2026-11-26)
+
+- **What ran:** engine v0.30 (`analysis/u31_coll_v030/`), a byte-superset
+  of v0.29 (the reconcile: v0.29's 1,154 lines in order inside 1,348,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0.
+- **Verified results (full scale, the mechanism read):**
+  - **The collision rate by |D31| (pooled over the classes):** the
+    failers with |D| <= 5 carry ZERO pairs (67 + 100 records); |D| =
+    6/7/9: 100% (7 + 17 + 22 records); |D| = 8: 7.6%; |D| = 10:
+    11.8%; |D| = 11: 50.2% (2,499 of 4,978). The |D| = 11 bucket is
+    the mass site (the pop bucket capped at 11: the |D| >= 11
+    failers).
+  - **The pair shapes: the (1, 30) unit pair DOMINATES (2,176 of
+    2,613 = 83.3%)**; (2, 29): 269 (10.3%); (3, 28): 68; the tail
+    small. The (1, 30) pair is EXACTLY the one-sided criterion
+    `-1 in D31(M)` (1 in D is the divisor 1 itself, always; 30 = -1
+    (mod 31)) - 2,176 records carry the ONE-SIDED reachability at
+    u = 31 without the parametric span.
+  - **The interpretation (the delicate-class shape at the fresh
+    layer):** the collision-carrying failers are pigeonhole-
+    insufficient at u = 31 (|D| <= 11 < 15 = phi(31)/2), carry a
+    collision pair (mostly the one-sided (1, 30) pair), yet fail the
+    span criterion - THE DELICATE-CLASS STRUCTURE (the collision
+    present, the pigeonhole insufficient, the parametric span absent)
+    RE-EMERGES at the fresh layer. The records still receive their
+    representations off-parameter (the fw <= 255 guarantee of the
+    verified sweep: the MISMATCH 0 row), so the chain's
+    representation-completeness is untouched - what the census adds
+    is the delicate-shape recurrence as a structural fact per layer,
+    with the (1, 30)-pair as its dominant signature.
+  - The contrast cells (the U31SPOP spanner profiles) pinned; the
+    U31CRATE per-class cells pinned (the class-resolved collision
+    tables).
+- **Artifacts:** `analysis/u31_coll_v030/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 138).
+- **Status:** complete. Staged: the delicate-shape records at u = 31
+  vs the E-011 rescue framework (the off-parameter pigeon sites);
+  the deficit-exactness Lean theorem remains the staged
+  formalization piece.
+
 
 
 
