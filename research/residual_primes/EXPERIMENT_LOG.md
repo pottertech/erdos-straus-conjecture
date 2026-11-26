@@ -1187,6 +1187,44 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   zero fail-side collisions. The u = 11 Lean layer and the fw = 7
   spanner-cell census are the next passes.
 
+## E-025 - R8 piece 16: the u = 11 Lean layer, part 1 (2026-11-26)
+
+- **What landed:** the new module
+  `ErdosStrausConjecture/ResidualPrimes/U11Layer.lean` (4 theorems,
+  0-`sorry`, compile exit 0, 8475 jobs):
+  - `u11_no_hardcase_record_mod8` - the class-8 structural gap (E-021
+    part 1): `4·x = p + 3`, `p = 8 (mod 11)` ⟹ `11 | x` (via
+    `11 | p + 3` and gcd(4, 11) = 1), so the hard-case predicate fails
+    (the odd prime factor `11` has `11 % 3 = 2 ≠ 1`).
+  - `u11_x_odd` - the v2-bucket degeneracy (E-022 part 1): `4·x =
+    p + 11` with `p = 1 (mod 8)` ⟹ `x` odd (2 ∤ x).
+  - `u11_span_mod11_seven` - the explicit-witness span theorem at
+    `r11 = 7`: the witness `d = p` (the divisor of `p·x`), with
+    `(p + p·x) % 11 = 0` (the residues: `x = 10 (mod 11)`,
+    `p·x = 4 (mod 11)`, the sum 7 + 4 = 11). The class E-021 part 1
+    measured at 17.33% span rate with zero true failures (E-024).
+  - `u11_span_mod11_ten` - the explicit-witness span theorem at
+    `r11 = 10`: the witness `d = x`, with `(x + p·x) % 11 = 0`
+    (`x = 8 (mod 11)`, `p·x = 3 (mod 11)`, the sum 8 + 3 = 11). The
+    class at 17.41% span rate, zero true failures.
+- **Axiom census:** the two span theorems and the x-odd lemma audited
+  `[propext, Quot.sound]`; the no-hardcase theorem audited on the trio
+  `[propext, Classical.choice, Quot.sound]`; 0 `sorry` throughout
+  (axiom_audit_u11_layer.txt, lake_build_u11_layer.log, hashes pinned).
+- **Deliberate non-identification:** the span criterion stated is the
+  engine's first-layer fact (`exists d, d | n*x ∧ (d + n*x) % 11 = 0`);
+  the collision criterion (`hasOppositePair`) is NOT identified with it
+  at u = 11 (E-024's correction banner: the withdrawn 67.80% census).
+- **Artifacts:** ErdosStrausConjecture/ResidualPrimes/U11Layer.lean,
+  ErdosStrausConjecture_src/{axiom_audit_u11_layer.txt,
+  lake_build_u11_layer.log, print_axioms_u11.lean}, hashes pinned
+  (103/103 verifier rows).
+- **Status:** part 1 complete. The next u = 11 formalization pass: the
+  QR-purity dichotomy theorem (`u11_span_fails_of_qr_pure_x`, the
+  E-022 part-1 full-scale fact: the QR-pure odd-part x' never spans)
+  and the route-decomposition exactness theorem (E-023), followed by
+  the fw = 7 spanner-cell census (the engine pass).
+
 
 
 
