@@ -1293,6 +1293,33 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** part 2 complete for the machinery. Part 3 (the main
   dichotomy theorem) is the next Lean pass.
 
+**Part 3 (same session): the main dichotomy theorem landed.**
+
+## E-027 part 2 - R8 piece 19: the main QR-purity dichotomy theorem (2026-11-26)
+
+- **What landed:** `u11_span_fails_of_qr_pure_x` - for `4·x = p + 11`
+  with `p` prime, `p` a QR (mod 11), and `x` QR-pure (every odd prime
+  divisor of `x` in the QRs), every divisor `d` of `(p·x)^2` carries a
+  QR residue (the route split via `Nat.Prime.dvd_mul` plus the
+  prime-equivalence route-identification), while the sum of two QR
+  residues is never 0 (mod 11) (the 25-arm literal closure) - hence
+  `(d + p·x) % 11 = 0` has no solution: the u = 11 span criterion
+  fails. The QR-purity dichotomy (the E-022 census full-scale fact,
+  0-mismatch over the tested population) is now a theorem.
+- **Note:** the QR-census algebra needed `qr_closed_mod11` (the
+  multiplicative-closure over the QR residue set, 25-arm literal) and
+  the 2-factor absence (the E-022 parity lock, span-side, composed via
+  `u11_x_odd`).
+- **Axiom census:** `u11_span_fails_of_qr_pure_x` and `prod_mod_qr` on
+  the trio; `qr_closed_mod11` on `propext` alone; the other four
+  unchanged; 0 `sorry` throughout; 7 theorems total in the module
+  (the audit re-pinned, 51 rows... the theorem count now 7).
+- **Artifacts:** U11Layer.lean (7 theorems), the re-pinned
+  axiom_audit_u11_layer.txt (7 theorems listed),
+  lake_build_u11_layer.log.
+- **Status:** part 3 complete - the E-022 theorem leg is done. The
+  u = 11 Lean layer is closed for the census-verified facts.
+
 
 
 

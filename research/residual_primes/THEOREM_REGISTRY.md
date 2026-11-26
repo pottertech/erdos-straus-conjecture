@@ -136,7 +136,7 @@ The three conditional 5-window spans audited on exactly
 E-018's composition-level iff: the fail route
 `u7_span_fails_of_orbit_primes` and the span route
 `u7_pigeon_of_orbit_breaker`, `U7Layer.lean` at 13 theorems) bring the
-joint audited set to 15 + 31 = 46; the u = 11 layer's first four theorems (U11Layer.lean, E-025: the class-8 structural gap, the v2-degeneracy lemma, the explicit-witness spans at r11 = 7/10; three duo-audited on `propext, Quot.sound`, one on the trio) bring the joint audited set to 15 + 35 = 50.
+joint audited set to 15 + 31 = 46; the u = 11 layer's first four theorems (U11Layer.lean, E-025: the class-8 structural gap, the v2-degeneracy lemma, the explicit-witness spans at r11 = 7/10; three duo-audited on `propext, Quot.sound`, one on the trio) bring the joint audited set to 15 + 35 + 5 = 55 (the u = 11 layer's 7 theorems total: the class-8 gap, the v2 degeneracy, the explicit-witness spans at r11 = 7/10, the QR-closure machinery (prod_mod_qr, qr_closed_mod11), and the main QR-purity dichotomy).
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 

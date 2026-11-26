@@ -3,3 +3,5 @@
 'ResidualPrimes.u11_span_mod11_seven' depends on axioms: [propext, Quot.sound]
 'ResidualPrimes.u11_span_mod11_ten' depends on axioms: [propext, Quot.sound]
 'ResidualPrimes.prod_mod_qr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.qr_closed_mod11' depends on axioms: [propext]
+'ResidualPrimes.u11_span_fails_of_qr_pure_x' depends on axioms: [propext, Classical.choice, Quot.sound]
