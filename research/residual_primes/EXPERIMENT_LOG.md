@@ -1026,6 +1026,47 @@ behind H-6 and is the base R8 builds on.
   decomposition: the non-QR prime composition classes and their span
   rates) is the next census pass.
 
+- **Part 2 (2026-11-26):** engine v0.18 (v0.17 + the impure-cell
+  decomposition: the non-QR odd-prime count histogram (with
+  multiplicity, capped 9) x span/fail per class, and the
+  first-non-QR-prime-residue x count x span/fail cells), sanitizer-built;
+  the selftest artifact stays byte-identical (the same SHA-256
+  `934ec74d...`) and v0.17's entire 500-line run output reappears
+  byte-identically inside the v0.18 run (664 lines, 0 missing).
+  - **The parity lock holds exactly at full scale:** in the QR-n_bar
+    classes the non-QR multiplicity takes only even values
+    (cnt in {0, 2, 4, 6, 8}), in the non-QR-n_bar classes only odd
+    values (cnt in {1, 3, 5, 7}) - exactly the coset algebra
+    (`x_bar in QR` forces the even product parity; x' is always odd on
+    this layer, so the odd-part products carry the whole status).
+  - **The count gradient is monotone:** the within-cell span rates decay
+    with the count - QR classes: 0% (cnt = 0) / 13.79-16.54% (cnt = 2) /
+    5.82-6.41% (cnt = 4) / 0.79-1.79% (cnt = 6) / ~0 (cnt >= 8);
+    non-QR classes: 16.19-18.84% (cnt = 1) / 10.51-10.85% (cnt = 3) /
+    2.50-2.92% (cnt = 5) / 0 (cnt >= 7). The deep-count cells are
+    sparse and fail-heavy.
+  - **The residue gradient (the strong signature):** within the impure
+    cell, the span rate depends on the FIRST non-QR prime's residue
+    (the r11 = 1, cnt = 2 slice): pres = 2 -> 17.28%, pres = 6 ->
+    17.01%, pres = 7 -> 5.93% (3-4x suppressed), pres = 8 -> 21.24%,
+    pres = 10 -> 19.95%. The suppression at 7 connects to the span
+    target algebra: at r11 = 1 both span-e targets are the residue 8,
+    and 7 · 9 = 8 (mod 11) - the 7-prime shapes need the QR-prime 9
+    (mod 11) as a cofactor to reach the target, a sharper composition
+    requirement than the other residues.
+  - **Artifacts:** analysis/u11_imp_v018/ (engine v0.18, full_run.txt,
+    full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (95/95
+    verifier rows).
+  - **Status:** part 2 complete. The u = 11 composition census now
+    covers: the class-8 structural gap (E-021 part 1), the QR-dichotomy
+    (necessary direction 0-mismatch), the parity lock, the count
+    gradient, and the residue-gradient signature. The remaining
+    mechanism object: the exact composition-level iff (the product-set
+    reachability test `e-products hit -x_bar or -M_bar`) - the natural
+    v0.19 pass is the per-record product-set census with the target
+    hit-flags, which would either certify the iff or expose the
+    remaining gap exactly.
+
 
 
 

@@ -93,6 +93,10 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u11_split_v017/full_run.txt` | `fe206cd7a3e1e958516754a20296d9794e34d51f7b2825f777f997b6de4baa3f` | 25557 |
 | `research/residual_primes/analysis/u11_split_v017/full_run_stderr.txt` | `77ca7bafccbb2cc91a2d3b8708cc3c26dbb3602f6288b844aca98b4931d9865f` | 78 |
 | `research/residual_primes/analysis/u11_split_v017/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `research/residual_primes/analysis/u11_imp_v018/collision_margin_engine_v018.c` | `f87be737d4ca22a3cd6c1e67939b487cd515dacae78ad3f14e861d2be86f8fea` | 64299 |
+| `research/residual_primes/analysis/u11_imp_v018/full_run.txt` | `d7fed59c6bb961ce5cda3b2dd4124aa67b65800b0e161a8053cf59501f36374b` | 32766 |
+| `research/residual_primes/analysis/u11_imp_v018/full_run_stderr.txt` | `a7c85b256d5545e24ca548614ead7f2fa6b457ed4ea4500e565b777b96b24c2c` | 78 |
+| `research/residual_primes/analysis/u11_imp_v018/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
 | `research/residual_primes/analysis/u7_depth0_v012/collision_margin_engine_v012.c` | `94345ff42991aed7782d86ed3016ad942266880c7a579f2573dd25a9b8622c49` | 47981 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run.txt` | `89e538cb6d0e7ce4d9462fece8257ebed7d4919ac779485af064338caa4c0fad` | 17982 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run_stderr.txt` | `ced48829b8f603759a67be0da6c0f2e8a2d76b56f595a14eaf1019f9a0a77f0a` | 78 |
