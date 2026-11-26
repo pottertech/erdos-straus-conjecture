@@ -1638,6 +1638,48 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   sub-percent residual; the deficit-exactness Lean theorem remains
   the staged formalization piece.
 
+## E-039 - R8 piece 31: the u = 31 layer census (engine v0.29; the u = 29 skip) (2026-11-26)
+
+- **What ran:** engine v0.29 (`analysis/u29_class_v029/`), a byte-superset
+  of v0.28 (the reconcile: v0.28's 1,031 lines in order inside 1,154,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **The layer-skip fact:** u = 29 is STRUCTURALLY EMPTY for the (H24)
+  class: 29 = 1 (mod 4) forces `p + 29 = 24k + 30`, never divisible
+  by 4 evenly - the (H24) records do not exist at that parameter
+  (the same shape as the u = 5 exclusion, now for a different reason:
+  u = 5 is 1 (mod 4) too). The chain of admissible layers for the
+  (H24) class is exactly the u = 3 (mod 4) parameters:
+  3, 7, 11, 15, 19, 23, 31 (29 skipped), ... - the census records the
+  skip and runs the u = 31 layer (31 = 3 (mod 4), prime).
+- **Verified results (full scale):**
+  - **All 30 unit classes populated** at u = 31 (total 2,364,031
+    exact; the coprimality automatic: U31ADMCHECK admfail = 0;
+    fw3 = 0).
+  - **The rescue chain closes exactly at u = 31:** the u = 31 spans
+    4,668 and the true fw > 31 failers 5,889 sum to
+    **10,557 = the E-037 still-failers exact**. The u = 31 layer
+    rescues **44.21%**; the still-failers are **5,889 = 0.249% of
+    (H24)**.
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (4,668 = 0.20%) ->
+    the residual 5,889 (0.249%).
+  - **THE ZERO-COLLISION ERA ENDS AT u = 31:** the failers at
+    u = 7/11/15/19/23 carried ZERO collision pairs (the orbit-window
+    protection held), but at u = 31 the census records
+    **collisions = 2,613 among the 5,889 true failers (44.4%)** - the
+    collision presence WITHOUT the span. The u = 7-23 pattern was an
+    empirical orbit-window regime, not a law: at u = 31 the
+    failers' D-sets grew past the orbit-window shapes while still
+    failing the span criterion. The E-037-era framing (the
+    collision-census rows as result rows) anticipated exactly this.
+    The mechanism question: WHICH failers carry the pairs at 31 - a
+    new census object (E-040 proposed).
+- **Artifacts:** `analysis/u29_class_v029/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 135).
+- **Status:** complete (the chain link + the collision-regime
+  transition recorded).
+
 
 
 
