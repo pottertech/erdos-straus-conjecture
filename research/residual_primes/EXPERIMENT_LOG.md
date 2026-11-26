@@ -1320,6 +1320,63 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** part 3 complete - the E-022 theorem leg is done. The
   u = 11 Lean layer is closed for the census-verified facts.
 
+## E-029 - R8 piece 21: the u = 15 layer census (the first composite layer) (2026-11-26)
+
+- **What ran:** engine v0.23 (`analysis/u15_class_v023/`), a byte-superset
+  extension of v0.22 (the reconcile: v0.22's 653 lines appear in order
+  inside v0.23's 680, missing = 0 PASS); the selftest byte-identical
+  (350 B, sha `934ec74d...`); the full run 999,999,999 exit 0,
+  MISMATCH 0; the standing numbers unchanged (SWEEP 3,194,231, H24
+  2,364,031, PIGEON 3,177,642, DELICATE 33,178).
+- **Verified results (full scale):**
+  - **Exactly THREE populated classes:** r15 in {1, 4, 13} with
+    788,009 / 787,457 / 788,565 = 2,364,031 exact. The r15 = 7 class is
+    structurally empty: the H24 primes p = 97 (mod 120) carry
+    5 | (p + 3)/4 always, so the hard-case predicate (the odd prime
+    factors = 1 (mod 3); 5 = 2 (mod 3)) rejects the entire class
+    (the same shape as the class-8 gap at u = 11). The r15 = 13 class
+    is populated but INERT: zero u = 15 spans, zero fails - all
+    788,565 records were already fw in {7, 11} (their u = 15 D-sets
+    still measured for the CRT cells).
+  - **The admissibility gate passes for every record** (inad = 0): for
+    the sweep primes M15 = p * x15 = 4p^2 (mod 15) is always a unit
+    (p coprime to 15), so u = 15 is never inadmissible - unlike the
+    u = 11 layer's structural inadmissibility rows. And fw = 3 = 0
+    (the E-012 boundary extends: x3 = (p+3)/4 is odd for (H24)).
+  - **The rescue chain closes exactly at u = 15:** the u = 15 spans
+    32,271 (r15 = 1) + 27,488 (r15 = 4) = **59,759**, and the true
+    fw > 15 failers 40,422 + 34,565 = **74,987**; the sum
+    59,759 + 74,987 = **134,746 = the E-024 true-u-11-failers exact**.
+    The u = 15 layer rescues **44.34%** of the u = 11 failures; the
+    still-failers are 74,987 = 3.17% of (H24).
+  - **The fail D-sets are fixed shapes again:** r15 = 1: {1, 2, 4}
+    (mask 22: 19,418 records, |D| = 3) + {1, 2, 4, 8} (mask 278:
+    21,004, |D| = 4); r15 = 4: {1, 2, 4, 8} (mask 278: 34,565
+    uniformly). Every true failer's D-set stays inside the 2-orbit
+    closure {1, 2, 4, 8} (mod 15) - the u = 7/u = 11 pattern repeats
+    at the composite layer.
+  - **Every u = 15 spanner is pigeon-conclusive:** the spanner |D|
+    buckets are 6-8 at r15 = 1 (12,893 / 5,127 / 14,251) and
+    uniformly |D| = 8 at r15 = 4 (27,488) - 2|D| > 8 = phi(15)
+    throughout, so the u = 15 spans carry the pigeonhole certificate.
+  - **ZERO collisions among the fw > 15 failers** (the lane pattern
+    continues at the composite layer; the collision row 74,987/0).
+  - **The CRT pairing (NEW, the composite-layer structure):** the
+    D_15 residues are the projection of the (mod 3, mod 5) divisor
+    pairs, and the pairing is NOT free: the realization rates
+    |D15| = |D3| * |D5| are 41.75% (r15 = 1), 57.65% (r15 = 4),
+    78.82% (r15 = 13) - and the DEFICIT is class-exact: r15 = 4's
+    unrealized records ALL at deficit = 4 (333,445), r15 = 13's ALL
+    at deficit = 1 (166,952), r15 = 1's at 1/2/3/4
+    (68,769/57,148/160,864/172,233). crt_neg = 0 (the injection bound
+    holds throughout). The deficit-exactness is the next layer's
+    mechanism object (the D3 x D5 product misses a fixed number of
+    CRT cells per class - the algebra of the missing pairs).
+- **Artifacts:** `analysis/u15_class_v023/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned, 113/113 verifier rows).
+- **Status:** complete. The u = 15 census facts stand; the deficit
+  algebra and the u = 15 route census are the next passes in the lane.
+
 
 
 
