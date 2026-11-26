@@ -1,0 +1,4 @@
+'ResidualPrimes.u11_no_hardcase_record_mod8' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.u11_x_odd' depends on axioms: [propext, Quot.sound]
+'ResidualPrimes.u11_span_mod11_seven' depends on axioms: [propext, Quot.sound]
+'ResidualPrimes.u11_span_mod11_ten' depends on axioms: [propext, Quot.sound]
