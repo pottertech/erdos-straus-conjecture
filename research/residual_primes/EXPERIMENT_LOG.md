@@ -1377,6 +1377,52 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** complete. The u = 15 census facts stand; the deficit
   algebra and the u = 15 route census are the next passes in the lane.
 
+## E-030 - R8 piece 22: the CRT-deficit algebra census (engine v0.24) (2026-11-26)
+
+- **What ran:** engine v0.24 (`analysis/u15_crt_v024/`), a byte-superset
+  of v0.23 (the reconcile: v0.23's 680 lines in order inside 685,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0, U15DEFMAX = 0 (the deficit bucket
+  caps never hit), crt_neg = 0. NEW CELLS: the deficit histogram per
+  (r15, mask3, mask5) - the D3 residue mask (2-bit, the residues
+  {1, 2} mod 3) x the D5 residue mask (4-bit, {1..4} mod 5), with
+  the deficit bucket = |D3| * |D5| - |D15| for every non-eq record.
+- **Verified results (full scale):**
+  - **Only FOUR (r15, mask3, mask5) cells exist** across the whole
+    (H24) - the CRT-pairing deficit data collapses far beyond the
+    coarse cells of E-029:
+    - r15 = 1, mask3 = 6, mask5 = 22 (D5 = {1, 2, 4}, |D5| = 3):
+      deficit = 3 CONSTANT (160,864 records).
+    - r15 = 1, mask3 = 6, mask5 = 30 (D5 = {1, 2, 3, 4}, |D5| = 4):
+      the deficit SPLITS: 1 (68,769) / 2 (57,148) / 4 (172,233) -
+      the answer to E-030's question is therefore NO at this
+      coarseness: the deficit is not a function of the small-layer
+      masks alone; the splitting cell is fate-structured (the
+      deficits 1/2/4 = |D15| in {7, 6, 4}, matching the v0.23 spanner
+      |D|-buckets 7/6 and the |D| = 4 fail shape).
+    - r15 = 4, mask3 = 6, mask5 = 30: deficit = 4 CONSTANT (333,445).
+    - r15 = 13, mask3 = 6, mask5 = 30: deficit = 1 CONSTANT (166,952).
+  - **mask3 = 6 UNIVERSALLY** (the D3 set is the full unit group
+    {1, 2} (mod 3) for every one of the 2,364,031 records - the
+    trivality: the divisors of a 3-coprime M15 always realize both
+    unit residues). **|D5| is always 3 or 4** (mask5 = 22 or 30
+    only; the D5 sets are never 1- or 2-element, and never missing
+    the residue 1 - D5 = {1, 2, 4} or the full {1, 2, 3, 4}).
+  - The arithmetic consistency: the deficit cells reconstruct the
+    E-029 coarse cells exactly (r15 = 1: 160,864 + 298,150 =
+    459,014 = the E-029 ne count; the other classes likewise).
+- **The mechanism status:** the deficit is class-lawed at 3 of the 4
+  cells; the r15 = 1 full-D5 exception splits by the D15 SHAPE (the
+  2-orbit {1, 2, 4, 8} fails land at deficit 4; the |D| in {6, 7}
+  spans at 2/1). The next narrowing (E-031 proposed): the per-record
+  D15 mask keyed into the def cells - the unrealized-pair SET per
+  cell - which would make the algebra exact (or expose the true
+  free variable).
+- **Artifacts:** `analysis/u15_crt_v024/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 116).
+- **Status:** complete (the algebra narrowed; the exact pair-set
+  mechanism is the next pass).
+
 
 
 
