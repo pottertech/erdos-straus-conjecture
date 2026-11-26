@@ -1572,6 +1572,40 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   fold, hence the exact deficit cells) and the r15 = 7
   predicate-exclusion theorem.
 
+## E-036 - R8 piece 28: the u = 19 layer census (engine v0.27) (2026-11-26)
+
+- **What ran:** engine v0.27 (`analysis/u19_class_v027/`), a byte-superset
+  of v0.26 (the reconcile: v0.26's 711 lines in order inside 944,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 still holds.
+- **Verified results (full scale):**
+  - **ALL 18 classes populated** (r19 in {1..18}, total 2,364,031
+    exact, uniform ~124k per class) - the prime layer has NO
+    structural class exclusions (unlike the composite layers' 8/7
+    gaps: the p-mod-19 classes are structurally free of the
+    (p + 3)/4-predicate rejections, and the coprimality is
+    automatic: U19ADMCHECK admfail = 0, E-034's theorem row exactly;
+    fw3 = 0 again).
+  - **The rescue chain closes exactly at u = 19:** the u = 19 spans
+    42,804 and the true fw > 19 failers 32,183 sum to
+    **74,987 = the E-032 still-failers exact**. The u = 19 layer
+    rescues **57.09%** of the u = 15 failures; the still-failers are
+    **32,183 = 1.36% of (H24)**.
+  - **The chain to date:** u = 3 (0 spans) -> u = 7 (1,949,770 =
+    82.49%) -> u = 11 (279,515 = 11.82%) -> u = 15 (59,759 =
+    2.53%) -> u = 19 (42,804 = 1.81%) -> the residual 32,183 (1.36%).
+  - **ZERO collisions among the fw > 19 failers** (the pattern now
+    verified at all four nontrivial layers).
+  - The per-class cells pinned (the U19CLASS/U19POP/U19POPSPAN rows
+    x18, the fail-mask census U19FAILSET/U19COLL, the fw-early
+    row U19FW71115).
+- **Artifacts:** `analysis/u19_class_v027/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 129).
+- **Status:** complete. The five-layer chain 3/7/11/15/19 is now
+  census-complete; the still-failers 1.36% are the next chain link
+  (u = 23) and the deficit-exactness Lean theorem remains the staged
+  formalization piece.
+
 
 
 

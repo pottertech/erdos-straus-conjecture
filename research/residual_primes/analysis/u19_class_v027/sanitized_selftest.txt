@@ -1,0 +1,6 @@
+factor sieve ready
+ANCHOR 1129 u=11 OK | COLLISION D=9 phi=10 margin=8 pair=(1,10) pigeon=yes
+ANCHOR 8803369 u=107 OK | COLLISION D=55 phi=106 margin=4 pair=(1,106) pigeon=yes
+ANCHOR 32349601 u=15 OK | COLLISION D=8 phi=8 margin=8 pair=(1,14) pigeon=yes
+ANCHOR 651412441 u=83 OK | COLLISION D=12 phi=82 margin=-58 pair=(1,82) pigeon=no
+SELFTEST PASS
