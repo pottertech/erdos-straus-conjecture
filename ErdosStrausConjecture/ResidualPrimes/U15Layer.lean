@@ -95,4 +95,66 @@ theorem u15_m_coprime (p x : ℕ) (hnp : Nat.Prime p) (hgt : 5 < p)
       Nat.coprime_comm.mp c5p⟩
   exact Nat.Coprime.mul_left hpc h1c
 
+/-- The CRT decode: the pair `(r mod 3, r mod 5)` of a residue. -/
+def crtPair (r : ℕ) : ℕ × ℕ := (r % 3, r % 5)
+
+/-- **The divisor-residue set** `D_u(M) = { d mod u : d ∣ M }`, as the
+image of the natural-divisor Finset. -/
+def uDset (u M : ℕ) : Finset ℕ := (Nat.divisors M).image (fun d => d % u)
+
+/-- The membership elimination for `uDset`: a realized residue comes from a
+divisor (which exists only when `M ≠ 0`). -/
+theorem uDset_mem_elim {u M r : ℕ} (h : r ∈ uDset u M) :
+    ∃ d, d ∣ M ∧ M ≠ 0 ∧ d % u = r := by
+  simp only [uDset, Finset.mem_image] at h
+  obtain ⟨d, hdvd, hmod⟩ := h
+  have ⟨hdvd, hM0⟩ : d ∣ M ∧ M ≠ 0 := Nat.mem_divisors.mp hdvd
+  exact ⟨d, hdvd, hM0, hmod⟩
+
+/-- The membership introduction for `uDset`. -/
+theorem uDset_mem_of_dvd {u M d : ℕ} (hd : d ∣ M) (hM : M ≠ 0) :
+    d % u ∈ uDset u M :=
+  Finset.mem_image.mpr ⟨d, Nat.mem_divisors.mpr ⟨hd, hM⟩, rfl⟩
+
+/-- **The CRT decode is injective on the residues below 15** (the
+distinct mod-15 residues carry distinct `(3, 5)`-pairs). -/
+theorem crtPair_injOn15 : Set.InjOn crtPair (Finset.range 15) := by
+  intro r hr r' hr' h
+  simp only [crtPair, Prod.mk.injEq] at h
+  have hlt : r < 15 := Finset.mem_range.mp hr
+  have hlt' : r' < 15 := Finset.mem_range.mp hr'
+  omega
+
+/-- **The composite-layer deficit bound (E-030/E-031 as a theorem).** The
+divisor-residue set at `u = 15` never exceeds the product of the layer sets
+at 3 and 5: every realized pair is a member of both layer sets, and the CRT
+decode is injective on the residues (so the image does not collapse). This
+is exactly the nonnegativity of the E-030 census deficit
+`|D3| * |D5| - |D15|`. -/
+theorem uDset15_card_le (M : ℕ) :
+    (uDset 15 M).card ≤ (uDset 3 M).card * (uDset 5 M).card := by
+  have hinj : Set.InjOn crtPair (uDset 15 M) := by
+    refine crtPair_injOn15.mono ?_
+    intro a ha
+    obtain ⟨d, hdvd, hM0, hmod⟩ := uDset_mem_elim ha
+    exact Finset.mem_coe.mpr (Finset.mem_range.mpr (by omega))
+  have hcard : ((uDset 15 M).image crtPair).card = (uDset 15 M).card :=
+    Finset.card_image_of_injOn hinj
+  have hsub : (uDset 15 M).image crtPair ⊆ uDset 3 M ×ˢ uDset 5 M := by
+    intro w hw
+    simp only [Finset.mem_image] at hw
+    obtain ⟨r, hr, hwr⟩ := hw
+    obtain ⟨d, hdvd, hM0, hmod⟩ := uDset_mem_elim hr
+    have h3m : r % 3 = d % 3 := by omega
+    have h5m : r % 5 = d % 5 := by omega
+    refine Finset.mem_product.mpr ⟨?_, ?_⟩
+    · rw [← hwr, crtPair, h3m]
+      exact uDset_mem_of_dvd hdvd hM0
+    · rw [← hwr, crtPair, h5m]
+      exact uDset_mem_of_dvd hdvd hM0
+  have hle := Finset.card_le_card hsub
+  rw [hcard, Finset.card_product] at hle
+  exact hle
+
 end ResidualPrimes
+

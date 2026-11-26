@@ -3,3 +3,7 @@
 'ResidualPrimes.u15_x_residue' depends on axioms: [propext, Quot.sound]
 'ResidualPrimes.u15_x_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.u15_m_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset_mem_elim' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset_mem_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.crtPair_injOn15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset15_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
