@@ -1067,6 +1067,54 @@ behind H-6 and is the base R8 builds on.
     hit-flags, which would either certify the iff or expose the
     remaining gap exactly.
 
+## E-023 - R8 piece 14: the M^2-window route census at u = 11 (2026-11-26)
+
+- **What ran:** engine v0.19 (v0.18 + the spanner route census: per
+  spanner the witness's route class over the M^2-divisor window
+  `d = p^a * e'` with `a in 0..2` and `e' | x'^2`, classified by the
+  a-level (0/1/2) and the e' window (`e' | x'` vs the x'^2-only
+  witnesses), as a 6-bit route-mask histogram per class), sanitizer-built;
+  the selftest artifact stays byte-identical (the same SHA-256
+  `934ec74d...`) and v0.18's entire 664-line run output reappears
+  byte-identically inside the v0.19 run (695 lines, 0 missing).
+- **Populations:** sweep 3,194,231 [10^7, 10^9) (headline byte-identical,
+  MISMATCH 0); the route census covers all 279,515 u = 11 spanners
+  (the per-class route-cell sums equal the U11 class table exactly).
+- **Verified results (the full-scale census):**
+  - **The criterion window is M^2, and a minority population lives
+    exclusively in the x'^2-only witnesses:** the first-cut census (the
+    x'-divisor routes only: `e | x'` with `e = -M_bar` or `e = -x_bar`)
+    left 4,068 spanners of 279,515 (1.46%) route-less; at the probe
+    scale they were instrument-verified (p = 10,081,801: the witness
+    is `(0, x'^2-only, residue 7)` over the M^2 divisors, python
+    re-derived). The full M^2-window census closes every spanner:
+    **`U11RCHECK nonespan = 0`** - the route decomposition is exact.
+  - **The x'^2-only spanners concentrate in `r11 in {1, 2, 4}`:**
+    789 / 2,042 / 1,237 records (4.04% / 5.09% / 5.30% of the class's
+    spanners), with the other six classes at exactly 0. The class set
+    {1, 2, 4} is the u = 7 failing-class set - a structural echo worth
+    a dedicated pass.
+  - **The full-window route masks per class** (the 6-bit masks: bits
+    0-2 = the a-levels on the x'-window, bits 3-5 = the a-levels on
+    the x'^2-only window): r11 = 10: the mask 63 for ALL 45,813
+    spanners (every route family available); r11 = 7: the masks 59/63
+    only; the QR classes carry 4-6 distinct mask shapes with the mask
+    63 dominant everywhere (e.g. r11 = 1: 18,746 of 19,535 = 96.0%).
+  - **The instrumentation note:** the U11RMASK class headers
+    concatenate with the first mask row when the mask-0 cell is empty
+    (a printf-order slip); the raw data is intact and the aggregates
+    above were re-derived from the concatenation-tolerant parse.
+- **Artifacts:** analysis/u11_route_v019/ (engine v0.19, full_run.txt,
+  full_run_stderr.txt, sanitized_selftest.txt), hashes pinned (99/99
+  verifier rows).
+- **Status:** complete. The u = 11 span decomposition is now exact over
+  the M^2 window; the composition-level reading (E-021/E-022) plus the
+  route table close the u = 11 structural census. The u = 11 Lean layer
+  (the M^2-window route theorems on the E-019 pattern) is the next
+  formalization piece; the u = 13 layer census would follow the same
+  program.
+
+
 
 
 
