@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.7 (2026-11-25: the R8 layers E-011–E-020 incorporated)
+**Version:** v1.8 (2026-11-26: the u = 11 extension program E-021–E-027 incorporated)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -79,6 +79,7 @@ which is the structure investigated in §5.
 | Pigeonhole-conclusive (Lane L1) | 3,177,642 (99.48%) | `analysis/collision_v01/` |
 | Delicate class | 16,589 (0.52%) | fingerprinted sample committed |
 | Delicate rescue census (E-011) | 16,589 / 16,589 pigeon-certified off-parameter (bound u ≤ 255) | `analysis/rescue_r8_v08/` |
+| u = 11 3-fate census (E-024) | 1,949,770 fw=7 / 279,515 fw=11 / 134,746 fw>11 = 2,364,031 exact | `analysis/u11_gate_v021/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -174,6 +175,68 @@ The u = 7 hard core — the 414,261 fail records, **17.52% of the (H24)
 class** — is fully rescued off-parameter by the E-011 census (zero
 no-pigeon records at any admissible `u' ≤ 255`).
 
+*The u = 11 layer (E-021–E-026, the first odd-composite layer).* The same
+program run at the next H24-compatible layer, `u = 11`, with the census
+corrected once and the correction stated in place (the historical trace lives
+in the log entries; the facts below are the corrected ones).
+
+**The class census and the empty class (E-021).** The H24 records distribute
+over nine populated residue classes mod 11 (`r11 ∈ {1, 2, 3, 4, 5, 6, 7, 9,
+10}`); the class `r11 = 8` is empty, and the gap is structural: `4·x = p + 11`
+with `p ≡ 8 (mod 11)` forces `11 | x`, whose odd prime factor 11 carries
+`11 % 3 = 2`, violating the hard-case predicate (every odd prime factor
+`≡ 1 (mod 3)`). The span rates split into tiers — `r11 ∈ {7, 10}` at
+17.33% / 17.41%, `r11 ∈ {2, 6}` at 15.25% / 15.28%, the rest at 7.44–8.90% —
+and the u = 11 layer's own span total is 279,515 (11.82% of H24).
+
+**The Legendre split and the QR-purity dichotomy (E-021/E-022).** At mod 11
+the quadratic residues are `QR = {1, 3, 4, 5, 9}` (with −1 a non-residue,
+`11 ≡ 3 (mod 4)`), and the span condition reads on the odd-part composition:
+the census-level necessary direction — a QR-carrying odd prime factor of `x'`
+is required for the u = 11 span — holds 0-mismatch over the tested population,
+and is *sufficient* in exactly the classes `r11 ∈ {2, 6, 7, 10}` (the
+span-side there: the QR status of the first non-QR odd prime decides). In the
+QR classes `{1, 3, 4, 5, 9}` the condition is necessary-not-sufficient, and
+the impure cells decompose further: the parity lock (the non-QR odd-prime
+multiplicities are even in the QR-n̄ classes, odd in the non-QR classes,
+exactly at full scale) and the count gradient (the span rate decays 0% →
+13.79% → 6.28% → 0% over the non-QR counts 0/2/4/6+ at `r11 = 1`; the
+residue signature `pres = 7` runs at 5.93% against 17.01–21.24% for the other
+pres at equal counts, with the algebraic reading `7·9 ≡ 8 (mod 11)` on the
+span-e targets).
+
+**The route census (E-023).** The span criterion at u = 11 decomposes into two
+routes (`d = e | x'` with `e ≡ −M̄`, and `d = p·e` with `e ≡ −x̄`); the census
+is exact 0-mismatch and isolates a small minority whose hits live only in the
+`x'^2`-window (2.0% at `r11 = 1`, 0.7% at `r11 = 4`, 1.46% at `r11 = 2`,
+zero elsewhere — concentrated in the classes that also fail at u = 7).
+
+**The fate-gate correction (E-024), stated in place.** The first u = 11
+census (E-021 part 1) gated its cells on `first(p) ≠ 11` rather than on the
+record's fate, mixing the fw = 7 spanners into the failure analysis — an error
+the route census and a single prime ground-truth exposed. The corrected
+3-fate census: **fw = 7 spanners 1,949,770 (82.49%), fw = 11 spanners 279,515
+(11.82%), true fw > 11 failers 134,746 (5.70%)** — the populations sum to
+2,364,031 exactly, and the rescue chain closes exactly:
+279,515 + 134,746 = **414,261 = the E-014 u = 7 failing total**, i.e. the
+u = 11 layer rescues precisely **67.38%** of the u = 7 failures. The
+consequences, stated in place: the earlier "67.80% collision census" is
+withdrawn (collisions among the *true* fw > 11 failers are 0, matching u = 7 —
+the u = 7 absence is now a measured census row rather than a standing
+principle); the parity lock, the count gradient, and the class-8 gap survive;
+and the |D| = φ(u)−1-implies-failure heuristic is retired as a detection
+heuristic, not a law.
+
+**The fw = 7 fate cells (E-026).** The u = 7 layer's span rate is
+composition-independent across the u = 11 residue classes: the fw = 7 spanner
+population sits at 213,553–217,315 per class (82.5%, spread 1.7%). The
+class-constant ~116.3k QR-pure population of the QR classes (E-021 part 2's
+mixed reading) decomposes exactly into 92,419 fw = 7 spanners + 23,816
+fw > 11 failers per class — the QR-pure records split 79.5% span-at-7 /
+20.5% fail-through-11 — and the fw > 11 failers are overwhelmingly QR-pure
+(23,816 / 26,060 = 91.4% at `r11 = 1`), the failure-side shape of the
+QR-purity dichotomy.
+
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
 reproduces: (i) the census invariants, including the cross-artifact
@@ -198,14 +261,15 @@ results, axiom trio only): the pigeonhole sufficiency
 boxed criterion is machine-checked; the factorization-window form
 (`∏ q^[−e, e]` = D·D⁻¹) remains the R4-lane extension.
 
-Machine-checked 2026-11-25 (R8, joint audited set 15 + 31 = 46, all
-results on the axiom trio `[propext, Classical.choice, Quot.sound]`,
-0 `sorry`):
+Machine-checked 2026-11-26 (R8, joint audited set 15 + 35 + 5 = 55, all
+results on the axiom trio `[propext, Classical.choice, Quot.sound]`, with
+`qr_closed_mod11` on `propext` alone; 0 `sorry`):
 
 | Module | Content | Result |
 | --- | --- | --- |
 | `ResidualPrimes.U3Boundary` (5 theorems) | the u = 3 layer: the constructive even-`x` span at `T = 2`, the predicate exclusion, the composed iff (its even side vacuous under the predicate) | E-012; comment-only edits reviewed in PR #32 |
 | `ResidualPrimes.U7Layer` (13 theorems) | the u = 7 layer: the per-class span/pigeon theorems at `r7 = 3/5/6`, the three conditional 5-window spans, the 2-orbit closure lemma, and both directions of the composition-level iff (`u7_span_fails_of_orbit_primes`, `u7_pigeon_of_orbit_breaker` with the `{n, x, q, 2q}` four-residue pigeon) | E-013/E-015/E-019 |
+| `ResidualPrimes.U11Layer` (7 theorems) | the u = 11 layer: the class-8 structural gap (`u11_no_hardcase_record_mod8`), the v2-bucket degeneracy (`u11_x_odd`), the explicit-witness spans at `r11 = 7` (d = p) and `r11 = 10` (d = x), the QR multiplicative closure (`qr_closed_mod11`, propext), the divisor-status induction (`prod_mod_qr`), and the main QR-purity dichotomy theorem (`u11_span_fails_of_qr_pure_x`: for QR-n̄ classes with QR-pure odd `x'`, no divisor of `(p·x)²` carries a non-QR residue, so the span criterion fails — the E-022 census fact as a theorem) | E-025/E-027 |
 
 The iff's machine-checked directions cover the failing classes under a
 span-test hypothesis; the census statement above names the population each
