@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.8 (2026-11-26: the u = 11 extension program E-021–E-027 incorporated)
+**Version:** v1.9 (2026-11-26: the u = 15 composite-layer program E-029–E-032 incorporated)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -80,6 +80,7 @@ which is the structure investigated in §5.
 | Delicate class | 16,589 (0.52%) | fingerprinted sample committed |
 | Delicate rescue census (E-011) | 16,589 / 16,589 pigeon-certified off-parameter (bound u ≤ 255) | `analysis/rescue_r8_v08/` |
 | u = 11 3-fate census (E-024) | 1,949,770 fw=7 / 279,515 fw=11 / 134,746 fw>11 = 2,364,031 exact | `analysis/u11_gate_v021/` |
+| u = 15 layer census (E-029) | 3 populated classes 788,009/787,457/788,565 = 2,364,031 exact; the spans 59,759 + the still-failers 74,987 = 134,746 exact | `analysis/u15_class_v023/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -236,6 +237,58 @@ fw > 11 failers per class — the QR-pure records split 79.5% span-at-7 /
 20.5% fail-through-11 — and the fw > 11 failers are overwhelmingly QR-pure
 (23,816 / 26,060 = 91.4% at `r11 = 1`), the failure-side shape of the
 QR-purity dichotomy.
+
+*The u = 15 layer (E-029–E-032, the first composite layer).* The program's
+first squarefree-composite parameter, `u = 15 = 3·5` (composite parameters are
+admissible for the (H24) class exactly when `u ≡ 3 (mod 4)`, which removes
+`u = 5` a priori — the layer chain runs 3, 7, 11, 15, 19, …). Two findings
+carry the layer:
+
+**Three populated classes, one structural exclusion, one inert class
+(E-029).** The census finds exactly three populated classes (`r15 ∈ {1, 4,
+13}`, 788,009 / 787,457 / 788,565 = 2,364,031 exact); the class `r15 = 7` is
+empty and the gap is structural: its H24 primes (`p ≡ 97 (mod 120)`) carry
+`5 | (p + 3)/4` always, so the hard-case predicate (every odd prime factor
+`≡ 1 (mod 3)`) rejects the whole class — the same shape as the class-8 gap of
+the u = 11 layer. The class `r15 = 13` is populated but inert at this layer:
+none of its records spans or fails at `u = 15`, all 788,565 having been
+resolved earlier (`fw ∈ {7, 11}`). Admissibility is automatic here: for the
+sweep primes `M15 = 4p² (mod 15)` is always a unit, so no record is
+inadmissible, and the `fw = 3` boundary of E-012 extends (`fw = 3` count =
+0). **The rescue chain closes exactly:** the u = 15 spans 59,759 plus the
+true `fw > 15` failers 74,987 equal the E-024 true-u-11-failers 134,746
+exactly — the u = 15 layer rescues **44.34%** of the u = 11 failures, and the
+population still failing through every layer tested is now **74,987 = 3.17%
+of (H24)**. Zero collisions among the true failers (the pattern holds), the
+fail D-sets are fixed shapes again (inside the 2-orbit closure
+`{1, 2, 4, 8}` mod 15), and every u = 15 spanner is pigeon-conclusive
+(`|D| ∈ {6, 7, 8}`, uniformly `|D| = 8` at `r15 = 4`).
+
+**The CRT pair-set algebra, made exact (E-030/E-031).** Compositeness makes
+the Chinese remainder the structural question: the divisor-residue set
+`D15 = {d mod 15 : d | M15}` projects to divisor sets `D3` and `D5`, and
+`|D15| ≤ |D3| · |D5|` with a NON-free pairing — the deficit
+`|D3|·|D5| − |D15|` is class-lawed at three of the four existing
+`(r15, mask3, mask5)` cells, the fourth splitting by fate. The engine-verified
+algebra explains it completely: writing each residue as its CRT pair in the
+8-element pair group `(Z/3)`* × `(Z/5)`*, for every prime `q | x'` with pair
+`g_q = (q (mod 3), q (mod 5))` and exponent `e_q` the divisor window is
+`{1, g_q, …, g_q^{e_q}}`; the pair set is the product closure of those windows
+scaled by the p-classes `(1, 1), (p (mod 3), p (mod 5))`. This generation
+reproduces `D15` for **every record — 0 mismatches over 2,364,031**. The fail
+shapes decode as orbit windows: the fail D-sets `{1, 2, 4}` and
+`{1, 2, 4, 8}` are exactly the `(2, 2)`-orbit cut at the 2-exponent windows,
+mechanizing the deficit cells (`deficit = |D3|·|D5| − the window size`).
+
+**The span-side mechanism (E-032).** The spanner shapes are fixed again: at
+`r15 = 4` every spanner carries the **full unit group** (`|D| = 8`, all
+27,488 records — the maximal pigeonhole certificate); `r15 = 1` has six
+shapes. Every spanner is certified by the x′-window hit, the p-scaled window,
+or both — at `r15 = 4` the off-orbit p-pair `(1, 4)` is itself a generator
+needed for 19.1% of the spans — and the off-orbit odd-prime pairs number
+0–4 per spanner with the mode 1–2: **one off-orbit odd-prime pair suffices
+for about half the spans** of each class, while 2,563 spans need none (the
+orbit + the p-scale sufficing).
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
