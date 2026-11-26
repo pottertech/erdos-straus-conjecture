@@ -1606,6 +1606,38 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   (u = 23) and the deficit-exactness Lean theorem remains the staged
   formalization piece.
 
+## E-037 - R8 piece 29: the u = 23 layer census (engine v0.28) (2026-11-26)
+
+- **What ran:** engine v0.28 (`analysis/u23_class_v028/`), a byte-superset
+  of v0.27 (the reconcile: v0.27's 944 lines in order inside 1,031,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **The v0.28 design note:** the u = 23 census keeps the chain-critical
+  cells only (the class counts, the |D| histograms, the collision
+  counter) - the full 22-bit fail-mask arrays would need ~800 MB and
+  the mask-shape detail is established (the orbit windows decoded at
+  11/15).
+- **Verified results (full scale):**
+  - **All 22 unit classes populated** (total 2,364,031 exact; the
+    coprimality automatic: U23ADMCHECK admfail = 0; fw3 = 0).
+  - **The rescue chain closes exactly at u = 23:** the u = 23 spans
+    21,626 and the true fw > 23 failers 10,557 sum to
+    **32,183 = the E-036 still-failers exact**. The u = 23 layer
+    rescues **67.20%** of the u = 19 failures; the still-failers are
+    **10,557 = 0.447% of (H24)**.
+  - **The chain to date:** u = 3 (0) -> 7 (1,949,770 = 82.49%) ->
+    11 (279,515 = 11.82%) -> 15 (59,759 = 2.53%) -> 19 (42,804 =
+    1.81%) -> 23 (21,626 = 0.91%) -> the residual 10,557 (0.447%).
+  - **ZERO collisions** among the fw > 23 failers (five nontrivial
+    layers).
+- **Artifacts:** `analysis/u23_class_v028/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 132).
+- **Status:** complete. The six-layer chain 3/7/11/15/19/23 is
+  census-complete with the residual under half a percent; the census
+  ladder has reached the point where every further layer rescues a
+  sub-percent residual; the deficit-exactness Lean theorem remains
+  the staged formalization piece.
+
 
 
 
