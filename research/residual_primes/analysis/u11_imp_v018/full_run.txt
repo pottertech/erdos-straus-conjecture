@@ -1,0 +1,664 @@
+SWEEP 3194231 H24 2364031 PIGEON 3177642 DELICATE 33178 MISMATCH 0
+BY840 1 all=129979 pigeon=126678 delicate=3301 rate_del=253
+BY840 121 all=129963 pigeon=127436 delicate=2527 rate_del=194
+BY840 169 all=129675 pigeon=126893 delicate=2782 rate_del=214
+BY840 289 all=130073 pigeon=128818 delicate=1255 rate_del=96
+BY840 361 all=138184 pigeon=134586 delicate=3598 rate_del=260
+BY840 529 all=138039 pigeon=134913 delicate=3126 rate_del=226
+BYU 3 all=830200 pigeon=830200 delicate=0
+BYU 7 all=1949770 pigeon=1949770 delicate=0
+BYU 11 all=279515 pigeon=273440 delicate=6075
+BYU 15 all=59759 pigeon=59759 delicate=0
+BYU 19 all=42804 pigeon=35370 delicate=7434
+BYU 23 all=21626 pigeon=20351 delicate=1275
+BYU 27 all=3818 pigeon=2820 delicate=998
+BYU 31 all=4668 pigeon=4263 delicate=405
+BYU 35 all=691 pigeon=628 delicate=63
+BYU 39 all=733 pigeon=649 delicate=84
+BYU 43 all=192 pigeon=43 delicate=149
+BYU 47 all=303 pigeon=258 delicate=45
+BYU 51 all=36 pigeon=14 delicate=22
+BYU 55 all=49 pigeon=39 delicate=10
+BYU 59 all=44 pigeon=23 delicate=21
+BYU 63 all=10 pigeon=9 delicate=1
+BYU 67 all=2 pigeon=0 delicate=2
+BYU 71 all=6 pigeon=5 delicate=1
+BYU 75 all=2 pigeon=1 delicate=1
+BYU 79 all=1 pigeon=0 delicate=1
+BYU 83 all=2 pigeon=0 delicate=2
+MARGIN 16589 0 905847 0 188849 0 1744460 0 78152 0 217834 0 6340 0 3521 0 4205 0 11714 0 2149 0 11633 0 698 0 204 0 258 0 1626 0 14 0 9 0 15 0 18 0 8 0 12 0 8 0 63 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 2
+DELICATE_TOTAL 16589 (sample capped at 5000 in delicate_sample.jsonl)
+MOD5 1 all=1064669 onlypar=47361 both=976082 onlynon=41226 rate_onlynon=387
+MOD5MOD840 1 all=398126 onlynon=16267 rate=408
+MOD5 2 all=0 onlypar=0 both=0 onlynon=0 rate_onlynon=0
+MOD5MOD840 2 all=0 onlynon=0 rate=0
+MOD5 3 all=1065189 onlypar=0 both=1048355 onlynon=16834 rate_onlynon=158
+MOD5MOD840 3 all=0 onlynon=0 rate=0
+MOD5 4 all=1064373 onlypar=36499 both=996851 onlynon=31023 rate_onlynon=291
+MOD5MOD840 4 all=397787 onlynon=5955 rate=149
+INTR840 1 onlypar=5648 both=118829 onlynon=5502
+INTR840 121 onlypar=4969 both=119966 onlynon=5028
+INTR840 169 onlypar=2224 both=125512 onlynon=1939
+INTR840 289 onlypar=1293 both=126864 onlynon=1916
+INTR840 361 onlypar=6189 both=126258 onlynon=5737
+INTR840 529 onlypar=2420 both=133519 onlynon=2100
+DELICATE_SHAPE total=16589 with_d1=1 13742 unit-pair=13742 d1<=half=2847 d1>half=0 square-root-pair=0
+DELICATE_BUCKET d1=1 13742 d1<=u/4 1808 d1<=u/2 1039 d1>u/2 0
+XDEL 11 1 count=6075
+XDEL 19 1 count=1752
+XDEL 19 4 count=5682
+XDEL 23 1 count=594
+XDEL 23 4 count=681
+XDEL 27 1 count=480
+XDEL 27 4 count=518
+XDEL 31 1 count=336
+XDEL 31 4 count=69
+XDEL 35 1 count=38
+XDEL 35 4 count=25
+XDEL 39 1 count=25
+XDEL 39 4 count=59
+XDEL 43 1 count=71
+XDEL 43 4 count=78
+XDEL 47 1 count=22
+XDEL 47 4 count=23
+XDEL 51 1 count=14
+XDEL 51 4 count=8
+XDEL 55 1 count=7
+XDEL 55 4 count=3
+XDEL 59 1 count=9
+XDEL 59 4 count=12
+XDEL 63 4 count=1
+XDEL 67 4 count=2
+XDEL 71 4 count=1
+XDEL 75 4 count=1
+XDEL 79 1 count=1
+XDEL 83 1 count=2
+XSHAPE u=3 m5=1 n=276660 parfree=276660 parp=0 nonfree=276660 nonp=0 fivex=0
+XSHAPE u=3 m5=3 n=276624 parfree=276624 parp=0 nonfree=276624 nonp=0 fivex=0
+XSHAPE u=3 m5=4 n=276916 parfree=276916 parp=0 nonfree=276916 nonp=0 fivex=0
+XSHAPE u=7 m5=1 n=580861 parfree=555902 parp=0 nonfree=542337 nonp=7969 fivex=0
+XSHAPE u=7 m5=3 n=788565 parfree=771731 parp=0 nonfree=788565 nonp=0 fivex=788565
+XSHAPE u=7 m5=4 n=580344 parfree=555276 parp=0 nonfree=541831 nonp=7951 fivex=0
+XSHAPE u=11 m5=1 n=134455 parfree=115545 parp=8937 nonfree=113838 nonp=7284 fivex=0
+XSHAPE u=11 m5=4 n=145060 parfree=139844 parp=5216 nonfree=141517 nonp=3543 fivex=145060
+XSHAPE u=15 m5=1 n=32271 parfree=32271 parp=0 nonfree=32271 nonp=0 fivex=0
+XSHAPE u=15 m5=4 n=27488 parfree=22224 parp=5264 nonfree=27488 nonp=0 fivex=0
+XSHAPE u=19 m5=1 n=25136 parfree=17734 parp=3177 nonfree=21290 nonp=1407 fivex=25136
+XSHAPE u=19 m5=4 n=17668 parfree=9204 parp=4800 nonfree=10364 nonp=2377 fivex=0
+XSHAPE u=23 m5=1 n=10232 parfree=8332 parp=802 nonfree=9691 nonp=200 fivex=0
+XSHAPE u=23 m5=4 n=11394 parfree=9161 parp=889 nonfree=10828 nonp=201 fivex=0
+XSHAPE u=27 m5=1 n=1926 parfree=1073 parp=451 nonfree=1476 nonp=64 fivex=0
+XSHAPE u=27 m5=4 n=1892 parfree=984 parp=473 nonfree=1430 nonp=54 fivex=0
+XSHAPE u=31 m5=1 n=2040 parfree=1209 parp=448 nonfree=1667 nonp=152 fivex=0
+XSHAPE u=31 m5=4 n=2628 parfree=1957 parp=358 nonfree=2397 nonp=123 fivex=2628
+XSHAPE u=35 m5=1 n=359 parfree=233 parp=59 nonfree=333 nonp=3 fivex=0
+XSHAPE u=35 m5=4 n=332 parfree=217 parp=69 nonfree=304 nonp=3 fivex=0
+XSHAPE u=39 m5=1 n=393 parfree=327 parp=41 nonfree=364 nonp=16 fivex=393
+XSHAPE u=39 m5=4 n=340 parfree=163 parp=120 nonfree=259 nonp=27 fivex=0
+XSHAPE u=43 m5=1 n=87 parfree=34 parp=22 nonfree=44 nonp=15 fivex=0
+XSHAPE u=43 m5=4 n=105 parfree=42 parp=21 nonfree=54 nonp=14 fivex=0
+XSHAPE u=47 m5=1 n=172 parfree=108 parp=27 nonfree=146 nonp=16 fivex=0
+XSHAPE u=47 m5=4 n=131 parfree=79 parp=20 nonfree=119 nonp=7 fivex=0
+XSHAPE u=51 m5=1 n=18 parfree=6 parp=7 nonfree=11 nonp=1 fivex=0
+XSHAPE u=51 m5=4 n=18 parfree=10 parp=1 nonfree=17 nonp=1 fivex=18
+XSHAPE u=55 m5=1 n=26 parfree=14 parp=2 nonfree=21 nonp=3 fivex=0
+XSHAPE u=55 m5=4 n=23 parfree=11 parp=5 nonfree=19 nonp=3 fivex=0
+XSHAPE u=59 m5=1 n=23 parfree=13 parp=2 nonfree=17 nonp=3 fivex=23
+XSHAPE u=59 m5=4 n=21 parfree=8 parp=9 nonfree=12 nonp=6 fivex=0
+XSHAPE u=63 m5=1 n=5 parfree=3 parp=1 nonfree=4 nonp=1 fivex=0
+XSHAPE u=63 m5=4 n=5 parfree=2 parp=1 nonfree=4 nonp=0 fivex=0
+XSHAPE u=67 m5=4 n=2 parfree=2 parp=0 nonfree=0 nonp=0 fivex=0
+XSHAPE u=71 m5=1 n=2 parfree=0 parp=1 nonfree=2 nonp=0 fivex=0
+XSHAPE u=71 m5=4 n=4 parfree=2 parp=1 nonfree=4 nonp=0 fivex=4
+XSHAPE u=75 m5=4 n=2 parfree=0 parp=1 nonfree=1 nonp=0 fivex=0
+XSHAPE u=79 m5=1 n=1 parfree=0 parp=0 nonfree=0 nonp=1 fivex=1
+XSHAPE u=83 m5=1 n=2 parfree=2 parp=0 nonfree=1 nonp=0 fivex=0
+G3U7 total=788565 fivex=788565 notfivex=0
+G3U7E5 depth0=0 depth1=630921 depth2plus=157644
+G3U7PAR shape: p-containing=0 p-free=771731 v5[0]=77837 v5[1]=688438 v5[2]=1868 v5cap=3588
+G3U7NON shape: p-containing=0 p-free=788565 v5[0]=93767 v5[1]=544249 v5[2]=71626 v5cap=78923 over5=71444
+U11G4 total=145060 fivex=145060 notfivex=0
+U11G4SHAPE p-containing=0 p-free=145060 v5[0]=87021 v5[1]=58039 v5[2]=0 v5cap=0
+XULAYER 3 1 all=276660 nop=0 rate=0
+XULAYER 3 3 all=276624 nop=0 rate=0
+XULAYER 3 4 all=276916 nop=0 rate=0
+XULAYER 7 1 all=580861 nop=24959 rate=429
+XULAYER840 7 1 all=190978 nop=0 rate=0
+XULAYER 7 3 all=788565 nop=16834 rate=213
+XULAYER 7 4 all=580344 nop=25068 rate=431
+XULAYER840 7 4 all=190674 nop=0 rate=0
+XULAYER 11 1 all=134455 nop=9973 rate=741
+XULAYER840 11 1 all=134455 nop=9973 rate=741
+XULAYER 11 4 all=145060 nop=0 rate=0
+XULAYER840 11 4 all=145060 nop=0 rate=0
+XULAYER 15 1 all=32271 nop=0 rate=0
+XULAYER840 15 1 all=32271 nop=0 rate=0
+XULAYER 15 4 all=27488 nop=0 rate=0
+XULAYER840 15 4 all=27488 nop=0 rate=0
+XULAYER 19 1 all=25136 nop=4225 rate=1680
+XULAYER840 19 1 all=25136 nop=4225 rate=1680
+XULAYER 19 4 all=17668 nop=3664 rate=2073
+XULAYER840 19 4 all=17668 nop=3664 rate=2073
+XULAYER 23 1 all=10232 nop=1098 rate=1073
+XULAYER840 23 1 all=10232 nop=1098 rate=1073
+XULAYER 23 4 all=11394 nop=1344 rate=1179
+XULAYER840 23 4 all=11394 nop=1344 rate=1179
+XULAYER 27 1 all=1926 nop=402 rate=2087
+XULAYER840 27 1 all=1926 nop=402 rate=2087
+XULAYER 27 4 all=1892 nop=435 rate=2299
+XULAYER840 27 4 all=1892 nop=435 rate=2299
+XULAYER 31 1 all=2040 nop=383 rate=1877
+XULAYER840 31 1 all=2040 nop=383 rate=1877
+XULAYER 31 4 all=2628 nop=313 rate=1191
+XULAYER840 31 4 all=2628 nop=313 rate=1191
+XULAYER 35 1 all=359 nop=67 rate=1866
+XULAYER840 35 1 all=359 nop=67 rate=1866
+XULAYER 35 4 all=332 nop=46 rate=1385
+XULAYER840 35 4 all=332 nop=46 rate=1385
+XULAYER 39 1 all=393 nop=25 rate=636
+XULAYER840 39 1 all=393 nop=25 rate=636
+XULAYER 39 4 all=340 nop=57 rate=1676
+XULAYER840 39 4 all=340 nop=57 rate=1676
+XULAYER 43 1 all=87 nop=31 rate=3563
+XULAYER840 43 1 all=87 nop=31 rate=3563
+XULAYER 43 4 all=105 nop=42 rate=4000
+XULAYER840 43 4 all=105 nop=42 rate=4000
+XULAYER 47 1 all=172 nop=37 rate=2151
+XULAYER840 47 1 all=172 nop=37 rate=2151
+XULAYER 47 4 all=131 nop=32 rate=2442
+XULAYER840 47 4 all=131 nop=32 rate=2442
+XULAYER 51 1 all=18 nop=5 rate=2777
+XULAYER840 51 1 all=18 nop=5 rate=2777
+XULAYER 51 4 all=18 nop=7 rate=3888
+XULAYER840 51 4 all=18 nop=7 rate=3888
+XULAYER 55 1 all=26 nop=10 rate=3846
+XULAYER840 55 1 all=26 nop=10 rate=3846
+XULAYER 55 4 all=23 nop=7 rate=3043
+XULAYER840 55 4 all=23 nop=7 rate=3043
+XULAYER 59 1 all=23 nop=8 rate=3478
+XULAYER840 59 1 all=23 nop=8 rate=3478
+XULAYER 59 4 all=21 nop=4 rate=1904
+XULAYER840 59 4 all=21 nop=4 rate=1904
+XULAYER 63 1 all=5 nop=1 rate=2000
+XULAYER840 63 1 all=5 nop=1 rate=2000
+XULAYER 63 4 all=5 nop=2 rate=4000
+XULAYER840 63 4 all=5 nop=2 rate=4000
+XULAYER 67 4 all=2 nop=0 rate=0
+XULAYER840 67 4 all=2 nop=0 rate=0
+XULAYER 71 1 all=2 nop=1 rate=5000
+XULAYER840 71 1 all=2 nop=1 rate=5000
+XULAYER 71 4 all=4 nop=1 rate=2500
+XULAYER840 71 4 all=4 nop=1 rate=2500
+XULAYER 75 4 all=2 nop=1 rate=5000
+XULAYER840 75 4 all=2 nop=1 rate=5000
+XULAYER 79 1 all=1 nop=1 rate=10000
+XULAYER840 79 1 all=1 nop=1 rate=10000
+XULAYER 83 1 all=2 nop=0 rate=0
+XULAYER840 83 1 all=2 nop=0 rate=0
+XREACH u=3 m5=1 total=276660 pigeon=276660 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=3 m5=3 total=276624 pigeon=276624 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=3 m5=4 total=276916 pigeon=276916 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=7 m5=1 total=580861 pigeon=580861 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=7 m5=3 total=788565 pigeon=788565 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=7 m5=4 total=580344 pigeon=580344 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=11 m5=1 total=134455 pigeon=128380 del=6075 delunit=6075 dsmall=0 dlarge=0 rescuepig=6075 rescuenopig=0
+XREACH u=11 m5=4 total=145060 pigeon=145060 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=15 m5=1 total=32271 pigeon=32271 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=15 m5=4 total=27488 pigeon=27488 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=19 m5=1 total=25136 pigeon=23384 del=1752 delunit=1391 dsmall=0 dlarge=361 rescuepig=1752 rescuenopig=0
+XREACH u=19 m5=4 total=17668 pigeon=11986 del=5682 delunit=4432 dsmall=898 dlarge=352 rescuepig=5682 rescuenopig=0
+XREACH u=23 m5=1 total=10232 pigeon=9638 del=594 delunit=270 dsmall=244 dlarge=80 rescuepig=594 rescuenopig=0
+XREACH u=23 m5=4 total=11394 pigeon=10713 del=681 delunit=307 dsmall=281 dlarge=93 rescuepig=681 rescuenopig=0
+XREACH u=27 m5=1 total=1926 pigeon=1446 del=480 delunit=353 dsmall=68 dlarge=59 rescuepig=480 rescuenopig=0
+XREACH u=27 m5=4 total=1892 pigeon=1374 del=518 delunit=366 dsmall=88 dlarge=64 rescuepig=518 rescuenopig=0
+XREACH u=31 m5=1 total=2040 pigeon=1704 del=336 delunit=240 dsmall=90 dlarge=6 rescuepig=336 rescuenopig=0
+XREACH u=31 m5=4 total=2628 pigeon=2559 del=69 delunit=34 dsmall=29 dlarge=6 rescuepig=69 rescuenopig=0
+XREACH u=35 m5=1 total=359 pigeon=321 del=38 delunit=37 dsmall=1 dlarge=0 rescuepig=38 rescuenopig=0
+XREACH u=35 m5=4 total=332 pigeon=307 del=25 delunit=20 dsmall=5 dlarge=0 rescuepig=25 rescuenopig=0
+XREACH u=39 m5=1 total=393 pigeon=368 del=25 delunit=19 dsmall=6 dlarge=0 rescuepig=25 rescuenopig=0
+XREACH u=39 m5=4 total=340 pigeon=281 del=59 delunit=50 dsmall=9 dlarge=0 rescuepig=59 rescuenopig=0
+XREACH u=43 m5=1 total=87 pigeon=16 del=71 delunit=46 dsmall=21 dlarge=4 rescuepig=71 rescuenopig=0
+XREACH u=43 m5=4 total=105 pigeon=27 del=78 delunit=45 dsmall=24 dlarge=9 rescuepig=78 rescuenopig=0
+XREACH u=47 m5=1 total=172 pigeon=150 del=22 delunit=11 dsmall=10 dlarge=1 rescuepig=22 rescuenopig=0
+XREACH u=47 m5=4 total=131 pigeon=108 del=23 delunit=11 dsmall=12 dlarge=0 rescuepig=23 rescuenopig=0
+XREACH u=51 m5=1 total=18 pigeon=4 del=14 delunit=10 dsmall=2 dlarge=2 rescuepig=14 rescuenopig=0
+XREACH u=51 m5=4 total=18 pigeon=10 del=8 delunit=4 dsmall=4 dlarge=0 rescuepig=8 rescuenopig=0
+XREACH u=55 m5=1 total=26 pigeon=19 del=7 delunit=2 dsmall=5 dlarge=0 rescuepig=7 rescuenopig=0
+XREACH u=55 m5=4 total=23 pigeon=20 del=3 delunit=1 dsmall=2 dlarge=0 rescuepig=3 rescuenopig=0
+XREACH u=59 m5=1 total=23 pigeon=14 del=9 delunit=5 dsmall=3 dlarge=1 rescuepig=9 rescuenopig=0
+XREACH u=59 m5=4 total=21 pigeon=9 del=12 delunit=9 dsmall=2 dlarge=1 rescuepig=12 rescuenopig=0
+XREACH u=63 m5=1 total=5 pigeon=5 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=63 m5=4 total=5 pigeon=4 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=67 m5=4 total=2 pigeon=0 del=2 delunit=2 dsmall=0 dlarge=0 rescuepig=2 rescuenopig=0
+XREACH u=71 m5=1 total=2 pigeon=2 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=71 m5=4 total=4 pigeon=3 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=75 m5=4 total=2 pigeon=1 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=79 m5=1 total=1 pigeon=0 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=83 m5=1 total=2 pigeon=0 del=2 delunit=2 dsmall=0 dlarge=0 rescuepig=2 rescuenopig=0
+RESCUE8 delicate=16589 rescued_pigeon=16589 rescued_coll=16589 no_pigeon_anywhere=0
+RESCUE8CHECK pig_no_coll=0 (must be 0: R5)
+RESCUE8U u=15 pig=2690 coll=2690 collfw=0
+RESCUE8U u=19 pig=3421 coll=3759 collfw=0
+RESCUE8U u=23 pig=11049 coll=11354 collfw=0
+RESCUE8U u=27 pig=3847 coll=5241 collfw=0
+RESCUE8U u=31 pig=9377 coll=10535 collfw=0
+RESCUE8U u=35 pig=5658 coll=6252 collfw=0
+RESCUE8U u=39 pig=9433 coll=10410 collfw=0
+RESCUE8U u=43 pig=926 coll=4562 collfw=0
+RESCUE8U u=47 pig=9818 coll=11316 collfw=0
+RESCUE8U u=51 pig=2254 coll=5275 collfw=0
+RESCUE8U u=55 pig=5905 coll=7681 collfw=0
+RESCUE8U u=59 pig=5361 coll=9082 collfw=0
+RESCUE8U u=63 pig=4312 coll=6349 collfw=0
+RESCUE8U u=67 pig=214 coll=4254 collfw=0
+RESCUE8U u=71 pig=8309 coll=10499 collfw=0
+RESCUE8U u=75 pig=819 coll=3298 collfw=0
+RESCUE8U u=79 pig=3917 coll=8353 collfw=0
+RESCUE8U u=83 pig=1977 coll=6691 collfw=0
+RESCUE8U u=87 pig=4637 coll=8303 collfw=0
+RESCUE8U u=91 pig=222 coll=3175 collfw=0
+RESCUE8U u=95 pig=7123 coll=10655 collfw=0
+RESCUE8U u=99 pig=736 coll=4397 collfw=0
+RESCUE8U u=103 pig=1413 coll=6432 collfw=0
+RESCUE8U u=107 pig=583 coll=4939 collfw=0
+RESCUE8U u=111 pig=6406 coll=10477 collfw=0
+RESCUE8U u=115 pig=143 coll=3908 collfw=0
+RESCUE8U u=119 pig=5800 coll=9360 collfw=0
+RESCUE8U u=123 pig=60 coll=1986 collfw=0
+RESCUE8U u=127 pig=621 coll=4903 collfw=0
+RESCUE8U u=131 pig=1575 coll=7110 collfw=0
+RESCUE8U u=135 pig=1652 coll=4928 collfw=0
+RESCUE8U u=139 pig=165 coll=3844 collfw=0
+RESCUE8U u=143 pig=4248 coll=8423 collfw=0
+RESCUE8U u=147 pig=11 coll=1692 collfw=0
+RESCUE8U u=151 pig=1215 coll=6406 collfw=0
+RESCUE8U u=155 pig=320 coll=5661 collfw=0
+RESCUE8U u=159 pig=3249 coll=7954 collfw=0
+RESCUE8U u=163 pig=0 coll=1298 collfw=0
+RESCUE8U u=167 pig=3353 coll=9078 collfw=0
+RESCUE8U u=171 pig=373 coll=4020 collfw=0
+RESCUE8U u=175 pig=892 coll=4534 collfw=0
+RESCUE8U u=179 pig=375 coll=4840 collfw=0
+RESCUE8U u=183 pig=707 coll=5364 collfw=0
+RESCUE8U u=187 pig=2 coll=1813 collfw=0
+RESCUE8U u=191 pig=3209 coll=8850 collfw=0
+RESCUE8U u=195 pig=85 coll=1850 collfw=0
+RESCUE8U u=199 pig=2702 coll=8469 collfw=0
+RESCUE8U u=203 pig=61 coll=3355 collfw=0
+RESCUE8U u=207 pig=299 coll=4603 collfw=0
+RESCUE8U u=211 pig=5 coll=1907 collfw=0
+RESCUE8U u=215 pig=2547 coll=8131 collfw=0
+RESCUE8U u=219 pig=23 coll=2629 collfw=0
+RESCUE8U u=223 pig=176 coll=3902 collfw=0
+RESCUE8U u=227 pig=136 coll=4363 collfw=0
+RESCUE8U u=231 pig=1159 coll=4862 collfw=0
+RESCUE8U u=235 pig=0 coll=1290 collfw=0
+RESCUE8U u=239 pig=2445 coll=8604 collfw=0
+RESCUE8U u=243 pig=31 coll=2367 collfw=0
+RESCUE8U u=247 pig=20 coll=3059 collfw=0
+RESCUE8U u=251 pig=378 coll=5325 collfw=0
+RESCUE8U u=255 pig=1236 coll=5453 collfw=0
+SUBFW checks=3042449 collision=0 pigeon=0
+U7 r7=1 total=389463 adm=389463 span=254489 fail=134974 inad=0 fivex=129809
+U7 r7=2 total=389952 adm=389952 span=254424 fail=135528 inad=0 fivex=129916
+U7 r7=3 total=389797 adm=389797 span=389797 fail=0 inad=0 fivex=130166
+U7 r7=4 total=414949 adm=414949 span=271190 fail=143759 inad=0 fivex=138726
+U7 r7=5 total=389841 adm=389841 span=389841 fail=0 inad=0 fivex=130118
+U7 r7=6 total=390029 adm=390029 span=390029 fail=0 inad=0 fivex=129830
+U7WIT r7=1 n7=389463 wit_ok=0
+U7WIT r7=2 n7=389952 wit_ok=0
+U7WIT r7=3 n7=389797 wit_ok=389797
+U7WIT r7=4 n7=414949 wit_ok=0
+U7WIT r7=5 n7=389841 wit_ok=0
+U7WIT r7=6 n7=390029 wit_ok=390029
+U7FAILPOP r7=1 0 0 38813 96161 0 0 0
+U7FAILPOP r7=2 0 0 0 135528 0 0 0
+U7FAILPOP r7=4 0 0 0 143759 0 0 0
+U7FC r7=1 span=254489 fail=134974 spanA=254489 spanB=0 spanC=0
+U7FCSPANV5 r7=1 depth0=124680 depth1=103865 depth2=20762 depth3=5182 d125=5182
+U7FAILPROFILE r7=1 v2_1=0 v2_2=65981 v2_3=68993 v5_0=134974 v5_1=0 v5_2=0 in840=134974 non840=0
+U7FC r7=2 span=254424 fail=135528 spanA=254424 spanB=0 spanC=0
+U7FCSPANV5 r7=2 depth0=124508 depth1=103900 depth2=20772 depth3=5244 d125=5244
+U7FAILPROFILE r7=2 v2_1=0 v2_2=66386 v2_3=69142 v5_0=135528 v5_1=0 v5_2=0 in840=135528 non840=0
+U7FC r7=4 span=271190 fail=143759 spanA=271190 spanB=0 spanC=0
+U7FCSPANV5 r7=4 depth0=132464 depth1=111036 depth2=22172 depth3=5518 d125=5518
+U7FAILPROFILE r7=4 v2_1=0 v2_2=70688 v2_3=73071 v5_0=143759 v5_1=0 v5_2=0 in840=143759 non840=0
+U7CHECK subfw_coll=0 (must be 0)
+U7D0MECH r7=1 pure2power=0 mixed=124680 pigeon=124680
+U7D0POP r7=1 0 0 0 0 12852 24675 87153
+U7FAILB840 r7=1 c1=67525 c121=0 c169=67449 c289=0 c361=0 c529=0
+U7D0MECH r7=2 pure2power=0 mixed=124508 pigeon=124508
+U7D0POP r7=2 0 0 0 0 0 0 124508
+U7FAILB840 r7=2 c1=0 c121=67702 c169=0 c289=67826 c361=0 c529=0
+U7D0MECH r7=4 pure2power=0 mixed=132464 pigeon=132464
+U7D0POP r7=4 0 0 0 0 0 0 132464
+U7FAILB840 r7=4 c1=0 c121=0 c169=0 c289=0 c361=71921 c529=71838
+U7D6GEN r7=2 gen3=124508 gen5=124508 gen3_d125=0 gen5_d125=0
+U7D6GEN r7=4 gen3=132464 gen5=132464 gen3_d125=0 gen5_d125=0
+U7FAILSET r7=1 mask=6 n=38813
+U7FAILSET r7=1 mask=22 n=96161
+U7FAILSETVM r7=1 mask=6 v2b=1 n=38813
+U7FAILSETVM r7=1 mask=22 v2b=1 n=27168
+U7FAILSETVM r7=1 mask=22 v2b=2 n=33699
+U7FAILSETVM r7=1 mask=22 v2b=3 n=35294
+U7FAILSET r7=2 mask=22 n=135528
+U7FAILSETVM r7=2 mask=22 v2b=1 n=66386
+U7FAILSETVM r7=2 mask=22 v2b=2 n=33960
+U7FAILSETVM r7=2 mask=22 v2b=3 n=35182
+U7FAILSET r7=4 mask=22 n=143759
+U7FAILSETVM r7=4 mask=22 v2b=1 n=70688
+U7FAILSETVM r7=4 mask=22 v2b=2 n=35618
+U7FAILSETVM r7=4 mask=22 v2b=3 n=37453
+U7IFF r7=1 span_cond=124680 span_notcond=0 fail_cond=0 fail_notcond=134974
+U7IFF r7=2 span_cond=124508 span_notcond=0 fail_cond=0 fail_notcond=135528
+U7IFF r7=4 span_cond=132464 span_notcond=0 fail_cond=0 fail_notcond=143759
+U7IFFCHECK mismatch=0 (must be 0; with the q residue in {3,5,6})
+U7FCCHECK span_miss=0 (must be 0)
+U11CHECK subfw_coll=1413291 (must be 0)
+U11CLASS r11=1 total=262527 adm=262527 span=19535 fail=242992 inad=0
+U11POP r11=1 0 0 31193 0 24581 77972 16512 4086 8168 19841 60639
+U11POPSPAN r11=1 0 0 0 0 646 0 1824 789 825 2698 12753
+U11FAILSET r11=1 mask=10 n=31193
+U11FAILSET r11=1 mask=206 n=13940
+U11FAILSET r11=1 mask=538 n=21010
+U11FAILSET r11=1 mask=570 n=64032
+U11FAILSET r11=1 mask=734 n=4086
+U11FAILSET r11=1 mask=1290 n=3571
+U11FAILSET r11=1 mask=1422 n=16512
+U11FAILSET r11=1 mask=1950 n=8168
+U11FAILSET r11=1 mask=1982 n=8911
+U11FAILSET r11=1 mask=2014 n=10930
+U11FAILSET r11=1 mask=2046 n=60639
+U11COLL r11=1 mask=734 n=4086
+U11COLL r11=1 mask=1290 n=3571
+U11COLL r11=1 mask=1422 n=16512
+U11COLL r11=1 mask=1950 n=8168
+U11COLL r11=1 mask=1982 n=8911
+U11COLL r11=1 mask=2014 n=10930
+U11COLL r11=1 mask=2046 n=60639
+U11CLASS r11=2 total=262796 adm=262796 span=40090 fail=222706 inad=0
+U11POP r11=2 0 0 0 0 0 37705 0 11055 0 26110 147836
+U11POPSPAN r11=2 0 0 0 0 0 0 0 2042 0 4833 33215
+U11FAILSET r11=2 mask=94 n=37705
+U11FAILSET r11=2 mask=478 n=11055
+U11FAILSET r11=2 mask=1022 n=26110
+U11FAILSET r11=2 mask=2046 n=147836
+U11COLL r11=2 mask=478 n=11055
+U11COLL r11=2 mask=1022 n=26110
+U11COLL r11=2 mask=2046 n=147836
+U11CLASS r11=3 total=262513 adm=262513 span=21575 fail=240938 inad=0
+U11POP r11=3 0 0 0 0 46197 70142 0 5868 10569 32225 75937
+U11POPSPAN r11=3 0 0 0 0 0 0 0 1097 1922 3858 14698
+U11FAILSET r11=3 mask=554 n=46197
+U11FAILSET r11=3 mask=570 n=70142
+U11FAILSET r11=3 mask=1770 n=5868
+U11FAILSET r11=3 mask=1902 n=10569
+U11FAILSET r11=3 mask=1918 n=845
+U11FAILSET r11=3 mask=2030 n=31380
+U11FAILSET r11=3 mask=2046 n=75937
+U11COLL r11=3 mask=1770 n=5868
+U11COLL r11=3 mask=1902 n=10569
+U11COLL r11=3 mask=1918 n=845
+U11COLL r11=3 mask=2030 n=31380
+U11COLL r11=3 mask=2046 n=75937
+U11CLASS r11=4 total=262532 adm=262532 span=23351 fail=239181 inad=0
+U11POP r11=4 0 0 0 0 35679 80532 0 5923 14590 23089 79368
+U11POPSPAN r11=4 0 0 0 0 0 0 0 1237 1567 3331 17216
+U11FAILSET r11=4 mask=58 n=35679
+U11FAILSET r11=4 mask=382 n=5923
+U11FAILSET r11=4 mask=570 n=80532
+U11FAILSET r11=4 mask=1530 n=14590
+U11FAILSET r11=4 mask=1534 n=16123
+U11FAILSET r11=4 mask=2042 n=6966
+U11FAILSET r11=4 mask=2046 n=79368
+U11COLL r11=4 mask=382 n=5923
+U11COLL r11=4 mask=1530 n=14590
+U11COLL r11=4 mask=1534 n=16123
+U11COLL r11=4 mask=2042 n=6966
+U11COLL r11=4 mask=2046 n=79368
+U11CLASS r11=5 total=262447 adm=262447 span=21652 fail=240795 inad=0
+U11POP r11=5 0 0 0 0 0 116437 0 0 0 11692 112666
+U11POPSPAN r11=5 0 0 0 0 0 0 0 0 0 754 20898
+U11FAILSET r11=5 mask=570 n=116437
+U11FAILSET r11=5 mask=1790 n=11692
+U11FAILSET r11=5 mask=2046 n=112666
+U11COLL r11=5 mask=1790 n=11692
+U11COLL r11=5 mask=2046 n=112666
+U11CLASS r11=6 total=262997 adm=262997 span=40196 fail=222801 inad=0
+U11POP r11=6 0 0 0 0 0 37884 0 21633 0 22048 141236
+U11POPSPAN r11=6 0 0 0 0 0 0 0 4167 0 2739 33290
+U11FAILSET r11=6 mask=714 n=37884
+U11FAILSET r11=6 mask=1742 n=21633
+U11FAILSET r11=6 mask=1790 n=22048
+U11FAILSET r11=6 mask=2046 n=141236
+U11COLL r11=6 mask=1742 n=21633
+U11COLL r11=6 mask=1790 n=22048
+U11COLL r11=6 mask=2046 n=141236
+U11CLASS r11=7 total=262274 adm=262274 span=45447 fail=216827 inad=0
+U11POP r11=7 0 0 0 0 0 0 36260 0 8588 51481 120498
+U11POPSPAN r11=7 0 0 0 0 0 0 5482 0 1444 11091 27430
+U11FAILSET r11=7 mask=1210 n=36260
+U11FAILSET r11=7 mask=1530 n=8588
+U11FAILSET r11=7 mask=1534 n=23523
+U11FAILSET r11=7 mask=2042 n=27958
+U11FAILSET r11=7 mask=2046 n=120498
+U11COLL r11=7 mask=1210 n=36260
+U11COLL r11=7 mask=1530 n=8588
+U11COLL r11=7 mask=1534 n=23523
+U11COLL r11=7 mask=2042 n=27958
+U11COLL r11=7 mask=2046 n=120498
+U11CLASS r11=9 total=262817 adm=262817 span=21856 fail=240961 inad=0
+U11POP r11=9 0 0 0 0 0 116474 0 0 0 5585 118902
+U11POPSPAN r11=9 0 0 0 0 0 0 0 0 0 1072 20784
+U11FAILSET r11=9 mask=570 n=116474
+U11FAILSET r11=9 mask=1022 n=5585
+U11FAILSET r11=9 mask=2046 n=118902
+U11COLL r11=9 mask=1022 n=5585
+U11COLL r11=9 mask=2046 n=118902
+U11CLASS r11=10 total=263128 adm=263128 span=45813 fail=217315 inad=0
+U11POP r11=10 0 0 0 0 30172 0 0 0 42619 0 144524
+U11POPSPAN r11=10 0 0 0 0 5429 0 0 0 5903 0 34481
+U11FAILSET r11=10 mask=1290 n=30172
+U11FAILSET r11=10 mask=1950 n=42619
+U11FAILSET r11=10 mask=2046 n=144524
+U11COLL r11=10 mask=1290 n=30172
+U11COLL r11=10 mask=1950 n=42619
+U11COLL r11=10 mask=2046 n=144524
+U11COLLCHECK collisions=1413291 among failers (census row, not an error gate)
+U11IFF r11=1 cond_span=19535 cond_fail=126757 nocond_span=0 nocond_fail=116235
+U11COLLCELLS r11=1 coll_span=19535 coll_fail=112817 nocoll_span=0 nocoll_fail=130175
+U11IFF r11=2 cond_span=40090 cond_fail=222706 nocond_span=0 nocond_fail=0
+U11COLLCELLS r11=2 coll_span=40090 coll_fail=185001 nocoll_span=0 nocoll_fail=37705
+U11IFF r11=3 cond_span=21575 cond_fail=124599 nocond_span=0 nocond_fail=116339
+U11COLLCELLS r11=3 coll_span=21575 coll_fail=124599 nocoll_span=0 nocoll_fail=116339
+U11IFF r11=4 cond_span=23351 cond_fail=122970 nocond_span=0 nocond_fail=116211
+U11COLLCELLS r11=4 coll_span=23351 coll_fail=122970 nocoll_span=0 nocoll_fail=116211
+U11IFF r11=5 cond_span=21652 cond_fail=124358 nocond_span=0 nocond_fail=116437
+U11COLLCELLS r11=5 coll_span=21652 coll_fail=124358 nocoll_span=0 nocoll_fail=116437
+U11IFF r11=6 cond_span=40196 cond_fail=222801 nocond_span=0 nocond_fail=0
+U11COLLCELLS r11=6 coll_span=40196 coll_fail=184917 nocoll_span=0 nocoll_fail=37884
+U11IFF r11=7 cond_span=45447 cond_fail=216827 nocond_span=0 nocond_fail=0
+U11COLLCELLS r11=7 coll_span=45447 coll_fail=216827 nocoll_span=0 nocoll_fail=0
+U11IFF r11=9 cond_span=21856 cond_fail=124487 nocond_span=0 nocond_fail=116474
+U11COLLCELLS r11=9 coll_span=21856 coll_fail=124487 nocoll_span=0 nocoll_fail=116474
+U11IFF r11=10 cond_span=45813 cond_fail=217315 nocond_span=0 nocond_fail=0
+U11COLLCELLS r11=10 coll_span=45813 coll_fail=217315 nocoll_span=0 nocoll_fail=0
+U11IFFCHECK mismatch=1502820 (soft census row; the non-QR-odd-prime condition)
+U11QRBKT r11=1 allQR=0 v2b=0 span=19535 fail=126757
+U11QRBKT r11=1 allQR=1 v2b=0 span=0 fail=116235
+U11PCNT r11=1 cnt=0 span=0 fail=116235
+U11PCNT r11=1 cnt=2 span=19017 fail=118922
+U11PCNT r11=1 cnt=4 span=517 fail=7722
+U11PCNT r11=1 cnt=6 span=1 fail=112
+U11PCNT r11=1 cnt=8 span=0 fail=1
+U11PRES r11=1 pres=2 cnt=2 span=4606 fail=22044
+U11PRES r11=1 pres=2 cnt=4 span=311 fail=1034
+U11PRES r11=1 pres=2 cnt=6 span=0 fail=2
+U11PRES r11=1 pres=6 cnt=2 span=4165 fail=20321
+U11PRES r11=1 pres=6 cnt=4 span=110 fail=485
+U11PRES r11=1 pres=6 cnt=6 span=1 fail=0
+U11PRES r11=1 pres=7 cnt=2 span=3111 fail=49364
+U11PRES r11=1 pres=7 cnt=4 span=26 fail=5940
+U11PRES r11=1 pres=7 cnt=6 span=0 fail=110
+U11PRES r11=1 pres=7 cnt=8 span=0 fail=1
+U11PRES r11=1 pres=8 cnt=2 span=4714 fail=17476
+U11PRES r11=1 pres=8 cnt=4 span=66 fail=247
+U11PRES r11=1 pres=10 cnt=2 span=2421 fail=9717
+U11PRES r11=1 pres=10 cnt=4 span=4 fail=16
+U11QRBKT r11=2 allQR=0 v2b=0 span=40090 fail=222706
+U11PCNT r11=2 cnt=1 span=35380 fail=183155
+U11PCNT r11=2 cnt=3 span=4681 fail=38481
+U11PCNT r11=2 cnt=5 span=29 fail=1051
+U11PCNT r11=2 cnt=7 span=0 fail=19
+U11PRES r11=2 pres=2 cnt=1 span=5257 fail=53981
+U11PRES r11=2 pres=2 cnt=3 span=1853 fail=6327
+U11PRES r11=2 pres=2 cnt=5 span=24 fail=81
+U11PRES r11=2 pres=6 cnt=1 span=7755 fail=26979
+U11PRES r11=2 pres=6 cnt=3 span=1231 fail=4519
+U11PRES r11=2 pres=6 cnt=5 span=5 fail=30
+U11PRES r11=2 pres=7 cnt=1 span=8631 fail=48667
+U11PRES r11=2 pres=7 cnt=3 span=432 fail=23035
+U11PRES r11=2 pres=7 cnt=5 span=0 fail=935
+U11PRES r11=2 pres=7 cnt=7 span=0 fail=19
+U11PRES r11=2 pres=8 cnt=1 span=8313 fail=32430
+U11PRES r11=2 pres=8 cnt=3 span=944 fail=3712
+U11PRES r11=2 pres=8 cnt=5 span=0 fail=5
+U11PRES r11=2 pres=10 cnt=1 span=5424 fail=21098
+U11PRES r11=2 pres=10 cnt=3 span=221 fail=888
+U11QRBKT r11=3 allQR=0 v2b=0 span=21575 fail=124599
+U11QRBKT r11=3 allQR=1 v2b=0 span=0 fail=116339
+U11PCNT r11=3 cnt=0 span=0 fail=116339
+U11PCNT r11=3 cnt=2 span=21049 fail=116836
+U11PCNT r11=3 cnt=4 span=524 fail=7653
+U11PCNT r11=3 cnt=6 span=2 fail=110
+U11PRES r11=3 pres=2 cnt=2 span=5854 fail=20796
+U11PRES r11=3 pres=2 cnt=4 span=314 fail=1024
+U11PRES r11=3 pres=2 cnt=6 span=1 fail=2
+U11PRES r11=3 pres=6 cnt=2 span=5190 fail=19170
+U11PRES r11=3 pres=6 cnt=4 span=125 fail=475
+U11PRES r11=3 pres=7 cnt=2 span=3004 fail=49478
+U11PRES r11=3 pres=7 cnt=4 span=20 fail=5909
+U11PRES r11=3 pres=7 cnt=6 span=0 fail=108
+U11PRES r11=3 pres=8 cnt=2 span=4590 fail=17683
+U11PRES r11=3 pres=8 cnt=4 span=64 fail=225
+U11PRES r11=3 pres=8 cnt=6 span=1 fail=0
+U11PRES r11=3 pres=10 cnt=2 span=2411 fail=9709
+U11PRES r11=3 pres=10 cnt=4 span=1 fail=20
+U11QRBKT r11=4 allQR=0 v2b=0 span=23351 fail=122970
+U11QRBKT r11=4 allQR=1 v2b=0 span=0 fail=116211
+U11PCNT r11=4 cnt=0 span=0 fail=116211
+U11PCNT r11=4 cnt=2 span=22834 fail=115238
+U11PCNT r11=4 cnt=4 span=517 fail=7608
+U11PCNT r11=4 cnt=6 span=0 fail=123
+U11PCNT r11=4 cnt=8 span=0 fail=1
+U11PRES r11=4 pres=2 cnt=2 span=6256 fail=20276
+U11PRES r11=4 pres=2 cnt=4 span=317 fail=980
+U11PRES r11=4 pres=2 cnt=6 span=0 fail=3
+U11PRES r11=4 pres=6 cnt=2 span=5659 fail=18894
+U11PRES r11=4 pres=6 cnt=4 span=128 fail=449
+U11PRES r11=4 pres=7 cnt=2 span=3244 fail=49308
+U11PRES r11=4 pres=7 cnt=4 span=10 fail=5936
+U11PRES r11=4 pres=7 cnt=6 span=0 fail=120
+U11PRES r11=4 pres=7 cnt=8 span=0 fail=1
+U11PRES r11=4 pres=8 cnt=2 span=5061 fail=17282
+U11PRES r11=4 pres=8 cnt=4 span=60 fail=234
+U11PRES r11=4 pres=10 cnt=2 span=2614 fail=9478
+U11PRES r11=4 pres=10 cnt=4 span=2 fail=9
+U11QRBKT r11=5 allQR=0 v2b=0 span=21652 fail=124358
+U11QRBKT r11=5 allQR=1 v2b=0 span=0 fail=116437
+U11PCNT r11=5 cnt=0 span=0 fail=116437
+U11PCNT r11=5 cnt=2 span=21162 fail=116508
+U11PCNT r11=5 cnt=4 span=490 fail=7720
+U11PCNT r11=5 cnt=6 span=0 fail=129
+U11PCNT r11=5 cnt=8 span=0 fail=1
+U11PRES r11=5 pres=2 cnt=2 span=5778 fail=20620
+U11PRES r11=5 pres=2 cnt=4 span=299 fail=996
+U11PRES r11=5 pres=2 cnt=6 span=0 fail=4
+U11PRES r11=5 pres=6 cnt=2 span=5202 fail=19231
+U11PRES r11=5 pres=6 cnt=4 span=115 fail=464
+U11PRES r11=5 pres=7 cnt=2 span=3038 fail=49423
+U11PRES r11=5 pres=7 cnt=4 span=11 fail=5977
+U11PRES r11=5 pres=7 cnt=6 span=0 fail=125
+U11PRES r11=5 pres=7 cnt=8 span=0 fail=1
+U11PRES r11=5 pres=8 cnt=2 span=4653 fail=17582
+U11PRES r11=5 pres=8 cnt=4 span=60 fail=272
+U11PRES r11=5 pres=10 cnt=2 span=2491 fail=9652
+U11PRES r11=5 pres=10 cnt=4 span=5 fail=11
+U11QRBKT r11=6 allQR=0 v2b=0 span=40196 fail=222801
+U11PCNT r11=6 cnt=1 span=35519 fail=183225
+U11PCNT r11=6 cnt=3 span=4649 fail=38472
+U11PCNT r11=6 cnt=5 span=28 fail=1093
+U11PCNT r11=6 cnt=7 span=0 fail=11
+U11PRES r11=6 pres=2 cnt=1 span=8855 fail=33750
+U11PRES r11=6 pres=2 cnt=3 span=1768 fail=6215
+U11PRES r11=6 pres=2 cnt=5 span=17 fail=97
+U11PRES r11=6 pres=6 cnt=1 span=5249 fail=53584
+U11PRES r11=6 pres=6 cnt=3 span=1226 fail=4564
+U11PRES r11=6 pres=6 cnt=5 span=9 fail=18
+U11PRES r11=6 pres=7 cnt=1 span=6400 fail=43207
+U11PRES r11=6 pres=7 cnt=3 span=448 fail=23167
+U11PRES r11=6 pres=7 cnt=5 span=0 fail=975
+U11PRES r11=6 pres=7 cnt=7 span=0 fail=11
+U11PRES r11=6 pres=8 cnt=1 span=6821 fail=26596
+U11PRES r11=6 pres=8 cnt=3 span=999 fail=3607
+U11PRES r11=6 pres=8 cnt=5 span=2 fail=3
+U11PRES r11=6 pres=10 cnt=1 span=8194 fail=26088
+U11PRES r11=6 pres=10 cnt=3 span=208 fail=919
+U11QRBKT r11=7 allQR=0 v2b=0 span=45447 fail=216827
+U11PCNT r11=7 cnt=1 span=40868 fail=177013
+U11PCNT r11=7 cnt=3 span=4546 fail=38706
+U11PCNT r11=7 cnt=5 span=33 fail=1099
+U11PCNT r11=7 cnt=7 span=0 fail=9
+U11PRES r11=7 pres=2 cnt=1 span=7303 fail=27916
+U11PRES r11=7 pres=2 cnt=3 span=1739 fail=6306
+U11PRES r11=7 pres=2 cnt=5 span=27 fail=76
+U11PRES r11=7 pres=6 cnt=1 span=8482 fail=33223
+U11PRES r11=7 pres=6 cnt=3 span=1207 fail=4539
+U11PRES r11=7 pres=6 cnt=5 span=4 fail=16
+U11PRES r11=7 pres=7 cnt=1 span=9534 fail=63827
+U11PRES r11=7 pres=7 cnt=3 span=439 fail=23220
+U11PRES r11=7 pres=7 cnt=5 span=0 fail=1001
+U11PRES r11=7 pres=7 cnt=7 span=0 fail=9
+U11PRES r11=7 pres=8 cnt=1 span=9747 fail=31151
+U11PRES r11=7 pres=8 cnt=3 span=961 fail=3701
+U11PRES r11=7 pres=8 cnt=5 span=2 fail=6
+U11PRES r11=7 pres=10 cnt=1 span=5802 fail=20896
+U11PRES r11=7 pres=10 cnt=3 span=200 fail=940
+U11QRBKT r11=9 allQR=0 v2b=0 span=21856 fail=124487
+U11QRBKT r11=9 allQR=1 v2b=0 span=0 fail=116474
+U11PCNT r11=9 cnt=0 span=0 fail=116474
+U11PCNT r11=9 cnt=2 span=21378 fail=116652
+U11PCNT r11=9 cnt=4 span=477 fail=7717
+U11PCNT r11=9 cnt=6 span=1 fail=118
+U11PRES r11=9 pres=2 cnt=2 span=5857 fail=20864
+U11PRES r11=9 pres=2 cnt=4 span=277 fail=1030
+U11PRES r11=9 pres=2 cnt=6 span=1 fail=5
+U11PRES r11=9 pres=6 cnt=2 span=5271 fail=19395
+U11PRES r11=9 pres=6 cnt=4 span=122 fail=469
+U11PRES r11=9 pres=7 cnt=2 span=3014 fail=49180
+U11PRES r11=9 pres=7 cnt=4 span=19 fail=5964
+U11PRES r11=9 pres=7 cnt=6 span=0 fail=113
+U11PRES r11=9 pres=8 cnt=2 span=4753 fail=17512
+U11PRES r11=9 pres=8 cnt=4 span=57 fail=243
+U11PRES r11=9 pres=10 cnt=2 span=2483 fail=9701
+U11PRES r11=9 pres=10 cnt=4 span=2 fail=11
+U11QRBKT r11=10 allQR=0 v2b=0 span=45813 fail=217315
+U11PCNT r11=10 cnt=1 span=41161 fail=177352
+U11PCNT r11=10 cnt=3 span=4623 fail=38864
+U11PCNT r11=10 cnt=5 span=29 fail=1093
+U11PCNT r11=10 cnt=7 span=0 fail=6
+U11PRES r11=10 pres=2 cnt=1 span=10149 fail=32663
+U11PRES r11=10 pres=2 cnt=3 span=1777 fail=6433
+U11PRES r11=10 pres=2 cnt=5 span=21 fail=85
+U11PRES r11=10 pres=6 cnt=1 span=7199 fail=27328
+U11PRES r11=10 pres=6 cnt=3 span=1233 fail=4606
+U11PRES r11=10 pres=6 cnt=5 span=7 fail=26
+U11PRES r11=10 pres=7 cnt=1 span=7185 fail=49706
+U11PRES r11=10 pres=7 cnt=3 span=433 fail=23359
+U11PRES r11=10 pres=7 cnt=5 span=0 fail=977
+U11PRES r11=10 pres=7 cnt=7 span=0 fail=6
+U11PRES r11=10 pres=8 cnt=1 span=7523 fail=26088
+U11PRES r11=10 pres=8 cnt=3 span=963 fail=3578
+U11PRES r11=10 pres=8 cnt=5 span=1 fail=5
+U11PRES r11=10 pres=10 cnt=1 span=9105 fail=41567
+U11PRES r11=10 pres=10 cnt=3 span=217 fail=888
