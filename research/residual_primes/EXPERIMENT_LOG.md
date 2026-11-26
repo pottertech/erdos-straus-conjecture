@@ -1423,6 +1423,54 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** complete (the algebra narrowed; the exact pair-set
   mechanism is the next pass).
 
+## E-031 - R8 piece 23: the CRT pair-set algebra, made exact (engine v0.25) (2026-11-26)
+
+- **What ran:** engine v0.25 (`analysis/u15_alg_v025/`), a byte-superset
+  of v0.24 (the reconcile: v0.24's 685 lines in order inside 690,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0.
+- **The algebra (found this piece):** for `M15 = p * x'` coprime to 15,
+  the divisor-residue set `D15 = { d mod 15 : d | M15 }` is EXACTLY the
+  multiplicative generation: decode every residue to its CRT pair
+  (mod 3, mod 5); for each prime `q | x'` with pair
+  `g_q = (q mod 3, q mod 5)` and exponent `e_q`, the divisor window is
+  `{ 1, g_q, ..., g_q^{e_q} }`; the pair set is the product closure of
+  the per-prime windows, then scaled by the p-classes
+  `(1, 1), (p mod 3, p mod 5)`. The D3 projection is the full unit
+  group (2 elements, always, the mask3 = 6 universal row of E-030);
+  the D5 projection and the pair coupling live in the 8-element pair
+  group `(Z/3)* x (Z/5)*`.
+- **Verified results (full scale):**
+  - **U15ALG mismatch = 0**: the generated pair set equals the
+    build_D divisor set for EVERY one of the 2,364,031 records - the
+    algebra is exact, not approximate (the engine-side generation had
+    three compile-round bugs on the way there: the pair-power reset,
+    the zero-init of the fold register, the window j <= e - all
+    resolved; the final check is a hard 0 over the full population).
+  - **The E-029/E-030 fail shapes decode as orbit windows:** the fail
+    D-sets {1, 2, 4} and {1, 2, 4, 8} are exactly the (2,2)-orbit
+    {1=g0, 2=g1, 4=g2, 8=g3} cut at the 2-exponent windows (the
+    deficits 3 and 4 = |D3||D5| - the window sizes, the class cells of
+    E-030 now mechanized). The U15ORBPREF cells: r15 = 1: the fails
+    19,418 at prefix 3 + 21,004 at prefix 4 (the D5 window from
+    {1,2,4} vs full); r15 = 4: the fails 34,565 all at prefix 4;
+    r15 = 13: inert (all records the prefix-4 early-layer shape).
+  - The arithmetic consistency rows all hold at full scale (crt_neg 0,
+    DEFMAX 0, the deficit cells reconstructing the coarse cells, the
+    zero collision row among the fw > 15 failers).
+- **The mechanism status:** the CRT pair-set algebra is now an
+  exact, engine-verified structural fact for the composite layer u = 15
+  (and by the same proof shape, for any squarefree composite layer:
+  the pair group (Z/p)* x (Z/q)* of order (p-1)(q-1), the windows of
+  the generated sub-monoid). The next pieces this opens: (i) the
+  deficit-exactness THEOREM (the realized-pair count from the window
+  structure - a Lean formalization candidate on the E-016 skeleton);
+  (ii) the u = 15 span-side mechanism (why the r15 = 1 spans live at
+  |D| in {6, 7, 8}: the odd primes' pairs opening the orbit).
+- **Artifacts:** `analysis/u15_alg_v025/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 119).
+- **Status:** complete.
+
 
 
 

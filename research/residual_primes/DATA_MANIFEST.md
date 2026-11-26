@@ -114,6 +114,9 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u15_crt_v024/collision_margin_engine_v024.c` | `1eb843fadb9396bd181589d89158b3f7e81eaf524144dfd53920656494b07d51` | 78424 |
 | `research/residual_primes/analysis/u15_crt_v024/full_run.txt` | `16538776b25f3d599ad6a9a2318520d95e291cc6d05f2847f7df4667165a3ae8` | 34706 |
 | `research/residual_primes/analysis/u15_crt_v024/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `research/residual_primes/analysis/u15_alg_v025/collision_margin_engine_v025.c` | `3123304e8610c56fee57e6fc0dcbe4d7c91cae405e06d51153ac19cfa6966c97` | 86634 |
+| `research/residual_primes/analysis/u15_alg_v025/full_run.txt` | `796e0fb7f5a0fddcc62365a5adf55ed0ba123eaa1c3c17ced93454ff8d601ff6` | 34996 |
+| `research/residual_primes/analysis/u15_alg_v025/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
 | `ErdosStrausConjecture/ResidualPrimes/U11Layer.lean` | `db29e20293a0dde367d1b98e2324ef543733e60f4e837331e6232b6bbb0d5324` | 12770 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u11_layer.txt` | `dcbdf3758a1698d6189723924535482333a19706f314b2f4ac12d9f125d73031` | 582 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11_layer.log` | `52373301989a17e7e601e7027292d64711adfc5aa5eeeef89a442b582361026a` | 42 |
