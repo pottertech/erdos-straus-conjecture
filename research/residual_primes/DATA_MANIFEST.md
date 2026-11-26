@@ -101,6 +101,13 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u11_route_v019/full_run.txt` | `b16ba2dd74015b8921a261f808b4f9e998977d718515d5efa22680c9288924e6` | 33869 |
 | `research/residual_primes/analysis/u11_route_v019/full_run_stderr.txt` | `9d7b543a8be0a99858b496fe6e212d265c3c27a5a56ade7e9ec1e49cb09375bd` | 78 |
 | `research/residual_primes/analysis/u11_route_v019/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `research/residual_primes/analysis/u11_gate_v021/collision_margin_engine_v021.c` | `2f23110a4678207cfc98244d24813ca27de19ca768fe4cbefaa50c07452cbdbc` | 65978 |
+| `research/residual_primes/analysis/u11_gate_v021/collision_margin_engine_v022.c` | `ee807432335a3ee97f087e91398cfcc8cbca2d7c27b685e05e46dc028ccc44bb` | 69883 |
+| `research/residual_primes/analysis/u11_gate_v021/full_run.txt` | `5f958799d49a91d08231b26c643b90d9031482765353eae3e43f631153601469` | 32119 |
+| `research/residual_primes/analysis/u11_gate_v021/full_run_v022.txt` | `62c1295af024817ea9df56a2e9191fd5b6d9c63f6ec06c2b94eb964d30d36cc1` | 33222 |
+| `research/residual_primes/analysis/u11_gate_v021/full_run_stderr_v022.txt` | `8904d7eb954a97f4dcb6c1257f4ec840863f1d378cfca45ec5dad5e8a4704767` | 78 |
+| `research/residual_primes/analysis/u11_gate_v021/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `research/residual_primes/analysis/u11_gate_v021/sanitized_selftest_v022.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
 | `research/residual_primes/analysis/u7_depth0_v012/collision_margin_engine_v012.c` | `94345ff42991aed7782d86ed3016ad942266880c7a579f2573dd25a9b8622c49` | 47981 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run.txt` | `89e538cb6d0e7ce4d9462fece8257ebed7d4919ac779485af064338caa4c0fad` | 17982 |
 | `research/residual_primes/analysis/u7_depth0_v012/full_run_stderr.txt` | `ced48829b8f603759a67be0da6c0f2e8a2d76b56f595a14eaf1019f9a0a77f0a` | 78 |
