@@ -4,6 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
+**Version:** v1.7 (2026-11-25: the R8 layers E-011–E-020 incorporated)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -127,6 +128,64 @@ scale. This is computational support for the target, not a universal proof;
 the theorem attempt continues against the registry-tracked mechanisms
 (`research/residual_primes/EXPERIMENT_LOG.md`, E-011).
 
+**Exact one-layer classifications (R8, E-012–E-018).** Within a single
+parameter layer the span criterion is now settled in both directions, with
+the machine-checkable statement and the census that tests it kept strictly
+apart.
+
+*The u = 3 layer (E-012).* For `4·x = n + 3` with `n` prime: the constructive
+side is that every even `x` with `3 ∤ x` spans at `T = 2` (the
+`n ≡ 5 (mod 8)` family, Paper 1's unconditional `p ≡ 13 (mod 24)` class);
+the exclusion side is that under the hard-case predicate on `x` (every prime
+divisor `≡ 1 (mod 3)`, no exemption) no span candidate exists. The predicate
+itself rules out `2 ∣ x` (it would force `2 ≡ 1 (mod 3)`), so under the
+predicate the criterion never holds: the composed iff
+(`u3_span_iff_even_of_hard`) is correct as stated, and its even side is
+vacuous under the predicate — the two results must not be conflated.
+
+*The u = 7 layer (E-013/E-016, the population split).* For
+`4·x = n + 7`, `n ≡ 1 (mod 24)`: the residue classes `r7 ∈ {3, 5, 6}` of
+`n` span outright (a four-residue certificate `{1, n, x, n·x}`, pairwise
+distinct in each class). The remaining classes `r7 ∈ {1, 2, 4}` —
+1,194,364 sweep records — split at a composition-level boundary that the
+v0.14 census tests on the 5-free population: for the 795,913 records with
+`5 ∤ x'` (381,652 span + 414,261 fail), the u = 7 span holds **exactly
+when `x'` has an odd prime divisor with residue `3`, `5`, or `6 (mod 7)`**
+(0-mismatch; per-class cells 259,654 / 260,036 / 276,223). The remaining
+398,451 spanners carry `v₅(x') ≥ 1` and satisfy the same condition by
+arithmetic — the prime `5` itself has residue `5 (mod 7)`, and no fail
+record is 5-divisible — so the classification
+
+> **for `p ≡ 1 (24)` at `r7 ∈ {1, 2, 4}`: the u = 7 span holds iff
+> `x'` carries an odd prime divisor outside `{1, 2, 4} (mod 7)`**
+
+covers all 1,194,364 records, census-tested on 795,913 of them.
+
+*The mechanism (E-014/E-016/E-017, H-7).* The failing records are exactly
+whose divisor-residue sets never leave the 2-orbit closure: the fail
+D-sets are fixed shapes, `{1, 2}` (38,813 records, all at `v₂(x') = 1`)
+and `{1, 2, 4}` (96,161 / 135,528 / 143,759 per class) — always inside
+`{1, 2, 4}`, never a generator or 6; the depth-0 spanners of `r7 = 2/4`
+carry *both* order-6 generators as divisor-residues (124,508/124,508 and
+132,464/132,464, 0-miss). The 5-primality reading that the E-014 entry
+first stated was falsified by the E-015 depth census (381,652 depth-0
+spanners are 5-free) and is corrected in the log, not silently rewritten.
+The u = 7 hard core — the 414,261 fail records, **17.52% of the (H24)
+class** — is fully rescued off-parameter by the E-011 census (zero
+no-pigeon records at any admissible `u' ≤ 255`).
+
+*Independent validation (E-020, R9).* A standalone Pollard-rho +
+Miller-Rabin reimplementation (no shared code with the C engines)
+reproduces: (i) the census invariants, including the cross-artifact
+equalities (the iff span cells = the E-016 depth-0 census 381,652; the fail
+cells = E-014's 414,261); (ii) a 9,223-record re-derivation sweep whose
+classification is, however, defined from the condition under test, so its
+zero cells are structural — a consistency check, not independent evidence;
+and (iii) the genuinely independent leg, a 2,400-record from-scratch
+opposite-pair re-derivation from independently factored divisor sets
+(1,200 spanners carry the centered pair, 1,200 failers do not: 2,400/2,400
+in agreement).
+
 ## 10. Lean formalization
 
 New theorems land in `ErdosStrausConjecture/ResidualPrimes/` with the
@@ -138,6 +197,19 @@ results, axiom trio only): the pigeonhole sufficiency
 `D ∩ (−D) ≠ ∅ ⟺ ∃ d₁ d₂ ∣ M, (d₁ + d₂) % u = 0 ⟺ −1 ∈ D·D⁻¹`. The review's
 boxed criterion is machine-checked; the factorization-window form
 (`∏ q^[−e, e]` = D·D⁻¹) remains the R4-lane extension.
+
+Machine-checked 2026-11-25 (R8, joint audited set 15 + 31 = 46, all
+results on the axiom trio `[propext, Classical.choice, Quot.sound]`,
+0 `sorry`):
+
+| Module | Content | Result |
+| --- | --- | --- |
+| `ResidualPrimes.U3Boundary` (5 theorems) | the u = 3 layer: the constructive even-`x` span at `T = 2`, the predicate exclusion, the composed iff (its even side vacuous under the predicate) | E-012; comment-only edits reviewed in PR #32 |
+| `ResidualPrimes.U7Layer` (13 theorems) | the u = 7 layer: the per-class span/pigeon theorems at `r7 = 3/5/6`, the three conditional 5-window spans, the 2-orbit closure lemma, and both directions of the composition-level iff (`u7_span_fails_of_orbit_primes`, `u7_pigeon_of_orbit_breaker` with the `{n, x, q, 2q}` four-residue pigeon) | E-013/E-015/E-019 |
+
+The iff's machine-checked directions cover the failing classes under a
+span-test hypothesis; the census statement above names the population each
+direction was tested on.
 
 ## 11. Conclusion
 
