@@ -986,6 +986,24 @@ behind H-6 and is the base R8 builds on.
     are the next census objects). The Lean layer follows the E-019
     pattern once the composition-level iff is settled.
 
+**Correction banner (E-024, 2026-11-26): the E-021/E-022 "u = 11 fail"
+cells had gated on `first(p) != 11`, which MIXES two populations:
+(a) records that span at an earlier layer (fw = 7: for the (H24) cohort the
+only lower odd layers are 3, which always fails per E-012, and 7), and
+(b) true u = 11 span failures (fw > 11). The E-023 probe exposed the mix
+(|D| = 10 fail records - the full unit group, the span criterion trivially
+true - which must be fw = 7 spanners; verified p = 10,003,369 etc., all
+u = 7 spans). The affected claims: the "collision census" (1,413,291 =
+67.80% of fail records) was computed over the MIXED population and is
+WITHDRAWN - among the true fw > 11 failers the collision count is ZERO
+(v0.21/v0.22: `U11COLLCHECK collisions = 0 among fw > 11 failers`),
+exactly like u = 7; the pair-vs-span distinction is NOT populated at
+u = 11 after the gate fix. The count/residue gradients (E-022 part 2)
+apply to the mixed population and are restated against the fw > 11 cells
+in E-024. The span-side claims (the tier table, the QR purity dichotomy,
+the parity lock on the impure cell, and the E-023 route census - which
+gated on fw = 11 spanners) SURVIVE unchanged.**
+
 ## E-022 - R8 piece 13: the QR-purity dichotomy at u = 11, part 1 (2026-11-26)
 
 - **What ran:** engine v0.17 (v0.16 + the odd-part-purity census: per
@@ -1113,6 +1131,61 @@ behind H-6 and is the base R8 builds on.
   (the M^2-window route theorems on the E-019 pattern) is the next
   formalization piece; the u = 13 layer census would follow the same
   program.
+
+## E-024 - R8 piece 15: the fate-gate correction and the corrected u = 11 census (2026-11-26)
+
+- **What ran:** engine v0.21/v0.22 (the v0.19 structure + the fate gate:
+  every per-record census cell was re-indexed to the three fates -
+  fw = 11 span, fw = 7 span, fw > 11 fail; the fail-side rows (the D-set
+  masks, the collisions, the |D| histograms) gate on fw > 11 only,
+  the U11Q3/U11IFF/U11COLL3/U11PCNT3/U11PRES3 rows carry the 3-fate
+  breakdown), sanitizer-built; the selftest artifact stays byte-identical
+  (SHA-256 `934ec74d...`); the full run at [10^7, 10^9) exit 0
+  (4m19s run time, the M^2-window divisor lists are heavier).
+  Note: the v0.21 first build derived from the v0.18 tree and silently
+  lost the E-023 route rows; v0.22 re-derived from the v0.19 tree with
+  the same fate edits. The v0.21 run artifacts are retained for the
+  record (the run-dir listing documents both).
+- **Populations (the corrected arithmetic closes EXACTLY):**
+  - fw = 7 spanners: **1,949,770** (82.49% of the (H24) class; the
+    U11FW7CHECK row); fw = 11 spanners: **279,515** (11.82%); true
+    fw > 11 failers: **134,746** (5.70%). The chain closes: the u = 11
+    span plus the fw > 11 fail equals E-013's u = 7 failing-class total
+    EXACTLY (279,515 + 134,746 = 414,261): **the u = 11 layer rescues
+    67.38% of the u = 7 failing-class records**.
+- **The corrected results (per class, the fail cells fw > 11-gated):**
+  - The fail counts (26,060 / 5,843 / 24,015 / 25,628 / 23,590 / 5,783 /
+    0 / 23,827 / 0 for r11 = 1 / 2 / 3 / 4 / 5 / 6 / 7 / 9 / 10): the
+    non-QR-n_bar classes {7, 10} have ZERO true failures at u = 11
+    (every record of those classes spans at fw = 7 or 11); the classes
+    {2, 6} have minimal fail counts (5,843 / 5,783 = 2.2% of the class);
+    the QR classes {1, 3, 4, 5, 9} carry the true failures
+    (23.6k - 26.1k = 9.0 - 9.9% of the class).
+  - **The collision census WITHDRAWN AND CORRECTED:** collisions among
+    the true fw > 11 failers = **0** (`U11COLLCHECK collisions = 0`,
+    exactly like u = 7). The E-021 part-1 "1,413,291 = 67.80%" was
+    the mixed population's collision count over what are mostly fw = 7
+    spanners - an expected span-side property, not a fail-side fact.
+    The pair-vs-span distinction is NOT populated at u = 11.
+  - **The condition-vs-span census (criterion-comparable fates only):**
+    among the true fw > 11 failers the non-QR-odd-prime condition fires
+    for 13,870 of 134,746 (10.3%); the spanners fire at 100% (the
+    E-021 part-2 necessary direction survives the correction).
+  - **The fw = 7 spanner cells (the newly separated population):**
+    per class 0 (1,517) / 1,715 / 0 / 782 / 1,093 / 0 / 1,038 / 0 /
+    1,005 at the probe scale - the fw = 7 spanners sit in the QR
+    classes almost entirely; their u = 11 layer structure is a future
+    census object (the E-022 count/residue gradients re-run on the
+    fw = 7 cells in the next pass).
+- **Artifacts:** analysis/u11_gate_v021/ (engine v0.21 + v0.22, the two
+  full runs, the two selftest artifacts), hashes pinned (103/103
+  verifier rows).
+- **Status:** complete. The u = 11 census is now fate-correct; the
+  surviving facts: the class-8 structural gap, the span tiers, the
+  QR-purity dichotomy (span-side), the route decomposition exactness,
+  the rescue-chain arithmetic (279,515 + 134,746 = 414,261), and
+  zero fail-side collisions. The u = 11 Lean layer and the fw = 7
+  spanner-cell census are the next passes.
 
 
 
