@@ -1265,6 +1265,34 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   population-wide. R8's next objects: the QR-purity Lean theorem
   (formalization pass), and the r11 in {1, 2, 4} x'^2-only echo.
 
+## E-027 - R8 piece 18: the u = 11 Lean layer, part 2 - the QR-closure machinery (2026-11-26)
+
+- **What landed:** U11Layer.lean extended with
+  `prod_mod_qr` - the QR-side multiplicative-closure induction (the
+  E-012 `prod_mod_one_of_primes_mod` skeleton over the QR residue set
+  `{1, 3, 4, 5, 9}`): a positive integer whose prime divisors all carry
+  QR residues (mod 11) is itself one of `1, 3, 4, 5, 9 (mod 11)`.
+  0-`sorry`, compile exit 0 (8475 jobs); the module now carries 5
+  theorems.
+- **Axiom census:** `prod_mod_qr` audited on the trio
+  `[propext, Classical.choice, Quot.sound]` (the other four unchanged:
+  two duo, two trio); the audit and build logs re-pinned (103/103
+  verifier rows).
+- **Staged (part 3):** the main dichotomy theorem
+  `u11_span_fails_of_qr_pure_x` - the algebra is fully pinned (every
+  M^2-divisor of a QR-n-bar class with a QR-pure odd x' carries a QR
+  residue, since x' is always odd (the v2 degeneracy) so no factor of 2
+  appears, while `-(p·x)` carries a non-QR residue because `-1` is a
+  non-residue at mod 11); the proof needs the divisor-status split
+  (`Nat.Prime.dvd_mul` over `p^2·x^2` plus the
+  `Nat.prime_eq_prime_of_dvd_pow` route-identification) composed with
+  the two `prod_mod_qr` applications.
+- **Artifacts:** U11Layer.lean (5 theorems), the re-pinned
+  axiom_audit_u11_layer.txt (5 theorems listed),
+  lake_build_u11_layer.log.
+- **Status:** part 2 complete for the machinery. Part 3 (the main
+  dichotomy theorem) is the next Lean pass.
+
 
 
 

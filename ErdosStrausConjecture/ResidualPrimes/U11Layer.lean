@@ -93,4 +93,80 @@ theorem u11_span_mod11_ten (p x : ℕ) (hx0 : 0 < x) (hnp : p.Prime)
     rw [Nat.mul_mod, h10, hxmod]
   omega
 
+/-- **The QR-side membership closure**: a positive integer whose prime
+divisors all carry QR residues is itself one of `1, 3, 4, 5, 9 (mod 11)`
+(the quadratic residues; `-1` is a non-residue since `11 = 3 (mod 4)`). -/
+theorem prod_mod_qr (T : ℕ) (hT0 : 0 < T)
+    (hall : ∀ q : ℕ, q.Prime → q ∣ T →
+      (q % 11 = 1 ∨ q % 11 = 3 ∨ q % 11 = 4 ∨ q % 11 = 5 ∨ q % 11 = 9)) :
+    T % 11 = 1 ∨ T % 11 = 3 ∨ T % 11 = 4 ∨ T % 11 = 5 ∨ T % 11 = 9 := by
+  have h5 : ∀ r : ℕ, (r % 11 = 1 ∨ r % 11 = 3 ∨ r % 11 = 4 ∨ r % 11 = 5 ∨ r % 11 = 9) →
+      r % 11 ≠ 2 := by
+    intro r h heq
+    rcases h with e | e | e | e | e
+    · omega
+    · omega
+    · omega
+    · omega
+    · omega
+  have key : ∀ t : ℕ, t ≤ T → 0 < t →
+      (∀ q : ℕ, q.Prime → q ∣ t →
+        (q % 11 = 1 ∨ q % 11 = 3 ∨ q % 11 = 4 ∨ q % 11 = 5 ∨ q % 11 = 9)) →
+      t % 11 = 1 ∨ t % 11 = 3 ∨ t % 11 = 4 ∨ t % 11 = 5 ∨ t % 11 = 9 := by
+    intro t
+    induction t using Nat.strongRecOn with | ind t ih
+    · intro _hle ht0 hall'
+      by_cases h1 : t = 1
+      · subst h1; exact Or.inl rfl
+      · have htgt1 : 1 < t := by omega
+        by_cases hpr : Nat.Prime t
+        · exact hall' t hpr (dvd_refl t)
+        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
+          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
+          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
+          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
+          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
+          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
+          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
+          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
+              (r % 11 = 1 ∨ r % 11 = 3 ∨ r % 11 = 4 ∨ r % 11 = 5 ∨ r % 11 = 9) :=
+            fun r hr hrd => hall' r hr (hrd.trans htdq)
+          have hrec := ih (t / q) hlt hlqT htq0 hall2
+          have hqres := hall' q hqp hqt
+          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
+          rw [hdiv]
+          rcases hrec with e | e | e | e | e
+          · rcases hqres with k | k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+  exact key T (Nat.le_refl T) hT0 hall
+
 end ResidualPrimes
+
