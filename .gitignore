@@ -50,6 +50,7 @@ research/residual_primes/analysis/u11_gate_v021/delicate_rescue.jsonl
 !research/residual_primes/analysis/u51_class_v036/collision_margin_engine_v036.c
 !research/residual_primes/analysis/u55_class_v037/collision_margin_engine_v037.c
 !research/residual_primes/analysis/u59_class_v038/collision_margin_engine_v038.c
+!research/residual_primes/analysis/u63_class_v039/collision_margin_engine_v039.c
 research/residual_primes/analysis/u11_gate_v021/cme_v022_san
 research/residual_primes/analysis/u15_class_v023/cme_v023_san
 research/residual_primes/analysis/u15_crt_v024/cme_v024_san
@@ -67,6 +68,9 @@ research/residual_primes/analysis/u47_class_v035/cme_v035_san
 research/residual_primes/analysis/u51_class_v036/cme_v036_san
 research/residual_primes/analysis/u55_class_v037/cme_v037_san
 research/residual_primes/analysis/u59_class_v038/cme_v038_san
+research/residual_primes/analysis/u63_class_v039/cme_v039_san
+research/residual_primes/analysis/u63_class_v039/delicate_sample.jsonl
+research/residual_primes/analysis/u63_class_v039/delicate_rescue.jsonl
 research/residual_primes/analysis/u59_class_v038/delicate_sample.jsonl
 research/residual_primes/analysis/u59_class_v038/delicate_rescue.jsonl
 research/residual_primes/analysis/u55_class_v037/delicate_sample.jsonl
