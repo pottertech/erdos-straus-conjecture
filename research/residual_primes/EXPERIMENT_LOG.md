@@ -1928,6 +1928,37 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   asymptotic-regime reading of E-050 stands (the sub-two-percent
   band).
 
+## E-054 - R8 piece 44: the exactness fold, pieces 1-2 (2026-11-27)
+
+- **What was done:** the pair-window exactness program STARTED per the
+  E-050 honest reading (the ladder alone will not drain the residual;
+  the structure question is the necessary direction).
+- **Stage 1 - the design note** (`erdos-straus-u7-layer-notes`,
+  `references/exactness-fold-design.md`): the true/false boundary of the
+  fold program spelled (the general deficit bound proved; the CRT-pair
+  surjection FALSE in general - the deficit is the census's content; the
+  WINDOW fold is the census exactness); the four-piece dependency order;
+  the toolchain probed live: **`Nat.divisors_mul_eq` does not exist**
+  under v4.30.0 - the fold skeleton routes through
+  `Nat.divisorsAntidiagonal_eq_prod_filter_of_le` (Misc.lean:400) with
+  the coprime antidiagonal splitting, `Nat.card_divisors_mul`
+  (Misc.lean:444) on the cardinality side.
+- **Stage 2 - Lean pieces landed (this entry):**
+  - `uDset_mem_crt_pair`: every divisor-realized residue at the composite
+    modulus has its `crtPair2` pair in both layer sets (the mem-level
+    forward fact; trio axioms).
+  - `crtPair2_injOn_lt`: the CRT decode is injective on the residues
+    below `a * b` for nonzero coprime `a, b` - the GENERAL form of
+    `crtPair_injOn15` (which was hardcoded to 15 via omega), the exact
+    site of the deficit formalization (the pair map is a bijection onto
+    the bounded pairs; WHICH pairs are divisor-realized is the fold
+    question). Trio axioms.
+- **Build:** exit 0 (round 2); U15Layer = 13 theorems + 3 defs,
+  0-sorry; the joint audited set: **70**.
+- **Status:** complete for this entry. Next (fresh-context per the design
+  note): the fold skeleton `uDset_mul_eq_image` (3-5 rounds) then the
+  window-cell exactness (the 8-12-round pass mirroring U15ALG = 0).
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
