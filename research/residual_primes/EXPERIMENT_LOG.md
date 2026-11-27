@@ -2165,6 +2165,24 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   (the D-set cells inside the (2,2)-orbit closure), and the deficit's
   positive characterization.
 
+## E-068 - R8 piece 53: the mod-3 two-orbit closure (2026-11-27)
+
+- **What was done:** the orbit-window's second cell fact; PR #82 (the
+  mod-5 orbit closure) merged, main at `5a24530`.
+- **Lean piece landed:**
+  - `prod_orbit_mod3`: a positive integer all of whose prime divisors
+    lie in the mod-3 two-orbit (1 or 2 mod 3) is itself 1 or 2 mod 3 -
+    the same divisor-status induction, first-try clean (r1) after the
+    pattern was established by `prod_qr_mod5` (trio axioms). The
+    mod-3 half of the (mod 3, mod 5) pair-orbit: the window cells of
+    the x-side prime divisors now carry BOTH halves as theorems.
+- **Build:** exit 0; U15Layer = 21 theorems + 3 defs, 0-sorry; the
+  joint audited set: **82**.
+- **Status:** complete for this entry. Remaining per the design note:
+  the window-cell equality for the fail shapes (the D-set cells inside
+  the (2,2)-orbit closure) and the deficit's positive
+  characterization.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
