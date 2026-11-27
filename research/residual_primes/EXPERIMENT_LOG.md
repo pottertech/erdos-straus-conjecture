@@ -1752,6 +1752,37 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   framework is census- and rescue-complete; the deficit-exactness
   Lean theorem remains the staged formalization piece.
 
+## E-043 - R8 piece 35: the u = 35 layer census (engine v0.32) (2026-11-27)
+
+- **What ran:** engine v0.32 (`analysis/u35_class_v032/`), a byte-superset
+  of v0.31 (the reconcile: v0.31's 1,349 lines in order inside 1,424,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **The v0.32 design note:** the chain-critical cells only (the
+  memory-safe design); the class-structure expectations (the non-unit
+  classes empty for p prime > 7; the (H24) side excludes the
+  3-multiple classes {15, 30}).
+- **Verified results (full scale):**
+  - All coprimality/assert rows hold (U35ADMCHECK admfail = 0, fw3 =
+    0; total 2,364,031 exact).
+  - **The chain closes exactly at u = 35:** the u = 35 spans 691 and
+    the true fw > 35 failers 5,198 sum to
+    **5,889 = the E-041 still-failers exact**. The u = 35 layer
+    rescues only **11.73%** - the first sharp drop in the ladder's
+    rescue rates (the previous links: 82.49% then 11.82, 2.53, 1.81,
+    0.91, 0.20 percentage points, the RATE ~44-67% per link at 15+
+    - and now 11.73%): the span rates at the bigger composite layers
+    decay. The still-failers are **5,198 = 0.220% of (H24)**.
+  - The collisions = 1,353 of the 5,198 failers (26.0%) - the
+    delicate-regime share declining from the 44.4% at 31.
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (0.20%) -> 35 (691 =
+    0.03%) -> the residual 5,198 (0.220%).
+- **Artifacts:** `analysis/u35_class_v032/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 144).
+- **Status:** complete. The seven-layer chain 3/7/11/15/19/23/31/35
+  census-complete with the residual at a fifth of a percent.
+
 
 
 
