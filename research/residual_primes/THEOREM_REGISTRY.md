@@ -159,6 +159,10 @@ exact statement of the census algebra **U15ALG mismatch = 0**; trio) and
 FULL divisor-product count `∏ (2e + 1)`, the engine's exact window-mask
 number; trio; the calc-count chain). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 = 74.
+The general fold-pair (E-057): `crtPair2_fold_image` — the realized
+`(u₁, u₂)`-pairs equal the divisor-product's paired-residue image for ANY
+coprime composite `u₁ * u₂` (the pair form is unconditional; trio). The
+joint audited set: 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 = 76.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 

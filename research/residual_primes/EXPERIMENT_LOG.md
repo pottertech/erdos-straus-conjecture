@@ -2010,6 +2010,27 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   equality for the ORBIT windows (the two-orbit structure), still
   staged.
 
+## E-057 - R8 piece 47: the general-u fold-pair form (2026-11-27)
+
+- **What was done:** the exactness program's generalization round; PR #71
+  (the fold's pair form at 15) merged, main at `f306b56`.
+- **Lean piece landed:**
+  - `crtPair2_fold_image`: **the general-u fold-pair form** — for ANY
+    composite modulus `u₁ * u₂` of coprime factors and the fold of
+    coprime factorizations, the realized `(u₁, u₂)`-pairs of the
+    divisor-residue set are exactly the image of the divisor-product
+    under the paired residue map. Compiled FIRST TRY (r1: the pointwise
+    nested-mod congruence at `Nat.dvd_mul_right`/`Nat.dvd_mul_left`
+    needs no coprimality), then the dead hypotheses `hu1`/`hu2`/`hup`
+    dropped - the pair form is unconditionally true. Trio axioms. The
+    general form of `crtPair_fold_image15` (which it subsumes, kept for
+    the merge history).
+- **Build:** exit 0; U15Layer = 18 theorems + 3 defs, 0-sorry; the joint
+  audited set: **76**.
+- **Status:** complete for this entry. Remaining per the design note:
+  the ORBIT-window cell equality (the two-orbit fail-shape structure)
+  and the deficit's positive characterization - both still staged.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
