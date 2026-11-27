@@ -401,6 +401,38 @@ theorem crtPair2_fold_image (u₁ u₂ m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁
   simp only [Function.comp_apply, crtPair2]
   rw [h1, h2]
 
+/-- **The general fold deficit corollary.** The divisor-residue set at any
+composite layer `u₁ * u₂` (of nonzero coprime factors) never exceeds the
+full divisor-product count of the folded factorization — the general form
+of `uDset15_card_le_fold` (the engine's window-mask count
+`∏ (2e_q + 1)`). -/
+theorem uDset_card_le_fold (u₁ u₂ m₁ m₂ : ℕ)
+    (hu1 : u₁ ≠ 0) (hu2 : u₂ ≠ 0) (hup : Nat.Coprime u₁ u₂)
+    (hcop : Nat.Coprime m₁ m₂) :
+    (uDset (u₁ * u₂) (m₁ * m₂)).card ≤
+      (Nat.divisors m₁).card * (Nat.divisors m₂).card := by
+  have hprod0 : u₁ * u₂ ≠ 0 := mul_ne_zero hu1 hu2
+  have hlt : ∀ r ∈ uDset (u₁ * u₂) (m₁ * m₂), r < u₁ * u₂ := by
+    intro r hr
+    obtain ⟨d, _, _, hmod⟩ := uDset_mem_elim hr
+    exact hmod ▸ Nat.mod_lt d (by omega)
+  have hinj : Set.InjOn (crtPair2 u₁ u₂) (uDset (u₁ * u₂) (m₁ * m₂)) :=
+    (crtPair2_injOn_lt hu1 hu2 hup).mono (fun r hr => Finset.mem_coe.mpr
+      (Finset.mem_range.mpr (hlt r hr)))
+  have hcard : ((uDset (u₁ * u₂) (m₁ * m₂)).image (crtPair2 u₁ u₂)).card =
+      (uDset (u₁ * u₂) (m₁ * m₂)).card := Finset.card_image_of_injOn hinj
+  have hpair := crtPair2_fold_image u₁ u₂ m₁ m₂ hcop
+  have h3 : ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
+        (fun q => ((q.1 * q.2) % u₁, (q.1 * q.2) % u₂))).card ≤
+      (Nat.divisors m₁ ×ˢ Nat.divisors m₂).card := Finset.card_image_le
+  rw [Finset.card_product] at h3
+  calc (uDset (u₁ * u₂) (m₁ * m₂)).card
+      = ((uDset (u₁ * u₂) (m₁ * m₂)).image (crtPair2 u₁ u₂)).card := hcard.symm
+    _ = ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
+          (fun q => ((q.1 * q.2) % u₁, (q.1 * q.2) % u₂))).card :=
+        congrArg Finset.card hpair
+    _ ≤ (Nat.divisors m₁).card * (Nat.divisors m₂).card := h3
+
 end ResidualPrimes
 
 

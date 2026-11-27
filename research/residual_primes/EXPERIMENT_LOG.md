@@ -2031,6 +2031,28 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   the ORBIT-window cell equality (the two-orbit fail-shape structure)
   and the deficit's positive characterization - both still staged.
 
+## E-059 - R8 piece 48: the general fold deficit corollary (2026-11-27)
+
+- **What was done:** the general exactness family completed; PR #72 (the
+  general fold-pair form) merged, main at `382aa0b`.
+- **Lean piece landed:**
+  - `uDset_card_le_fold`: **the general fold deficit corollary** - the
+    divisor-residue set at ANY composite layer (u1*u2 of nonzero
+    coprime factors) never exceeds the full divisor-product count of
+    the folded factorization: card(uDset (u1*u2) (m1*m2)) <=
+    card(divisors m1) * card(divisors m2) - the calc chain (the
+    injectivity + the general pair form + card_image_le + card_product).
+- **Compile rounds:** r1 (the Coprime.eq_of_mul_eq_zero circus replaced
+  by the honest u1-ne-0/u2-ne-0 hypotheses - u1 = 0/u2 = 1 is a LEGAL
+  coprime pair, so the zero-exclusion is a genuine hypothesis - and the
+  crtPair2_injOn_lt application arity fixed); r2 clean (8,476 jobs).
+- **Build:** exit 0; U15Layer = 19 theorems + 3 defs, 0-sorry; the joint
+  audited set: **78**.
+- **Status:** complete for this entry. The general exactness family now
+  carries: the fold skeleton, the pair form (general), the deficit
+  corollary (general). Remaining per the design note: the ORBIT-window
+  cell equality (the two-orbit fail-shape structure).
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
