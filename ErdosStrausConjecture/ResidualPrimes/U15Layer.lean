@@ -380,6 +380,27 @@ theorem uDset15_card_le_fold (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
         congrArg Finset.card hpair
     _ ≤ (Nat.divisors m₁).card * (Nat.divisors m₂).card := h3
 
+/-- **The fold's CRT-pair form, general (any composite layer).** For a
+composite modulus `u₁ * u₂` of nonzero coprime factors, the realized
+`(u₁, u₂)`-pairs of the divisor-residue set at the fold of coprime factors
+are exactly the image of the divisor-product under the paired residue map —
+the general form of `crtPair_fold_image15` (the census algebra's exactness
+at every admissible layer). -/
+theorem crtPair2_fold_image (u₁ u₂ m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
+    ((uDset (u₁ * u₂) (m₁ * m₂)).image (crtPair2 u₁ u₂)) =
+    ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
+      (fun q => ((q.1 * q.2) % u₁, (q.1 * q.2) % u₂))) := by
+  rw [uDset_fold_image (u₁ * u₂) m₁ m₂ hcop]
+  rw [Finset.image_image]
+  refine Finset.image_congr ?_
+  intro q _
+  have h1 : ((q.1 * q.2) % (u₁ * u₂)) % u₁ = (q.1 * q.2) % u₁ :=
+    Nat.mod_mod_of_dvd _ (Nat.dvd_mul_right u₁ u₂)
+  have h2 : ((q.1 * q.2) % (u₁ * u₂)) % u₂ = (q.1 * q.2) % u₂ :=
+    Nat.mod_mod_of_dvd _ (Nat.dvd_mul_left u₂ u₁)
+  simp only [Function.comp_apply, crtPair2]
+  rw [h1, h2]
+
 end ResidualPrimes
 
 
