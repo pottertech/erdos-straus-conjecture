@@ -9,3 +9,6 @@ import ErdosStrausConjecture.ResidualPrimes.U15Layer
 #print axioms ResidualPrimes.uDset_mem_of_dvd
 #print axioms ResidualPrimes.crtPair_injOn15
 #print axioms ResidualPrimes.uDset15_card_le
+#print axioms ResidualPrimes.crtPair2
+#print axioms ResidualPrimes.uDset_coprime_card_le
+#print axioms ResidualPrimes.uDset35_card_le

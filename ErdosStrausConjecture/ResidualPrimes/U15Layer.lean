@@ -156,5 +156,93 @@ theorem uDset15_card_le (M : ℕ) :
   rw [hcard, Finset.card_product] at hle
   exact hle
 
+/-- The CRT decode at the coprime pair `(a, b)`. -/
+def crtPair2 (a b : ℕ) (r : ℕ) : ℕ × ℕ := (r % a, r % b)
+
+/-- **The composite-layer deficit bound, general (E-047).** For nonzero
+coprime moduli `a, b`: `(uDset (a * b) M).card <= (uDset a M).card *
+(uDset b M).card` - the CRT decode `(r % a, r % b)` is injective on the
+realized residues (the coprime modular equations compose one-way via
+`Nat.modEq_and_modEq_iff_modEq_mul`, and the bounded range closes it),
+and every realized pair routes through both layer sets
+(`Nat.mod_mod_of_dvd`). This subsumes the u = 15 bound and gives the
+u = 35 bound (5 x 7) as a corollary. -/
+theorem uDset_coprime_card_le (a b M : ℕ) (ha0 : a ≠ 0) (hb0 : b ≠ 0)
+    (hab : Nat.Coprime a b) :
+    (uDset (a * b) M).card ≤ (uDset a M).card * (uDset b M).card := by
+  have hab0 : a * b ≠ 0 := by
+    intro h
+    rcases mul_eq_zero.mp h with h' | h'
+    · exact ha0 h'
+    · exact hb0 h'
+  -- the decode is injective on Dset (a * b)
+  have hinj : Set.InjOn (crtPair2 a b) (uDset (a * b) M) := by
+    intro r hr r' hr' h
+    simp only [crtPair2, Prod.mk.injEq] at h
+    obtain ⟨d, hdvd, hM0, hmod⟩ := uDset_mem_elim hr
+    obtain ⟨d', hdvd', hM0', hmod'⟩ := uDset_mem_elim hr'
+    -- the pairs equal: (r % a, r % b) = (r' % a, r' % b)
+    have ha : r % a = r' % a := h.1
+    have hb : r % b = r' % b := h.2
+    -- route the residues back through the divisors
+    have hda : (d % (a * b)) % a = d % a :=
+      Nat.mod_mod_of_dvd d (Nat.dvd_mul_right a b)
+    have hdb : (d % (a * b)) % b = d % b :=
+      Nat.mod_mod_of_dvd d (Nat.dvd_mul_left b a)
+    have hda' : (d' % (a * b)) % a = d' % a :=
+      Nat.mod_mod_of_dvd d' (Nat.dvd_mul_right a b)
+    have hdb' : (d' % (a * b)) % b = d' % b :=
+      Nat.mod_mod_of_dvd d' (Nat.dvd_mul_left b a)
+    have ha2 : r % a = d % a := by rw [← hmod]; exact hda
+    have hb2 : r % b = d % b := by rw [← hmod]; exact hdb
+    have ha2' : r' % a = d' % a := by rw [← hmod']; exact hda'
+    have hb2' : r' % b = d' % b := by rw [← hmod']; exact hdb'
+    -- the two modular equations on d, d'
+    have q1 : d ≡ d' [MOD a] := by
+      simp only [Nat.ModEq]
+      rw [← ha2, ← ha2']
+      exact ha
+    have q2 : d ≡ d' [MOD b] := by
+      simp only [Nat.ModEq]
+      rw [← hb2, ← hb2']
+      exact hb
+    -- the coprime composition
+    have hcomp2 : d ≡ d' [MOD a * b] :=
+      (Nat.modEq_and_modEq_iff_modEq_mul hab).mp (And.intro q1 q2)
+    simp only [Nat.ModEq] at hcomp2
+    -- r = d % (a*b) and r' = d' % (a*b), so the composition closes
+    exact by rw [← hmod, ← hmod']; exact hcomp2
+  have hcard : ((uDset (a * b) M).image (crtPair2 a b)).card =
+      (uDset (a * b) M).card := Finset.card_image_of_injOn hinj
+  -- the image lands in the product of the two layer sets
+  have hsub : (uDset (a * b) M).image (crtPair2 a b) ⊆
+      uDset a M ×ˢ uDset b M := by
+    intro w hw
+    simp only [Finset.mem_image] at hw
+    obtain ⟨r, hr, hwr⟩ := hw
+    obtain ⟨d, hdvd, hM0, hmod⟩ := uDset_mem_elim hr
+    have hda : (d % (a * b)) % a = d % a :=
+      Nat.mod_mod_of_dvd d (Nat.dvd_mul_right a b)
+    have hdb : (d % (a * b)) % b = d % b :=
+      Nat.mod_mod_of_dvd d (Nat.dvd_mul_left b a)
+    refine Finset.mem_product.mpr ⟨?_, ?_⟩
+    · rw [← hwr, ← hmod]
+      simp only [crtPair2]
+      rw [hda]
+      exact uDset_mem_of_dvd hdvd hM0
+    · rw [← hwr, ← hmod]
+      simp only [crtPair2]
+      rw [hdb]
+      exact uDset_mem_of_dvd hdvd hM0
+  have hle := Finset.card_le_card hsub
+  rw [hcard, Finset.card_product] at hle
+  exact hle
+
+/-- **The u = 35 deficit bound** (the E-047 corollary at 5 x 7). -/
+theorem uDset35_card_le (M : ℕ) :
+    (uDset 35 M).card ≤ (uDset 5 M).card * (uDset 7 M).card :=
+  uDset_coprime_card_le 5 7 M (by decide) (by decide) (by decide)
+
 end ResidualPrimes
+
 

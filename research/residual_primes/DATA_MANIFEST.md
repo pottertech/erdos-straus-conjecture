@@ -144,10 +144,13 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u43_class_v034/collision_margin_engine_v034.c` | `327e3a9ebfd6fa4306e60eff932fbeaaae0c2ab67a923a54c7180e8e74bff122` | 120417 |
 | `research/residual_primes/analysis/u43_class_v034/full_run.txt` | `d8543e6d4c8719f0175f56fe3645f3f55862b818996be39227f2645ded8bf497` | 74082 |
 | `research/residual_primes/analysis/u43_class_v034/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
-| `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` | `a3cb7145b0f52b5b2b5886d6a0258b7b77db75a466d2afef03827935427a39ea` | 6583 |
-| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u15_layer.txt` | `a38782e5999fb5b20b8198302255c487d7e16da2024b893d097192e56369fa95` | 772 |
+| `research/residual_primes/analysis/u47_class_v035/collision_margin_engine_v035.c` | `a91f01e0985572dd75e8a1462e1061ba1d86a7ec86c4ebb29449c7bcc9f6e65f` | 123619 |
+| `research/residual_primes/analysis/u47_class_v035/full_run.txt` | `4ad984f5f2a9c3a485c2fcd654daabeb480da48d563e9ae34ba893914e57bc1a` | 81662 |
+| `research/residual_primes/analysis/u47_class_v035/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
+| `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` | `2b000a2f7e3f4816cd18466c0e6ec949ed89f9dfe5ba0e777aa0d7a563adfc61` | 10403 |
+| `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u15_layer.txt` | `685e454af7d36d27644b28f82905204c9309cf6a48674098fafa628d8a1802c6` | 1018 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u15_layer.log` | `850a1be7a95ad817cfef9338e10a61d354885e536397bd72b8d4faef3fec6162` | 42 |
-| `research/residual_primes/ErdosStrausConjecture_src/print_axioms_u15.lean` | `75767ad1453dd224d151937e974fb447300bc9c63d606f842c9d5d6fd8008422` | 457 |
+| `research/residual_primes/ErdosStrausConjecture_src/print_axioms_u15.lean` | `10aaabc8d82a17c9f029b3edccd01e0fce017d06634e539b66a415d6c84b1dee` | 591 |
 | `ErdosStrausConjecture/ResidualPrimes/U11Layer.lean` | `db29e20293a0dde367d1b98e2324ef543733e60f4e837331e6232b6bbb0d5324` | 12770 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u11_layer.txt` | `dcbdf3758a1698d6189723924535482333a19706f314b2f4ac12d9f125d73031` | 582 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u11_layer.log` | `52373301989a17e7e601e7027292d64711adfc5aa5eeeef89a442b582361026a` | 42 |
