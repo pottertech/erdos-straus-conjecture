@@ -2140,6 +2140,31 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   increments are structural (the orbit-window cell equality per the
   design note) or nil.
 
+## E-067 - R8 piece 52: the orbit-window's first cell fact (2026-11-27)
+
+- **What was done:** the orbit-window program STARTED per the E-065
+  verdict (the census program closed; the remaining increments
+  structural); PR #80 (E-065) merged, main at `13f734a`.
+- **Lean piece landed:**
+  - `prod_qr_mod5`: **the mod-5 ±1-orbit closure** - a positive integer
+    all of whose prime divisors are quadratic residues mod 5 (i.e.
+    `≡ 1 ∨ ≡ 4 (mod 5)`, exactly the pair `{1, 4}`) is itself a QR mod
+    5 - the divisor-status induction (the `prod_mod_qr` pattern, whose
+    5-way QR disjunction at the modulus 11 specializes to a 2-way pair
+    at 5; 4 product cases closed by norm_num). The first cell fact of
+    the orbit-window structure at the mod-5 half of the (mod 3, mod 5)
+    pair (trio axioms).
+- **Compile rounds:** r1 (a broken shell draft - written before reading
+  the proven pattern, caught by the build and removed); r2 clean
+  (8,476 jobs) after mirroring `prod_mod_qr`'s exact skeleton with the
+  5-specialized cases.
+- **Build:** exit 0; U15Layer = 20 theorems + 3 defs, 0-sorry; the
+  joint audited set: **80**.
+- **Status:** complete for this entry. Remaining per the design note:
+  the mod-3 orbit pairing, the window-cell equality for the fail shapes
+  (the D-set cells inside the (2,2)-orbit closure), and the deficit's
+  positive characterization.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
