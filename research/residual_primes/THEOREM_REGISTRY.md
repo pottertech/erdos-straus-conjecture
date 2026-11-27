@@ -152,6 +152,13 @@ divisor-product under `(d₁, d₂) ↦ (d₁ * d₂) % u`; trio; 5 compile roun
 gcd-projection directions — both splits via `Nat.gcd_dvd_right` — and the
 .mp/.mpr direction; the build 8,476 jobs clean). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 = 72.
+The fold's pair form (E-056): `crtPair_fold_image15` (the realized
+`(3, 5)`-pairs are exactly the divisor-product's paired-residue image — the
+exact statement of the census algebra **U15ALG mismatch = 0**; trio) and
+`uDset15_card_le_fold` (the deficit corollary: the residues never exceed the
+FULL divisor-product count `∏ (2e + 1)`, the engine's exact window-mask
+number; trio; the calc-count chain). The joint audited set:
+15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 = 74.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
