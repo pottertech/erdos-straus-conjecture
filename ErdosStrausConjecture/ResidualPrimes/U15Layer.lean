@@ -475,6 +475,49 @@ theorem prod_qr_mod5 (T : ℕ) (hT0 : 0 < T)
             · rw [Nat.mul_mod, e, k]; norm_num
   exact key T (Nat.le_refl T) hT0 hall
 
+/-- **The mod-3 two-orbit closure (the orbit-window's second cell fact).**
+A positive integer all of whose prime divisors lie in the mod-3 two-orbit
+(i.e. `≡ 1` or `≡ 2 (mod 3)` — which excludes only the `≡ 0` class) is
+itself either `1` or `2` mod `3`: the divisor-status induction, with the
+2 × 2 product cases `1·1, 1·2, 2·1, 2·2` closing mod 3 (the two-orbit
+is the whole unit group of `ZMod 3`). -/
+theorem prod_orbit_mod3 (T : ℕ) (hT0 : 0 < T)
+    (hall : ∀ q : ℕ, q.Prime → q ∣ T → (q % 3 = 1 ∨ q % 3 = 2)) :
+    T % 3 = 1 ∨ T % 3 = 2 := by
+  have key : ∀ t : ℕ, t ≤ T → 0 < t →
+      (∀ q : ℕ, q.Prime → q ∣ t → (q % 3 = 1 ∨ q % 3 = 2)) →
+      t % 3 = 1 ∨ t % 3 = 2 := by
+    intro t
+    induction t using Nat.strongRecOn with | ind t ih
+    · intro _hle ht0 hall'
+      by_cases h1 : t = 1
+      · subst h1; exact Or.inl rfl
+      · have htgt1 : 1 < t := by omega
+        by_cases hpr : Nat.Prime t
+        · exact hall' t hpr (dvd_refl t)
+        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
+          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
+          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
+          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
+          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
+          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
+          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
+          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
+              (r % 3 = 1 ∨ r % 3 = 2) :=
+            fun r hr hrd => hall' r hr (hrd.trans htdq)
+          have hrec := ih (t / q) hlt hlqT htq0 hall2
+          have hqres := hall' q hqp hqt
+          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
+          rw [hdiv]
+          rcases hrec with e | e
+          · rcases hqres with k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+  exact key T (Nat.le_refl T) hT0 hall
+
 end ResidualPrimes
 
 

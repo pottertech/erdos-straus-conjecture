@@ -174,6 +174,10 @@ The orbit-window's first cell fact (E-067): `prod_qr_mod5` — the mod-5
 all-prime-divisors QR mod 5 is a QR mod 5; the `prod_mod_qr` pattern
 specialized; trio). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 = 80.
+The mod-3 two-orbit closure (E-068): `prod_orbit_mod3` — a positive integer
+with all-prime-divisors in the mod-3 two-orbit lands in it (the
+divisor-status induction; first-try clean; trio). The joint audited set:
+15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 82.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
