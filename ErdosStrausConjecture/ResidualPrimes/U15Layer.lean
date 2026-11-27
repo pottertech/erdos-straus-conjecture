@@ -243,6 +243,51 @@ theorem uDset35_card_le (M : ℕ) :
     (uDset 35 M).card ≤ (uDset 5 M).card * (uDset 7 M).card :=
   uDset_coprime_card_le 5 7 M (by decide) (by decide) (by decide)
 
+/-- **The CRT-pair membership (the mem-level forward fact).** Every divisor-
+realized residue at the composite modulus has its `crtPair2` pair in both
+layer sets (the mem-level form of the E-047 image-bound route). -/
+theorem uDset_mem_crt_pair {a b M r : ℕ} {d : ℕ} (hd : d ∣ M) (hM : M ≠ 0)
+    (hr : d % (a * b) = r) :
+    r % a ∈ uDset a M ∧ r % b ∈ uDset b M := by
+  have hda : (d % (a * b)) % a = d % a :=
+    Nat.mod_mod_of_dvd d (Nat.dvd_mul_right a b)
+  have hdb : (d % (a * b)) % b = d % b :=
+    Nat.mod_mod_of_dvd d (Nat.dvd_mul_left b a)
+  refine ⟨?_, ?_⟩
+  · rw [← hr, hda]
+    exact uDset_mem_of_dvd hd hM
+  · rw [← hr, hdb]
+    exact uDset_mem_of_dvd hd hM
+
+/-- **The CRT decode is injective on the bounded residues, generally.**
+Two residues below `a * b` carrying the same `(mod a, mod b)`-pair are
+equal — for nonzero coprime `a, b` (the general form of
+`crtPair_injOn15`, the exact site of the CRT deficit formalization: the
+pair map is a bijection onto the bounded pairs; which pairs lie in the
+layer-set image is the divisor-realization question). -/
+theorem crtPair2_injOn_lt {a b : ℕ} (ha0 : a ≠ 0) (hb0 : b ≠ 0)
+    (hab : Nat.Coprime a b) :
+    Set.InjOn (crtPair2 a b) (Finset.range (a * b)) := by
+  intro d hd d' hd' h
+  have hltd : d < a * b := Finset.mem_range.mp hd
+  have hltd' : d' < a * b := Finset.mem_range.mp hd'
+  simp only [crtPair2, Prod.mk.injEq] at h
+  have ha : d % a = d' % a := h.1
+  have hb : d % b = d' % b := h.2
+  have q1 : d ≡ d' [MOD a] := by
+    simp only [Nat.ModEq]
+    exact ha
+  have q2 : d ≡ d' [MOD b] := by
+    simp only [Nat.ModEq]
+    exact hb
+  have hcomp : d ≡ d' [MOD a * b] :=
+    (Nat.modEq_and_modEq_iff_modEq_mul hab).mp (And.intro q1 q2)
+  simp only [Nat.ModEq] at hcomp
+  have hm : d % (a * b) = d := Nat.mod_eq_of_lt hltd
+  have hm' : d' % (a * b) = d' := Nat.mod_eq_of_lt hltd'
+  rw [hm, hm'] at hcomp
+  exact hcomp
+
 end ResidualPrimes
 
 
