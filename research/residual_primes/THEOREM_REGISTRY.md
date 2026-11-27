@@ -163,6 +163,12 @@ The general fold-pair (E-057): `crtPair2_fold_image` — the realized
 `(u₁, u₂)`-pairs equal the divisor-product's paired-residue image for ANY
 coprime composite `u₁ * u₂` (the pair form is unconditional; trio). The
 joint audited set: 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 = 76.
+The general fold deficit corollary (E-059): `uDset_card_le_fold` — the
+residues at any composite layer (u₁ * u₂ of nonzero coprime factors) never
+exceed the folded factorization's full divisor-product count (the calc
+chain: the injectivity + the general pair form + card_image_le +
+card_product; trio). The joint audited set:
+15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 = 78.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
