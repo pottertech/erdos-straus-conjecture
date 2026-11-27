@@ -1839,6 +1839,34 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   collision-census began and the deficit-exactness Lean theorem
   targets) becomes the primary object.
 
+## E-048 - R8 piece 40: the u = 47 layer census (engine v0.35) (2026-11-27)
+
+- **What ran:** engine v0.35 (`analysis/u47_class_v035/`), a byte-superset
+  of v0.34 (the reconcile: v0.34's 1,646 lines in order inside 1,829,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **Verified results (full scale):**
+  - All coprimality/assert rows hold (admfail = 0, fw3 = 0; total
+    2,364,031 exact).
+  - **The chain closes exactly at u = 47:** the u = 47 spans 303 and
+    the true fw > 47 failers 3,970 sum to
+    **4,273 = the E-046 still-failers exact**. The u = 47 layer
+    rescues **7.09%**; the still-failers are
+    **3,970 = 0.168% of (H24)**.
+  - The collisions = 2,587 of the 3,970 failers (65.2%) - the
+    delicate-regime share re-rising again (23.1% at 43 -> 65.2% at
+    47): the alternation continues with an upward drift.
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (0.20%) -> 35 (0.03%)
+    -> 39 (0.03%) -> 43 (0.01%) -> 47 (303 = 0.01%) -> the residual
+    3,970 (0.168%).
+- **Artifacts:** `analysis/u47_class_v035/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 153).
+- **Status:** complete. The eleven-layer chain
+  3/7/11/15/19/23/31/35/39/43/47 census-complete; the ladder's
+  rescue rates continue their low-single-digit decay while the
+  collision share drifts upward.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
