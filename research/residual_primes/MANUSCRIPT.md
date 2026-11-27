@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.11 (2026-11-26: the u = 31 program E-039–E-041 incorporated: the layer census, the collision-regime break, the delicate-shape rescue)
+**Version:** v1.12 (2026-11-27: the u = 35 and u = 39 chain links E-043–E-044 incorporated; the Ladder Consolidation note)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -85,6 +85,8 @@ which is the structure investigated in §5.
 | u = 23 layer census (E-037) | all 22 classes populated; the spans 21,626 + the residual 10,557 = 32,183 exact | `analysis/u23_class_v028/` |
 | u = 31 layer census (E-039) | all 30 classes populated (u = 29 structurally empty); the spans 4,668 + the residual 5,889 = 10,557 exact | `analysis/u29_class_v029/` |
 | u = 31 delicate rescue (E-041) | 2,613/2,613 off-parameter pigeon-rescued, zero no-sites | `analysis/u31_rescue_v031/` |
+| u = 35 layer census (E-043) | the chain-critical cells; the spans 691 + the residual 5,198 = 5,889 exact (the rescue 11.73%) | `analysis/u35_class_v032/` |
+| u = 39 layer census (E-044) | the chain-critical cells; the spans 733 + the residual 4,465 = 5,198 exact (the rescue 14.10%) | `analysis/u39_class_v033/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -351,6 +353,33 @@ E-011 procedure verbatim) returns
 the exact analog of the original 16,589/16,589 row, so the census's
 representation-completeness over the (H24) class holds through the new
 regime with zero uncovered records.
+
+*The chain links at u = 35 and u = 39 (E-043/E-044, the ladder's
+decay).* The chain closes exactly at both links: the u = 35 spans 691 +
+the residual 5,198 = 5,889 exact (the u = 35 layer rescues **11.73%** — the
+first sharp ladder drop, from the 44–67% per-link range to the teens), and
+the u = 39 spans 733 + the residual 4,465 = 5,198 exact (the rescue
+**14.10%**). The still-failers are **4,465 = 0.189% of the hard-case
+class**. The collision shares continue their layer alternation: 44.4% at 31,
+26.0% at 35, **46.7% at 39** — the delicate-regime population oscillates
+while the record counts fall. The ladder's consolidated view (the residual
+record counts and the per-layer rescue rates):
+
+> u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
+> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → the residual
+> 4,465 (0.189%),
+
+with the Ladder Consolidation note: from u = 31 onward the census carries
+the chain-critical cells only (the class counts, the |D| histograms, the
+collision counter — the full mask arrays would need 800 MB+ at the wider
+residues, and the mask-shape detail is established at the earlier layers),
+and every assertion row (the admissibility, the fw = 3 boundary, the
+zero-... the collision-rate rows) is pinned per layer. The per-layer
+span-rate decay (82.49%, 11.82%, 2.53%, 1.81%, 0.91%, 0.20%, 0.03%, 0.03%)
+with the per-link rescue rates (11.82%... 44.21%, 11.73%, 14.10%) converges
+toward the asymptotic regime the research program's next question targets:
+the remaining 4,465 records under the future layers and the honest statement
+the banner carries.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
