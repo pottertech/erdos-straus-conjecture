@@ -178,6 +178,10 @@ The mod-3 two-orbit closure (E-068): `prod_orbit_mod3` — a positive integer
 with all-prime-divisors in the mod-3 two-orbit lands in it (the
 divisor-status induction; first-try clean; trio). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 82.
+The fail-shape window-cell fact (E-070): `prod_in_clo4_mod15` — the mod-15
+2-power orbit {1, 2, 4, 8} of (ZMod 15)× is closed under multiplication
+(the exact cell set of the E-029 fail-shape census; first-try clean; trio).
+The joint audited set: 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 84.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 

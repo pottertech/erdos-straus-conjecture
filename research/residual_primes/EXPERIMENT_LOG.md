@@ -2165,6 +2165,28 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   (the D-set cells inside the (2,2)-orbit closure), and the deficit's
   positive characterization.
 
+
+## E-070 - R8 piece 54: the fail-shape window-cell fact (2026-11-27)
+
+- **What was done:** the (2,2)-orbit-closure route's core fact; PR #83
+  (the mod-3 two-orbit closure) merged, main at `7396b2f`.
+- **Lean piece landed:**
+  - `prod_in_clo4_mod15`: **the fail-shape window-cell fact** - a
+    positive integer all of whose prime divisors lie in the mod-15
+    2-power orbit `{1, 2, 4, 8}` (the cyclic <2> of (ZMod 15)x) is
+    itself in that orbit - the divisor-status induction with the 4 x 4
+    product cases (first-try clean, r1; the orbit closed under
+    multiplication mod 15). **This is the exact cell set of the E-029
+    fail-shape census** (the D-sets inside {1, 2, 4, 8}): the census's
+    fixed fail shapes are now backed by the orbit-closure theorem
+    (trio axioms).
+- **Build:** exit 0; U15Layer = 22 theorems + 3 defs, 0-sorry; the
+  joint audited set: **84**.
+- **Status:** complete for this entry. Remaining per the design note:
+  the deficit's positive characterization (the exact count of the
+  realized pairs) - the last structural piece of the session's staged
+  direction.
+
 ## E-068 - R8 piece 53: the mod-3 two-orbit closure (2026-11-27)
 
 - **What was done:** the orbit-window's second cell fact; PR #82 (the

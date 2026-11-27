@@ -518,6 +518,66 @@ theorem prod_orbit_mod3 (T : ℕ) (hT0 : 0 < T)
             · rw [Nat.mul_mod, e, k]; norm_num
   exact key T (Nat.le_refl T) hT0 hall
 
+/-- **The mod-15 2-power-orbit closure (the fail-shape window-cell fact).**
+A positive integer all of whose prime divisors lie in the mod-15
+2-power orbit `{1, 2, 4, 8}` (the cyclic `⟨2⟩ ⊂ (ZMod 15)×`) is itself in
+that orbit: the divisor-status induction, with the 4 × 4 product cases
+closing (the orbit is closed under multiplication mod 15). This is the
+exact cell set of the E-029 fail-shape census (`D`-sets inside
+`{1, 2, 4, 8}`). -/
+theorem prod_in_clo4_mod15 (T : ℕ) (hT0 : 0 < T)
+    (hall : ∀ q : ℕ, q.Prime → q ∣ T →
+      (q % 15 = 1 ∨ q % 15 = 2 ∨ q % 15 = 4 ∨ q % 15 = 8)) :
+    T % 15 = 1 ∨ T % 15 = 2 ∨ T % 15 = 4 ∨ T % 15 = 8 := by
+  have key : ∀ t : ℕ, t ≤ T → 0 < t →
+      (∀ q : ℕ, q.Prime → q ∣ t →
+        (q % 15 = 1 ∨ q % 15 = 2 ∨ q % 15 = 4 ∨ q % 15 = 8)) →
+      t % 15 = 1 ∨ t % 15 = 2 ∨ t % 15 = 4 ∨ t % 15 = 8 := by
+    intro t
+    induction t using Nat.strongRecOn with | ind t ih
+    · intro _hle ht0 hall'
+      by_cases h1 : t = 1
+      · subst h1; exact Or.inl rfl
+      · have htgt1 : 1 < t := by omega
+        by_cases hpr : Nat.Prime t
+        · exact hall' t hpr (dvd_refl t)
+        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
+          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
+          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
+          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
+          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
+          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
+          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
+          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
+              (r % 15 = 1 ∨ r % 15 = 2 ∨ r % 15 = 4 ∨ r % 15 = 8) :=
+            fun r hr hrd => hall' r hr (hrd.trans htdq)
+          have hrec := ih (t / q) hlt hlqT htq0 hall2
+          have hqres := hall' q hqp hqt
+          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
+          rw [hdiv]
+          rcases hrec with e | e | e | e
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+  exact key T (Nat.le_refl T) hT0 hall
+
 end ResidualPrimes
 
 
