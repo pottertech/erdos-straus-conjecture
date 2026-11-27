@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.10 (2026-11-26: the prime-layer chain E-034–E-037 incorporated: the u = 15 Lean layer, the u = 19 and u = 23 censuses)
+**Version:** v1.11 (2026-11-26: the u = 31 program E-039–E-041 incorporated: the layer census, the collision-regime break, the delicate-shape rescue)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -83,6 +83,8 @@ which is the structure investigated in §5.
 | u = 15 layer census (E-029) | 3 populated classes 788,009/787,457/788,565 = 2,364,031 exact; the spans 59,759 + the still-failers 74,987 = 134,746 exact | `analysis/u15_class_v023/` |
 | u = 19 layer census (E-036) | all 18 classes populated; the spans 42,804 + the residual 32,183 = 74,987 exact | `analysis/u19_class_v027/` |
 | u = 23 layer census (E-037) | all 22 classes populated; the spans 21,626 + the residual 10,557 = 32,183 exact | `analysis/u23_class_v028/` |
+| u = 31 layer census (E-039) | all 30 classes populated (u = 29 structurally empty); the spans 4,668 + the residual 5,889 = 10,557 exact | `analysis/u29_class_v029/` |
+| u = 31 delicate rescue (E-041) | 2,613/2,613 off-parameter pigeon-rescued, zero no-sites | `analysis/u31_rescue_v031/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -315,6 +317,40 @@ divisor-residue set at 15 never exceeds the product of the layer sets at 3
 and 5 — the nonnegativity of the E-030 deficit as a theorem — with the
 D-set-as-Finset foundation `uDset` now available at any modulus). The Lean
 joint audited set stands at **65**.
+
+*The u = 31 program (E-039–E-041, the collision-regime transition).* The
+chain's admissible layers are exactly the `u ≡ 3 (mod 4)` parameters — the
+u = 29 skip is structural once more: `u = 29 = 1 (mod 4)` forces
+`p + 29 = 24k + 30`, never divisible by 4 evenly for `p = 24k + 1`, so no
+(H24) record exists there (the u = 5 shape). At **u = 31** (prime, 30 unit
+classes all populated, coprimality automatic) the chain closes exactly again:
+the spans 4,668 + the true `fw > 31` failers 5,889 = 10,557 = the E-037
+residual — the u = 31 layer rescues **44.21%**, the residual now **0.249%**
+of the hard-case class. Two new facts at this layer:
+
+**The zero-collision era ends (E-039).** The true failers at u = 7, 11, 15,
+19, 23 carried zero collision pairs — an orbit-window regime — but at u = 31
+**2,613 of the 5,889 failers (44.4%) carry a collision pair** (collision
+presence without the span).
+
+**The delicate-class shape re-emerges (E-040/E-041).** The mechanism census
+decodes the regime: the collision rate by `|D31|` is 0% below 6, 100% at
+6/7/9, and 50.2% at the |D| ≥ 11 mass bucket; **the (1, 30) unit pair
+dominates — 2,176 of 2,613 = 83.3%** — exactly the *one-sided criterion*
+`−1 ∈ D31(M)` (the divisor 1 carries the (1, …) side always, and
+30 = −1 (mod 31)). The collision-carrying failers are pigeonhole-insufficient
+at 31 (`|D| ≤ 11 < 15 = φ(31)/2`), carry the pair, and fail the parametric
+span — **the delicate-class structure of the opening section, re-emerging at
+a fresh layer as a per-layer fact**. And the E-011 rescue framework covers
+them exactly: the off-parameter pigeon-rescue scan (the v0.31 engine, the
+E-011 procedure verbatim) returns
+
+> delicate 2,613 — rescued 2,613 (100%) — pigeon-without-collision 0 —
+> no-site 0,
+
+the exact analog of the original 16,589/16,589 row, so the census's
+representation-completeness over the (H24) class holds through the new
+regime with zero uncovered records.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
