@@ -2166,7 +2166,7 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   positive characterization.
 
 
-## E-070 - R8 piece 54: the fail-shape window-cell fact (2026-11-27)
+## E-071 - R8 piece 54: the fail-shape window-cell fact (2026-11-27)
 
 - **What was done:** the (2,2)-orbit-closure route's core fact; PR #83
   (the mod-3 two-orbit closure) merged, main at `7396b2f`.
@@ -2180,12 +2180,16 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
     fail-shape census** (the D-sets inside {1, 2, 4, 8}): the census's
     fixed fail shapes are now backed by the orbit-closure theorem
     (trio axioms).
-- **Build:** exit 0; U15Layer = 22 theorems + 3 defs, 0-sorry; the
-  joint audited set: **84**.
-- **Status:** complete for this entry. Remaining per the design note:
-  the deficit's positive characterization (the exact count of the
-  realized pairs) - the last structural piece of the session's staged
-  direction.
+- **Build:** exit 0; U15Layer = 22 theorems + 3 defs, 0-sorry.
+- **Status:** complete for this entry. Renumbered E-070 -> E-071 (the
+  open PR #85 claims E-070). The audited count is the correction
+  convention's (the recount over the per-file audit artifacts; see the
+  registry note); the count line of this entry is superseded by the
+  E-070 correction's recount (74) plus one for this fact, pending the
+  correction lane's merge.
+- **Remaining per the design note:** the deficit's positive
+  characterization (the exact count of the realized pairs) - the last
+  structural piece of the session's staged direction.
 
 ## E-068 - R8 piece 53: the mod-3 two-orbit closure (2026-11-27)
 
