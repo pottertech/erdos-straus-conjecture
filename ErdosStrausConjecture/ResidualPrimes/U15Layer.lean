@@ -352,8 +352,9 @@ theorem crtPair_fold_image15 (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
   rw [h3, h5]
 
 /-- **The fold's deficit corollary.** The composite layer's residues never
-exceed the FULL divisor-product count (the engine's window-mask count
-`∏ (2e + 1)`): the CRT decode is injective on the bounded residues, and the
+exceed the FULL divisor-product count `∏ (e + 1)` (the product of the two
+factors' divisor counts): the CRT decode is injective on the bounded
+residues, and the
 fold's pair form realizes the decode image exactly as the divisor-product's
 pair image, whose card is bounded by the product's own count. -/
 theorem uDset15_card_le_fold (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
@@ -404,8 +405,8 @@ theorem crtPair2_fold_image (u₁ u₂ m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁
 /-- **The general fold deficit corollary.** The divisor-residue set at any
 composite layer `u₁ * u₂` (of nonzero coprime factors) never exceeds the
 full divisor-product count of the folded factorization — the general form
-of `uDset15_card_le_fold` (the engine's window-mask count
-`∏ (2e_q + 1)`). -/
+of `uDset15_card_le_fold` (the divisor-product count
+`∏ (e_q + 1)`). -/
 theorem uDset_card_le_fold (u₁ u₂ m₁ m₂ : ℕ)
     (hu1 : u₁ ≠ 0) (hu2 : u₂ ≠ 0) (hup : Nat.Coprime u₁ u₂)
     (hcop : Nat.Coprime m₁ m₂) :

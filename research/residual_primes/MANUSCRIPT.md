@@ -375,7 +375,7 @@ while the record counts fall. The ladder's consolidated view (the residual
 record counts and the per-layer rescue rates):
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → the residual
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → the residual
 > 4,465 (0.189%),
 
 with the Ladder Consolidation note: from u = 31 onward the census carries
@@ -400,7 +400,7 @@ their oscillation with an upward drift: 44.4% at 31, 26.0% at 35, 46.7% at
 39, 23.1% at 43, **65.2% at 47**. The consolidated chain:
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → the residual **3,970 (0.168%)**,
 
 and the composite-layer D-set foundation is now **general**: the theorem
@@ -425,7 +425,7 @@ foundation and the general composite bound in place from E-035/E-047)
 is the necessary direction of the program. The consolidated chain:
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → 51 (0.002%) → the residual **3,934 (0.166%)**,
 
 and the zero-collision rows hold at
@@ -440,7 +440,7 @@ hard-case class**. The collision share alternates (34.0% at 51 → 40.5% at
 55). The consolidated chain:
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → the residual **3,885 (0.164%)**,
 
 with every assertion row (the admissibility, the fw = 3 boundary, the
@@ -459,7 +459,8 @@ paired-residue image** — the exact statement of the census algebra
 **U15ALG mismatch = 0** (the E-031 fold, engine-verified 0-mismatch), and it
 holds unconditionally. The deficit corollary (`uDset15_card_le_fold`): the
 composite layer's residues never exceed the **full divisor-product count**
-`∏ (2e_q + 1)` — the engine's exact window-mask number — via the CRT decode's
+`∏ (e_q + 1)` — the product of the two factors' divisor counts,
+`|D(m₁)| · |D(m₂)|` — via the CRT decode's
 injectivity on the bounded residues. The supporting pieces: the mem-level
 CRT-pair routing (`uDset_mem_crt_pair`), the **general** decode injectivity
 (`crtPair2_injOn_lt`, any nonzero coprime `a, b` — the general form of
@@ -468,9 +469,13 @@ the general family: the divisor-residue set at **any** composite layer (of
 nonzero coprime factors) never exceeds the folded factorization's full
 divisor-product count — the count chain (the injectivity + the general pair
 form + `card_image_le` + `card_product`), with the zero-exclusion stated
-honestly (`u₁ = 0` / `u₂ = 1` is a legal coprime pair). The Lean joint
-audited set stands at **78**, 0-`sorry`, all landing CI-gated with the
-manifest repinned in place. The general exactness family is complete:
+honestly (the hypotheses require `u₁ ≠ 0` and `u₂ ≠ 0`, so the coprime
+pair `u₁ = 0`, `u₂ = 1` lies outside the theorem's scope). The Lean joint
+audited set stands at **74**, 0-`sorry` (recounted name by name at E-070;
+the earlier statements of 78, 80, and 82 overstated it). The ResidualPrimes modules sit
+outside the certified CI build (the root library and the five modules it
+imports); U15Layer compiles separately and is axiom-audited in full, with
+its audit artifact and build record pinned in the manifest. The general exactness family is complete:
 the fold skeleton, the pair form (unconditional), the deficit
 corollary.
 
@@ -483,7 +488,7 @@ the hard-case class**. The collision share alternates on (40.5% at 55 →
 51.3% at 59). The consolidated chain:
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → 59 (0.002%) → the residual
 > **3,841 (0.162%)**.
 
@@ -495,7 +500,7 @@ still-failers are **3,831 = 0.162% of the hard-case class**. The collision
 share alternates on (51.3% at 59 → 38.6% at 63). The consolidated chain:
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → 59 (0.002%) → 63 (0.0004%) →
 > the residual **3,831 (0.162%)**.
 
@@ -508,7 +513,7 @@ The collision share alternates on (38.6% at 63 → 17.5% at 67). The
 consolidated chain:
 
 > u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
-> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 23 (0.91%) → 27 (0.16%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → 59 (0.002%) → 63 (0.0004%) →
 > 67 (0.00008%) → the residual **3,829 (0.162%)**.
 
