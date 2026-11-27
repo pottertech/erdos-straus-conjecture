@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.16 (2026-11-27: the exactness program E-054–E-057 incorporated — the fold skeleton, the CRT-pair form, and the general fold-pair theorem)
+**Version:** v1.17 (2026-11-27: the general fold deficit corollary E-059 incorporated — the general exactness family complete)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -92,6 +92,7 @@ which is the structure investigated in §5.
 | u = 51 layer census (E-050) | the chain-critical cells; the spans 36 + the residual 3,934 = 3,970 exact (the rescue 0.90%) | `analysis/u51_class_v036/` |
 | u = 55 layer census (E-052) | the chain-critical cells; the spans 49 + the residual 3,885 = 3,934 exact (the rescue 1.24%) | `analysis/u55_class_v037/` |
 | the exactness program (E-054–E-057) | the fold skeleton, the CRT-pair form (U15ALG = 0 as a theorem), the general fold-pair form, the deficit corollary; U15Layer at 18 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
+| the general deficit corollary (E-059) | the general exactness family complete: the fold skeleton + the unconditional pair form + the general deficit corollary; U15Layer at 19 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -459,8 +460,16 @@ composite layer's residues never exceed the **full divisor-product count**
 injectivity on the bounded residues. The supporting pieces: the mem-level
 CRT-pair routing (`uDset_mem_crt_pair`), the **general** decode injectivity
 (`crtPair2_injOn_lt`, any nonzero coprime `a, b` — the general form of
-`crtPair_injOn15`). The Lean joint audited set stands at **76**,
-0-`sorry`, all landing CI-gated with the manifest repinned in place.
+`crtPair_injOn15`). The general fold deficit corollary (`uDset_card_le_fold`, E-059) completes
+the general family: the divisor-residue set at **any** composite layer (of
+nonzero coprime factors) never exceeds the folded factorization's full
+divisor-product count — the count chain (the injectivity + the general pair
+form + `card_image_le` + `card_product`), with the zero-exclusion stated
+honestly (`u₁ = 0` / `u₂ = 1` is a legal coprime pair). The Lean joint
+audited set stands at **78**, 0-`sorry`, all landing CI-gated with the
+manifest repinned in place. The general exactness family is complete:
+the fold skeleton, the pair form (unconditional), the deficit
+corollary.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
