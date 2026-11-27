@@ -475,10 +475,15 @@ prime divisors QR mod 5, the pair `{1, 4}`, is a QR mod 5; the
 divisor-status induction, the `prod_mod_qr` pattern specialized) and the
 **mod-3 two-orbit closure** (`prod_orbit_mod3` — the {1, 2}-orbit
 composition, first-try clean once the pattern was established). Both halves
-of the `(mod 3, mod 5)` pair-orbit are theorems: the window cells of the
-x-side prime divisors carry their closures. The Lean joint audited set
-stands at **82**, 0-`sorry`, all landing CI-gated with the manifest
-repinned in place. The general exactness family is complete: the fold
+of the `(mod 3, mod 5)` pair-orbit are theorems: each is a product-closure
+statement about a positive integer whose prime divisors lie in the named
+residue set. The Lean joint audited set
+stands at **74**, 0-`sorry` (recounted name by name at E-070, PR #85,
+which regenerated the U15Layer axiom audit in full; the 82 first stated
+here overstated it). The ResidualPrimes modules sit outside the certified
+CI build (the root library and the five modules it imports); U15Layer
+compiles separately, and its compile record is the pinned
+`lake_build_u15_layer.log`. The general exactness family is complete: the fold
 skeleton, the pair form (unconditional), the deficit corollary.
 
 *The chain link at u = 59 (E-061, the band steadies).* The chain closes
