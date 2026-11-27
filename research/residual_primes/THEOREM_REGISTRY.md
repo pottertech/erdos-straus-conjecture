@@ -145,6 +145,13 @@ site of the deficit formalization; trio; design note
 `references/exactness-fold-design.md` with the probed toolchain: the
 antidiagonal route replaces the absent `Nat.divisors_mul_eq`). The joint
 audited set: 15 + 35 + 5 + 5 + 5 + 3 + 2 = 70.
+The fold skeleton (E-055): `divisors_split_mem` (the coprime split via
+`Nat.gcd_mul_gcd_eq_iff_dvd_mul_of_coprime`, .mpr; trio) and `uDset_fold_image`
+(the FIRST structural exactness: `uDset u (m₁ * m₂)` = the image of the
+divisor-product under `(d₁, d₂) ↦ (d₁ * d₂) % u`; trio; 5 compile rounds: the
+gcd-projection directions — both splits via `Nat.gcd_dvd_right` — and the
+.mp/.mpr direction; the build 8,476 jobs clean). The joint audited set:
+15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 = 72.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 

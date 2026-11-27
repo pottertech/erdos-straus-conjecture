@@ -1959,6 +1959,29 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   note): the fold skeleton `uDset_mul_eq_image` (3-5 rounds) then the
   window-cell exactness (the 8-12-round pass mirroring U15ALG = 0).
 
+## E-055 - R8 piece 45: the fold skeleton (2026-11-27)
+
+- **What was done:** the exactness fold's first structural theorem; PR #69
+  (E-054) merged, main at `2a8c5fb`.
+- **Lean pieces landed:**
+  - `divisors_split_mem`: every divisor of `m₁ * m₂` factors as `d₁ * d₂`
+    with `d₁ ∣ m₁ ∧ d₂ ∣ m₂` for coprime m₁ m₂ (via the exact split lemma
+    `Nat.gcd_mul_gcd_eq_iff_dvd_mul_of_coprime` (GCD/Basic.lean:245, .mpr
+    direction) + the gcd projections; trio axioms).
+  - `uDset_fold_image`: **the fold skeleton** — `uDset u (m₁ * m₂)` is
+    EXACTLY the image of the divisor-product under
+    `(d₁, d₂) ↦ (d₁ * d₂) % u` for coprime m₁ m₂ (the mem-level subset
+    both ways via the split + `Nat.mul_dvd_mul`; trio axioms).
+- **Compile rounds:** r1-4 errors (the gcd projection directions: BOTH
+  splits need `Nat.gcd_dvd_right`; the .mp/.mpr direction on the split
+  lemma; the unneeded h0 deleted - the mem-elim supplies the nonzero);
+  r5 clean (8,476 jobs).
+- **Build:** exit 0; U15Layer = 15 theorems + 3 defs, 0-sorry; the joint
+  audited set: **72**.
+- **Status:** complete. The fold skeleton is the exactness program's
+  first structural theorem; the window-cell pass (the U15ALG = 0
+  reproduction) is next per the design note.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
