@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.14 (2026-11-27: the u = 51 chain link E-050 incorporated; the asymptotic-regime note)
+**Version:** v1.15 (2026-11-27: the u = 55 chain link E-052 incorporated; the sub-two-percent band confirmed)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -90,6 +90,7 @@ which is the structure investigated in §5.
 | u = 43 layer census (E-046) | the chain-critical cells; the spans 192 + the residual 4,273 = 4,465 exact (the rescue 4.30%) | `analysis/u43_class_v034/` |
 | u = 47 layer census (E-048) | the chain-critical cells; the spans 303 + the residual 3,970 = 4,273 exact (the rescue 7.09%) | `analysis/u47_class_v035/` |
 | u = 51 layer census (E-050) | the chain-critical cells; the spans 36 + the residual 3,934 = 3,970 exact (the rescue 0.90%) | `analysis/u51_class_v036/` |
+| u = 55 layer census (E-052) | the chain-critical cells; the spans 49 + the residual 3,885 = 3,934 exact (the rescue 1.24%) | `analysis/u55_class_v037/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -424,6 +425,22 @@ is the necessary direction of the program. The consolidated chain:
 
 and the zero-collision rows hold at
 `fw3 = 0` everywhere with the admissibility automatic per E-034.
+
+*The chain link at u = 55 (E-052, the band confirmed).* The chain closes
+exactly once more: the u = 55 spans 49 + the residual 3,885 = 3,934 = the
+E-050 residual (the u = 55 layer rescues **1.24%** — the alternation
+0.90 → 1.24 continues within the **sub-two-percent asymptotic band**, now
+confirmed across two links). The still-failers are **3,885 = 0.164% of the
+hard-case class**. The collision share alternates (34.0% at 51 → 40.5% at
+55). The consolidated chain:
+
+> u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
+> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → the residual **3,885 (0.164%)**,
+
+with every assertion row (the admissibility, the fw = 3 boundary, the
+collision counter) pinned per layer, and the asymptotic-regime reading of
+the u = 51 note standing.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
