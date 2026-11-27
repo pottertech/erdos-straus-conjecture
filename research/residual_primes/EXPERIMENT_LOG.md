@@ -1867,6 +1867,39 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   rescue rates continue their low-single-digit decay while the
   collision share drifts upward.
 
+## E-050 - R8 piece 41: the u = 51 layer census (engine v0.36) (2026-11-27)
+
+- **What ran:** engine v0.36 (`analysis/u51_class_v036/`), a byte-superset
+  of v0.35 (the reconcile: v0.35's 1,829 lines in order inside 1,892,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **Verified results (full scale):**
+  - All coprimality/assert rows hold (admfail = 0, fw3 = 0; total
+    2,364,031 exact).
+  - **The chain closes exactly at u = 51:** the u = 51 spans 36 and
+    the true fw > 51 failers 3,934 sum to
+    **3,970 = the E-048 still-failers exact**. The u = 51 layer
+    rescues only **0.90%** - the second sharp drop, the ladder's
+    per-link rescues now under one percent; the still-failers are
+    **3,934 = 0.166% of (H24)**.
+  - The collisions = 1,339 of the 3,934 failers (34.0%) - the
+    delicate-share alternation continues (65.2% at 47 -> 34.0% at 51).
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (0.20%) -> 35 (0.03%)
+    -> 39 (0.03%) -> 43 (0.01%) -> 47 (0.01%) -> 51 (36 = 0.002%) ->
+    the residual 3,934 (0.166%).
+- **The honest reading:** the ladder's per-link rescues have entered
+  the sub-one-percent asymptotic regime (44 -> 11.7 -> 14.1 -> 4.3 ->
+  7.1 -> 0.9): the census ladder ALONE will not drain the residual -
+  the structure question (the window-exactness Lean theorem, the
+  E-031 algebra's full form) is now the necessary direction; the
+  D-set-as-Finset foundation and the general CRT bound (E-047) are in
+  place for it.
+- **Artifacts:** `analysis/u51_class_v036/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 156).
+- **Status:** complete. The thirteen-entry chain
+  3/7/11/15/19/23/31/35/39/43/47/51 census-complete.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
