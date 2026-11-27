@@ -169,6 +169,11 @@ exceed the folded factorization's full divisor-product count (the calc
 chain: the injectivity + the general pair form + card_image_le +
 card_product; trio). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 = 78.
+The orbit-window's first cell fact (E-067): `prod_qr_mod5` — the mod-5
+±1-orbit closure via the divisor-status induction (a positive integer with
+all-prime-divisors QR mod 5 is a QR mod 5; the `prod_mod_qr` pattern
+specialized; trio). The joint audited set:
+15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 = 80.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
