@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.15 (2026-11-27: the u = 55 chain link E-052 incorporated; the sub-two-percent band confirmed)
+**Version:** v1.16 (2026-11-27: the exactness program E-054–E-057 incorporated — the fold skeleton, the CRT-pair form, and the general fold-pair theorem)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -91,6 +91,7 @@ which is the structure investigated in §5.
 | u = 47 layer census (E-048) | the chain-critical cells; the spans 303 + the residual 3,970 = 4,273 exact (the rescue 7.09%) | `analysis/u47_class_v035/` |
 | u = 51 layer census (E-050) | the chain-critical cells; the spans 36 + the residual 3,934 = 3,970 exact (the rescue 0.90%) | `analysis/u51_class_v036/` |
 | u = 55 layer census (E-052) | the chain-critical cells; the spans 49 + the residual 3,885 = 3,934 exact (the rescue 1.24%) | `analysis/u55_class_v037/` |
+| the exactness program (E-054–E-057) | the fold skeleton, the CRT-pair form (U15ALG = 0 as a theorem), the general fold-pair form, the deficit corollary; U15Layer at 18 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -441,6 +442,25 @@ hard-case class**. The collision share alternates (34.0% at 51 → 40.5% at
 with every assertion row (the admissibility, the fw = 3 boundary, the
 collision counter) pinned per layer, and the asymptotic-regime reading of
 the u = 51 note standing.
+
+*The exactness program (E-054–E-057, the census algebra formalized).* The
+pair-window algebra's structure is now a theorem. The fold skeleton
+(`uDset_fold_image`): for the fold of coprime factorizations
+`D_u(m₁ · m₂)` is **exactly the image of the divisor-pair product** under
+`(d₁, d₂) ↦ (d₁ · d₂) % u` (the divisor split via
+`Nat.gcd_mul_gcd_eq_iff_dvd_mul_of_coprime`). The fold's CRT-pair form
+(`crtPair_fold_image15`, the general `crtPair2_fold_image`): the realized
+`(u₁, u₂)`-pairs at any composite layer are **exactly the divisor-product's
+paired-residue image** — the exact statement of the census algebra
+**U15ALG mismatch = 0** (the E-031 fold, engine-verified 0-mismatch), and it
+holds unconditionally. The deficit corollary (`uDset15_card_le_fold`): the
+composite layer's residues never exceed the **full divisor-product count**
+`∏ (2e_q + 1)` — the engine's exact window-mask number — via the CRT decode's
+injectivity on the bounded residues. The supporting pieces: the mem-level
+CRT-pair routing (`uDset_mem_crt_pair`), the **general** decode injectivity
+(`crtPair2_injOn_lt`, any nonzero coprime `a, b` — the general form of
+`crtPair_injOn15`). The Lean joint audited set stands at **76**,
+0-`sorry`, all landing CI-gated with the manifest repinned in place.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
