@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.18 (2026-11-27: the u = 59 chain link E-061 incorporated; the general deficit corollary row)
+**Version:** v1.19 (2026-11-27: the u = 63 chain link E-063 incorporated; the composite drop recorded honestly)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -94,6 +94,7 @@ which is the structure investigated in §5.
 | the exactness program (E-054–E-057) | the fold skeleton, the CRT-pair form (U15ALG = 0 as a theorem), the general fold-pair form, the deficit corollary; U15Layer at 18 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 | the general deficit corollary (E-059) | the general exactness family complete: the fold skeleton + the unconditional pair form + the general deficit corollary; U15Layer at 19 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 | u = 59 layer census (E-061) | the chain-critical cells; the spans 44 + the residual 3,841 = 3,885 exact (the rescue 1.13%) | `analysis/u59_class_v038/` |
+| u = 63 layer census (E-063) | the chain-critical cells; the spans 10 + the residual 3,831 = 3,841 exact (the rescue 0.26%) | `analysis/u63_class_v039/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -484,6 +485,18 @@ the hard-case class**. The collision share alternates on (40.5% at 55 →
 > 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
 > 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → 59 (0.002%) → the residual
 > **3,841 (0.162%)**.
+
+*The chain link at u = 63 (E-063, the composite drop).* The chain closes
+exactly once more: the u = 63 spans 10 + the residual 3,831 = 3,841 = the
+E-061 residual (the u = 63 layer rescues **0.26%** — the composite layers
+now land under half a percent per link: 1.13 at 59 → 0.26 at 63). The
+still-failers are **3,831 = 0.162% of the hard-case class**. The collision
+share alternates on (51.3% at 59 → 38.6% at 63). The consolidated chain:
+
+> u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
+> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → 59 (0.002%) → 63 (0.0004%) →
+> the residual **3,831 (0.162%)**.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
