@@ -1783,6 +1783,33 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** complete. The seven-layer chain 3/7/11/15/19/23/31/35
   census-complete with the residual at a fifth of a percent.
 
+## E-044 - R8 piece 36: the u = 39 layer census (engine v0.33) (2026-11-27)
+
+- **What ran:** engine v0.33 (`analysis/u39_class_v033/`), a byte-superset
+  of v0.32 (the reconcile: v0.32's 1,424 lines in order inside 1,475,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **Verified results (full scale):**
+  - All coprimality/assert rows hold (admfail = 0, fw3 = 0; total
+    2,364,031 exact; the populated classes per phi(39) = 24 units
+    minus the predicate-rejected, measured in the class rows).
+  - **The chain closes exactly at u = 39:** the u = 39 spans 733 and
+    the true fw > 39 failers 4,465 sum to
+    **5,198 = the E-043 still-failers exact**. The u = 39 layer
+    rescues **14.10%**; the still-failers are
+    **4,465 = 0.189% of (H24)**.
+  - The collisions = 2,086 of the 4,465 failers (46.7%) - the
+    delicate-regime share RE-RISES from the 26.0% at 35 (the layer
+    alternation of the collision shares continues).
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (0.20%) -> 35 (0.03%)
+    -> 39 (733 = 0.03%) -> the residual 4,465 (0.189%).
+- **Artifacts:** `analysis/u39_class_v033/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 147).
+- **Status:** complete. The nine-layer chain
+  3/7/11/15/19/23/31/35/39 census-complete with the residual under a
+  fifth of a percent.
+
 
 
 
