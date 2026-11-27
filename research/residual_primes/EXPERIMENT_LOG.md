@@ -1982,6 +1982,34 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   first structural theorem; the window-cell pass (the U15ALG = 0
   reproduction) is next per the design note.
 
+## E-056 - R8 piece 46: the fold's CRT-pair form (2026-11-27)
+
+- **What was done:** the window-cell pass, round 1 of the U15ALG = 0
+  formalization; PR #70 (the fold skeleton) merged, main at `973ae0e`.
+- **Lean pieces landed:**
+  - `crtPair_fold_image15`: **the fold's CRT-pair form** - the realized
+    `(3, 5)`-pairs at the composite layer are EXACTLY the image of the
+    divisor-product under the paired residue map
+    `(fun q => ((q.1 * q.2) % 3, (q.1 * q.2) % 5))` for coprime m1 m2
+    (the fold skeleton + `Finset.image_image` + the pointwise nested-mod
+    congruence `Nat.mod_mod_of_dvd` at 3 ∣ 15 / 5 ∣ 15). This is the
+    exact statement of the census algebra **U15ALG mismatch = 0**.
+  - `uDset15_card_le_fold`: the fold's deficit corollary - the composite
+    layer's residues never exceed the FULL divisor-product count
+    `∏ (2e + 1)` (the engine's exact window-mask count): the chain
+    card(uDset15) = card(image crtPair) [the injectivity] = card(the
+    divisor-product's pair image) [the fold's pair form] <= the product
+    count [card_image_le + card_product].
+- **Compile rounds:** r6-9 (the image_congr's composed-application goal
+  needs the simp-only unfold; the count chain as a calc block; the
+  double card_product rw deleted); r9 clean (8,476 jobs).
+- **Build:** exit 0; U15Layer = 17 theorems + 3 defs, 0-sorry; the joint
+  audited set: **74**.
+- **Status:** complete for this entry. The remaining exactness piece per
+  the design note: the general-u fold-pair form + the window-cell
+  equality for the ORBIT windows (the two-orbit structure), still
+  staged.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs

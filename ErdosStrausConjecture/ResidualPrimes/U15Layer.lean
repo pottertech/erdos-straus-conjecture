@@ -329,6 +329,57 @@ theorem uDset_fold_image (u m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
     rw [← hqr]
     exact uDset_mem_of_dvd hdvd (mul_ne_zero hM1 hM2)
 
+/-- **The fold's CRT-pair form (the E-031 algebra).** The realized
+`(3, 5)`-pairs at the composite layer are exactly the image of the
+divisor-product under the paired residue map — the exact statement of the
+census algebra `U15ALG mismatch = 0` (the pair windows ARE the fold, no
+residue is generated outside it). -/
+theorem crtPair_fold_image15 (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
+    ((uDset 15 (m₁ * m₂)).image crtPair) =
+    ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
+      (fun q => ((q.1 * q.2) % 3, (q.1 * q.2) % 5))) := by
+  -- the fold skeleton rewrites the left image's underlying set
+  rw [uDset_fold_image 15 m₁ m₂ hcop]
+  -- compose the two images into one map
+  rw [Finset.image_image]
+  refine Finset.image_congr ?_
+  intro q _
+  have h3 : ((q.1 * q.2) % 15) % 3 = (q.1 * q.2) % 3 :=
+    Nat.mod_mod_of_dvd _ (by decide : 3 ∣ 15)
+  have h5 : ((q.1 * q.2) % 15) % 5 = (q.1 * q.2) % 5 :=
+    Nat.mod_mod_of_dvd _ (by decide : 5 ∣ 15)
+  simp only [Function.comp_apply, crtPair]
+  rw [h3, h5]
+
+/-- **The fold's deficit corollary.** The composite layer's residues never
+exceed the FULL divisor-product count (the engine's window-mask count
+`∏ (2e + 1)`): the CRT decode is injective on the bounded residues, and the
+fold's pair form realizes the decode image exactly as the divisor-product's
+pair image, whose card is bounded by the product's own count. -/
+theorem uDset15_card_le_fold (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
+    (uDset 15 (m₁ * m₂)).card ≤
+      (Nat.divisors m₁).card * (Nat.divisors m₂).card := by
+  have hlt : ∀ r ∈ uDset 15 (m₁ * m₂), r < 15 := by
+    intro r hr
+    obtain ⟨d, _, _, hmod⟩ := uDset_mem_elim hr
+    exact hmod ▸ Nat.mod_lt d (by omega)
+  have hinj : Set.InjOn crtPair (uDset 15 (m₁ * m₂)) :=
+    crtPair_injOn15.mono (fun r hr => Finset.mem_coe.mpr (Finset.mem_range.mpr (hlt r hr)))
+  have hcard : ((uDset 15 (m₁ * m₂)).image crtPair).card =
+      (uDset 15 (m₁ * m₂)).card := Finset.card_image_of_injOn hinj
+  have hpair := crtPair_fold_image15 m₁ m₂ hcop
+  have h3 : ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
+        (fun q => ((q.1 * q.2) % 3, (q.1 * q.2) % 5))).card ≤
+      (Nat.divisors m₁ ×ˢ Nat.divisors m₂).card := Finset.card_image_le
+  rw [Finset.card_product] at h3
+
+  calc (uDset 15 (m₁ * m₂)).card
+      = ((uDset 15 (m₁ * m₂)).image crtPair).card := hcard.symm
+    _ = ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
+          (fun q => ((q.1 * q.2) % 3, (q.1 * q.2) % 5))).card :=
+        congrArg Finset.card hpair
+    _ ≤ (Nat.divisors m₁).card * (Nat.divisors m₂).card := h3
+
 end ResidualPrimes
 
 
