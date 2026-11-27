@@ -288,6 +288,47 @@ theorem crtPair2_injOn_lt {a b : ℕ} (ha0 : a ≠ 0) (hb0 : b ≠ 0)
   rw [hm, hm'] at hcomp
   exact hcomp
 
+/-- The coprime divisor split: every divisor of `m₁ * m₂` factors through
+coprime-factor divisors (the surjection underpinning the fold). -/
+theorem divisors_split_mem {m₁ m₂ d : ℕ} (hcop : Nat.Coprime m₁ m₂)
+    (hd : d ∣ m₁ * m₂) :
+    ∃ d₁ d₂, d₁ ∣ m₁ ∧ d₂ ∣ m₂ ∧ d = d₁ * d₂ := by
+  refine ⟨d.gcd m₁, d.gcd m₂, ?_, ?_, ?_⟩
+  · exact Nat.gcd_dvd_right d m₁
+  · exact Nat.gcd_dvd_right d m₂
+  · exact ((Nat.gcd_mul_gcd_eq_iff_dvd_mul_of_coprime hcop).mpr hd).symm
+
+/-- **The fold skeleton.** The divisor-residue set at the product of coprime
+factors is generated exactly by the divisor-pair product: `uDset u (m₁ * m₂)`
+is the image of the divisor-product under `(d₁, d₂) ↦ (d₁ * d₂) % u`. This is
+the fold form (the E-031 algebra's first structural layer). -/
+theorem uDset_fold_image (u m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
+    uDset u (m₁ * m₂) =
+    ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image (fun q => (q.1 * q.2) % u)) := by
+  apply Finset.ext
+  intro r
+  constructor
+  · -- ⊆: a divisor of the product splits and its residue is generated
+    intro hr
+    obtain ⟨d, hdvd, hM0, hmod⟩ := uDset_mem_elim hr
+    obtain ⟨d₁, d₂, hd₁, hd₂, hdd⟩ := divisors_split_mem hcop hdvd
+    have ha0 : m₁ ≠ 0 := fun h => hM0 (by rw [h]; exact zero_mul m₂)
+    have hb0 : m₂ ≠ 0 := fun h => hM0 (by rw [h]; exact mul_zero m₁)
+    have hpair : (d₁, d₂) ∈ Nat.divisors m₁ ×ˢ Nat.divisors m₂ :=
+      Finset.mem_product.mpr ⟨Nat.mem_divisors.mpr ⟨hd₁, ha0⟩,
+        Nat.mem_divisors.mpr ⟨hd₂, hb0⟩⟩
+    refine Finset.mem_image.mpr ⟨(d₁, d₂), hpair, ?_⟩
+    rw [← hmod, hdd]
+  · -- ⊇: every divisor pair's product is a divisor of the product
+    intro hr
+    obtain ⟨q, hq, hqr⟩ := Finset.mem_image.mp hr
+    obtain ⟨hd₁, hd₂⟩ := Finset.mem_product.mp hq
+    obtain ⟨hd₁', hM1⟩ := Nat.mem_divisors.mp hd₁
+    obtain ⟨hd₂', hM2⟩ := Nat.mem_divisors.mp hd₂
+    have hdvd : q.1 * q.2 ∣ m₁ * m₂ := Nat.mul_dvd_mul hd₁' hd₂'
+    rw [← hqr]
+    exact uDset_mem_of_dvd hdvd (mul_ne_zero hM1 hM2)
+
 end ResidualPrimes
 
 
