@@ -1,0 +1,1646 @@
+SWEEP 3194231 H24 2364031 PIGEON 3177642 DELICATE 33178 MISMATCH 0
+BY840 1 all=129979 pigeon=126678 delicate=3301 rate_del=253
+BY840 121 all=129963 pigeon=127436 delicate=2527 rate_del=194
+BY840 169 all=129675 pigeon=126893 delicate=2782 rate_del=214
+BY840 289 all=130073 pigeon=128818 delicate=1255 rate_del=96
+BY840 361 all=138184 pigeon=134586 delicate=3598 rate_del=260
+BY840 529 all=138039 pigeon=134913 delicate=3126 rate_del=226
+BYU 3 all=830200 pigeon=830200 delicate=0
+BYU 7 all=1949770 pigeon=1949770 delicate=0
+BYU 11 all=279515 pigeon=273440 delicate=6075
+BYU 15 all=59759 pigeon=59759 delicate=0
+BYU 19 all=42804 pigeon=35370 delicate=7434
+BYU 23 all=21626 pigeon=20351 delicate=1275
+BYU 27 all=3818 pigeon=2820 delicate=998
+BYU 31 all=4668 pigeon=4263 delicate=405
+BYU 35 all=691 pigeon=628 delicate=63
+BYU 39 all=733 pigeon=649 delicate=84
+BYU 43 all=192 pigeon=43 delicate=149
+BYU 47 all=303 pigeon=258 delicate=45
+BYU 51 all=36 pigeon=14 delicate=22
+BYU 55 all=49 pigeon=39 delicate=10
+BYU 59 all=44 pigeon=23 delicate=21
+BYU 63 all=10 pigeon=9 delicate=1
+BYU 67 all=2 pigeon=0 delicate=2
+BYU 71 all=6 pigeon=5 delicate=1
+BYU 75 all=2 pigeon=1 delicate=1
+BYU 79 all=1 pigeon=0 delicate=1
+BYU 83 all=2 pigeon=0 delicate=2
+MARGIN 16589 0 905847 0 188849 0 1744460 0 78152 0 217834 0 6340 0 3521 0 4205 0 11714 0 2149 0 11633 0 698 0 204 0 258 0 1626 0 14 0 9 0 15 0 18 0 8 0 12 0 8 0 63 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 2
+DELICATE_TOTAL 16589 (sample capped at 5000 in delicate_sample.jsonl)
+MOD5 1 all=1064669 onlypar=47361 both=976082 onlynon=41226 rate_onlynon=387
+MOD5MOD840 1 all=398126 onlynon=16267 rate=408
+MOD5 2 all=0 onlypar=0 both=0 onlynon=0 rate_onlynon=0
+MOD5MOD840 2 all=0 onlynon=0 rate=0
+MOD5 3 all=1065189 onlypar=0 both=1048355 onlynon=16834 rate_onlynon=158
+MOD5MOD840 3 all=0 onlynon=0 rate=0
+MOD5 4 all=1064373 onlypar=36499 both=996851 onlynon=31023 rate_onlynon=291
+MOD5MOD840 4 all=397787 onlynon=5955 rate=149
+INTR840 1 onlypar=5648 both=118829 onlynon=5502
+INTR840 121 onlypar=4969 both=119966 onlynon=5028
+INTR840 169 onlypar=2224 both=125512 onlynon=1939
+INTR840 289 onlypar=1293 both=126864 onlynon=1916
+INTR840 361 onlypar=6189 both=126258 onlynon=5737
+INTR840 529 onlypar=2420 both=133519 onlynon=2100
+DELICATE_SHAPE total=16589 with_d1=1 13742 unit-pair=13742 d1<=half=2847 d1>half=0 square-root-pair=0
+DELICATE_BUCKET d1=1 13742 d1<=u/4 1808 d1<=u/2 1039 d1>u/2 0
+XDEL 11 1 count=6075
+XDEL 19 1 count=1752
+XDEL 19 4 count=5682
+XDEL 23 1 count=594
+XDEL 23 4 count=681
+XDEL 27 1 count=480
+XDEL 27 4 count=518
+XDEL 31 1 count=336
+XDEL 31 4 count=69
+XDEL 35 1 count=38
+XDEL 35 4 count=25
+XDEL 39 1 count=25
+XDEL 39 4 count=59
+XDEL 43 1 count=71
+XDEL 43 4 count=78
+XDEL 47 1 count=22
+XDEL 47 4 count=23
+XDEL 51 1 count=14
+XDEL 51 4 count=8
+XDEL 55 1 count=7
+XDEL 55 4 count=3
+XDEL 59 1 count=9
+XDEL 59 4 count=12
+XDEL 63 4 count=1
+XDEL 67 4 count=2
+XDEL 71 4 count=1
+XDEL 75 4 count=1
+XDEL 79 1 count=1
+XDEL 83 1 count=2
+XSHAPE u=3 m5=1 n=276660 parfree=276660 parp=0 nonfree=276660 nonp=0 fivex=0
+XSHAPE u=3 m5=3 n=276624 parfree=276624 parp=0 nonfree=276624 nonp=0 fivex=0
+XSHAPE u=3 m5=4 n=276916 parfree=276916 parp=0 nonfree=276916 nonp=0 fivex=0
+XSHAPE u=7 m5=1 n=580861 parfree=555902 parp=0 nonfree=542337 nonp=7969 fivex=0
+XSHAPE u=7 m5=3 n=788565 parfree=771731 parp=0 nonfree=788565 nonp=0 fivex=788565
+XSHAPE u=7 m5=4 n=580344 parfree=555276 parp=0 nonfree=541831 nonp=7951 fivex=0
+XSHAPE u=11 m5=1 n=134455 parfree=115545 parp=8937 nonfree=113838 nonp=7284 fivex=0
+XSHAPE u=11 m5=4 n=145060 parfree=139844 parp=5216 nonfree=141517 nonp=3543 fivex=145060
+XSHAPE u=15 m5=1 n=32271 parfree=32271 parp=0 nonfree=32271 nonp=0 fivex=0
+XSHAPE u=15 m5=4 n=27488 parfree=22224 parp=5264 nonfree=27488 nonp=0 fivex=0
+XSHAPE u=19 m5=1 n=25136 parfree=17734 parp=3177 nonfree=21290 nonp=1407 fivex=25136
+XSHAPE u=19 m5=4 n=17668 parfree=9204 parp=4800 nonfree=10364 nonp=2377 fivex=0
+XSHAPE u=23 m5=1 n=10232 parfree=8332 parp=802 nonfree=9691 nonp=200 fivex=0
+XSHAPE u=23 m5=4 n=11394 parfree=9161 parp=889 nonfree=10828 nonp=201 fivex=0
+XSHAPE u=27 m5=1 n=1926 parfree=1073 parp=451 nonfree=1476 nonp=64 fivex=0
+XSHAPE u=27 m5=4 n=1892 parfree=984 parp=473 nonfree=1430 nonp=54 fivex=0
+XSHAPE u=31 m5=1 n=2040 parfree=1209 parp=448 nonfree=1667 nonp=152 fivex=0
+XSHAPE u=31 m5=4 n=2628 parfree=1957 parp=358 nonfree=2397 nonp=123 fivex=2628
+XSHAPE u=35 m5=1 n=359 parfree=233 parp=59 nonfree=333 nonp=3 fivex=0
+XSHAPE u=35 m5=4 n=332 parfree=217 parp=69 nonfree=304 nonp=3 fivex=0
+XSHAPE u=39 m5=1 n=393 parfree=327 parp=41 nonfree=364 nonp=16 fivex=393
+XSHAPE u=39 m5=4 n=340 parfree=163 parp=120 nonfree=259 nonp=27 fivex=0
+XSHAPE u=43 m5=1 n=87 parfree=34 parp=22 nonfree=44 nonp=15 fivex=0
+XSHAPE u=43 m5=4 n=105 parfree=42 parp=21 nonfree=54 nonp=14 fivex=0
+XSHAPE u=47 m5=1 n=172 parfree=108 parp=27 nonfree=146 nonp=16 fivex=0
+XSHAPE u=47 m5=4 n=131 parfree=79 parp=20 nonfree=119 nonp=7 fivex=0
+XSHAPE u=51 m5=1 n=18 parfree=6 parp=7 nonfree=11 nonp=1 fivex=0
+XSHAPE u=51 m5=4 n=18 parfree=10 parp=1 nonfree=17 nonp=1 fivex=18
+XSHAPE u=55 m5=1 n=26 parfree=14 parp=2 nonfree=21 nonp=3 fivex=0
+XSHAPE u=55 m5=4 n=23 parfree=11 parp=5 nonfree=19 nonp=3 fivex=0
+XSHAPE u=59 m5=1 n=23 parfree=13 parp=2 nonfree=17 nonp=3 fivex=23
+XSHAPE u=59 m5=4 n=21 parfree=8 parp=9 nonfree=12 nonp=6 fivex=0
+XSHAPE u=63 m5=1 n=5 parfree=3 parp=1 nonfree=4 nonp=1 fivex=0
+XSHAPE u=63 m5=4 n=5 parfree=2 parp=1 nonfree=4 nonp=0 fivex=0
+XSHAPE u=67 m5=4 n=2 parfree=2 parp=0 nonfree=0 nonp=0 fivex=0
+XSHAPE u=71 m5=1 n=2 parfree=0 parp=1 nonfree=2 nonp=0 fivex=0
+XSHAPE u=71 m5=4 n=4 parfree=2 parp=1 nonfree=4 nonp=0 fivex=4
+XSHAPE u=75 m5=4 n=2 parfree=0 parp=1 nonfree=1 nonp=0 fivex=0
+XSHAPE u=79 m5=1 n=1 parfree=0 parp=0 nonfree=0 nonp=1 fivex=1
+XSHAPE u=83 m5=1 n=2 parfree=2 parp=0 nonfree=1 nonp=0 fivex=0
+G3U7 total=788565 fivex=788565 notfivex=0
+G3U7E5 depth0=0 depth1=630921 depth2plus=157644
+G3U7PAR shape: p-containing=0 p-free=771731 v5[0]=77837 v5[1]=688438 v5[2]=1868 v5cap=3588
+G3U7NON shape: p-containing=0 p-free=788565 v5[0]=93767 v5[1]=544249 v5[2]=71626 v5cap=78923 over5=71444
+U11G4 total=145060 fivex=145060 notfivex=0
+U11G4SHAPE p-containing=0 p-free=145060 v5[0]=87021 v5[1]=58039 v5[2]=0 v5cap=0
+XULAYER 3 1 all=276660 nop=0 rate=0
+XULAYER 3 3 all=276624 nop=0 rate=0
+XULAYER 3 4 all=276916 nop=0 rate=0
+XULAYER 7 1 all=580861 nop=24959 rate=429
+XULAYER840 7 1 all=190978 nop=0 rate=0
+XULAYER 7 3 all=788565 nop=16834 rate=213
+XULAYER 7 4 all=580344 nop=25068 rate=431
+XULAYER840 7 4 all=190674 nop=0 rate=0
+XULAYER 11 1 all=134455 nop=9973 rate=741
+XULAYER840 11 1 all=134455 nop=9973 rate=741
+XULAYER 11 4 all=145060 nop=0 rate=0
+XULAYER840 11 4 all=145060 nop=0 rate=0
+XULAYER 15 1 all=32271 nop=0 rate=0
+XULAYER840 15 1 all=32271 nop=0 rate=0
+XULAYER 15 4 all=27488 nop=0 rate=0
+XULAYER840 15 4 all=27488 nop=0 rate=0
+XULAYER 19 1 all=25136 nop=4225 rate=1680
+XULAYER840 19 1 all=25136 nop=4225 rate=1680
+XULAYER 19 4 all=17668 nop=3664 rate=2073
+XULAYER840 19 4 all=17668 nop=3664 rate=2073
+XULAYER 23 1 all=10232 nop=1098 rate=1073
+XULAYER840 23 1 all=10232 nop=1098 rate=1073
+XULAYER 23 4 all=11394 nop=1344 rate=1179
+XULAYER840 23 4 all=11394 nop=1344 rate=1179
+XULAYER 27 1 all=1926 nop=402 rate=2087
+XULAYER840 27 1 all=1926 nop=402 rate=2087
+XULAYER 27 4 all=1892 nop=435 rate=2299
+XULAYER840 27 4 all=1892 nop=435 rate=2299
+XULAYER 31 1 all=2040 nop=383 rate=1877
+XULAYER840 31 1 all=2040 nop=383 rate=1877
+XULAYER 31 4 all=2628 nop=313 rate=1191
+XULAYER840 31 4 all=2628 nop=313 rate=1191
+XULAYER 35 1 all=359 nop=67 rate=1866
+XULAYER840 35 1 all=359 nop=67 rate=1866
+XULAYER 35 4 all=332 nop=46 rate=1385
+XULAYER840 35 4 all=332 nop=46 rate=1385
+XULAYER 39 1 all=393 nop=25 rate=636
+XULAYER840 39 1 all=393 nop=25 rate=636
+XULAYER 39 4 all=340 nop=57 rate=1676
+XULAYER840 39 4 all=340 nop=57 rate=1676
+XULAYER 43 1 all=87 nop=31 rate=3563
+XULAYER840 43 1 all=87 nop=31 rate=3563
+XULAYER 43 4 all=105 nop=42 rate=4000
+XULAYER840 43 4 all=105 nop=42 rate=4000
+XULAYER 47 1 all=172 nop=37 rate=2151
+XULAYER840 47 1 all=172 nop=37 rate=2151
+XULAYER 47 4 all=131 nop=32 rate=2442
+XULAYER840 47 4 all=131 nop=32 rate=2442
+XULAYER 51 1 all=18 nop=5 rate=2777
+XULAYER840 51 1 all=18 nop=5 rate=2777
+XULAYER 51 4 all=18 nop=7 rate=3888
+XULAYER840 51 4 all=18 nop=7 rate=3888
+XULAYER 55 1 all=26 nop=10 rate=3846
+XULAYER840 55 1 all=26 nop=10 rate=3846
+XULAYER 55 4 all=23 nop=7 rate=3043
+XULAYER840 55 4 all=23 nop=7 rate=3043
+XULAYER 59 1 all=23 nop=8 rate=3478
+XULAYER840 59 1 all=23 nop=8 rate=3478
+XULAYER 59 4 all=21 nop=4 rate=1904
+XULAYER840 59 4 all=21 nop=4 rate=1904
+XULAYER 63 1 all=5 nop=1 rate=2000
+XULAYER840 63 1 all=5 nop=1 rate=2000
+XULAYER 63 4 all=5 nop=2 rate=4000
+XULAYER840 63 4 all=5 nop=2 rate=4000
+XULAYER 67 4 all=2 nop=0 rate=0
+XULAYER840 67 4 all=2 nop=0 rate=0
+XULAYER 71 1 all=2 nop=1 rate=5000
+XULAYER840 71 1 all=2 nop=1 rate=5000
+XULAYER 71 4 all=4 nop=1 rate=2500
+XULAYER840 71 4 all=4 nop=1 rate=2500
+XULAYER 75 4 all=2 nop=1 rate=5000
+XULAYER840 75 4 all=2 nop=1 rate=5000
+XULAYER 79 1 all=1 nop=1 rate=10000
+XULAYER840 79 1 all=1 nop=1 rate=10000
+XULAYER 83 1 all=2 nop=0 rate=0
+XULAYER840 83 1 all=2 nop=0 rate=0
+XREACH u=3 m5=1 total=276660 pigeon=276660 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=3 m5=3 total=276624 pigeon=276624 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=3 m5=4 total=276916 pigeon=276916 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=7 m5=1 total=580861 pigeon=580861 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=7 m5=3 total=788565 pigeon=788565 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=7 m5=4 total=580344 pigeon=580344 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=11 m5=1 total=134455 pigeon=128380 del=6075 delunit=6075 dsmall=0 dlarge=0 rescuepig=6075 rescuenopig=0
+XREACH u=11 m5=4 total=145060 pigeon=145060 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=15 m5=1 total=32271 pigeon=32271 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=15 m5=4 total=27488 pigeon=27488 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=19 m5=1 total=25136 pigeon=23384 del=1752 delunit=1391 dsmall=0 dlarge=361 rescuepig=1752 rescuenopig=0
+XREACH u=19 m5=4 total=17668 pigeon=11986 del=5682 delunit=4432 dsmall=898 dlarge=352 rescuepig=5682 rescuenopig=0
+XREACH u=23 m5=1 total=10232 pigeon=9638 del=594 delunit=270 dsmall=244 dlarge=80 rescuepig=594 rescuenopig=0
+XREACH u=23 m5=4 total=11394 pigeon=10713 del=681 delunit=307 dsmall=281 dlarge=93 rescuepig=681 rescuenopig=0
+XREACH u=27 m5=1 total=1926 pigeon=1446 del=480 delunit=353 dsmall=68 dlarge=59 rescuepig=480 rescuenopig=0
+XREACH u=27 m5=4 total=1892 pigeon=1374 del=518 delunit=366 dsmall=88 dlarge=64 rescuepig=518 rescuenopig=0
+XREACH u=31 m5=1 total=2040 pigeon=1704 del=336 delunit=240 dsmall=90 dlarge=6 rescuepig=336 rescuenopig=0
+XREACH u=31 m5=4 total=2628 pigeon=2559 del=69 delunit=34 dsmall=29 dlarge=6 rescuepig=69 rescuenopig=0
+XREACH u=35 m5=1 total=359 pigeon=321 del=38 delunit=37 dsmall=1 dlarge=0 rescuepig=38 rescuenopig=0
+XREACH u=35 m5=4 total=332 pigeon=307 del=25 delunit=20 dsmall=5 dlarge=0 rescuepig=25 rescuenopig=0
+XREACH u=39 m5=1 total=393 pigeon=368 del=25 delunit=19 dsmall=6 dlarge=0 rescuepig=25 rescuenopig=0
+XREACH u=39 m5=4 total=340 pigeon=281 del=59 delunit=50 dsmall=9 dlarge=0 rescuepig=59 rescuenopig=0
+XREACH u=43 m5=1 total=87 pigeon=16 del=71 delunit=46 dsmall=21 dlarge=4 rescuepig=71 rescuenopig=0
+XREACH u=43 m5=4 total=105 pigeon=27 del=78 delunit=45 dsmall=24 dlarge=9 rescuepig=78 rescuenopig=0
+XREACH u=47 m5=1 total=172 pigeon=150 del=22 delunit=11 dsmall=10 dlarge=1 rescuepig=22 rescuenopig=0
+XREACH u=47 m5=4 total=131 pigeon=108 del=23 delunit=11 dsmall=12 dlarge=0 rescuepig=23 rescuenopig=0
+XREACH u=51 m5=1 total=18 pigeon=4 del=14 delunit=10 dsmall=2 dlarge=2 rescuepig=14 rescuenopig=0
+XREACH u=51 m5=4 total=18 pigeon=10 del=8 delunit=4 dsmall=4 dlarge=0 rescuepig=8 rescuenopig=0
+XREACH u=55 m5=1 total=26 pigeon=19 del=7 delunit=2 dsmall=5 dlarge=0 rescuepig=7 rescuenopig=0
+XREACH u=55 m5=4 total=23 pigeon=20 del=3 delunit=1 dsmall=2 dlarge=0 rescuepig=3 rescuenopig=0
+XREACH u=59 m5=1 total=23 pigeon=14 del=9 delunit=5 dsmall=3 dlarge=1 rescuepig=9 rescuenopig=0
+XREACH u=59 m5=4 total=21 pigeon=9 del=12 delunit=9 dsmall=2 dlarge=1 rescuepig=12 rescuenopig=0
+XREACH u=63 m5=1 total=5 pigeon=5 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=63 m5=4 total=5 pigeon=4 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=67 m5=4 total=2 pigeon=0 del=2 delunit=2 dsmall=0 dlarge=0 rescuepig=2 rescuenopig=0
+XREACH u=71 m5=1 total=2 pigeon=2 del=0 delunit=0 dsmall=0 dlarge=0 rescuepig=0 rescuenopig=0
+XREACH u=71 m5=4 total=4 pigeon=3 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=75 m5=4 total=2 pigeon=1 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=79 m5=1 total=1 pigeon=0 del=1 delunit=0 dsmall=1 dlarge=0 rescuepig=1 rescuenopig=0
+XREACH u=83 m5=1 total=2 pigeon=0 del=2 delunit=2 dsmall=0 dlarge=0 rescuepig=2 rescuenopig=0
+RESCUE8 delicate=16589 rescued_pigeon=16589 rescued_coll=16589 no_pigeon_anywhere=0
+RESCUE8CHECK pig_no_coll=0 (must be 0: R5)
+RESCUE8U u=15 pig=2690 coll=2690 collfw=0
+RESCUE8U u=19 pig=3421 coll=3759 collfw=0
+RESCUE8U u=23 pig=11049 coll=11354 collfw=0
+RESCUE8U u=27 pig=3847 coll=5241 collfw=0
+RESCUE8U u=31 pig=9377 coll=10535 collfw=0
+RESCUE8U u=35 pig=5658 coll=6252 collfw=0
+RESCUE8U u=39 pig=9433 coll=10410 collfw=0
+RESCUE8U u=43 pig=926 coll=4562 collfw=0
+RESCUE8U u=47 pig=9818 coll=11316 collfw=0
+RESCUE8U u=51 pig=2254 coll=5275 collfw=0
+RESCUE8U u=55 pig=5905 coll=7681 collfw=0
+RESCUE8U u=59 pig=5361 coll=9082 collfw=0
+RESCUE8U u=63 pig=4312 coll=6349 collfw=0
+RESCUE8U u=67 pig=214 coll=4254 collfw=0
+RESCUE8U u=71 pig=8309 coll=10499 collfw=0
+RESCUE8U u=75 pig=819 coll=3298 collfw=0
+RESCUE8U u=79 pig=3917 coll=8353 collfw=0
+RESCUE8U u=83 pig=1977 coll=6691 collfw=0
+RESCUE8U u=87 pig=4637 coll=8303 collfw=0
+RESCUE8U u=91 pig=222 coll=3175 collfw=0
+RESCUE8U u=95 pig=7123 coll=10655 collfw=0
+RESCUE8U u=99 pig=736 coll=4397 collfw=0
+RESCUE8U u=103 pig=1413 coll=6432 collfw=0
+RESCUE8U u=107 pig=583 coll=4939 collfw=0
+RESCUE8U u=111 pig=6406 coll=10477 collfw=0
+RESCUE8U u=115 pig=143 coll=3908 collfw=0
+RESCUE8U u=119 pig=5800 coll=9360 collfw=0
+RESCUE8U u=123 pig=60 coll=1986 collfw=0
+RESCUE8U u=127 pig=621 coll=4903 collfw=0
+RESCUE8U u=131 pig=1575 coll=7110 collfw=0
+RESCUE8U u=135 pig=1652 coll=4928 collfw=0
+RESCUE8U u=139 pig=165 coll=3844 collfw=0
+RESCUE8U u=143 pig=4248 coll=8423 collfw=0
+RESCUE8U u=147 pig=11 coll=1692 collfw=0
+RESCUE8U u=151 pig=1215 coll=6406 collfw=0
+RESCUE8U u=155 pig=320 coll=5661 collfw=0
+RESCUE8U u=159 pig=3249 coll=7954 collfw=0
+RESCUE8U u=163 pig=0 coll=1298 collfw=0
+RESCUE8U u=167 pig=3353 coll=9078 collfw=0
+RESCUE8U u=171 pig=373 coll=4020 collfw=0
+RESCUE8U u=175 pig=892 coll=4534 collfw=0
+RESCUE8U u=179 pig=375 coll=4840 collfw=0
+RESCUE8U u=183 pig=707 coll=5364 collfw=0
+RESCUE8U u=187 pig=2 coll=1813 collfw=0
+RESCUE8U u=191 pig=3209 coll=8850 collfw=0
+RESCUE8U u=195 pig=85 coll=1850 collfw=0
+RESCUE8U u=199 pig=2702 coll=8469 collfw=0
+RESCUE8U u=203 pig=61 coll=3355 collfw=0
+RESCUE8U u=207 pig=299 coll=4603 collfw=0
+RESCUE8U u=211 pig=5 coll=1907 collfw=0
+RESCUE8U u=215 pig=2547 coll=8131 collfw=0
+RESCUE8U u=219 pig=23 coll=2629 collfw=0
+RESCUE8U u=223 pig=176 coll=3902 collfw=0
+RESCUE8U u=227 pig=136 coll=4363 collfw=0
+RESCUE8U u=231 pig=1159 coll=4862 collfw=0
+RESCUE8U u=235 pig=0 coll=1290 collfw=0
+RESCUE8U u=239 pig=2445 coll=8604 collfw=0
+RESCUE8U u=243 pig=31 coll=2367 collfw=0
+RESCUE8U u=247 pig=20 coll=3059 collfw=0
+RESCUE8U u=251 pig=378 coll=5325 collfw=0
+RESCUE8U u=255 pig=1236 coll=5453 collfw=0
+SUBFW checks=3042449 collision=0 pigeon=0
+U7 r7=1 total=389463 adm=389463 span=254489 fail=134974 inad=0 fivex=129809
+U7 r7=2 total=389952 adm=389952 span=254424 fail=135528 inad=0 fivex=129916
+U7 r7=3 total=389797 adm=389797 span=389797 fail=0 inad=0 fivex=130166
+U7 r7=4 total=414949 adm=414949 span=271190 fail=143759 inad=0 fivex=138726
+U7 r7=5 total=389841 adm=389841 span=389841 fail=0 inad=0 fivex=130118
+U7 r7=6 total=390029 adm=390029 span=390029 fail=0 inad=0 fivex=129830
+U7WIT r7=1 n7=389463 wit_ok=0
+U7WIT r7=2 n7=389952 wit_ok=0
+U7WIT r7=3 n7=389797 wit_ok=389797
+U7WIT r7=4 n7=414949 wit_ok=0
+U7WIT r7=5 n7=389841 wit_ok=0
+U7WIT r7=6 n7=390029 wit_ok=390029
+U7FAILPOP r7=1 0 0 38813 96161 0 0 0
+U7FAILPOP r7=2 0 0 0 135528 0 0 0
+U7FAILPOP r7=4 0 0 0 143759 0 0 0
+U7FC r7=1 span=254489 fail=134974 spanA=254489 spanB=0 spanC=0
+U7FCSPANV5 r7=1 depth0=124680 depth1=103865 depth2=20762 depth3=5182 d125=5182
+U7FAILPROFILE r7=1 v2_1=0 v2_2=65981 v2_3=68993 v5_0=134974 v5_1=0 v5_2=0 in840=134974 non840=0
+U7FC r7=2 span=254424 fail=135528 spanA=254424 spanB=0 spanC=0
+U7FCSPANV5 r7=2 depth0=124508 depth1=103900 depth2=20772 depth3=5244 d125=5244
+U7FAILPROFILE r7=2 v2_1=0 v2_2=66386 v2_3=69142 v5_0=135528 v5_1=0 v5_2=0 in840=135528 non840=0
+U7FC r7=4 span=271190 fail=143759 spanA=271190 spanB=0 spanC=0
+U7FCSPANV5 r7=4 depth0=132464 depth1=111036 depth2=22172 depth3=5518 d125=5518
+U7FAILPROFILE r7=4 v2_1=0 v2_2=70688 v2_3=73071 v5_0=143759 v5_1=0 v5_2=0 in840=143759 non840=0
+U7CHECK subfw_coll=0 (must be 0)
+U7D0MECH r7=1 pure2power=0 mixed=124680 pigeon=124680
+U7D0POP r7=1 0 0 0 0 12852 24675 87153
+U7FAILB840 r7=1 c1=67525 c121=0 c169=67449 c289=0 c361=0 c529=0
+U7D0MECH r7=2 pure2power=0 mixed=124508 pigeon=124508
+U7D0POP r7=2 0 0 0 0 0 0 124508
+U7FAILB840 r7=2 c1=0 c121=67702 c169=0 c289=67826 c361=0 c529=0
+U7D0MECH r7=4 pure2power=0 mixed=132464 pigeon=132464
+U7D0POP r7=4 0 0 0 0 0 0 132464
+U7FAILB840 r7=4 c1=0 c121=0 c169=0 c289=0 c361=71921 c529=71838
+U7D6GEN r7=2 gen3=124508 gen5=124508 gen3_d125=0 gen5_d125=0
+U7D6GEN r7=4 gen3=132464 gen5=132464 gen3_d125=0 gen5_d125=0
+U7FAILSET r7=1 mask=6 n=38813
+U7FAILSET r7=1 mask=22 n=96161
+U7FAILSETVM r7=1 mask=6 v2b=1 n=38813
+U7FAILSETVM r7=1 mask=22 v2b=1 n=27168
+U7FAILSETVM r7=1 mask=22 v2b=2 n=33699
+U7FAILSETVM r7=1 mask=22 v2b=3 n=35294
+U7FAILSET r7=2 mask=22 n=135528
+U7FAILSETVM r7=2 mask=22 v2b=1 n=66386
+U7FAILSETVM r7=2 mask=22 v2b=2 n=33960
+U7FAILSETVM r7=2 mask=22 v2b=3 n=35182
+U7FAILSET r7=4 mask=22 n=143759
+U7FAILSETVM r7=4 mask=22 v2b=1 n=70688
+U7FAILSETVM r7=4 mask=22 v2b=2 n=35618
+U7FAILSETVM r7=4 mask=22 v2b=3 n=37453
+U7IFF r7=1 span_cond=124680 span_notcond=0 fail_cond=0 fail_notcond=134974
+U7IFF r7=2 span_cond=124508 span_notcond=0 fail_cond=0 fail_notcond=135528
+U7IFF r7=4 span_cond=132464 span_notcond=0 fail_cond=0 fail_notcond=143759
+U7IFFCHECK mismatch=0 (must be 0; with the q residue in {3,5,6})
+U7FCCHECK span_miss=0 (must be 0)
+U11CHECK subfw_coll=0 (must be 0)
+U11CLASS r11=1 total=262527 adm=262527 span=19535 fail=26060 inad=0
+U11POP r11=1 0 0 4649 0 3222 18189 0 0 0 0 0
+U11POPSPAN r11=1 0 0 0 0 646 0 1824 789 825 2698 12753
+U11FAILSET r11=1 mask=10 n=4649
+U11FAILSET r11=1 mask=206 n=2244
+U11FAILSET r11=1 mask=538 n=3222
+U11FAILSET r11=1 mask=570 n=15945
+U11CLASS r11=2 total=262796 adm=262796 span=40090 fail=5843 inad=0
+U11POP r11=2 0 0 0 0 0 5843 0 0 0 0 0
+U11POPSPAN r11=2 0 0 0 0 0 0 0 2042 0 4833 33215
+U11FAILSET r11=2 mask=94 n=5843
+U11CLASS r11=3 total=262513 adm=262513 span=21575 fail=24015 inad=0
+U11POP r11=3 0 0 0 0 7064 16951 0 0 0 0 0
+U11POPSPAN r11=3 0 0 0 0 0 0 0 1097 1922 3858 14698
+U11FAILSET r11=3 mask=554 n=7064
+U11FAILSET r11=3 mask=570 n=16951
+U11CLASS r11=4 total=262532 adm=262532 span=23351 fail=25628 inad=0
+U11POP r11=4 0 0 0 0 5845 19783 0 0 0 0 0
+U11POPSPAN r11=4 0 0 0 0 0 0 0 1237 1567 3331 17216
+U11FAILSET r11=4 mask=58 n=5845
+U11FAILSET r11=4 mask=570 n=19783
+U11CLASS r11=5 total=262447 adm=262447 span=21652 fail=23590 inad=0
+U11POP r11=5 0 0 0 0 0 23590 0 0 0 0 0
+U11POPSPAN r11=5 0 0 0 0 0 0 0 0 0 754 20898
+U11FAILSET r11=5 mask=570 n=23590
+U11CLASS r11=6 total=262997 adm=262997 span=40196 fail=5783 inad=0
+U11POP r11=6 0 0 0 0 0 5783 0 0 0 0 0
+U11POPSPAN r11=6 0 0 0 0 0 0 0 4167 0 2739 33290
+U11FAILSET r11=6 mask=714 n=5783
+U11CLASS r11=7 total=262274 adm=262274 span=45447 fail=0 inad=0
+U11POP r11=7 0 0 0 0 0 0 0 0 0 0 0
+U11POPSPAN r11=7 0 0 0 0 0 0 5482 0 1444 11091 27430
+U11CLASS r11=9 total=262817 adm=262817 span=21856 fail=23827 inad=0
+U11POP r11=9 0 0 0 0 0 23827 0 0 0 0 0
+U11POPSPAN r11=9 0 0 0 0 0 0 0 0 0 1072 20784
+U11FAILSET r11=9 mask=570 n=23827
+U11CLASS r11=10 total=263128 adm=263128 span=45813 fail=0 inad=0
+U11POP r11=10 0 0 0 0 0 0 0 0 0 0 0
+U11POPSPAN r11=10 0 0 0 0 5429 0 0 0 5903 0 34481
+U11COLLCHECK collisions=0 among fw>11 failers (census row, not an error gate)
+U11FW7CHECK fw7spanners=1949770 (the earlier-layer spanners, excluded from the fail cells)
+U11RCHECK nonespan=0 (must be 0)
+U11Q3 r11=1 23816 92419 0 2244 124513 19535
+U11IFF r11=1 cond_span11=19535 cond_fail11=0 nocond_span11=124513 nocond_fail11=92419
+U11FW7 r11=1 n=216932
+U11COLL3 r11=1 26060 0 0 0 0 19535
+U11Q3 r11=2 0 0 0 5843 216863 40090
+U11IFF r11=2 cond_span11=40090 cond_fail11=0 nocond_span11=216863 nocond_fail11=0
+U11FW7 r11=2 n=216863
+U11COLL3 r11=2 5843 0 0 0 0 40090
+U11Q3 r11=3 24015 92324 0 0 124599 21575
+U11IFF r11=3 cond_span11=21575 cond_fail11=0 nocond_span11=124599 nocond_fail11=92324
+U11FW7 r11=3 n=216923
+U11COLL3 r11=3 24015 0 0 0 0 21575
+U11Q3 r11=4 25628 90583 0 0 122970 23351
+U11IFF r11=4 cond_span11=23351 cond_fail11=0 nocond_span11=122970 nocond_fail11=90583
+U11FW7 r11=4 n=213553
+U11COLL3 r11=4 25628 0 0 0 0 23351
+U11Q3 r11=5 23590 92847 0 0 124358 21652
+U11IFF r11=5 cond_span11=21652 cond_fail11=0 nocond_span11=124358 nocond_fail11=92847
+U11FW7 r11=5 n=217205
+U11COLL3 r11=5 23590 0 0 0 0 21652
+U11Q3 r11=6 0 0 0 5783 217018 40196
+U11IFF r11=6 cond_span11=40196 cond_fail11=0 nocond_span11=217018 nocond_fail11=0
+U11FW7 r11=6 n=217018
+U11COLL3 r11=6 5783 0 0 0 0 40196
+U11Q3 r11=7 0 0 0 0 216827 45447
+U11IFF r11=7 cond_span11=45447 cond_fail11=0 nocond_span11=216827 nocond_fail11=0
+U11FW7 r11=7 n=216827
+U11COLL3 r11=7 0 0 0 0 0 45447
+U11Q3 r11=9 23827 92647 0 0 124487 21856
+U11IFF r11=9 cond_span11=21856 cond_fail11=0 nocond_span11=124487 nocond_fail11=92647
+U11FW7 r11=9 n=217134
+U11COLL3 r11=9 23827 0 0 0 0 21856
+U11Q3 r11=10 0 0 0 0 217315 45813
+U11IFF r11=10 cond_span11=45813 cond_fail11=0 nocond_span11=217315 nocond_fail11=0
+U11FW7 r11=10 n=217315
+U11COLL3 r11=10 0 0 0 0 0 45813
+U11IFFCHECK mismatch=13870 (soft census row; the non-QR-odd-prime condition)
+U11QRBKT r11=1 allQR=0 v2b=0 span=124513 fail=2244
+U11QRBKT r11=1 allQR=0 v2b=1 span=0 fail=19535
+U11QRBKT r11=1 allQR=1 v2b=0 span=92419 fail=23816
+U11PCNT3 r11=1 cnt=0 fail=23816 fw7=92419 span=0
+U11PCNT3 r11=1 cnt=2 fail=2244 fw7=116678 span=19017
+U11PCNT3 r11=1 cnt=4 fail=0 fw7=7722 span=517
+U11PCNT3 r11=1 cnt=6 fail=0 fw7=112 span=1
+U11PCNT3 r11=1 cnt=8 fail=0 fw7=1 span=0
+U11PRES3 r11=1 pres=2 cnt=2 fail=1172 fw7=20872 span=4606
+U11PRES3 r11=1 pres=2 cnt=4 fail=0 fw7=1034 span=311
+U11PRES3 r11=1 pres=2 cnt=6 fail=0 fw7=2 span=0
+U11PRES3 r11=1 pres=6 cnt=2 fail=1072 fw7=19249 span=4165
+U11PRES3 r11=1 pres=6 cnt=4 fail=0 fw7=485 span=110
+U11PRES3 r11=1 pres=6 cnt=6 fail=0 fw7=0 span=1
+U11PRES3 r11=1 pres=7 cnt=2 fail=0 fw7=49364 span=3111
+U11PRES3 r11=1 pres=7 cnt=4 fail=0 fw7=5940 span=26
+U11PRES3 r11=1 pres=7 cnt=6 fail=0 fw7=110 span=0
+U11PRES3 r11=1 pres=7 cnt=8 fail=0 fw7=1 span=0
+U11PRES3 r11=1 pres=8 cnt=2 fail=0 fw7=17476 span=4714
+U11PRES3 r11=1 pres=8 cnt=4 fail=0 fw7=247 span=66
+U11PRES3 r11=1 pres=10 cnt=2 fail=0 fw7=9717 span=2421
+U11PRES3 r11=1 pres=10 cnt=4 fail=0 fw7=16 span=4
+U11RMASK r11=1U11RMASK r11=1 mask=56 n=789
+U11RMASK r11=1 mask=63 n=18746
+U11QRBKT r11=2 allQR=0 v2b=0 span=216863 fail=5843
+U11QRBKT r11=2 allQR=0 v2b=1 span=0 fail=40090
+U11PCNT3 r11=2 cnt=1 fail=5843 fw7=177312 span=35380
+U11PCNT3 r11=2 cnt=3 fail=0 fw7=38481 span=4681
+U11PCNT3 r11=2 cnt=5 fail=0 fw7=1051 span=29
+U11PCNT3 r11=2 cnt=7 fail=0 fw7=19 span=0
+U11PRES3 r11=2 pres=2 cnt=1 fail=5843 fw7=48138 span=5257
+U11PRES3 r11=2 pres=2 cnt=3 fail=0 fw7=6327 span=1853
+U11PRES3 r11=2 pres=2 cnt=5 fail=0 fw7=81 span=24
+U11PRES3 r11=2 pres=6 cnt=1 fail=0 fw7=26979 span=7755
+U11PRES3 r11=2 pres=6 cnt=3 fail=0 fw7=4519 span=1231
+U11PRES3 r11=2 pres=6 cnt=5 fail=0 fw7=30 span=5
+U11PRES3 r11=2 pres=7 cnt=1 fail=0 fw7=48667 span=8631
+U11PRES3 r11=2 pres=7 cnt=3 fail=0 fw7=23035 span=432
+U11PRES3 r11=2 pres=7 cnt=5 fail=0 fw7=935 span=0
+U11PRES3 r11=2 pres=7 cnt=7 fail=0 fw7=19 span=0
+U11PRES3 r11=2 pres=8 cnt=1 fail=0 fw7=32430 span=8313
+U11PRES3 r11=2 pres=8 cnt=3 fail=0 fw7=3712 span=944
+U11PRES3 r11=2 pres=8 cnt=5 fail=0 fw7=5 span=0
+U11PRES3 r11=2 pres=10 cnt=1 fail=0 fw7=21098 span=5424
+U11PRES3 r11=2 pres=10 cnt=3 fail=0 fw7=888 span=221
+U11RMASK r11=2U11RMASK r11=2 mask=56 n=2042
+U11RMASK r11=2 mask=59 n=6076
+U11RMASK r11=2 mask=60 n=4833
+U11RMASK r11=2 mask=63 n=27139
+U11QRBKT r11=3 allQR=0 v2b=0 span=124599 fail=0
+U11QRBKT r11=3 allQR=0 v2b=1 span=0 fail=21575
+U11QRBKT r11=3 allQR=1 v2b=0 span=92324 fail=24015
+U11PCNT3 r11=3 cnt=0 fail=24015 fw7=92324 span=0
+U11PCNT3 r11=3 cnt=2 fail=0 fw7=116836 span=21049
+U11PCNT3 r11=3 cnt=4 fail=0 fw7=7653 span=524
+U11PCNT3 r11=3 cnt=6 fail=0 fw7=110 span=2
+U11PRES3 r11=3 pres=2 cnt=2 fail=0 fw7=20796 span=5854
+U11PRES3 r11=3 pres=2 cnt=4 fail=0 fw7=1024 span=314
+U11PRES3 r11=3 pres=2 cnt=6 fail=0 fw7=2 span=1
+U11PRES3 r11=3 pres=6 cnt=2 fail=0 fw7=19170 span=5190
+U11PRES3 r11=3 pres=6 cnt=4 fail=0 fw7=475 span=125
+U11PRES3 r11=3 pres=7 cnt=2 fail=0 fw7=49478 span=3004
+U11PRES3 r11=3 pres=7 cnt=4 fail=0 fw7=5909 span=20
+U11PRES3 r11=3 pres=7 cnt=6 fail=0 fw7=108 span=0
+U11PRES3 r11=3 pres=8 cnt=2 fail=0 fw7=17683 span=4590
+U11PRES3 r11=3 pres=8 cnt=4 fail=0 fw7=225 span=64
+U11PRES3 r11=3 pres=8 cnt=6 fail=0 fw7=0 span=1
+U11PRES3 r11=3 pres=10 cnt=2 fail=0 fw7=9709 span=2411
+U11PRES3 r11=3 pres=10 cnt=4 fail=0 fw7=20 span=1
+U11RMASK r11=3U11RMASK r11=3 mask=41 n=1097
+U11RMASK r11=3 mask=59 n=4460
+U11RMASK r11=3 mask=62 n=2068
+U11RMASK r11=3 mask=63 n=13950
+U11QRBKT r11=4 allQR=0 v2b=0 span=122970 fail=0
+U11QRBKT r11=4 allQR=0 v2b=1 span=0 fail=23351
+U11QRBKT r11=4 allQR=1 v2b=0 span=90583 fail=25628
+U11PCNT3 r11=4 cnt=0 fail=25628 fw7=90583 span=0
+U11PCNT3 r11=4 cnt=2 fail=0 fw7=115238 span=22834
+U11PCNT3 r11=4 cnt=4 fail=0 fw7=7608 span=517
+U11PCNT3 r11=4 cnt=6 fail=0 fw7=123 span=0
+U11PCNT3 r11=4 cnt=8 fail=0 fw7=1 span=0
+U11PRES3 r11=4 pres=2 cnt=2 fail=0 fw7=20276 span=6256
+U11PRES3 r11=4 pres=2 cnt=4 fail=0 fw7=980 span=317
+U11PRES3 r11=4 pres=2 cnt=6 fail=0 fw7=3 span=0
+U11PRES3 r11=4 pres=6 cnt=2 fail=0 fw7=18894 span=5659
+U11PRES3 r11=4 pres=6 cnt=4 fail=0 fw7=449 span=128
+U11PRES3 r11=4 pres=7 cnt=2 fail=0 fw7=49308 span=3244
+U11PRES3 r11=4 pres=7 cnt=4 fail=0 fw7=5936 span=10
+U11PRES3 r11=4 pres=7 cnt=6 fail=0 fw7=120 span=0
+U11PRES3 r11=4 pres=7 cnt=8 fail=0 fw7=1 span=0
+U11PRES3 r11=4 pres=8 cnt=2 fail=0 fw7=17282 span=5061
+U11PRES3 r11=4 pres=8 cnt=4 fail=0 fw7=234 span=60
+U11PRES3 r11=4 pres=10 cnt=2 fail=0 fw7=9478 span=2614
+U11PRES3 r11=4 pres=10 cnt=4 fail=0 fw7=9 span=2
+U11RMASK r11=4U11RMASK r11=4 mask=40 n=1237
+U11RMASK r11=4 mask=61 n=5506
+U11RMASK r11=4 mask=63 n=16608
+U11QRBKT r11=5 allQR=0 v2b=0 span=124358 fail=0
+U11QRBKT r11=5 allQR=0 v2b=1 span=0 fail=21652
+U11QRBKT r11=5 allQR=1 v2b=0 span=92847 fail=23590
+U11PCNT3 r11=5 cnt=0 fail=23590 fw7=92847 span=0
+U11PCNT3 r11=5 cnt=2 fail=0 fw7=116508 span=21162
+U11PCNT3 r11=5 cnt=4 fail=0 fw7=7720 span=490
+U11PCNT3 r11=5 cnt=6 fail=0 fw7=129 span=0
+U11PCNT3 r11=5 cnt=8 fail=0 fw7=1 span=0
+U11PRES3 r11=5 pres=2 cnt=2 fail=0 fw7=20620 span=5778
+U11PRES3 r11=5 pres=2 cnt=4 fail=0 fw7=996 span=299
+U11PRES3 r11=5 pres=2 cnt=6 fail=0 fw7=4 span=0
+U11PRES3 r11=5 pres=6 cnt=2 fail=0 fw7=19231 span=5202
+U11PRES3 r11=5 pres=6 cnt=4 fail=0 fw7=464 span=115
+U11PRES3 r11=5 pres=7 cnt=2 fail=0 fw7=49423 span=3038
+U11PRES3 r11=5 pres=7 cnt=4 fail=0 fw7=5977 span=11
+U11PRES3 r11=5 pres=7 cnt=6 fail=0 fw7=125 span=0
+U11PRES3 r11=5 pres=7 cnt=8 fail=0 fw7=1 span=0
+U11PRES3 r11=5 pres=8 cnt=2 fail=0 fw7=17582 span=4653
+U11PRES3 r11=5 pres=8 cnt=4 fail=0 fw7=272 span=60
+U11PRES3 r11=5 pres=10 cnt=2 fail=0 fw7=9652 span=2491
+U11PRES3 r11=5 pres=10 cnt=4 fail=0 fw7=11 span=5
+U11RMASK r11=5U11RMASK r11=5 mask=58 n=754
+U11RMASK r11=5 mask=61 n=2879
+U11RMASK r11=5 mask=62 n=3716
+U11RMASK r11=5 mask=63 n=14303
+U11QRBKT r11=6 allQR=0 v2b=0 span=217018 fail=5783
+U11QRBKT r11=6 allQR=0 v2b=1 span=0 fail=40196
+U11PCNT3 r11=6 cnt=1 fail=5783 fw7=177442 span=35519
+U11PCNT3 r11=6 cnt=3 fail=0 fw7=38472 span=4649
+U11PCNT3 r11=6 cnt=5 fail=0 fw7=1093 span=28
+U11PCNT3 r11=6 cnt=7 fail=0 fw7=11 span=0
+U11PRES3 r11=6 pres=2 cnt=1 fail=0 fw7=33750 span=8855
+U11PRES3 r11=6 pres=2 cnt=3 fail=0 fw7=6215 span=1768
+U11PRES3 r11=6 pres=2 cnt=5 fail=0 fw7=97 span=17
+U11PRES3 r11=6 pres=6 cnt=1 fail=5783 fw7=47801 span=5249
+U11PRES3 r11=6 pres=6 cnt=3 fail=0 fw7=4564 span=1226
+U11PRES3 r11=6 pres=6 cnt=5 fail=0 fw7=18 span=9
+U11PRES3 r11=6 pres=7 cnt=1 fail=0 fw7=43207 span=6400
+U11PRES3 r11=6 pres=7 cnt=3 fail=0 fw7=23167 span=448
+U11PRES3 r11=6 pres=7 cnt=5 fail=0 fw7=975 span=0
+U11PRES3 r11=6 pres=7 cnt=7 fail=0 fw7=11 span=0
+U11PRES3 r11=6 pres=8 cnt=1 fail=0 fw7=26596 span=6821
+U11PRES3 r11=6 pres=8 cnt=3 fail=0 fw7=3607 span=999
+U11PRES3 r11=6 pres=8 cnt=5 fail=0 fw7=3 span=2
+U11PRES3 r11=6 pres=10 cnt=1 fail=0 fw7=26088 span=8194
+U11PRES3 r11=6 pres=10 cnt=3 fail=0 fw7=919 span=208
+U11RMASK r11=6U11RMASK r11=6 mask=57 n=4167
+U11RMASK r11=6 mask=58 n=1523
+U11RMASK r11=6 mask=59 n=1216
+U11RMASK r11=6 mask=61 n=3218
+U11RMASK r11=6 mask=62 n=6092
+U11RMASK r11=6 mask=63 n=23980
+U11QRBKT r11=7 allQR=0 v2b=0 span=216827 fail=0
+U11QRBKT r11=7 allQR=0 v2b=1 span=0 fail=45447
+U11PCNT3 r11=7 cnt=1 fail=0 fw7=177013 span=40868
+U11PCNT3 r11=7 cnt=3 fail=0 fw7=38706 span=4546
+U11PCNT3 r11=7 cnt=5 fail=0 fw7=1099 span=33
+U11PCNT3 r11=7 cnt=7 fail=0 fw7=9 span=0
+U11PRES3 r11=7 pres=2 cnt=1 fail=0 fw7=27916 span=7303
+U11PRES3 r11=7 pres=2 cnt=3 fail=0 fw7=6306 span=1739
+U11PRES3 r11=7 pres=2 cnt=5 fail=0 fw7=76 span=27
+U11PRES3 r11=7 pres=6 cnt=1 fail=0 fw7=33223 span=8482
+U11PRES3 r11=7 pres=6 cnt=3 fail=0 fw7=4539 span=1207
+U11PRES3 r11=7 pres=6 cnt=5 fail=0 fw7=16 span=4
+U11PRES3 r11=7 pres=7 cnt=1 fail=0 fw7=63827 span=9534
+U11PRES3 r11=7 pres=7 cnt=3 fail=0 fw7=23220 span=439
+U11PRES3 r11=7 pres=7 cnt=5 fail=0 fw7=1001 span=0
+U11PRES3 r11=7 pres=7 cnt=7 fail=0 fw7=9 span=0
+U11PRES3 r11=7 pres=8 cnt=1 fail=0 fw7=31151 span=9747
+U11PRES3 r11=7 pres=8 cnt=3 fail=0 fw7=3701 span=961
+U11PRES3 r11=7 pres=8 cnt=5 fail=0 fw7=6 span=2
+U11PRES3 r11=7 pres=10 cnt=1 fail=0 fw7=20896 span=5802
+U11PRES3 r11=7 pres=10 cnt=3 fail=0 fw7=940 span=200
+U11RMASK r11=7U11RMASK r11=7 mask=59 n=13050
+U11RMASK r11=7 mask=63 n=32397
+U11QRBKT r11=9 allQR=0 v2b=0 span=124487 fail=0
+U11QRBKT r11=9 allQR=0 v2b=1 span=0 fail=21856
+U11QRBKT r11=9 allQR=1 v2b=0 span=92647 fail=23827
+U11PCNT3 r11=9 cnt=0 fail=23827 fw7=92647 span=0
+U11PCNT3 r11=9 cnt=2 fail=0 fw7=116652 span=21378
+U11PCNT3 r11=9 cnt=4 fail=0 fw7=7717 span=477
+U11PCNT3 r11=9 cnt=6 fail=0 fw7=118 span=1
+U11PRES3 r11=9 pres=2 cnt=2 fail=0 fw7=20864 span=5857
+U11PRES3 r11=9 pres=2 cnt=4 fail=0 fw7=1030 span=277
+U11PRES3 r11=9 pres=2 cnt=6 fail=0 fw7=5 span=1
+U11PRES3 r11=9 pres=6 cnt=2 fail=0 fw7=19395 span=5271
+U11PRES3 r11=9 pres=6 cnt=4 fail=0 fw7=469 span=122
+U11PRES3 r11=9 pres=7 cnt=2 fail=0 fw7=49180 span=3014
+U11PRES3 r11=9 pres=7 cnt=4 fail=0 fw7=5964 span=19
+U11PRES3 r11=9 pres=7 cnt=6 fail=0 fw7=113 span=0
+U11PRES3 r11=9 pres=8 cnt=2 fail=0 fw7=17512 span=4753
+U11PRES3 r11=9 pres=8 cnt=4 fail=0 fw7=243 span=57
+U11PRES3 r11=9 pres=10 cnt=2 fail=0 fw7=9701 span=2483
+U11PRES3 r11=9 pres=10 cnt=4 fail=0 fw7=11 span=2
+U11RMASK r11=9U11RMASK r11=9 mask=59 n=2454
+U11RMASK r11=9 mask=60 n=1072
+U11RMASK r11=9 mask=63 n=18330
+U11QRBKT r11=10 allQR=0 v2b=0 span=217315 fail=0
+U11QRBKT r11=10 allQR=0 v2b=1 span=0 fail=45813
+U11PCNT3 r11=10 cnt=1 fail=0 fw7=177352 span=41161
+U11PCNT3 r11=10 cnt=3 fail=0 fw7=38864 span=4623
+U11PCNT3 r11=10 cnt=5 fail=0 fw7=1093 span=29
+U11PCNT3 r11=10 cnt=7 fail=0 fw7=6 span=0
+U11PRES3 r11=10 pres=2 cnt=1 fail=0 fw7=32663 span=10149
+U11PRES3 r11=10 pres=2 cnt=3 fail=0 fw7=6433 span=1777
+U11PRES3 r11=10 pres=2 cnt=5 fail=0 fw7=85 span=21
+U11PRES3 r11=10 pres=6 cnt=1 fail=0 fw7=27328 span=7199
+U11PRES3 r11=10 pres=6 cnt=3 fail=0 fw7=4606 span=1233
+U11PRES3 r11=10 pres=6 cnt=5 fail=0 fw7=26 span=7
+U11PRES3 r11=10 pres=7 cnt=1 fail=0 fw7=49706 span=7185
+U11PRES3 r11=10 pres=7 cnt=3 fail=0 fw7=23359 span=433
+U11PRES3 r11=10 pres=7 cnt=5 fail=0 fw7=977 span=0
+U11PRES3 r11=10 pres=7 cnt=7 fail=0 fw7=6 span=0
+U11PRES3 r11=10 pres=8 cnt=1 fail=0 fw7=26088 span=7523
+U11PRES3 r11=10 pres=8 cnt=3 fail=0 fw7=3578 span=963
+U11PRES3 r11=10 pres=8 cnt=5 fail=0 fw7=5 span=1
+U11PRES3 r11=10 pres=10 cnt=1 fail=0 fw7=41567 span=9105
+U11PRES3 r11=10 pres=10 cnt=3 fail=0 fw7=888 span=217
+U11RMASK r11=10U11RMASK r11=10 mask=63 n=45813
+U11RNONESPAN = 0 (spanners with no M^2-window route: must be 0)
+U15CLASS r15=1 total=788009 adm=788009 span=32271 fail=40422 inad=0
+U15POP r15=1 0 0 0 19418 21004 0 0 0 0 0 0 0
+U15POPSPAN r15=1 0 0 0 0 0 0 12893 5127 14251 0 0 0
+U15FAILSET r15=1 mask=22 n=19418
+U15FAILSET r15=1 mask=278 n=21004
+U15FW711 r15=1 n=715316
+U15CRT r15=1 eq=328995 ne=459014 eqrate=4175
+U15CRTDEF r15=1 deficit=1 n=68769
+U15CRTDEF r15=1 deficit=2 n=57148
+U15CRTDEF r15=1 deficit=3 n=160864
+U15CRTDEF r15=1 deficit=4 n=172233
+U15CLASS r15=4 total=787457 adm=787457 span=27488 fail=34565 inad=0
+U15POP r15=4 0 0 0 0 34565 0 0 0 0 0 0 0
+U15POPSPAN r15=4 0 0 0 0 0 0 0 0 27488 0 0 0
+U15FAILSET r15=4 mask=278 n=34565
+U15FW711 r15=4 n=725404
+U15CRT r15=4 eq=454012 ne=333445 eqrate=5765
+U15CRTDEF r15=4 deficit=4 n=333445
+U15CLASS r15=13 total=788565 adm=788565 span=0 fail=0 inad=0
+U15POP r15=13 0 0 0 0 0 0 0 0 0 0 0 0
+U15POPSPAN r15=13 0 0 0 0 0 0 0 0 0 0 0 0
+U15FW711 r15=13 n=788565
+U15CRT r15=13 eq=621613 ne=166952 eqrate=7882
+U15CRTDEF r15=13 deficit=1 n=166952
+U15FW3 fw3=0 (expect 0: x3 = (p+3)/4 odd for (H24))
+U15CRTNEG crt_neg=0 (must be 0: the CRT pairing is an injection bound)
+U15COLLCHECK collisions=0 among fw>15 failers (census row, not an error gate)
+U15DEF r15=1 mask3=6 mask5=22 cells: 0 0 0 160864 0 0 0 0 0 0 0 0
+U15DEF r15=1 mask3=6 mask5=30 cells: 0 68769 57148 0 172233 0 0 0 0 0 0 0
+U15DEF r15=4 mask3=6 mask5=30 cells: 0 0 0 0 333445 0 0 0 0 0 0 0
+U15DEF r15=13 mask3=6 mask5=30 cells: 0 166952 0 0 0 0 0 0 0 0 0 0
+U15DEFMAX capped=0 (must be 0)
+U15ALG mismatch=0 (must be 0: the pair-set algebra is exact)
+U15ORBPREF r15=1 pref=3 fail=19418 early=327193 span=16829
+U15ORBPREF r15=1 pref=4 fail=21004 early=388123 span=15442
+U15SPANSET r15=1 mask=18582 n=5593
+U15SPANSET r15=1 mask=18838 n=325
+U15SPANSET r15=1 mask=26646 n=7300
+U15SPANSET r15=1 mask=26774 n=3936
+U15SPANSET r15=1 mask=26902 n=866
+U15SPANSET r15=1 mask=27030 n=14251
+U15ROUTE r15=1 0 0 0 32271
+U15ODDC r15=1 oddpairs=0 n=1693
+U15ODDC r15=1 oddpairs=1 n=15267
+U15ODDC r15=1 oddpairs=2 n=13862
+U15ODDC r15=1 oddpairs=3 n=1448
+U15ODDC r15=1 oddpairs=4 n=1
+U15ORBPREF r15=4 pref=4 fail=34565 early=725404 span=27488
+U15SPANSET r15=4 mask=27030 n=27488
+U15ROUTE r15=4 0 7269 5264 14955
+U15ODDC r15=4 oddpairs=0 n=870
+U15ODDC r15=4 oddpairs=1 n=14276
+U15ODDC r15=4 oddpairs=2 n=11150
+U15ODDC r15=4 oddpairs=3 n=1191
+U15ODDC r15=4 oddpairs=4 n=1
+U15ORBPREF r15=13 pref=4 fail=0 early=788565 span=0
+U15ROUTE r15=13 0 0 0 0
+U15SNONE noroute=0 (must be 0)
+U19CLASS r19=1 total=130495 adm=130495 span=1350 fail=3310 inad=0
+U19POP r19=1 0 0 672 52 797 178 914 185 142 370 0 0
+U19POPSPAN r19=1 0 0 0 0 83 0 55 17 205 1 125 45
+U19FAILSET r19=1 mask=34 n=672
+U19FAILSET r19=1 mask=114 n=237
+U19FAILSET r19=1 mask=298 n=60
+U19FAILSET r19=1 mask=546 n=20
+U19FAILSET r19=1 mask=810 n=5
+U19FAILSET r19=1 mask=1058 n=32
+U19FAILSET r19=1 mask=1402 n=7
+U19FAILSET r19=1 mask=4134 n=37
+U19FAILSET r19=1 mask=4214 n=1
+U19FAILSET r19=1 mask=4398 n=56
+U19FAILSET r19=1 mask=4478 n=14
+U19FAILSET r19=1 mask=5158 n=82
+U19FAILSET r19=1 mask=5238 n=23
+U19FAILSET r19=1 mask=5502 n=21
+U19FAILSET r19=1 mask=40994 n=89
+U19FAILSET r19=1 mask=41258 n=116
+U19FAILSET r19=1 mask=41770 n=11
+U19FAILSET r19=1 mask=45606 n=2
+U19FAILSET r19=1 mask=67618 n=132
+U19FAILSET r19=1 mask=67698 n=116
+U19FAILSET r19=1 mask=68210 n=15
+U19FAILSET r19=1 mask=71718 n=2
+U19FAILSET r19=1 mask=108578 n=7
+U19FAILSET r19=1 mask=109602 n=35
+U19FAILSET r19=1 mask=112678 n=1
+U19FAILSET r19=1 mask=131234 n=242
+U19FAILSET r19=1 mask=131314 n=11
+U19FAILSET r19=1 mask=131498 n=1
+U19FAILSET r19=1 mask=131746 n=91
+U19FAILSET r19=1 mask=131826 n=54
+U19FAILSET r19=1 mask=172194 n=47
+U19FAILSET r19=1 mask=172458 n=10
+U19FAILSET r19=1 mask=172970 n=13
+U19FAILSET r19=1 mask=173218 n=38
+U19FAILSET r19=1 mask=198818 n=557
+U19FAILSET r19=1 mask=198898 n=117
+U19FAILSET r19=1 mask=199410 n=277
+U19FAILSET r19=1 mask=240802 n=59
+U19FW71115 r19=1 n=125835
+U19CLASS r19=2 total=130581 adm=130581 span=2837 fail=1758 inad=0
+U19POP r19=2 0 0 0 345 0 436 0 603 0 374 0 0
+U19POPSPAN r19=2 0 0 0 0 0 0 52 117 10 20 94 191
+U19FAILSET r19=2 mask=1030 n=345
+U19FAILSET r19=2 mask=1078 n=436
+U19FAILSET r19=2 mask=5430 n=189
+U19FAILSET r19=2 mask=11406 n=175
+U19FAILSET r19=2 mask=52358 n=200
+U19FAILSET r19=2 mask=60558 n=210
+U19FAILSET r19=2 mask=70982 n=39
+U19FAILSET r19=2 mask=71030 n=164
+U19FW71115 r19=2 n=125986
+U19CLASS r19=3 total=130757 adm=130757 span=3124 fail=1624 inad=0
+U19POP r19=3 0 0 0 0 341 0 718 211 14 340 0 0
+U19POPSPAN r19=3 0 0 0 0 0 0 0 0 282 1 294 134
+U19FAILSET r19=3 mask=32906 n=341
+U19FAILSET r19=3 mask=33450 n=429
+U19FAILSET r19=3 mask=33706 n=57
+U19FAILSET r19=3 mask=41102 n=289
+U19FAILSET r19=3 mask=41646 n=14
+U19FAILSET r19=3 mask=41902 n=124
+U19FAILSET r19=3 mask=52362 n=154
+U19FAILSET r19=3 mask=60558 n=216
+U19FW71115 r19=3 n=126009
+U19CLASS r19=4 total=130583 adm=130583 span=2056 fail=3006 inad=0
+U19POP r19=4 0 0 313 0 490 168 778 94 362 801 0 0
+U19POPSPAN r19=4 0 0 0 0 39 0 76 0 84 0 275 66
+U19FAILSET r19=4 mask=18 n=313
+U19FAILSET r19=4 mask=1302 n=86
+U19FAILSET r19=4 mask=2770 n=408
+U19FAILSET r19=4 mask=13586 n=59
+U19FAILSET r19=4 mask=28698 n=113
+U19FAILSET r19=4 mask=65586 n=490
+U19FAILSET r19=4 mask=65778 n=198
+U19FAILSET r19=4 mask=66870 n=40
+U19FAILSET r19=4 mask=68338 n=362
+U19FAILSET r19=4 mask=79158 n=88
+U19FAILSET r19=4 mask=133650 n=82
+U19FAILSET r19=4 mask=162330 n=15
+U19FAILSET r19=4 mask=199218 n=54
+U19FAILSET r19=4 mask=199410 n=698
+U19FW71115 r19=4 n=125521
+U19CLASS r19=5 total=130347 adm=130347 span=1897 fail=2721 inad=0
+U19POP r19=5 0 0 0 0 778 0 243 321 301 1078 0 0
+U19POPSPAN r19=5 0 0 0 0 0 0 29 0 215 0 187 65
+U19FAILSET r19=5 mask=2146 n=778
+U19FAILSET r19=5 mask=7274 n=103
+U19FAILSET r19=5 mask=35950 n=55
+U19FAILSET r19=5 mask=40046 n=94
+U19FAILSET r19=5 mask=68322 n=218
+U19FAILSET r19=5 mask=133234 n=243
+U19FAILSET r19=5 mask=138362 n=6
+U19FAILSET r19=5 mask=199282 n=246
+U19FAILSET r19=5 mask=199410 n=978
+U19FW71115 r19=5 n=125729
+U19CLASS r19=6 total=130546 adm=130546 span=2034 fail=2559 inad=0
+U19POP r19=6 0 0 0 0 443 41 808 11 355 901 0 0
+U19POPSPAN r19=6 0 0 0 0 0 0 0 79 153 4 63 161
+U19FAILSET r19=6 mask=2626 n=443
+U19FAILSET r19=6 mask=2770 n=260
+U19FAILSET r19=6 mask=39490 n=24
+U19FAILSET r19=6 mask=55878 n=55
+U19FAILSET r19=6 mask=68162 n=41
+U19FAILSET r19=6 mask=121414 n=6
+U19FAILSET r19=6 mask=133730 n=524
+U19FAILSET r19=6 mask=133874 n=300
+U19FAILSET r19=6 mask=199266 n=11
+U19FAILSET r19=6 mask=199410 n=895
+U19FW71115 r19=6 n=125953
+U19CLASS r19=7 total=130492 adm=130492 span=1819 fail=2715 inad=0
+U19POP r19=7 0 0 0 0 300 0 1308 138 88 881 0 0
+U19POPSPAN r19=7 0 0 0 0 0 0 0 0 183 0 43 19
+U19FAILSET r19=7 mask=196738 n=300
+U19FAILSET r19=7 mask=197266 n=46
+U19FAILSET r19=7 mask=197330 n=48
+U19FAILSET r19=7 mask=198818 n=1234
+U19FAILSET r19=7 mask=199346 n=88
+U19FAILSET r19=7 mask=199410 n=715
+U19FAILSET r19=7 mask=230530 n=28
+U19FAILSET r19=7 mask=238722 n=90
+U19FAILSET r19=7 mask=240802 n=166
+U19FW71115 r19=7 n=125958
+U19CLASS r19=8 total=130956 adm=130956 span=0 fail=0 inad=0
+U19POP r19=8 0 0 0 0 0 0 0 0 0 0 0 0
+U19POPSPAN r19=8 0 0 0 0 0 0 0 0 0 0 0 0
+U19FW71115 r19=8 n=130956
+U19CLASS r19=9 total=130458 adm=130458 span=1974 fail=2571 inad=0
+U19POP r19=9 0 0 0 0 470 399 295 182 169 1056 0 0
+U19POPSPAN r19=9 0 0 0 0 0 0 0 71 181 1 169 187
+U19FAILSET r19=9 mask=706 n=470
+U19FAILSET r19=9 mask=738 n=399
+U19FAILSET r19=9 mask=2770 n=205
+U19FAILSET r19=9 mask=33730 n=22
+U19FAILSET r19=9 mask=33742 n=55
+U19FAILSET r19=9 mask=33774 n=37
+U19FAILSET r19=9 mask=197314 n=68
+U19FAILSET r19=9 mask=197346 n=182
+U19FAILSET r19=9 mask=199378 n=114
+U19FAILSET r19=9 mask=199410 n=1019
+U19FW71115 r19=9 n=125913
+U19CLASS r19=10 total=131491 adm=131491 span=3515 fail=1222 inad=0
+U19POP r19=10 0 0 0 0 322 463 53 149 121 114 0 0
+U19POPSPAN r19=10 0 0 0 0 0 0 0 63 489 2 107 232
+U19FAILSET r19=10 mask=5186 n=322
+U19FAILSET r19=10 mask=5198 n=53
+U19FAILSET r19=10 mask=5218 n=463
+U19FAILSET r19=10 mask=5230 n=149
+U19FAILSET r19=10 mask=7262 n=78
+U19FAILSET r19=10 mask=7294 n=114
+U19FAILSET r19=10 mask=234818 n=43
+U19FW71115 r19=10 n=126754
+U19CLASS r19=11 total=130637 adm=130637 span=1873 fail=2771 inad=0
+U19POP r19=11 0 0 0 0 360 0 1353 133 168 757 0 0
+U19POPSPAN r19=11 0 0 0 0 0 0 0 0 160 0 65 23
+U19FAILSET r19=11 mask=198658 n=360
+U19FAILSET r19=11 mask=198818 n=1255
+U19FAILSET r19=11 mask=199234 n=22
+U19FAILSET r19=11 mask=199250 n=76
+U19FAILSET r19=11 mask=199394 n=168
+U19FAILSET r19=11 mask=199410 n=603
+U19FAILSET r19=11 mask=207874 n=76
+U19FAILSET r19=11 mask=240642 n=57
+U19FAILSET r19=11 mask=240802 n=154
+U19FW71115 r19=11 n=125993
+U19CLASS r19=12 total=130929 adm=130929 span=0 fail=0 inad=0
+U19POP r19=12 0 0 0 0 0 0 0 0 0 0 0 0
+U19POPSPAN r19=12 0 0 0 0 0 0 0 0 0 0 0 0
+U19FW71115 r19=12 n=130929
+U19CLASS r19=13 total=130665 adm=130665 span=3504 fail=1180 inad=0
+U19POP r19=13 0 0 0 0 318 63 492 19 174 114 0 0
+U19POPSPAN r19=13 0 0 0 0 0 0 0 61 393 11 277 188
+U19FAILSET r19=13 mask=8962 n=318
+U19FAILSET r19=13 mask=8970 n=63
+U19FAILSET r19=13 mask=25494 n=82
+U19FAILSET r19=13 mask=140066 n=492
+U19FAILSET r19=13 mask=140074 n=19
+U19FAILSET r19=13 mask=176930 n=92
+U19FAILSET r19=13 mask=176938 n=114
+U19FW71115 r19=13 n=125981
+U19CLASS r19=14 total=130797 adm=130797 span=3430 fail=1196 inad=0
+U19POP r19=14 0 0 0 0 372 0 140 297 160 227 0 0
+U19POPSPAN r19=14 0 0 0 0 0 0 400 0 230 7 227 67
+U19FAILSET r19=14 mask=26626 n=372
+U19FAILSET r19=14 mask=27786 n=224
+U19FAILSET r19=14 mask=59398 n=140
+U19FAILSET r19=14 mask=60558 n=223
+U19FAILSET r19=14 mask=96770 n=73
+U19FAILSET r19=14 mask=125446 n=43
+U19FAILSET r19=14 mask=129542 n=4
+U19FAILSET r19=14 mask=158746 n=117
+U19FW71115 r19=14 n=126171
+U19CLASS r19=15 total=130892 adm=130892 span=4716 fail=0 inad=0
+U19POP r19=15 0 0 0 0 0 0 0 0 0 0 0 0
+U19POPSPAN r19=15 0 0 0 0 348 0 461 129 599 10 278 75
+U19FW71115 r19=15 n=126176
+U19CLASS r19=16 total=142302 adm=142302 span=2192 fail=2817 inad=0
+U19POP r19=16 0 0 0 0 385 0 820 207 434 971 0 0
+U19POPSPAN r19=16 0 0 0 0 0 0 0 0 252 1 74 95
+U19FAILSET r19=16 mask=65682 n=385
+U19FAILSET r19=16 mask=66226 n=512
+U19FAILSET r19=16 mask=68274 n=144
+U19FAILSET r19=16 mask=73878 n=32
+U19FAILSET r19=16 mask=83346 n=63
+U19FAILSET r19=16 mask=91542 n=14
+U19FAILSET r19=16 mask=196818 n=276
+U19FAILSET r19=16 mask=197362 n=434
+U19FAILSET r19=16 mask=199410 n=957
+U19FW71115 r19=16 n=137293
+U19CLASS r19=17 total=130282 adm=130282 span=1806 fail=2733 inad=0
+U19POP r19=17 0 0 0 329 0 509 0 611 0 1284 0 0
+U19POPSPAN r19=17 0 0 0 0 0 0 80 53 13 1 70 155
+U19FAILSET r19=17 mask=131586 n=329
+U19FAILSET r19=17 mask=131634 n=459
+U19FAILSET r19=17 mask=133810 n=327
+U19FAILSET r19=17 mask=139786 n=30
+U19FAILSET r19=17 mask=144138 n=117
+U19FAILSET r19=17 mask=144186 n=91
+U19FAILSET r19=17 mask=185090 n=55
+U19FAILSET r19=17 mask=193290 n=3
+U19FAILSET r19=17 mask=197186 n=20
+U19FAILSET r19=17 mask=199362 n=112
+U19FAILSET r19=17 mask=199410 n=1187
+U19FAILSET r19=17 mask=250690 n=3
+U19FW71115 r19=17 n=125743
+U19CLASS r19=18 total=130821 adm=130821 span=4677 fail=0 inad=0
+U19POP r19=18 0 0 0 0 0 0 0 0 0 0 0 0
+U19POPSPAN r19=18 0 0 0 0 770 0 60 0 883 0 200 0
+U19FW71115 r19=18 n=126144
+U19FW3 fw3=0 (expect 0)
+U19ADMCHECK admfail=0 (must be 0: the coprimality automatic)
+U19COLLCHECK collisions=0 among fw>19 failers (census row, not an error gate)
+U23CLASS r23=1 total=112672 adm=112672 span=530 fail=917 inad=0
+U23POP r23=1 0 0 0 0 160 0 0 97 133 80 78 369
+U23POPSPAN r23=1 0 0 0 0 0 0 0 0 5 0 17 38
+U23FWPREV r23=1 n=111225
+U23CLASS r23=2 total=112535 adm=112535 span=632 fail=939 inad=0
+U23POP r23=2 0 0 0 0 0 0 0 238 0 72 0 629
+U23POPSPAN r23=2 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=2 n=110964
+U23CLASS r23=3 total=112549 adm=112549 span=601 fail=946 inad=0
+U23POP r23=3 0 0 0 0 0 0 0 0 213 0 51 682
+U23POPSPAN r23=3 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=3 n=111002
+U23CLASS r23=4 total=112473 adm=112473 span=471 fail=811 inad=0
+U23POP r23=4 0 0 0 0 0 0 0 0 0 260 0 551
+U23POPSPAN r23=4 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=4 n=111191
+U23CLASS r23=5 total=112444 adm=112444 span=1390 fail=169 inad=0
+U23POP r23=5 0 0 0 0 0 0 0 0 0 0 169 0
+U23POPSPAN r23=5 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=5 n=110885
+U23CLASS r23=6 total=112525 adm=112525 span=527 fail=895 inad=0
+U23POP r23=6 0 0 0 0 0 0 0 0 0 194 0 701
+U23POPSPAN r23=6 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=6 n=111103
+U23CLASS r23=7 total=112907 adm=112907 span=1554 fail=0 inad=0
+U23POP r23=7 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=7 0 0 0 0 0 0 0 0 0 0 176 0
+U23FWPREV r23=7 n=111353
+U23CLASS r23=8 total=112337 adm=112337 span=611 fail=992 inad=0
+U23POP r23=8 0 0 0 0 0 0 0 0 193 0 115 684
+U23POPSPAN r23=8 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=8 n=110734
+U23CLASS r23=9 total=112294 adm=112294 span=600 fail=868 inad=0
+U23POP r23=9 0 0 0 0 0 0 0 0 0 0 221 647
+U23POPSPAN r23=9 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=9 n=110826
+U23CLASS r23=10 total=112726 adm=112726 span=1598 fail=0 inad=0
+U23POP r23=10 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=10 0 0 0 0 0 0 0 0 0 0 160 0
+U23FWPREV r23=10 n=111128
+U23CLASS r23=11 total=112881 adm=112881 span=1617 fail=0 inad=0
+U23POP r23=11 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=11 0 0 0 0 0 0 0 0 0 0 0 163
+U23FWPREV r23=11 n=111264
+U23CLASS r23=12 total=112278 adm=112278 span=621 fail=1031 inad=0
+U23POP r23=12 0 0 0 0 0 0 0 187 0 132 0 712
+U23POPSPAN r23=12 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=12 n=110626
+U23CLASS r23=13 total=112300 adm=112300 span=565 fail=887 inad=0
+U23POP r23=13 0 0 0 0 0 0 0 0 171 0 21 695
+U23POPSPAN r23=13 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=13 n=110848
+U23CLASS r23=14 total=112516 adm=112516 span=1432 fail=177 inad=0
+U23POP r23=14 0 0 0 0 0 0 0 0 0 0 177 0
+U23POPSPAN r23=14 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=14 n=110907
+U23CLASS r23=15 total=112528 adm=112528 span=1501 fail=0 inad=0
+U23POP r23=15 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=15 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=15 n=111027
+U23CLASS r23=16 total=112719 adm=112719 span=613 fail=1032 inad=0
+U23POP r23=16 0 0 0 0 0 0 0 0 186 0 104 742
+U23POPSPAN r23=16 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=16 n=111074
+U23CLASS r23=17 total=112663 adm=112663 span=1541 fail=0 inad=0
+U23POP r23=17 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=17 0 0 0 0 0 0 0 0 0 0 0 173
+U23FWPREV r23=17 n=111122
+U23CLASS r23=18 total=112820 adm=112820 span=566 fail=893 inad=0
+U23POP r23=18 0 0 0 0 0 0 0 0 0 0 178 715
+U23POPSPAN r23=18 0 0 0 0 0 0 0 0 0 0 0 0
+U23FWPREV r23=18 n=111361
+U23CLASS r23=19 total=112664 adm=112664 span=1516 fail=0 inad=0
+U23POP r23=19 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=19 0 0 0 0 0 0 0 0 0 0 0 177
+U23FWPREV r23=19 n=111148
+U23CLASS r23=21 total=112529 adm=112529 span=1564 fail=0 inad=0
+U23POP r23=21 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=21 0 0 0 0 0 0 0 0 0 0 0 172
+U23FWPREV r23=21 n=110965
+U23CLASS r23=22 total=112671 adm=112671 span=1576 fail=0 inad=0
+U23POP r23=22 0 0 0 0 0 0 0 0 0 0 0 0
+U23POPSPAN r23=22 0 0 0 0 0 0 0 0 194 0 0 0
+U23FWPREV r23=22 n=111095
+U23FW3 fw3=0 (expect 0)
+U23ADMCHECK admfail=0 (must be 0: the coprimality automatic)
+U23COLLCHECK collisions=0 among fw>23 failers (census row, not an error gate)
+U31CLASS r31=1 total=78372 adm=78372 span=89 fail=260 inad=0
+U31POP r31=1 0 0 0 0 22 4 2 0 51 0 30 4
+U31POPSPAN r31=1 0 0 0 0 0 0 0 1 0 1 1 0
+U31FWPREV r31=1 n=78023
+U31CLASS r31=2 total=78249 adm=78249 span=71 fail=254 inad=0
+U31POP r31=2 0 0 0 0 0 36 0 0 0 1 4 38
+U31POPSPAN r31=2 0 0 0 0 0 0 0 0 0 3 3 0
+U31FWPREV r31=2 n=77924
+U31CLASS r31=3 total=78716 adm=78716 span=214 fail=185 inad=0
+U31POP r31=3 0 0 0 0 0 0 0 0 16 0 7 1
+U31POPSPAN r31=3 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=3 n=78317
+U31CLASS r31=4 total=78665 adm=78665 span=97 fail=247 inad=0
+U31POP r31=4 0 0 0 0 0 30 0 0 0 1 3 0
+U31POPSPAN r31=4 0 0 0 0 0 0 0 0 0 0 4 0
+U31FWPREV r31=4 n=78321
+U31CLASS r31=5 total=78446 adm=78446 span=114 fail=227 inad=0
+U31POP r31=5 0 0 0 0 0 0 0 0 9 0 10 0
+U31POPSPAN r31=5 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=5 n=78105
+U31CLASS r31=6 total=78544 adm=78544 span=234 fail=181 inad=0
+U31POP r31=6 0 0 0 0 0 0 0 0 15 0 7 5
+U31POPSPAN r31=6 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=6 n=78129
+U31CLASS r31=7 total=78504 adm=78504 span=110 fail=254 inad=0
+U31POP r31=7 0 0 0 0 0 0 0 0 18 0 11 1
+U31POPSPAN r31=7 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=7 n=78140
+U31CLASS r31=8 total=78687 adm=78687 span=114 fail=298 inad=0
+U31POP r31=8 0 0 0 0 19 19 0 0 0 1 1 0
+U31POPSPAN r31=8 0 0 0 0 0 0 0 0 1 0 3 0
+U31FWPREV r31=8 n=78275
+U31CLASS r31=9 total=78508 adm=78508 span=116 fail=247 inad=0
+U31POP r31=9 0 0 0 0 0 0 0 0 21 0 30 1
+U31POPSPAN r31=9 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=9 n=78145
+U31CLASS r31=10 total=78238 adm=78238 span=121 fail=226 inad=0
+U31POP r31=10 0 0 0 0 0 0 0 0 12 0 4 1
+U31POPSPAN r31=10 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=10 n=77891
+U31CLASS r31=11 total=78374 adm=78374 span=232 fail=162 inad=0
+U31POP r31=11 0 0 0 0 0 0 0 0 15 0 10 1
+U31POPSPAN r31=11 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=11 n=77980
+U31CLASS r31=12 total=78820 adm=78820 span=34 fail=24 inad=0
+U31POP r31=12 0 0 0 0 0 0 0 0 1 0 0 0
+U31POPSPAN r31=12 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=12 n=78762
+U31CLASS r31=13 total=78523 adm=78523 span=203 fail=161 inad=0
+U31POP r31=13 0 0 0 0 0 0 0 0 18 0 9 3
+U31POPSPAN r31=13 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=13 n=78159
+U31CLASS r31=14 total=78529 adm=78529 span=115 fail=234 inad=0
+U31POP r31=14 0 0 0 0 0 0 0 0 9 0 3 3
+U31POPSPAN r31=14 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=14 n=78180
+U31CLASS r31=15 total=78531 adm=78531 span=226 fail=143 inad=0
+U31POP r31=15 0 0 0 0 0 0 5 0 2 2 8 0
+U31POPSPAN r31=15 0 0 0 0 0 0 11 0 6 4 4 0
+U31FWPREV r31=15 n=78162
+U31CLASS r31=16 total=78424 adm=78424 span=95 fail=310 inad=0
+U31POP r31=16 0 0 0 0 26 11 0 0 0 0 54 0
+U31POPSPAN r31=16 0 0 0 0 0 0 0 0 2 2 2 0
+U31FWPREV r31=16 n=78019
+U31CLASS r31=17 total=78667 adm=78667 span=228 fail=147 inad=0
+U31POP r31=17 0 0 0 0 0 0 0 0 9 0 10 0
+U31POPSPAN r31=17 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=17 n=78292
+U31CLASS r31=18 total=78156 adm=78156 span=126 fail=251 inad=0
+U31POP r31=18 0 0 0 0 0 0 0 0 15 0 30 1
+U31POPSPAN r31=18 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=18 n=77779
+U31CLASS r31=19 total=78670 adm=78670 span=103 fail=229 inad=0
+U31POP r31=19 0 0 0 0 0 0 0 0 10 0 18 1
+U31POPSPAN r31=19 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=19 n=78338
+U31CLASS r31=20 total=78521 adm=78521 span=103 fail=228 inad=0
+U31POP r31=20 0 0 0 0 0 0 0 0 9 0 11 17
+U31POPSPAN r31=20 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=20 n=78190
+U31CLASS r31=21 total=78177 adm=78177 span=204 fail=174 inad=0
+U31POP r31=21 0 0 0 0 0 0 0 0 16 0 7 4
+U31POPSPAN r31=21 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=21 n=77799
+U31CLASS r31=22 total=78488 adm=78488 span=202 fail=150 inad=0
+U31POP r31=22 0 0 0 0 0 0 0 0 9 0 14 2
+U31POPSPAN r31=22 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=22 n=78136
+U31CLASS r31=23 total=78576 adm=78576 span=249 fail=135 inad=0
+U31POP r31=23 0 0 0 0 0 0 0 0 6 5 5 0
+U31POPSPAN r31=23 0 0 0 0 0 0 0 0 10 9 4 0
+U31FWPREV r31=23 n=78192
+U31CLASS r31=24 total=78468 adm=78468 span=0 fail=0 inad=0
+U31POP r31=24 0 0 0 0 0 0 0 0 0 0 0 0
+U31POPSPAN r31=24 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=24 n=78468
+U31CLASS r31=25 total=78779 adm=78779 span=139 fail=253 inad=0
+U31POP r31=25 0 0 0 0 0 0 0 0 21 0 8 1
+U31POPSPAN r31=25 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=25 n=78387
+U31CLASS r31=26 total=78516 adm=78516 span=219 fail=192 inad=0
+U31POP r31=26 0 0 0 0 0 0 0 0 27 0 10 1
+U31POPSPAN r31=26 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=26 n=78105
+U31CLASS r31=27 total=78507 adm=78507 span=269 fail=135 inad=0
+U31POP r31=27 0 0 0 0 0 0 0 11 0 4 5 0
+U31POPSPAN r31=27 0 0 0 0 0 0 0 20 0 5 9 0
+U31FWPREV r31=27 n=78103
+U31CLASS r31=28 total=86948 adm=86948 span=133 fail=290 inad=0
+U31POP r31=28 0 0 0 0 0 0 0 0 16 0 35 7
+U31POPSPAN r31=28 0 0 0 0 0 0 0 0 0 0 0 0
+U31FWPREV r31=28 n=86525
+U31CLASS r31=29 total=78620 adm=78620 span=266 fail=155 inad=0
+U31POP r31=29 0 0 0 0 0 0 0 6 4 8 5 0
+U31POPSPAN r31=29 0 0 0 0 0 0 0 6 3 14 8 0
+U31FWPREV r31=29 n=78199
+U31CLASS r31=30 total=78808 adm=78808 span=242 fail=137 inad=0
+U31POP r31=30 0 0 0 0 0 0 0 0 14 0 6 0
+U31POPSPAN r31=30 0 0 0 0 0 0 0 0 21 0 7 0
+U31FWPREV r31=30 n=78429
+U31FW3 fw3=0 (expect 0)
+U31ADMCHECK admfail=0 (must be 0: the coprimality automatic)
+U31COLLCHECK collisions=2613 among fw>31 failers (census row, not an error gate)
+U31FPOP r31=1 0 0 0 0 22 4 2 0 51 0 30 151
+U31SPOP r31=1 0 0 0 0 0 0 0 1 0 1 1 86
+U31PAIR r31=1 pair=(1,30) n=31
+U31PAIR r31=1 pair=(2,29) n=10
+U31PAIR r31=1 pair=(3,28) n=5
+U31PAIR r31=1 pair=(5,26) n=3
+U31PAIR r31=1 pair=(7,24) n=1
+U31PAIR r31=1 pair=(11,20) n=1
+U31CRATE r31=1 0/0 0/0 0/0 0/0 22/0 4/0 0/2 0/0 51/0 0/0 29/1 103/48 0/0
+U31FPOP r31=2 0 0 0 0 0 36 0 0 0 1 4 213
+U31SPOP r31=2 0 0 0 0 0 0 0 0 0 3 3 65
+U31PAIR r31=2 pair=(1,30) n=26
+U31PAIR r31=2 pair=(2,29) n=9
+U31PAIR r31=2 pair=(3,28) n=10
+U31CRATE r31=2 0/0 0/0 0/0 0/0 0/0 36/0 0/0 0/0 0/0 0/1 0/4 173/40 0/0
+U31FPOP r31=3 0 0 0 0 0 0 0 0 16 0 7 162
+U31SPOP r31=3 0 0 0 0 0 0 0 0 0 0 0 214
+U31PAIR r31=3 pair=(1,30) n=133
+U31PAIR r31=3 pair=(2,29) n=3
+U31PAIR r31=3 pair=(3,28) n=2
+U31PAIR r31=3 pair=(4,27) n=1
+U31CRATE r31=3 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 16/0 0/0 7/0 23/139 0/0
+U31FPOP r31=4 0 0 0 0 0 30 0 0 0 1 3 213
+U31SPOP r31=4 0 0 0 0 0 0 0 0 0 0 4 93
+U31PAIR r31=4 pair=(1,30) n=55
+U31PAIR r31=4 pair=(3,28) n=8
+U31PAIR r31=4 pair=(5,26) n=1
+U31CRATE r31=4 0/0 0/0 0/0 0/0 0/0 30/0 0/0 0/0 0/0 0/1 0/3 153/60 0/0
+U31FPOP r31=5 0 0 0 0 0 0 0 0 9 0 10 208
+U31SPOP r31=5 0 0 0 0 0 0 0 0 0 0 0 114
+U31PAIR r31=5 pair=(1,30) n=62
+U31PAIR r31=5 pair=(2,29) n=9
+U31PAIR r31=5 pair=(3,28) n=2
+U31PAIR r31=5 pair=(4,27) n=2
+U31PAIR r31=5 pair=(5,26) n=1
+U31CRATE r31=5 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 9/0 0/0 10/0 132/76 0/0
+U31FPOP r31=6 0 0 0 0 0 0 0 0 15 0 7 159
+U31SPOP r31=6 0 0 0 0 0 0 0 0 0 0 0 234
+U31PAIR r31=6 pair=(1,30) n=123
+U31PAIR r31=6 pair=(2,29) n=4
+U31PAIR r31=6 pair=(4,27) n=2
+U31PAIR r31=6 pair=(6,25) n=3
+U31CRATE r31=6 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 15/0 0/0 7/0 27/132 0/0
+U31FPOP r31=7 0 0 0 0 0 0 0 0 18 0 11 225
+U31SPOP r31=7 0 0 0 0 0 0 0 0 0 0 0 110
+U31PAIR r31=7 pair=(1,30) n=46
+U31PAIR r31=7 pair=(2,29) n=13
+U31PAIR r31=7 pair=(3,28) n=1
+U31PAIR r31=7 pair=(6,25) n=3
+U31CRATE r31=7 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 18/0 0/0 11/0 162/63 0/0
+U31FPOP r31=8 0 0 0 0 19 19 0 0 0 1 1 258
+U31SPOP r31=8 0 0 0 0 0 0 0 0 1 0 3 110
+U31PAIR r31=8 pair=(1,30) n=48
+U31PAIR r31=8 pair=(3,28) n=11
+U31PAIR r31=8 pair=(6,25) n=1
+U31CRATE r31=8 0/0 0/0 0/0 0/0 19/0 19/0 0/0 0/0 0/0 0/1 0/1 200/58 0/0
+U31FPOP r31=9 0 0 0 0 0 0 0 0 21 0 30 196
+U31SPOP r31=9 0 0 0 0 0 0 0 0 0 0 0 116
+U31PAIR r31=9 pair=(1,30) n=57
+U31PAIR r31=9 pair=(2,29) n=3
+U31PAIR r31=9 pair=(5,26) n=2
+U31PAIR r31=9 pair=(6,25) n=1
+U31PAIR r31=9 pair=(9,22) n=1
+U31CRATE r31=9 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 21/0 0/0 30/0 132/64 0/0
+U31FPOP r31=10 0 0 0 0 0 0 0 0 12 0 4 210
+U31SPOP r31=10 0 0 0 0 0 0 0 0 0 0 0 121
+U31PAIR r31=10 pair=(1,30) n=58
+U31PAIR r31=10 pair=(2,29) n=4
+U31PAIR r31=10 pair=(4,27) n=2
+U31CRATE r31=10 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 12/0 0/0 4/0 146/64 0/0
+U31FPOP r31=11 0 0 0 0 0 0 0 0 15 0 10 137
+U31SPOP r31=11 0 0 0 0 0 0 0 0 0 0 0 232
+U31PAIR r31=11 pair=(1,30) n=100
+U31PAIR r31=11 pair=(2,29) n=2
+U31PAIR r31=11 pair=(3,28) n=1
+U31PAIR r31=11 pair=(5,26) n=1
+U31CRATE r31=11 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 15/0 0/0 10/0 33/104 0/0
+U31FPOP r31=12 0 0 0 0 0 0 0 0 1 0 0 23
+U31SPOP r31=12 0 0 0 0 0 0 0 0 0 0 0 34
+U31PAIR r31=12 pair=(1,30) n=12
+U31PAIR r31=12 pair=(2,29) n=8
+U31PAIR r31=12 pair=(8,23) n=1
+U31CRATE r31=12 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 1/0 0/0 0/0 2/21 0/0
+U31FPOP r31=13 0 0 0 0 0 0 0 0 18 0 9 134
+U31SPOP r31=13 0 0 0 0 0 0 0 0 0 0 0 203
+U31PAIR r31=13 pair=(1,30) n=86
+U31PAIR r31=13 pair=(2,29) n=24
+U31PAIR r31=13 pair=(3,28) n=1
+U31PAIR r31=13 pair=(5,26) n=1
+U31CRATE r31=13 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 18/0 0/0 9/0 22/112 0/0
+U31FPOP r31=14 0 0 0 0 0 0 0 0 9 0 3 222
+U31SPOP r31=14 0 0 0 0 0 0 0 0 0 0 0 115
+U31PAIR r31=14 pair=(1,30) n=59
+U31PAIR r31=14 pair=(2,29) n=2
+U31PAIR r31=14 pair=(3,28) n=4
+U31PAIR r31=14 pair=(12,19) n=1
+U31CRATE r31=14 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 9/0 0/0 3/0 156/66 0/0
+U31FPOP r31=15 0 0 0 0 0 0 5 0 2 2 8 126
+U31SPOP r31=15 0 0 0 0 0 0 11 0 6 4 4 201
+U31PAIR r31=15 pair=(1,30) n=143
+U31CRATE r31=15 0/0 0/0 0/0 0/0 0/0 0/0 0/5 0/0 0/2 0/2 0/8 0/126 0/0
+U31FPOP r31=16 0 0 0 0 26 11 0 0 0 0 54 219
+U31SPOP r31=16 0 0 0 0 0 0 0 0 2 2 2 89
+U31PAIR r31=16 pair=(1,30) n=38
+U31PAIR r31=16 pair=(3,28) n=4
+U31PAIR r31=16 pair=(4,27) n=3
+U31PAIR r31=16 pair=(5,26) n=2
+U31PAIR r31=16 pair=(7,24) n=1
+U31CRATE r31=16 0/0 0/0 0/0 0/0 26/0 11/0 0/0 0/0 0/0 0/0 50/4 175/44 0/0
+U31FPOP r31=17 0 0 0 0 0 0 0 0 9 0 10 128
+U31SPOP r31=17 0 0 0 0 0 0 0 0 0 0 0 228
+U31PAIR r31=17 pair=(1,30) n=82
+U31PAIR r31=17 pair=(2,29) n=9
+U31PAIR r31=17 pair=(3,28) n=4
+U31PAIR r31=17 pair=(4,27) n=1
+U31PAIR r31=17 pair=(5,26) n=9
+U31PAIR r31=17 pair=(12,19) n=5
+U31CRATE r31=17 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 9/0 0/0 10/0 18/110 0/0
+U31FPOP r31=18 0 0 0 0 0 0 0 0 15 0 30 206
+U31SPOP r31=18 0 0 0 0 0 0 0 0 0 0 0 126
+U31PAIR r31=18 pair=(1,30) n=52
+U31PAIR r31=18 pair=(2,29) n=10
+U31PAIR r31=18 pair=(3,28) n=4
+U31PAIR r31=18 pair=(5,26) n=3
+U31PAIR r31=18 pair=(11,20) n=1
+U31CRATE r31=18 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 15/0 0/0 30/0 136/70 0/0
+U31FPOP r31=19 0 0 0 0 0 0 0 0 10 0 18 201
+U31SPOP r31=19 0 0 0 0 0 0 0 0 0 0 0 103
+U31PAIR r31=19 pair=(1,30) n=56
+U31PAIR r31=19 pair=(2,29) n=4
+U31PAIR r31=19 pair=(3,28) n=3
+U31CRATE r31=19 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 10/0 0/0 18/0 138/63 0/0
+U31FPOP r31=20 0 0 0 0 0 0 0 0 9 0 11 208
+U31SPOP r31=20 0 0 0 0 0 0 0 0 0 0 0 103
+U31PAIR r31=20 pair=(1,30) n=52
+U31PAIR r31=20 pair=(2,29) n=1
+U31PAIR r31=20 pair=(5,26) n=1
+U31CRATE r31=20 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 9/0 0/0 11/0 154/54 0/0
+U31FPOP r31=21 0 0 0 0 0 0 0 0 16 0 7 151
+U31SPOP r31=21 0 0 0 0 0 0 0 0 0 0 0 204
+U31PAIR r31=21 pair=(1,30) n=79
+U31PAIR r31=21 pair=(2,29) n=18
+U31PAIR r31=21 pair=(4,27) n=9
+U31PAIR r31=21 pair=(7,24) n=13
+U31PAIR r31=21 pair=(9,22) n=1
+U31PAIR r31=21 pair=(10,21) n=4
+U31CRATE r31=21 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 16/0 0/0 7/0 27/124 0/0
+U31FPOP r31=22 0 0 0 0 0 0 0 0 9 0 14 127
+U31SPOP r31=22 0 0 0 0 0 0 0 0 0 0 0 202
+U31PAIR r31=22 pair=(1,30) n=105
+U31PAIR r31=22 pair=(2,29) n=1
+U31PAIR r31=22 pair=(4,27) n=1
+U31PAIR r31=22 pair=(6,25) n=1
+U31CRATE r31=22 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 9/0 0/0 14/0 19/108 0/0
+U31FPOP r31=23 0 0 0 0 0 0 0 0 6 5 5 119
+U31SPOP r31=23 0 0 0 0 0 0 0 0 10 9 4 226
+U31PAIR r31=23 pair=(1,30) n=135
+U31CRATE r31=23 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/6 0/5 0/5 0/119 0/0
+U31FPOP r31=24 0 0 0 0 0 0 0 0 0 0 0 0
+U31SPOP r31=24 0 0 0 0 0 0 0 0 0 0 0 0
+U31CRATE r31=24 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0
+U31FPOP r31=25 0 0 0 0 0 0 0 0 21 0 8 224
+U31SPOP r31=25 0 0 0 0 0 0 0 0 0 0 0 139
+U31PAIR r31=25 pair=(1,30) n=62
+U31PAIR r31=25 pair=(2,29) n=7
+U31PAIR r31=25 pair=(6,25) n=2
+U31CRATE r31=25 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 21/0 0/0 8/0 153/71 0/0
+U31FPOP r31=26 0 0 0 0 0 0 0 0 27 0 10 155
+U31SPOP r31=26 0 0 0 0 0 0 0 0 0 0 0 219
+U31PAIR r31=26 pair=(1,30) n=88
+U31PAIR r31=26 pair=(2,29) n=20
+U31PAIR r31=26 pair=(3,28) n=4
+U31PAIR r31=26 pair=(4,27) n=3
+U31PAIR r31=26 pair=(5,26) n=11
+U31CRATE r31=26 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 27/0 0/0 10/0 29/126 0/0
+U31FPOP r31=27 0 0 0 0 0 0 0 11 0 4 5 115
+U31SPOP r31=27 0 0 0 0 0 0 0 20 0 5 9 235
+U31PAIR r31=27 pair=(1,30) n=135
+U31CRATE r31=27 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/11 0/0 0/4 0/5 0/115 0/0
+U31FPOP r31=28 0 0 0 0 0 0 0 0 16 0 35 239
+U31SPOP r31=28 0 0 0 0 0 0 0 0 0 0 0 133
+U31PAIR r31=28 pair=(1,30) n=59
+U31PAIR r31=28 pair=(2,29) n=10
+U31PAIR r31=28 pair=(3,28) n=4
+U31CRATE r31=28 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 16/0 0/0 35/0 166/73 0/0
+U31FPOP r31=29 0 0 0 0 0 0 0 6 4 8 5 132
+U31SPOP r31=29 0 0 0 0 0 0 0 6 3 14 8 235
+U31PAIR r31=29 pair=(1,30) n=57
+U31PAIR r31=29 pair=(2,29) n=98
+U31CRATE r31=29 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/6 0/4 0/8 0/5 0/132 0/0
+U31FPOP r31=30 0 0 0 0 0 0 0 0 14 0 6 117
+U31SPOP r31=30 0 0 0 0 0 0 0 0 21 0 7 214
+U31PAIR r31=30 pair=(1,30) n=137
+U31CRATE r31=30 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/0 0/14 0/0 0/6 0/117 0/0
+U31RESCUE delicate=2613 rescued_pigeon=2613 pig_no_coll=0 no_site=0
+U35CLASS r35=1 total=129979 adm=129979 span=104 fail=1049 inad=0
+U35POP r35=1 0 0 0 257 0 63 92 233 35 110 29 16
+U35POPSPAN r35=1 0 0 0 0 0 0 11 10 4 5 1 1
+U35FWPREV r35=1 n=128826
+U35CLASS r35=3 total=130166 adm=130166 span=0 fail=0 inad=0
+U35POP r35=3 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=3 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=3 n=130166
+U35CLASS r35=4 total=138039 adm=138039 span=110 fail=916 inad=0
+U35POP r35=4 0 0 0 0 0 165 0 69 0 103 43 33
+U35POPSPAN r35=4 0 0 0 0 0 0 0 0 0 0 3 0
+U35FWPREV r35=4 n=137013
+U35CLASS r35=6 total=130238 adm=130238 span=0 fail=0 inad=0
+U35POP r35=6 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=6 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=6 n=130238
+U35CLASS r35=8 total=129809 adm=129809 span=0 fail=0 inad=0
+U35POP r35=8 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=8 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=8 n=129809
+U35CLASS r35=9 total=130073 adm=130073 span=108 fail=677 inad=0
+U35POP r35=9 0 0 0 0 0 0 0 176 0 48 0 26
+U35POPSPAN r35=9 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=9 n=129288
+U35CLASS r35=11 total=138184 adm=138184 span=134 fail=903 inad=0
+U35POP r35=11 0 0 0 0 0 0 0 154 0 167 22 71
+U35POPSPAN r35=11 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=11 n=137147
+U35CLASS r35=13 total=129830 adm=129830 span=0 fail=0 inad=0
+U35POP r35=13 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=13 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=13 n=129830
+U35CLASS r35=16 total=129963 adm=129963 span=121 fail=703 inad=0
+U35POP r35=16 0 0 0 0 0 0 0 165 0 149 0 17
+U35POPSPAN r35=16 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=16 n=129139
+U35CLASS r35=18 total=138726 adm=138726 span=0 fail=0 inad=0
+U35POP r35=18 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=18 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=18 n=138726
+U35CLASS r35=19 total=129752 adm=129752 span=0 fail=0 inad=0
+U35POP r35=19 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=19 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=19 n=129752
+U35CLASS r35=23 total=129916 adm=129916 span=0 fail=0 inad=0
+U35POP r35=23 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=23 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=23 n=129916
+U35CLASS r35=24 total=129957 adm=129957 span=0 fail=0 inad=0
+U35POP r35=24 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=24 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=24 n=129957
+U35CLASS r35=26 total=129971 adm=129971 span=0 fail=0 inad=0
+U35POP r35=26 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=26 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=26 n=129971
+U35CLASS r35=29 total=129675 adm=129675 span=114 fail=950 inad=0
+U35POP r35=29 0 0 0 0 0 0 244 0 0 0 67 0
+U35POPSPAN r35=29 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=29 n=128611
+U35CLASS r35=31 total=129674 adm=129674 span=0 fail=0 inad=0
+U35POP r35=31 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=31 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=31 n=129674
+U35CLASS r35=33 total=130118 adm=130118 span=0 fail=0 inad=0
+U35POP r35=33 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=33 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=33 n=130118
+U35CLASS r35=34 total=129961 adm=129961 span=0 fail=0 inad=0
+U35POP r35=34 0 0 0 0 0 0 0 0 0 0 0 0
+U35POPSPAN r35=34 0 0 0 0 0 0 0 0 0 0 0 0
+U35FWPREV r35=34 n=129961
+U35FW3 fw3=0 (expect 0)
+U35ADMCHECK admfail=0 (must be 0: the coprimality automatic)
+U35COLLCHECK collisions=1353 among fw>35 failers (census row, not an error gate)
+U39CLASS r39=1 total=195869 adm=195869 span=58 fail=535 inad=0
+U39POP r39=1 0 0 0 0 89 4 30 43 76 22 11 78
+U39POPSPAN r39=1 0 0 0 0 0 0 0 3 3 1 0 5
+U39FWPREV r39=1 n=195276
+U39CLASS r39=4 total=195425 adm=195425 span=75 fail=575 inad=0
+U39POP r39=4 0 0 0 0 0 38 0 27 0 94 8 34
+U39POPSPAN r39=4 0 0 0 0 0 0 0 0 0 0 2 0
+U39FWPREV r39=4 n=194775
+U39CLASS r39=7 total=195939 adm=195939 span=31 fail=121 inad=0
+U39POP r39=7 0 0 0 0 0 0 0 0 21 0 0 8
+U39POPSPAN r39=7 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=7 n=195787
+U39CLASS r39=10 total=211431 adm=211431 span=86 fail=578 inad=0
+U39POP r39=10 0 0 0 0 0 0 0 0 64 54 23 116
+U39POPSPAN r39=10 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=10 n=210767
+U39CLASS r39=16 total=196016 adm=196016 span=73 fail=571 inad=0
+U39POP r39=16 0 0 0 0 0 0 63 0 0 83 16 44
+U39POPSPAN r39=16 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=16 n=195372
+U39CLASS r39=19 total=195871 adm=195871 span=0 fail=0 inad=0
+U39POP r39=19 0 0 0 0 0 0 0 0 0 0 0 0
+U39POPSPAN r39=19 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=19 n=195871
+U39CLASS r39=22 total=195536 adm=195536 span=89 fail=518 inad=0
+U39POP r39=22 0 0 0 0 0 0 0 49 0 64 7 39
+U39POPSPAN r39=22 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=22 n=194929
+U39CLASS r39=25 total=195583 adm=195583 span=81 fail=580 inad=0
+U39POP r39=25 0 0 0 0 0 0 0 0 113 0 102 0
+U39POPSPAN r39=25 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=25 n=194922
+U39CLASS r39=28 total=195626 adm=195626 span=14 fail=30 inad=0
+U39POP r39=28 0 0 0 0 0 0 0 0 0 0 0 5
+U39POPSPAN r39=28 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=28 n=195582
+U39CLASS r39=31 total=195805 adm=195805 span=198 fail=460 inad=0
+U39POP r39=31 0 0 0 0 0 0 0 0 37 0 0 26
+U39POPSPAN r39=31 0 0 0 0 0 0 0 0 17 0 0 12
+U39FWPREV r39=31 n=195147
+U39CLASS r39=34 total=195371 adm=195371 span=28 fail=497 inad=0
+U39POP r39=34 0 0 0 0 0 0 0 0 40 0 0 18
+U39POPSPAN r39=34 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=34 n=194846
+U39CLASS r39=37 total=195559 adm=195559 span=0 fail=0 inad=0
+U39POP r39=37 0 0 0 0 0 0 0 0 0 0 0 0
+U39POPSPAN r39=37 0 0 0 0 0 0 0 0 0 0 0 0
+U39FWPREV r39=37 n=195559
+U39FW3 fw3=0 (expect 0)
+U39ADMCHECK admfail=0 (must be 0: the coprimality automatic)
+U39COLLCHECK collisions=2086 among fw>39 failers (census row, not an error gate)
+U43CLASS r43=1 total=56183 adm=56183 span=2 fail=120 inad=0
+U43POP r43=1 0 0 28 2 40 0 20 4 17 0 3 1
+U43POPSPAN r43=1 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=1 n=56061
+U43CLASS r43=2 total=56289 adm=56289 span=4 fail=115 inad=0
+U43POP r43=2 0 0 0 35 0 10 2 40 0 2 0 1
+U43POPSPAN r43=2 0 0 0 0 0 0 0 1 0 1 0 0
+U43FWPREV r43=2 n=56170
+U43CLASS r43=3 total=56233 adm=56233 span=3 fail=112 inad=0
+U43POP r43=3 0 0 0 0 28 0 14 5 32 2 1 0
+U43POPSPAN r43=3 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=3 n=56118
+U43CLASS r43=4 total=56023 adm=56023 span=1 fail=97 inad=0
+U43POP r43=4 0 0 18 0 5 3 34 1 1 0 9 0
+U43POPSPAN r43=4 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=4 n=55925
+U43CLASS r43=5 total=56177 adm=56177 span=5 fail=95 inad=0
+U43POP r43=5 0 0 0 0 25 0 13 4 26 0 2 1
+U43POPSPAN r43=5 0 0 0 0 0 0 1 0 0 0 0 0
+U43FWPREV r43=5 n=56077
+U43CLASS r43=6 total=56159 adm=56159 span=6 fail=114 inad=0
+U43POP r43=6 0 0 0 0 28 0 15 3 26 0 2 1
+U43POPSPAN r43=6 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=6 n=56039
+U43CLASS r43=7 total=56428 adm=56428 span=6 fail=110 inad=0
+U43POP r43=7 0 0 0 0 24 0 11 5 28 0 3 0
+U43POPSPAN r43=7 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=7 n=56312
+U43CLASS r43=8 total=56051 adm=56051 span=1 fail=99 inad=0
+U43POP r43=8 0 0 0 0 22 0 8 3 29 1 0 2
+U43POPSPAN r43=8 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=8 n=55951
+U43CLASS r43=9 total=55942 adm=55942 span=7 fail=115 inad=0
+U43POP r43=9 0 0 0 0 39 0 13 2 26 0 7 1
+U43POPSPAN r43=9 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=9 n=55820
+U43CLASS r43=10 total=56092 adm=56092 span=7 fail=115 inad=0
+U43POP r43=10 0 0 0 0 29 0 10 2 28 0 6 3
+U43POPSPAN r43=10 0 0 0 0 0 0 0 0 3 0 0 0
+U43FWPREV r43=10 n=55970
+U43CLASS r43=11 total=56203 adm=56203 span=3 fail=116 inad=0
+U43POP r43=11 0 0 0 0 35 0 5 6 35 2 10 0
+U43POPSPAN r43=11 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=11 n=56084
+U43CLASS r43=12 total=56300 adm=56300 span=1 fail=99 inad=0
+U43POP r43=12 0 0 0 0 23 0 11 0 29 0 2 0
+U43POPSPAN r43=12 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=12 n=56200
+U43CLASS r43=13 total=56123 adm=56123 span=4 fail=101 inad=0
+U43POP r43=13 0 0 0 0 20 0 13 3 35 0 0 0
+U43POPSPAN r43=13 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=13 n=56018
+U43CLASS r43=14 total=56085 adm=56085 span=1 fail=82 inad=0
+U43POP r43=14 0 0 0 0 16 0 8 2 26 0 2 0
+U43POPSPAN r43=14 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=14 n=56002
+U43CLASS r43=15 total=55984 adm=55984 span=4 fail=96 inad=0
+U43POP r43=15 0 0 0 0 24 0 8 7 26 1 4 0
+U43POPSPAN r43=15 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=15 n=55884
+U43CLASS r43=16 total=56299 adm=56299 span=4 fail=129 inad=0
+U43POP r43=16 0 0 0 0 32 4 9 2 34 0 2 1
+U43POPSPAN r43=16 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=16 n=56166
+U43CLASS r43=17 total=55945 adm=55945 span=4 fail=95 inad=0
+U43POP r43=17 0 0 0 0 19 0 7 6 23 0 4 2
+U43POPSPAN r43=17 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=17 n=55846
+U43CLASS r43=18 total=55785 adm=55785 span=8 fail=104 inad=0
+U43POP r43=18 0 0 0 0 25 0 5 1 41 1 4 0
+U43POPSPAN r43=18 0 0 0 0 0 0 0 0 3 0 0 0
+U43FWPREV r43=18 n=55673
+U43CLASS r43=19 total=56222 adm=56222 span=7 fail=123 inad=0
+U43POP r43=19 0 0 0 0 34 0 9 1 36 0 2 1
+U43POPSPAN r43=19 0 0 0 0 0 0 0 0 3 0 0 0
+U43FWPREV r43=19 n=56092
+U43CLASS r43=20 total=56101 adm=56101 span=0 fail=0 inad=0
+U43POP r43=20 0 0 0 0 0 0 0 0 0 0 0 0
+U43POPSPAN r43=20 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=20 n=56101
+U43CLASS r43=21 total=56032 adm=56032 span=4 fail=117 inad=0
+U43POP r43=21 0 0 0 0 18 12 3 4 28 0 1 2
+U43POPSPAN r43=21 0 0 0 0 0 0 0 0 1 0 0 1
+U43FWPREV r43=21 n=55911
+U43CLASS r43=22 total=55978 adm=55978 span=8 fail=102 inad=0
+U43POP r43=22 0 0 0 0 18 8 1 5 34 1 1 0
+U43POPSPAN r43=22 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=22 n=55868
+U43CLASS r43=23 total=55995 adm=55995 span=3 fail=103 inad=0
+U43POP r43=23 0 0 0 0 24 0 11 4 21 3 5 2
+U43POPSPAN r43=23 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=23 n=55889
+U43CLASS r43=24 total=56214 adm=56214 span=2 fail=112 inad=0
+U43POP r43=24 0 0 0 0 30 0 7 4 38 0 2 0
+U43POPSPAN r43=24 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=24 n=56100
+U43CLASS r43=25 total=56183 adm=56183 span=1 fail=123 inad=0
+U43POP r43=25 0 0 0 0 27 0 11 1 34 1 5 0
+U43POPSPAN r43=25 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=25 n=56059
+U43CLASS r43=26 total=56385 adm=56385 span=5 fail=122 inad=0
+U43POP r43=26 0 0 0 0 28 0 7 9 30 1 2 1
+U43POPSPAN r43=26 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=26 n=56258
+U43CLASS r43=27 total=56003 adm=56003 span=4 fail=101 inad=0
+U43POP r43=27 0 0 0 0 19 0 8 0 43 1 1 2
+U43POPSPAN r43=27 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=27 n=55898
+U43CLASS r43=28 total=56180 adm=56180 span=0 fail=0 inad=0
+U43POP r43=28 0 0 0 0 0 0 0 0 0 0 0 0
+U43POPSPAN r43=28 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=28 n=56180
+U43CLASS r43=29 total=56019 adm=56019 span=4 fail=98 inad=0
+U43POP r43=29 0 0 0 0 25 0 7 3 24 0 3 1
+U43POPSPAN r43=29 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=29 n=55917
+U43CLASS r43=30 total=56192 adm=56192 span=6 fail=102 inad=0
+U43POP r43=30 0 0 0 0 26 0 9 1 31 0 4 0
+U43POPSPAN r43=30 0 0 0 0 0 0 0 0 2 0 0 0
+U43FWPREV r43=30 n=56084
+U43CLASS r43=31 total=56057 adm=56057 span=4 fail=105 inad=0
+U43POP r43=31 0 0 0 0 26 0 16 2 24 0 1 0
+U43POPSPAN r43=31 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=31 n=55948
+U43CLASS r43=32 total=56049 adm=56049 span=0 fail=0 inad=0
+U43POP r43=32 0 0 0 0 0 0 0 0 0 0 0 0
+U43POPSPAN r43=32 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=32 n=56049
+U43CLASS r43=33 total=56367 adm=56367 span=13 fail=109 inad=0
+U43POP r43=33 0 0 0 0 21 0 12 4 36 0 2 1
+U43POPSPAN r43=33 0 0 0 0 0 0 0 0 2 0 0 0
+U43FWPREV r43=33 n=56245
+U43CLASS r43=34 total=56169 adm=56169 span=8 fail=96 inad=0
+U43POP r43=34 0 0 0 0 13 0 11 4 35 0 3 2
+U43POPSPAN r43=34 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=34 n=56065
+U43CLASS r43=35 total=56003 adm=56003 span=4 fail=115 inad=0
+U43POP r43=35 0 0 0 0 24 0 13 4 31 0 0 0
+U43POPSPAN r43=35 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=35 n=55884
+U43CLASS r43=36 total=56004 adm=56004 span=3 fail=118 inad=0
+U43POP r43=36 0 0 0 0 25 0 14 4 32 0 8 0
+U43POPSPAN r43=36 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=36 n=55883
+U43CLASS r43=37 total=56074 adm=56074 span=3 fail=114 inad=0
+U43POP r43=37 0 0 0 0 24 0 9 2 33 0 4 1
+U43POPSPAN r43=37 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=37 n=55957
+U43CLASS r43=38 total=56214 adm=56214 span=2 fail=142 inad=0
+U43POP r43=38 0 0 0 0 34 0 16 8 39 1 7 1
+U43POPSPAN r43=38 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=38 n=56070
+U43CLASS r43=39 total=56222 adm=56222 span=16 fail=109 inad=0
+U43POP r43=39 0 0 0 0 28 0 7 4 24 1 4 1
+U43POPSPAN r43=39 0 0 0 0 2 0 0 2 3 0 1 1
+U43FWPREV r43=39 n=56097
+U43CLASS r43=40 total=62639 adm=62639 span=4 fail=127 inad=0
+U43POP r43=40 0 0 0 0 25 0 19 5 33 0 5 0
+U43POPSPAN r43=40 0 0 0 0 0 0 0 0 1 0 0 0
+U43FWPREV r43=40 n=62508
+U43CLASS r43=41 total=56184 adm=56184 span=3 fail=115 inad=0
+U43POP r43=41 0 0 0 23 0 14 1 36 0 3 1 8
+U43POPSPAN r43=41 0 0 0 0 0 0 0 0 0 0 0 0
+U43FWPREV r43=41 n=56066
+U43CLASS r43=42 total=56244 adm=56244 span=17 fail=106 inad=0
+U43POP r43=42 0 0 0 0 29 0 2 0 34 0 2 0
+U43POPSPAN r43=42 0 0 0 0 5 0 0 0 7 0 0 0
+U43FWPREV r43=42 n=56121
+U43FW3 fw3=0 (expect 0)
+U43ADMCHECK admfail=0 (must be 0: the coprimality automatic)
+U43COLLCHECK collisions=989 among fw>43 failers (census row, not an error gate)
