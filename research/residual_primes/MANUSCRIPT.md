@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.20 (2026-11-27: the u = 67 chain link E-065 incorporated and the census program closed at its floor)
+**Version:** v1.21 (2026-11-27: the orbit-window program E-067/E-068 incorporated — the (mod 3, mod 5) pair-orbit closures as theorems)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -96,6 +96,7 @@ which is the structure investigated in §5.
 | u = 59 layer census (E-061) | the chain-critical cells; the spans 44 + the residual 3,841 = 3,885 exact (the rescue 1.13%) | `analysis/u59_class_v038/` |
 | u = 63 layer census (E-063) | the chain-critical cells; the spans 10 + the residual 3,831 = 3,841 exact (the rescue 0.26%) | `analysis/u63_class_v039/` |
 | u = 67 layer census (E-065) | the chain-critical cells; the spans 2 + the residual 3,829 = 3,831 exact (the rescue 0.05%, the floor); the census program closed | `analysis/u67_class_v040/` |
+| the orbit-window cell facts (E-067/E-068) | the (mod 3, mod 5) pair-orbit closures as theorems (the mod-5 QR pair {1,4}, the mod-3 two-orbit); U15Layer at 21 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -468,11 +469,22 @@ the general family: the divisor-residue set at **any** composite layer (of
 nonzero coprime factors) never exceeds the folded factorization's full
 divisor-product count — the count chain (the injectivity + the general pair
 form + `card_image_le` + `card_product`), with the zero-exclusion stated
-honestly (`u₁ = 0` / `u₂ = 1` is a legal coprime pair). The Lean joint
-audited set stands at **78**, 0-`sorry`, all landing CI-gated with the
-manifest repinned in place. The general exactness family is complete:
-the fold skeleton, the pair form (unconditional), the deficit
-corollary.
+honestly (`u₁ = 0` / `u₂ = 1` is a legal coprime pair). The orbit-window program (E-067/E-068) starts at the cell level: the
+**mod-5 ±1-orbit closure** (`prod_qr_mod5` — a positive integer with all
+prime divisors QR mod 5, the pair `{1, 4}`, is a QR mod 5; the
+divisor-status induction, the `prod_mod_qr` pattern specialized) and the
+**mod-3 two-orbit closure** (`prod_orbit_mod3` — the {1, 2}-orbit
+composition, first-try clean once the pattern was established). Both halves
+of the `(mod 3, mod 5)` pair-orbit are theorems: each is a product-closure
+statement about a positive integer whose prime divisors lie in the named
+residue set. The Lean joint audited set
+stands at **74**, 0-`sorry` (recounted name by name at E-070, PR #85,
+which regenerated the U15Layer axiom audit in full; the 82 first stated
+here overstated it). The ResidualPrimes modules sit outside the certified
+CI build (the root library and the five modules it imports); U15Layer
+compiles separately, and its compile record is the pinned
+`lake_build_u15_layer.log`. The general exactness family is complete: the fold
+skeleton, the pair form (unconditional), the deficit corollary.
 
 *The chain link at u = 59 (E-061, the band steadies).* The chain closes
 exactly once more: the u = 59 spans 44 + the residual 3,841 = 3,885 = the
