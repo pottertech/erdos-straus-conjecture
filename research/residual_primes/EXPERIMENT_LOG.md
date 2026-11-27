@@ -1900,6 +1900,34 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
 - **Status:** complete. The thirteen-entry chain
   3/7/11/15/19/23/31/35/39/43/47/51 census-complete.
 
+## E-052 - R8 piece 43: the u = 55 layer census (engine v0.37) (2026-11-27)
+
+- **What ran:** engine v0.37 (`analysis/u55_class_v037/`), a byte-superset
+  of v0.36 (the reconcile: v0.36's 1,892 lines in order inside 2,003,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **Verified results (full scale):**
+  - All coprimality/assert rows hold (admfail = 0, fw3 = 0; total
+    2,364,031 exact).
+  - **The chain closes exactly at u = 55:** the u = 55 spans 49 and
+    the true fw > 55 failers 3,885 sum to
+    **3,934 = the E-050 still-failers exact**. The u = 55 layer
+    rescues **1.24%** (the alternation 0.90 -> 1.24 continues within
+    the sub-two-percent asymptotic band); the still-failers are
+    **3,885 = 0.164% of (H24)**.
+  - The collisions = 1,575 of the 3,885 failers (40.5%) - the
+    delicate-share alternation continues (34.0% at 51 -> 40.5% at 55).
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (0.20%) -> 35 (0.03%)
+    -> 39 (0.03%) -> 43 (0.01%) -> 47 (0.01%) -> 51 (0.002%) -> 55 (49
+    = 0.002%) -> the residual 3,885 (0.164%).
+- **Artifacts:** `analysis/u55_class_v037/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 159).
+- **Status:** complete. The fourteen-entry chain
+  3/7/11/15/19/23/31/35/39/43/47/51/55 census-complete; the
+  asymptotic-regime reading of E-050 stands (the sub-two-percent
+  band).
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
