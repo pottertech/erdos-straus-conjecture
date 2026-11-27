@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.17 (2026-11-27: the general fold deficit corollary E-059 incorporated — the general exactness family complete)
+**Version:** v1.18 (2026-11-27: the u = 59 chain link E-061 incorporated; the general deficit corollary row)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -93,6 +93,7 @@ which is the structure investigated in §5.
 | u = 55 layer census (E-052) | the chain-critical cells; the spans 49 + the residual 3,885 = 3,934 exact (the rescue 1.24%) | `analysis/u55_class_v037/` |
 | the exactness program (E-054–E-057) | the fold skeleton, the CRT-pair form (U15ALG = 0 as a theorem), the general fold-pair form, the deficit corollary; U15Layer at 18 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 | the general deficit corollary (E-059) | the general exactness family complete: the fold skeleton + the unconditional pair form + the general deficit corollary; U15Layer at 19 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
+| u = 59 layer census (E-061) | the chain-critical cells; the spans 44 + the residual 3,841 = 3,885 exact (the rescue 1.13%) | `analysis/u59_class_v038/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -470,6 +471,19 @@ audited set stands at **78**, 0-`sorry`, all landing CI-gated with the
 manifest repinned in place. The general exactness family is complete:
 the fold skeleton, the pair form (unconditional), the deficit
 corollary.
+
+*The chain link at u = 59 (E-061, the band steadies).* The chain closes
+exactly once more: the u = 59 spans 44 + the residual 3,841 = 3,885 = the
+E-052 residual (the u = 59 layer rescues **1.13%** — the band steadies:
+1.24 → 1.13 across the composite layers, three consecutive links within the
+sub-two-percent asymptotic band). The still-failers are **3,841 = 0.162% of
+the hard-case class**. The collision share alternates on (40.5% at 55 →
+51.3% at 59). The consolidated chain:
+
+> u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
+> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 47 (0.01%) → 51 (0.002%) → 55 (0.002%) → 59 (0.002%) → the residual
+> **3,841 (0.162%)**.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
