@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.12 (2026-11-27: the u = 35 and u = 39 chain links E-043–E-044 incorporated; the Ladder Consolidation note)
+**Version:** v1.13 (2026-11-27: the u = 43/47 chain links E-046/E-048 and the general composite D-set form E-047 incorporated)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -87,6 +87,8 @@ which is the structure investigated in §5.
 | u = 31 delicate rescue (E-041) | 2,613/2,613 off-parameter pigeon-rescued, zero no-sites | `analysis/u31_rescue_v031/` |
 | u = 35 layer census (E-043) | the chain-critical cells; the spans 691 + the residual 5,198 = 5,889 exact (the rescue 11.73%) | `analysis/u35_class_v032/` |
 | u = 39 layer census (E-044) | the chain-critical cells; the spans 733 + the residual 4,465 = 5,198 exact (the rescue 14.10%) | `analysis/u39_class_v033/` |
+| u = 43 layer census (E-046) | the chain-critical cells; the spans 192 + the residual 4,273 = 4,465 exact (the rescue 4.30%) | `analysis/u43_class_v034/` |
+| u = 47 layer census (E-048) | the chain-critical cells; the spans 303 + the residual 3,970 = 4,273 exact (the rescue 7.09%) | `analysis/u47_class_v035/` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -380,6 +382,27 @@ with the per-link rescue rates (11.82%... 44.21%, 11.73%, 14.10%) converges
 toward the asymptotic regime the research program's next question targets:
 the remaining 4,465 records under the future layers and the honest statement
 the banner carries.
+
+*The chain links at u = 43 and u = 47 (E-046/E-048, the ladder's late
+decade)* and **the general composite D-set form (E-047)**. The chain closes
+exactly at both prime links: the u = 43 spans 192 + the residual 4,273 =
+4,465 exact (the u = 43 layer rescues **4.30%**), and the u = 47 spans 303 +
+the residual 3,970 = 4,273 exact (the rescue **7.09%**). The still-failers
+are **3,970 = 0.168% of the hard-case class**. The collision shares continue
+their oscillation with an upward drift: 44.4% at 31, 26.0% at 35, 46.7% at
+39, 23.1% at 43, **65.2% at 47**. The consolidated chain:
+
+> u = 3 (0) → 7 (82.49%) → 11 (11.82%) → 15 (2.53%) → 19 (1.81%) →
+> 23 (0.91%) → 31 (0.20%) → 35 (0.03%) → 39 (0.03%) → 43 (0.01%) →
+> 47 (0.01%) → the residual **3,970 (0.168%)**,
+
+and the composite-layer D-set foundation is now **general**: the theorem
+`uDset_coprime_card_le` proves `|D_ab| ≤ |D_a| · |D_b|` for every nonzero
+coprime pair `(a, b)` (the CRT decode injectivity via the exact toolchain
+composition `Nat.modEq_and_modEq_iff_modEq_mul` with the coprime hypothesis,
+the pair routing via `Nat.mod_mod_of_dvd`), with the u = 35 bound (5 × 7) as
+the corollary — the Lean joint audited set stands at **68**, 0-`sorry`, and
+the E-035 bound subsumed.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
