@@ -1721,6 +1721,37 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   the deficit-exactness Lean theorem remains the staged
   formalization piece.
 
+## E-041 - R8 piece 33: the delicate-shape rescue at u = 31 (engine v0.31) (2026-11-26)
+
+- **What ran:** engine v0.31 (`analysis/u31_rescue_v031/`), a byte-superset
+  of v0.30 (the reconcile: v0.30's 1,348 lines in order inside 1,349,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0.
+- **What was scanned:** for every delicate-shape record at u = 31 (the
+  collision-carrying pigeonhole-insufficient failers, 2,613 records),
+  the off-parameter pigeon-rescue scan (u2 in {35..255}, 4-admissible,
+  gcd = 1, the pigeon site 2|D| > phi), the E-011 framework's exact
+  procedure.
+- **Verified results (full scale):**
+  - **U31RESCUE delicate=2,613 rescued_pigeon=2,613 (100%),
+    pig_no_coll=0, no_site=0** - every delicate-shape record at the
+    fresh layer is pigeon-rescued off-parameter, the exact analog of
+    the original E-011 row (16,589/16,589, no_pigeon = 0) and the
+    R5-verified property (the pigeon sites carry collisions:
+    pig_no_coll = 0).
+- **Interpretation:** the delicate-shape recurrence at u = 31 (E-040)
+  sits INSIDE the verified rescue framework: the census's
+  representation-completeness over the (H24) class holds through the
+  new regime with zero uncovered records. The chain's full-ladder
+  state: every record resolved (the span present at its fw <= 255)
+  with the rescue machinery certifying the pigeon side wherever the
+  span layer itself was pigeonhole-insufficient.
+- **Artifacts:** `analysis/u31_rescue_v031/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 141).
+- **Status:** complete. The chain 3/7/11/15/19/23/31 plus the rescue
+  framework is census- and rescue-complete; the deficit-exactness
+  Lean theorem remains the staged formalization piece.
+
 
 
 
