@@ -7,3 +7,6 @@
 'ResidualPrimes.uDset_mem_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.crtPair_injOn15' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.uDset15_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.crtPair2' does not depend on any axioms
+'ResidualPrimes.uDset_coprime_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset35_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]

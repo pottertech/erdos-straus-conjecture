@@ -1839,6 +1839,32 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   collision-census began and the deficit-exactness Lean theorem
   targets) becomes the primary object.
 
+## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
+
+- **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
+  (0-`sorry`, compile exit 0, 8476 jobs):
+  - `crtPair2` - the CRT decode `(r % a, r % b)` at the general
+    coprime pair.
+  - **`uDset_coprime_card_le` - the GENERAL deficit bound:** for
+    nonzero coprime moduli `a, b`,
+    `(uDset (a*b) M).card <= (uDset a M).card * (uDset b M).card` -
+    the CRT decode is injective on the realized residues (the two
+    modular equations compose via
+    `Nat.modEq_and_modEq_iff_modEq_mul` with the coprime hypothesis -
+    the exact toolchain CRT composition) and every realized pair
+    routes through both layer sets (`Nat.mod_mod_of_dvd`). This
+    subsumes the u = 15 bound (the E-035 theorem kept as the merge
+    history) and generalizes the foundation to every future composite
+    layer (35 = 5 x 7, 39 = 3 x 13, 51 = 3 x 17, ...).
+  - `uDset35_card_le` - the corollary at 5 x 7 (the u = 35 layer's
+    bound).
+- **Axiom census:** the general bound and the corollary on the trio;
+  `crtPair2` axiom-free; the audit re-pinned (verifier rows 150).
+- **Status:** complete. The composite-layer foundation is now
+  general; the remaining staged formalization: the
+  window-generation exactness (the D-set = the pair-window fold as a
+  theorem - the E-031 algebra's full form).
+
 
 
 
