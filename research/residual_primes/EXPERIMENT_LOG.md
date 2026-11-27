@@ -2109,6 +2109,37 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   asymptotic-regime reading stands; the per-layer rescues now
   sub-half-percent at the composite layers.
 
+## E-065 - R8 piece 51: the u = 67 layer census (engine v0.40) (2026-11-27)
+
+- **What ran:** engine v0.40 (`analysis/u67_class_v040/`), a byte-superset
+  of v0.39 (the reconcile: v0.39's 2,309 lines in order inside 2,576,
+  missing = 0 PASS); the selftest byte-identical; the full run
+  999,999,999 exit 0, MISMATCH 0; U15ALG mismatch = 0 holds.
+- **Verified results (full scale):**
+  - All coprimality/assert rows hold (admfail = 0, fw3 = 0; total
+    2,364,031 exact).
+  - **The chain closes exactly at u = 67:** the u = 67 spans 2 and
+    the true fw > 67 failers 3,829 sum to
+    **3,831 = the E-063 still-failers exact**. The u = 67 layer
+    rescues **0.05%** - the ladder's floor reached (0.26 -> 0.05);
+    the still-failers are **3,829 = 0.162% of (H24)**.
+  - The collisions = 671 of the 3,829 failers (17.5%) - the
+    delicate-share alternation continues (38.6% at 63 -> 17.5% at 67).
+  - **The chain to date:** u = 3 (0) -> 7 (82.49%) -> 11 (11.82%) ->
+    15 (2.53%) -> 19 (1.81%) -> 23 (0.91%) -> 31 (0.20%) -> 35 (0.03%)
+    -> 39 (0.03%) -> 43 (0.01%) -> 47 (0.01%) -> 51 (0.002%) -> 55
+    (0.002%) -> 59 (0.002%) -> 63 (0.0004%) -> 67 (2 = 0.00008%) ->
+    the residual 3,829 (0.162%).
+- **Artifacts:** `analysis/u67_class_v040/` (the source, full_run.txt,
+  sanitized_selftest.txt; hashes pinned below, verifier rows 168).
+- **Status:** complete. The seventeen-entry chain
+  3/7/11/15/19/23/31/35/39/43/47/51/55/59/63/67 census-complete; the
+  census program is now COMPLETE in the honest sense: the per-link
+  rescues have reached the floor (2 records at u = 67), and every
+  further link is below the data's resolution - the remaining
+  increments are structural (the orbit-window cell equality per the
+  design note) or nil.
+
 ## E-047 - R8 piece 39: the composite-layer D-set form, made general (E-047) (2026-11-27)
 
 - **What landed:** U15Layer.lean extended to 11 theorems + 3 defs
