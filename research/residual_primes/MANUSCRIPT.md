@@ -465,31 +465,45 @@ composite layer's residues never exceed the **full divisor-product count**
 injectivity on the bounded residues. The supporting pieces: the mem-level
 CRT-pair routing (`uDset_mem_crt_pair`), the **general** decode injectivity
 (`crtPair2_injOn_lt`, any nonzero coprime `a, b` — the general form of
-`crtPair_injOn15`). The general fold deficit corollary (`uDset_card_le_fold`, E-059) completes
-the general family: the divisor-residue set at **any** composite layer (of
-nonzero coprime factors) never exceeds the folded factorization's full
-divisor-product count — the count chain (the injectivity + the general pair
-form + `card_image_le` + `card_product`), with the zero-exclusion stated
-honestly (the hypotheses require `u₁ ≠ 0` and `u₂ ≠ 0`, so the coprime
-pair `u₁ = 0`, `u₂ = 1` lies outside the theorem's scope). The orbit-window program (E-067/E-068) starts at the cell level: the
+`crtPair_injOn15`). The general fold deficit corollary (`uDset_card_le_fold`, E-059) completed
+the general family in its first form: the divisor-residue set at **any**
+composite layer (of nonzero coprime factors) never exceeds the folded
+factorization's full divisor-product count, via the count chain (the
+injectivity + the general pair form + `card_image_le` + `card_product`),
+with the zero-exclusion stated honestly (the hypotheses require
+`u₁ ≠ 0` and `u₂ ≠ 0`, so the coprime pair `u₁ = 0`, `u₂ = 1` lies outside
+that theorem's scope). The strengthened form (`uDset_card_le_fold'`,
+E-077) drops the u-side hypotheses entirely: the bound holds at **any**
+layer `u`, because the residue set is an image of the divisor set, so its
+count is bounded by the divisor count outright (`card_image_le`), and the
+coprime divisor-count equality (`Nat.Coprime.card_divisors_mul`) splits
+that count over the factors. Only the m-coprimality hypothesis remains,
+and the zero-exclusion is gone with the hypotheses that caused it. The orbit-window program (E-067/E-068) starts at the cell level: the
 **mod-5 ±1-orbit closure** (`prod_qr_mod5` — a positive integer with all
 prime divisors QR mod 5, the pair `{1, 4}`, is a QR mod 5; the
 divisor-status induction, the `prod_mod_qr` pattern specialized) and the
 **mod-3 two-orbit closure** (`prod_orbit_mod3` — the {1, 2}-orbit
-composition, first-try clean once the pattern was established). Both halves
+composition, first-try clean once the pattern was established). Both
+orbit-closure theorems were removed from `U15Layer` at E-077, in the
+same change that strengthened the fold corollary; they are not part of
+the module state the audited count below reflects. Both halves
 of the `(mod 3, mod 5)` pair-orbit are theorems: each is a product-closure
 statement about a positive integer whose prime divisors lie in the named
 residue set. The Lean joint audited set
-stands at **75**, 0-`sorry` (recounted name by name at the E-070
+stands at **74**, 0-`sorry` (recounted name by name at the E-070
 correction, PR #85/#87 — which regenerated the U15Layer axiom audit in
 full, finding 74 against the previously stated 82; the E-074 extension of
 the audit to all 25 declarations — including the fail-shape cell fact
-`prod_in_clo4_mod15` — brings the count to 75: 60 distinct src theorem
-names + the 15 nano theorems). The ResidualPrimes modules sit outside the
+`prod_in_clo4_mod15` — brought the count to 75: 60 audited src theorem
+names + the 15 nano theorems; the E-077 and E-078 changes bring it to
+74: 59 audited src theorem names + the 15 nano theorems, the fold
+corollary's restatement counting one for one, `count_add_le_count_mul`
+adding one, and the two orbit closures' removal taking away two). The ResidualPrimes modules sit outside the
 certified CI build (the root library and the five modules it imports);
 U15Layer compiles separately, and its axiom audit and compile record are
 pinned in the manifest. The general exactness family is complete: the fold
-skeleton, the pair form (unconditional), the deficit corollary.
+skeleton, the pair form (unconditional), the deficit corollary
+(strengthened at E-077).
 
 *The chain link at u = 59 (E-061, the band steadies).* The chain closes
 exactly once more: the u = 59 spans 44 + the residual 3,841 = 3,885 = the

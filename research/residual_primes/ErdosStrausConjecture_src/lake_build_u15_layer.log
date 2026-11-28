@@ -14,5 +14,5 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:85:52: unused variable `hnp`
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [8476/8476] Built ErdosStrausConjecture.ResidualPrimes.U15Layer (91s)
+✔ [8476/8476] Built ErdosStrausConjecture.ResidualPrimes.U15Layer (1250s)
 Build completed successfully (8476 jobs).

@@ -49,3 +49,4 @@ first-working distribution through u = 83): 27 (3,818; the rescue 36.16%),
 [10^7, 10^9) has F(p) <= 83 (empirical, the standing banner untouched).
 The "asymptotic band" and "ladder floor" readings withdrawn as
 artifacts.
+- E-077 (the u-side strengthening: uDset_card_le_fold' with only the m-coprimality, via card_image_le + hcop.card_divisors_mul; U15Layer 20 theorems + 3 defs); E-078 (the tau-inequality's pointwise lemma count_add_le_count_mul: a + b + 1 <= (a + 1) * (b + 1) — the per-prime count step; the full tau-inequality staged (the primeFactors-union + the product-composition route); U15Layer 21 theorems + 3 defs; joint audited 74 per the recount basis: 59 audited src theorem names + 15 nano, the fold replacement one for one, count_add_le_count_mul added, prod_qr_mod5 and prod_orbit_mod3 removed).

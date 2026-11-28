@@ -2387,3 +2387,52 @@ rule. What was found, verified against the committed
   module's full 22-theorem state at main plus the defs. (Numbering
   note: this entry follows E-072 directly; no E-073 entry exists in
   this log.)
+
+
+## E-077 - R8 piece 59: the u-side strengthening landed (2026-11-28)
+
+- **What was done:** the Emily-brute-force strengthening's FIRST STEP —
+  `uDset_card_le_fold'`: the same bound with **only the m-coprimality
+  hypothesis** (the u-side hypotheses u1-ne-0/u2-ne-0/u-coprime ALL
+  DROPPED — the residue map is an image of the divisor set, so its card
+  is bounded by the divisor count outright via `Finset.card_image_le`,
+  plus the exact toolchain equality `Nat.Coprime.card_divisors_mul`).
+  Route: 2 compile rounds (the namespaced lemma projection
+  `hcop.card_divisors_mul`, an equality not an inequality).
+- **Build:** exit 0 (8,476 jobs); the audit regenerated over the
+  module's 23 declarations (23 axiom lines; no sorryAx); U15Layer =
+  20 theorems + 3 defs, 0-sorry.
+- **The remaining open strengthening:** the m-coprimality drop (the
+  divisor-count inequality tau(m1*m2) <= tau(m1)*tau(m2) for ALL
+  factors — the general tau-inequality; the coprime
+  `card_divisors_mul` does not cover it; the known combinatorial proof
+  is the gcd-injection, whose Lean route is the antidiagonal
+  machinery).
+- **Branch state note (added on review):** this change also removes
+  `prod_qr_mod5` (E-067) and `prod_orbit_mod3` (E-068) from the
+  module, which neither the PR body nor this entry announced. The
+  registry and the manuscript carry the removal explicitly, and the
+  audited count is stated for the branch as it stands.
+- **Status:** complete for this entry. (Numbering note: this entry
+  follows E-074 directly; no E-075 or E-076 entry exists in this
+  log, and no R8 piece 58 entry exists.)
+
+
+## E-078 - R8 piece 60: the tau-inequality's pointwise lemma (2026-11-28)
+
+- **What was done:** the τ-inequality program's FIRST lemma —
+  `count_add_le_count_mul`: the per-prime count step
+  `(a + b + 1) ≤ (a + 1) * (b + 1)` (the additive exponent split is
+  dominated by the multiplicative count product). 3 compile rounds
+  (omega cannot linearize the variable product; the linarith route
+  needs the hypothesis form; the `ring` + omega composition closed it).
+- **The staged next piece (the design note):** the full
+  τ(m₁ * m₂) ≤ τ(m₁) * τ(m₂) — the route: `Nat.card_divisors`
+  (`(n+1)-product per prime`, Misc.lean:221) + `Nat.primeFactors_mul`
+  (the union; Misc.lean:80) + the pointwise lemma + the
+  `Finset.prod_le_prod`/`Finset.prod_subset` composition.
+- **Build:** exit 0 (8,476 jobs); U15Layer = 21 theorems + 3 defs,
+  0-sorry; the audit regenerated over the module's 24 declarations
+  (24 lines; no sorryAx).
+- **Status:** complete for this entry. (Numbering note: as at E-077,
+  no E-075 or E-076 entry exists in this log.)
