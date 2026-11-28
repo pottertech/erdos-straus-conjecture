@@ -2409,3 +2409,21 @@ rule. What was found, verified against the committed
   is the gcd-injection, whose Lean route is the antidiagonal
   machinery).
 - **Status:** complete for this entry.
+
+
+## E-078 - R8 piece 60: the tau-inequality's pointwise lemma (2026-11-28)
+
+- **What was done:** the τ-inequality program's FIRST lemma —
+  `count_add_le_count_mul`: the per-prime count step
+  `(a + b + 1) ≤ (a + 1) * (b + 1)` (the additive exponent split is
+  dominated by the multiplicative count product). 3 compile rounds
+  (omega cannot linearize the variable product; the linarith route
+  needs the hypothesis form; the `ring` + omega composition closed it).
+- **The staged next piece (the design note):** the full
+  τ(m₁ * m₂) ≤ τ(m₁) * τ(m₂) — the route: `Nat.card_divisors`
+  (`(n+1)-product per prime`, Misc.lean:221) + `Nat.primeFactors_mul`
+  (the union; Misc.lean:80) + the pointwise lemma + the
+  `Finset.prod_le_prod`/`Finset.prod_subset` composition.
+- **Build:** exit 0; U15Layer = 24 theorems + 3 defs, 0-sorry; the
+  audit regenerated (25 lines; no sorryAx).
+- **Status:** complete for this entry.

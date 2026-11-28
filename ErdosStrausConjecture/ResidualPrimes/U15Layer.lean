@@ -480,6 +480,13 @@ theorem prod_in_clo4_mod15 (T : ℕ) (hT0 : 0 < T)
             · rw [Nat.mul_mod, e, k]; norm_num
   exact key T (Nat.le_refl T) hT0 hall
 
+/-- The τ-inequality pointwise step per prime:
+`(a + b + 1) ≤ (a + 1) * (b + 1)` for naturals (the additive exponent
+split is dominated by the multiplicative count product at every prime). -/
+theorem count_add_le_count_mul (a b : ℕ) : a + b + 1 ≤ (a + 1) * (b + 1) := by
+  have hx : (a + 1) * (b + 1) = a * b + a + b + 1 := by ring
+  omega
+
 end ResidualPrimes
 
 

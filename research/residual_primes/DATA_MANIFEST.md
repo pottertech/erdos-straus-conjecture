@@ -162,7 +162,7 @@ these datasets carry no universal claims.
 | `research/residual_primes/analysis/u67_class_v040/collision_margin_engine_v040.c` | `d25aa246bb194c75b9fd9f62506beb012d470766bc2b27a293a8c841792078ab` | 140462 |
 | `research/residual_primes/analysis/u67_class_v040/full_run.txt` | `aa64cad946c7d49843aa088d74aa66755a6fd837c6b07c4d04b6c6d12353c90a` | 112924 |
 | `research/residual_primes/analysis/u67_class_v040/sanitized_selftest.txt` | `934ec74d9f44bfcd5ca2ddabf1a1f19d5ad73f0bc6ef25a4037c7d12a3a5d992` | 350 |
-| `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` | `958a17b41665d7d80674d5176858f2c79bb67132eb4fa7f906f368f139daf359` | 22474 |
+| `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` | `6c9522daae1e337e2ab920d7f225a68b58773ec711d6e186420a57aa89cc15fb` | 22822 |
 | `research/residual_primes/ErdosStrausConjecture_src/axiom_audit_u15_layer.txt` | `a71590f84baed4e8c69cfef0f7a452896438babcedf5fa95dbc41d9f75bcbc8e` | 2400 |
 | `research/residual_primes/ErdosStrausConjecture_src/lake_build_u15_layer.log` | `3955a4e62882d96a4fe2ab601657380d79407f0f702304886394d1d2b7194ecd` | 968 |
 | `research/residual_primes/ErdosStrausConjecture_src/print_axioms_u15.lean` | `69aa5ead57273c09f7cd093bdde5f0a03d0ba89d190460b5caa79843e2f4e775` | 1203 |
