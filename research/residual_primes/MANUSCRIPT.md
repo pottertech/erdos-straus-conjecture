@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.21 (2026-11-27: the orbit-window program E-067/E-068 incorporated — the (mod 3, mod 5) pair-orbit closures as theorems)
+**Version:** v1.22 (2026-11-28: the E-072 chain correction — the corrected sweep-wide chain through u = 83)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -528,6 +528,26 @@ Honest verdict, recorded: **the census program is complete** — the
 per-link rescues have reached the data's resolution floor, and every
 further link is below it; the remaining increments are structural (the
 orbit-window cell equality) or nil.
+
+**CORRECTED (E-072, the fate-list artifact):** the chain lists in this
+manuscript's tail sections carried an inflated residual (the u = 27 link
+missing from the per-layer fate lists from E-039 on); the corrected
+sweep-wide chain, derived from the committed v0.28 BYU table (which sums
+to the sweep exactly — the complete first-working distribution):
+
+> u = 3 (830,200, the F(p) = 3 class) → 7 (82.47%) → 11 (67.47%) →
+> 15 (44.34%) → 19 (57.08%) → 23 (67.19%) → **27 (3,818; 36.16%)** →
+> 31 (4,668; 69.26%) → 35 (691; 33.36%) → 39 (733; 53.11%) →
+> 43 (192; 29.67%) → 47 (303; 66.59%) → 51 (36; 23.68%) →
+> 55 (49; 42.24%) → 59 (44; 65.67%) → 63 (10; 43.47%) → 67 (2; 15.38%) →
+> 71 (6; 54.54%) → 75 (2; 40%) → 79 (1; 33.33%) → 83 (2; 100%) →
+> the (H24) residual **ZERO**.
+
+The per-link rescues fluctuate (15.4% to 82.5%) — the "asymptotic band" and
+"ladder floor" readings withdrawn as artifacts. The empirical statement:
+every hard-case prime in [10^7, 10^9) has F(p) ≤ 83 (the standing banner
+untouched; computation never closes a universal claim). The per-layer span
+counts and the collision/cell observations stand as stated.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
