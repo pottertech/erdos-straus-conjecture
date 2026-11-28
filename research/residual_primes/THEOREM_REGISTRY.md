@@ -156,8 +156,8 @@ The fold's pair form (E-056): `crtPair_fold_image15` (the realized
 `(3, 5)`-pairs are exactly the divisor-product's paired-residue image — the
 exact statement of the census algebra **U15ALG mismatch = 0**; trio) and
 `uDset15_card_le_fold` (the deficit corollary: the residues never exceed the
-FULL divisor-product count `∏ (2e + 1)`, the engine's exact window-mask
-number; trio; the calc-count chain). The joint audited set:
+FULL divisor-product count `∏ (e + 1)`, the product of the two factors'
+divisor counts; trio; the calc-count chain). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 = 74.
 The general fold-pair (E-057): `crtPair2_fold_image` — the realized
 `(u₁, u₂)`-pairs equal the divisor-product's paired-residue image for ANY
@@ -178,12 +178,39 @@ The mod-3 two-orbit closure (E-068): `prod_orbit_mod3` — a positive integer
 with all-prime-divisors in the mod-3 two-orbit lands in it (the
 divisor-status induction; first-try clean; trio). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 82.
+
+**Correction (E-070, 2026-11-27).** The running sums above overstate the
+audited set, and the E-054–E-068 theorems were not in fact axiom-audited
+when these entries were written (the audit artifact
+`axiom_audit_u15_layer.txt` was last regenerated at E-047). Two steps each
+add 2 for a single theorem: E-057 names only `crtPair2_fold_image`, and
+E-059 names only `uDset_card_le_fold`. The rest of the gap between the
+stated 82 and the recounted 64 was never itemized against the artifacts:
+the running sums were carried forward step by step without a recount, so
+they should not be summed or quoted as audited totals. (The E-056 sum
+above also ends at 74; that is the same un-itemized chain, not a recount,
+and its agreement with the corrected total below is coincidence.) A
+name-by-name recount of the audit artifacts
+(`ErdosStrausConjecture_src/axiom_audit_*.txt` plus
+`verification_nano/axiom_audit.log`) gave 64 audited theorems before this
+correction, not 82. E-070 regenerated the U15Layer audit in full: the
+module stands at 21 theorems, all 21 now axiom-audited (on the standard
+trio or the `propext, Quot.sound` duo; no `sorryAx`, no project axioms),
+and the corrected joint audited set is **74**. The ResidualPrimes modules
+are outside the certified CI build (the root library and the five modules
+it imports); U15Layer compiles separately, and its build record
+(`lake_build_u15_layer.log`, regenerated at E-070) replaces the E-034 line
+that earlier entries re-quoted.
+
 The fail-shape window-cell fact (E-071, PR #86): `prod_in_clo4_mod15` — the mod-15
 2-power orbit {1, 2, 4, 8} of (ZMod 15)× is closed under multiplication
 (the exact cell set of the E-029 fail-shape census; first-try clean; trio).
-The joint audited set: per the E-070 correction recount (Emily's NOT-COMPLIANT count over the
+The joint audited set: per the E-070 correction recount (Emily's count over the
 per-file audit artifacts: 49 src theorem names pre-fix, 59 post-fix, +
-15 nano = 74), plus this fact: **75**; the 2e-window-count wording
+15 nano = 74). This fact entered the module after the E-070
+regeneration and is not yet in the audit artifact, so the joint audited
+set stands at **74**, not 75, until the audit is extended to cover it;
+the 2e-window-count wording
 corrected to `∏ (e_q + 1)` (the divisor-product count).
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)

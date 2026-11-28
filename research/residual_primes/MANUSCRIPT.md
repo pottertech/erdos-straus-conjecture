@@ -460,7 +460,8 @@ paired-residue image** — the exact statement of the census algebra
 **U15ALG mismatch = 0** (the E-031 fold, engine-verified 0-mismatch), and it
 holds unconditionally. The deficit corollary (`uDset15_card_le_fold`): the
 composite layer's residues never exceed the **full divisor-product count**
-`∏ (2e_q + 1)` — the engine's exact window-mask number — via the CRT decode's
+`∏ (e_q + 1)` — the product of the two factors' divisor counts,
+`|D(m₁)| · |D(m₂)|` — via the CRT decode's
 injectivity on the bounded residues. The supporting pieces: the mem-level
 CRT-pair routing (`uDset_mem_crt_pair`), the **general** decode injectivity
 (`crtPair2_injOn_lt`, any nonzero coprime `a, b` — the general form of
@@ -469,7 +470,8 @@ the general family: the divisor-residue set at **any** composite layer (of
 nonzero coprime factors) never exceeds the folded factorization's full
 divisor-product count — the count chain (the injectivity + the general pair
 form + `card_image_le` + `card_product`), with the zero-exclusion stated
-honestly (`u₁ = 0` / `u₂ = 1` is a legal coprime pair). The orbit-window program (E-067/E-068) starts at the cell level: the
+honestly (the hypotheses require `u₁ ≠ 0` and `u₂ ≠ 0`, so the coprime
+pair `u₁ = 0`, `u₂ = 1` lies outside the theorem's scope). The orbit-window program (E-067/E-068) starts at the cell level: the
 **mod-5 ±1-orbit closure** (`prod_qr_mod5` — a positive integer with all
 prime divisors QR mod 5, the pair `{1, 4}`, is a QR mod 5; the
 divisor-status induction, the `prod_mod_qr` pattern specialized) and the
@@ -479,11 +481,11 @@ of the `(mod 3, mod 5)` pair-orbit are theorems: each is a product-closure
 statement about a positive integer whose prime divisors lie in the named
 residue set. The Lean joint audited set
 stands at **74**, 0-`sorry` (recounted name by name at E-070, PR #85,
-which regenerated the U15Layer axiom audit in full; the 82 first stated
-here overstated it). The ResidualPrimes modules sit outside the certified
-CI build (the root library and the five modules it imports); U15Layer
-compiles separately, and its compile record is the pinned
-`lake_build_u15_layer.log`. The general exactness family is complete: the fold
+which regenerated the U15Layer axiom audit in full; the earlier
+statements of 78, 80, and 82 overstated it). The ResidualPrimes modules
+sit outside the certified CI build (the root library and the five
+modules it imports); U15Layer compiles separately; its axiom audit and
+build record are pinned in the manifest. The general exactness family is complete: the fold
 skeleton, the pair form (unconditional), the deficit corollary.
 
 *The chain link at u = 59 (E-061, the band steadies).* The chain closes
