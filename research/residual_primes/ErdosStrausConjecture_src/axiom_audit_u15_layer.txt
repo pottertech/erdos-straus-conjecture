@@ -19,7 +19,7 @@
 'ResidualPrimes.crtPair_fold_image15' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.uDset15_card_le_fold' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.crtPair2_fold_image' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ResidualPrimes.uDset_card_le_fold' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ResidualPrimes.prod_qr_mod5' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ResidualPrimes.prod_orbit_mod3' depends on axioms: [propext, Classical.choice, Quot.sound]
+research/residual_primes/ErdosStrausConjecture_src/print_axioms_u15.lean:24:14: error(lean.unknownIdentifier): Unknown constant `ResidualPrimes.uDset_card_le_fold`
+research/residual_primes/ErdosStrausConjecture_src/print_axioms_u15.lean:25:14: error(lean.unknownIdentifier): Unknown constant `ResidualPrimes.prod_qr_mod5`
+research/residual_primes/ErdosStrausConjecture_src/print_axioms_u15.lean:26:14: error(lean.unknownIdentifier): Unknown constant `ResidualPrimes.prod_orbit_mod3`
 'ResidualPrimes.prod_in_clo4_mod15' depends on axioms: [propext, Classical.choice, Quot.sound]

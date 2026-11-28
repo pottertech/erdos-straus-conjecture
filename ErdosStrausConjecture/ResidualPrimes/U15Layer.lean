@@ -400,121 +400,25 @@ theorem crtPair2_fold_image (u₁ u₂ m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁
   simp only [Function.comp_apply, crtPair2]
   rw [h1, h2]
 
-/-- **The general fold deficit corollary.** The divisor-residue set at any
-composite layer `u₁ * u₂` (of nonzero coprime factors) never exceeds the
-the divisor-product count
-`∏ (e_q + 1)`). -/
-theorem uDset_card_le_fold (u₁ u₂ m₁ m₂ : ℕ)
-    (hu1 : u₁ ≠ 0) (hu2 : u₂ ≠ 0) (hup : Nat.Coprime u₁ u₂)
-    (hcop : Nat.Coprime m₁ m₂) :
-    (uDset (u₁ * u₂) (m₁ * m₂)).card ≤
+/-- **The strengthened general fold deficit corollary.** The divisor-residue
+set at **any** composite layer `u₁ * u₂` of coprime factors never exceeds
+the folded factorization's divisor-product count — with **no hypothesis on
+the u side** (the residue map is an image of the divisor set, so its card
+is bounded by the divisor count outright; the coprime composition route
+through `crtPair2_injOn_lt` is not needed for the count). This is the
+Emily-brute-force strengthening's first step: the remaining candidate
+drop is the `m`-coprimality (the divisor-count inequality
+`τ(m₁ * m₂) ≤ τ(m₁) · τ(m₂)` for all factors), recorded as the open
+strengthening. -/
+theorem uDset_card_le_fold' (u m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
+    (uDset u (m₁ * m₂)).card ≤
       (Nat.divisors m₁).card * (Nat.divisors m₂).card := by
-  have hprod0 : u₁ * u₂ ≠ 0 := mul_ne_zero hu1 hu2
-  have hlt : ∀ r ∈ uDset (u₁ * u₂) (m₁ * m₂), r < u₁ * u₂ := by
-    intro r hr
-    obtain ⟨d, _, _, hmod⟩ := uDset_mem_elim hr
-    exact hmod ▸ Nat.mod_lt d (by omega)
-  have hinj : Set.InjOn (crtPair2 u₁ u₂) (uDset (u₁ * u₂) (m₁ * m₂)) :=
-    (crtPair2_injOn_lt hup).mono (fun r hr => Finset.mem_coe.mpr
-      (Finset.mem_range.mpr (hlt r hr)))
-  have hcard : ((uDset (u₁ * u₂) (m₁ * m₂)).image (crtPair2 u₁ u₂)).card =
-      (uDset (u₁ * u₂) (m₁ * m₂)).card := Finset.card_image_of_injOn hinj
-  have hpair := crtPair2_fold_image u₁ u₂ m₁ m₂ hcop
-  have h3 : ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
-        (fun q => ((q.1 * q.2) % u₁, (q.1 * q.2) % u₂))).card ≤
-      (Nat.divisors m₁ ×ˢ Nat.divisors m₂).card := Finset.card_image_le
-  rw [Finset.card_product] at h3
-  calc (uDset (u₁ * u₂) (m₁ * m₂)).card
-      = ((uDset (u₁ * u₂) (m₁ * m₂)).image (crtPair2 u₁ u₂)).card := hcard.symm
-    _ = ((Nat.divisors m₁ ×ˢ Nat.divisors m₂).image
-          (fun q => ((q.1 * q.2) % u₁, (q.1 * q.2) % u₂))).card :=
-        congrArg Finset.card hpair
-    _ ≤ (Nat.divisors m₁).card * (Nat.divisors m₂).card := h3
-
-/-- **The mod-5 ±1-orbit closure (the orbit-window's first cell fact).**
-A positive integer all of whose prime divisors are quadratic residues
-mod `5` (i.e. `≡ 1` or `≡ 4 (mod 5)`) is itself a quadratic residue mod
-`5`: the divisor-status induction (the `prod_mod_qr` pattern at the
-modulus `5`, whose QR residues are exactly the pair `{1, 4}`). -/
-theorem prod_qr_mod5 (T : ℕ) (hT0 : 0 < T)
-    (hall : ∀ q : ℕ, q.Prime → q ∣ T → (q % 5 = 1 ∨ q % 5 = 4)) :
-    T % 5 = 1 ∨ T % 5 = 4 := by
-  have key : ∀ t : ℕ, t ≤ T → 0 < t →
-      (∀ q : ℕ, q.Prime → q ∣ t → (q % 5 = 1 ∨ q % 5 = 4)) →
-      t % 5 = 1 ∨ t % 5 = 4 := by
-    intro t
-    induction t using Nat.strongRecOn with | ind t ih
-    · intro _hle ht0 hall'
-      by_cases h1 : t = 1
-      · subst h1; exact Or.inl rfl
-      · have htgt1 : 1 < t := by omega
-        by_cases hpr : Nat.Prime t
-        · exact hall' t hpr (dvd_refl t)
-        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
-          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
-          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
-          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
-          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
-          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
-          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
-          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
-              (r % 5 = 1 ∨ r % 5 = 4) :=
-            fun r hr hrd => hall' r hr (hrd.trans htdq)
-          have hrec := ih (t / q) hlt hlqT htq0 hall2
-          have hqres := hall' q hqp hqt
-          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
-          rw [hdiv]
-          rcases hrec with e | e
-          · rcases hqres with k | k
-            · rw [Nat.mul_mod, e, k]; norm_num
-            · rw [Nat.mul_mod, e, k]; norm_num
-          · rcases hqres with k | k
-            · rw [Nat.mul_mod, e, k]; norm_num
-            · rw [Nat.mul_mod, e, k]; norm_num
-  exact key T (Nat.le_refl T) hT0 hall
-
-/-- **The mod-3 two-orbit closure (the orbit-window's second cell fact).**
-A positive integer all of whose prime divisors lie in the mod-3 two-orbit
-(i.e. `≡ 1` or `≡ 2 (mod 3)` — which excludes only the `≡ 0` class) is
-itself either `1` or `2` mod `3`: the divisor-status induction, with the
-2 × 2 product cases `1·1, 1·2, 2·1, 2·2` closing mod 3 (the two-orbit
-is the whole unit group of `ZMod 3`). -/
-theorem prod_orbit_mod3 (T : ℕ) (hT0 : 0 < T)
-    (hall : ∀ q : ℕ, q.Prime → q ∣ T → (q % 3 = 1 ∨ q % 3 = 2)) :
-    T % 3 = 1 ∨ T % 3 = 2 := by
-  have key : ∀ t : ℕ, t ≤ T → 0 < t →
-      (∀ q : ℕ, q.Prime → q ∣ t → (q % 3 = 1 ∨ q % 3 = 2)) →
-      t % 3 = 1 ∨ t % 3 = 2 := by
-    intro t
-    induction t using Nat.strongRecOn with | ind t ih
-    · intro _hle ht0 hall'
-      by_cases h1 : t = 1
-      · subst h1; exact Or.inl rfl
-      · have htgt1 : 1 < t := by omega
-        by_cases hpr : Nat.Prime t
-        · exact hall' t hpr (dvd_refl t)
-        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
-          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
-          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
-          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
-          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
-          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
-          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
-          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
-              (r % 3 = 1 ∨ r % 3 = 2) :=
-            fun r hr hrd => hall' r hr (hrd.trans htdq)
-          have hrec := ih (t / q) hlt hlqT htq0 hall2
-          have hqres := hall' q hqp hqt
-          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
-          rw [hdiv]
-          rcases hrec with e | e
-          · rcases hqres with k | k
-            · rw [Nat.mul_mod, e, k]; norm_num
-            · rw [Nat.mul_mod, e, k]; norm_num
-          · rcases hqres with k | k
-            · rw [Nat.mul_mod, e, k]; norm_num
-            · rw [Nat.mul_mod, e, k]; norm_num
-  exact key T (Nat.le_refl T) hT0 hall
+  have h2 : (Nat.divisors (m₁ * m₂)).card =
+      (Nat.divisors m₁).card * (Nat.divisors m₂).card :=
+    hcop.card_divisors_mul
+  calc (uDset u (m₁ * m₂)).card
+      ≤ (Nat.divisors (m₁ * m₂)).card := Finset.card_image_le
+    _ ≤ (Nat.divisors m₁).card * (Nat.divisors m₂).card := by rw [h2]
 
 /-- **The mod-15 2-power-orbit closure (the fail-shape window-cell fact).**
 A positive integer all of whose prime divisors lie in the mod-15
