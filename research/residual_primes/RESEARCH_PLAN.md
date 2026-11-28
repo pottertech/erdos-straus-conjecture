@@ -30,3 +30,22 @@ trio/duo audited); E-026 (the data reading over the pinned v0.22 run: the fw = 7
 4. Parity-slip audit on every filter over odd prime factors (factor 2 exempt).
 5. New formal results compile 0-`sorry`, keep the axiom census, and enter the
    CI axiom gate before any count depends on them.
+
+
+## E-072 CORRECTION NOTE (2026-11-27): the fate-list artifact and the
+corrected sweep-wide chain
+
+Corrections entered per the standing claims-may-be-withdrawn rule: every
+census engine from v0.29 carried an earlier-fate list omitting u = 27; the
+per-layer SPAN counts stand (the BYU rows confirm each), the STILL-FAILERS
+claims from E-039 on are withdrawn as inflated (u = 27's 3,818 and the
+inherited accumulation). The corrected (H24) chain, from the committed
+v0.28 BYU table (which sums to the sweep exactly, the complete
+first-working distribution through u = 83): 27 (3,818; the rescue 36.16%),
+31 (69.26%), 35 (33.36%), 39 (53.11%), 43 (29.67%), 47 (66.59%),
+51 (23.68%), 55 (42.24%), 59 (65.67%), 63 (43.47%), 67 (15.38%),
+71 (54.54%), 75 (40%), 79 (33.33%), 83 (100% — TWO spans) — and the
+(H24) residual after u = 83 is ZERO: every hard-case prime in
+[10^7, 10^9) has F(p) <= 83 (empirical, the standing banner untouched).
+The "asymptotic band" and "ladder floor" readings withdrawn as
+artifacts.
