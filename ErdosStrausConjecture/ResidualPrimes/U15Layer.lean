@@ -261,12 +261,11 @@ theorem uDset_mem_crt_pair {a b M r : ℕ} {d : ℕ} (hd : d ∣ M) (hM : M ≠ 
 
 /-- **The CRT decode is injective on the bounded residues, generally.**
 Two residues below `a * b` carrying the same `(mod a, mod b)`-pair are
-equal — for nonzero coprime `a, b` (the general form of
+equal — for coprime `a, b` (the general form of
 `crtPair_injOn15`, the exact site of the CRT deficit formalization: the
 pair map is a bijection onto the bounded pairs; which pairs lie in the
 layer-set image is the divisor-realization question). -/
-theorem crtPair2_injOn_lt {a b : ℕ} (ha0 : a ≠ 0) (hb0 : b ≠ 0)
-    (hab : Nat.Coprime a b) :
+theorem crtPair2_injOn_lt {a b : ℕ} (hab : Nat.Coprime a b) :
     Set.InjOn (crtPair2 a b) (Finset.range (a * b)) := by
   intro d hd d' hd' h
   have hltd : d < a * b := Finset.mem_range.mp hd
@@ -416,7 +415,7 @@ theorem uDset_card_le_fold (u₁ u₂ m₁ m₂ : ℕ)
     obtain ⟨d, _, _, hmod⟩ := uDset_mem_elim hr
     exact hmod ▸ Nat.mod_lt d (by omega)
   have hinj : Set.InjOn (crtPair2 u₁ u₂) (uDset (u₁ * u₂) (m₁ * m₂)) :=
-    (crtPair2_injOn_lt hu1 hu2 hup).mono (fun r hr => Finset.mem_coe.mpr
+    (crtPair2_injOn_lt hup).mono (fun r hr => Finset.mem_coe.mpr
       (Finset.mem_range.mpr (hlt r hr)))
   have hcard : ((uDset (u₁ * u₂) (m₁ * m₂)).image (crtPair2 u₁ u₂)).card =
       (uDset (u₁ * u₂) (m₁ * m₂)).card := Finset.card_image_of_injOn hinj

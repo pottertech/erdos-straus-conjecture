@@ -2166,6 +2166,57 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   positive characterization.
 
 
+
+## E-070 - Correction: the U15Layer axiom audit completed and the audited count restated (2026-11-27)
+
+*(The entry as written on the PR #85/#87 correction lane, landed verbatim
+on the merged main after the audit extension (E-074) superseded its
+21-theorem coverage with the 25-declaration one — see the E-074 entry
+and the E-075 count reconciliation.)*
+
+- **Why:** Emily's reviews of PRs #72, #73, #74, #75, #77, #78, #79,
+  #82, and #83 (all merged, most without a compliant verdict) found
+  the audit claims ahead of the artifacts: `axiom_audit_u15_layer.txt`
+  had not been regenerated since E-047, so the ten E-054 to E-068
+  theorems had no axiom record; the joint audited set was stated as 82
+  while a name-by-name recount of the audit artifacts gives 64;
+  `lake_build_u15_layer.log` was still the E-034 line; and build
+  coverage was described without naming that the ResidualPrimes
+  modules sit outside the certified CI build
+  (APPROVAL_POLICY.md:66-68).
+- **What was done:** `print_axioms_u15.lean` extended to all 21
+  U15Layer theorems (plus the `crtPair2` definition); the module built
+  from its then-current main; the audit run against that build. Every
+  theorem audits on the standard trio or the `propext, Quot.sound`
+  duo; `crtPair2` is axiom-free; no `sorryAx`, no project axioms. The
+  artifacts regenerated and re-pinned in DATA_MANIFEST.
+- **Count restated:** the joint audited set is **74**, not 82. The
+  registry chain also added 2 for one theorem at each of E-057 and
+  E-059; the correction is recorded in THEOREM_REGISTRY.md.
+- **Wording fixed:** the fold corollaries' bound is the divisor-product
+  count `prod (e_q + 1)` (the product of the factors' divisor counts),
+  not the engine's window-mask count `prod (2e_q + 1)`; corrected in
+  MANUSCRIPT.md, THEOREM_REGISTRY.md, and the two doc comments in
+  U15Layer.lean. The manuscript's zero-exclusion sentence now states
+  that the pair u1 = 0, u2 = 1 lies outside `uDset_card_le_fold`'s
+  hypotheses. The consolidated chain lists' u = 27 link and the chain
+  correction itself are recorded at E-072, derived from the same BYU
+  table.
+- **Status:** complete. Open for Brodie, not corrected here: the
+  compiler notes unused hypotheses at `crtPair2_injOn_lt` (ha0, hb0),
+  and Emily's brute-force note that `uDset_card_le_fold` may hold with
+  none of its four hypotheses; both are strengthening opportunities,
+  not errors in the stated theorems.
+- **The open-note follow-up (Brodie, this entry's landing):** the
+  unused hypotheses `ha0`/`hb0` DROPPED from `crtPair2_injOn_lt` (the
+  injectivity holds for all nonzero coprime pairs from the coprime
+  composition alone — the range-membership route needs no separate
+  nonzero); the audit regenerated at the 25-declaration state (the
+  build exit 0, 8,476 jobs; no sorryAx); the
+  `uDset_card_le_fold` strengthening over the remaining hypotheses
+  (the m-coprimality and the u-nonzero pair) stays OPEN as Emily's
+  brute-force note records it.
+
 ## E-071 - R8 piece 54: the fail-shape window-cell fact (2026-11-27)
 
 - **What was done:** the (2,2)-orbit-closure route's core fact; PR #83
