@@ -192,7 +192,9 @@ corrected to `∏ (e_q + 1)` (the divisor-product count).
 E-074: the audit regenerated at the merged main against the module's
 full 25-declaration state (the 22 theorems + the three defs; 23 axiom
 lines + 2 axiom-free defs; no sorryAx) — the recount basis confirmed:
-60 audited src theorem names + 15 nano = **75**.
+60 audited src theorem names + 15 nano = **75**. That is main's total
+at E-074; on this branch it is superseded by the E-077 and E-078
+count in the next paragraph (74).
 
 E-077 and E-078 (this branch): the general fold deficit corollary is
 restated in strengthened form as `uDset_card_le_fold'` (E-077; only
@@ -202,8 +204,8 @@ replacing `uDset_card_le_fold` one for one, and
 longer contains `prod_qr_mod5` (E-067) or `prod_orbit_mod3` (E-068);
 the E-059, E-067 and E-068 entries above stand as the record of those
 theorems on main. The audit is regenerated over the module's 24
-declarations (21 theorems + the three defs; 24 axiom lines; no
-sorryAx). The audited count on this branch is 59 audited src theorem
+declarations (21 theorems + the three defs; 24 lines: 22 axiom
+lines + 2 axiom-free defs; no sorryAx). The audited count on this branch is 59 audited src theorem
 names + 15 nano = **74**: the fold replacement counts one for one,
 `count_add_le_count_mul` adds one, and the two orbit closures remove
 two from the 60-name basis above.

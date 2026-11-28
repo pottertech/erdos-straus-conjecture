@@ -1,3 +1,4 @@
+# Build record: lake build ErdosStrausConjecture.ResidualPrimes.U15Layer, toolchain leanprover/lean4:v4.30.0, run 2026-11-28 on the fleet VM (Atlas). The build output below is unedited.
 ⚠ [8475/8476] Replayed ErdosStrausConjecture.ResidualPrimes.U11Layer
 warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:45:47: unused variable `hx0`
 
@@ -14,5 +15,5 @@ Note: This linter can be disabled with `set_option linter.unusedVariables false`
 warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:85:52: unused variable `hnp`
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [8476/8476] Built ErdosStrausConjecture.ResidualPrimes.U15Layer (1250s)
+✔ [8476/8476] Built ErdosStrausConjecture.ResidualPrimes.U15Layer (1178s)
 Build completed successfully (8476 jobs).

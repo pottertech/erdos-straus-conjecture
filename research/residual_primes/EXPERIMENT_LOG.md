@@ -2399,9 +2399,14 @@ rule. What was found, verified against the committed
   plus the exact toolchain equality `Nat.Coprime.card_divisors_mul`).
   Route: 2 compile rounds (the namespaced lemma projection
   `hcop.card_divisors_mul`, an equality not an inequality).
-- **Build:** exit 0 (8,476 jobs); the audit regenerated over the
-  module's 23 declarations (23 axiom lines; no sorryAx); U15Layer =
-  20 theorems + 3 defs, 0-sorry.
+- **Build:** exit 0 (8,476 jobs); U15Layer = 20 theorems + 3 defs,
+  0-sorry. The audit as committed with this entry was a failed run:
+  25 lines (20 axiom lines, 2 axiom-free defs, and 3
+  error(lean.unknownIdentifier) lines for the three names this
+  change removed), and the new theorem was not covered. The clean
+  regeneration over the module's declarations landed in the fix
+  pass (commit fb6456c7): 24 lines (22 axiom lines + 2 axiom-free
+  defs; no sorryAx, no errors).
 - **The remaining open strengthening:** the m-coprimality drop (the
   divisor-count inequality tau(m1*m2) <= tau(m1)*tau(m2) for ALL
   factors — the general tau-inequality; the coprime
@@ -2432,7 +2437,10 @@ rule. What was found, verified against the committed
   (the union; Misc.lean:80) + the pointwise lemma + the
   `Finset.prod_le_prod`/`Finset.prod_subset` composition.
 - **Build:** exit 0 (8,476 jobs); U15Layer = 21 theorems + 3 defs,
-  0-sorry; the audit regenerated over the module's 24 declarations
-  (24 lines; no sorryAx).
+  0-sorry. The audit was not regenerated at this commit (the
+  committed file was still the failed 25-line run from E-077); the
+  clean regeneration over the module's 24 declarations landed in
+  the fix pass (commit fb6456c7): 24 lines (22 axiom lines + 2
+  axiom-free defs; no sorryAx, no errors).
 - **Status:** complete for this entry. (Numbering note: as at E-077,
   no E-075 or E-076 entry exists in this log.)

@@ -96,7 +96,7 @@ which is the structure investigated in §5.
 | u = 59 layer census (E-061) | the chain-critical cells; the spans 44 + the residual 3,841 = 3,885 exact (the rescue 1.13%) | `analysis/u59_class_v038/` |
 | u = 63 layer census (E-063) | the chain-critical cells; the spans 10 + the residual 3,831 = 3,841 exact (the rescue 0.26%) | `analysis/u63_class_v039/` |
 | u = 67 layer census (E-065) | the chain-critical cells; the spans 2 + the residual 3,829 = 3,831 exact (the rescue 0.05%, the floor); the census program closed | `analysis/u67_class_v040/` |
-| the orbit-window cell facts (E-067/E-068) | the (mod 3, mod 5) pair-orbit closures as theorems (the mod-5 QR pair {1,4}, the mod-3 two-orbit); U15Layer at 21 theorems + 3 defs | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
+| the orbit-window cell facts (E-067/E-068) | the (mod 3, mod 5) pair-orbit closures (the mod-5 QR pair {1,4}, the mod-3 two-orbit), landed as theorems at E-067/E-068 and removed from U15Layer at E-077 | `ErdosStrausConjecture/ResidualPrimes/U15Layer.lean` |
 
 **Scope guard.** The 22,222-prime cohort is a research starting point, not the
 complete unresolved domain: every cohort prime already has a valid
@@ -466,7 +466,8 @@ injectivity on the bounded residues. The supporting pieces: the mem-level
 CRT-pair routing (`uDset_mem_crt_pair`), the **general** decode injectivity
 (`crtPair2_injOn_lt`, any nonzero coprime `a, b` — the general form of
 `crtPair_injOn15`). The general fold deficit corollary (`uDset_card_le_fold`, E-059) completed
-the general family in its first form: the divisor-residue set at **any**
+the general family in its first form (replaced by `uDset_card_le_fold'`
+at E-077, below): the divisor-residue set at **any**
 composite layer (of nonzero coprime factors) never exceeds the folded
 factorization's full divisor-product count, via the count chain (the
 injectivity + the general pair form + `card_image_le` + `card_product`),
@@ -486,10 +487,9 @@ divisor-status induction, the `prod_mod_qr` pattern specialized) and the
 composition, first-try clean once the pattern was established). Both
 orbit-closure theorems were removed from `U15Layer` at E-077, in the
 same change that strengthened the fold corollary; they are not part of
-the module state the audited count below reflects. Both halves
-of the `(mod 3, mod 5)` pair-orbit are theorems: each is a product-closure
-statement about a positive integer whose prime divisors lie in the named
-residue set. The Lean joint audited set
+the module state the audited count below reflects. Each was a
+product-closure statement about a positive integer whose prime divisors
+lie in the named residue set. The Lean joint audited set
 stands at **74**, 0-`sorry` (recounted name by name at the E-070
 correction, PR #85/#87 — which regenerated the U15Layer axiom audit in
 full, finding 74 against the previously stated 82; the E-074 extension of
@@ -499,7 +499,7 @@ names + the 15 nano theorems; the E-077 and E-078 changes bring it to
 74: 59 audited src theorem names + the 15 nano theorems, the fold
 corollary's restatement counting one for one, `count_add_le_count_mul`
 adding one, and the two orbit closures' removal taking away two). The ResidualPrimes modules sit outside the
-certified CI build (the root library and the five modules it imports);
+certified CI build (the root library and its ten-module certified set);
 U15Layer compiles separately, and its axiom audit and compile record are
 pinned in the manifest. The general exactness family is complete: the fold
 skeleton, the pair form (unconditional), the deficit corollary
