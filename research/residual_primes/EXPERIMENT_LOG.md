@@ -2399,16 +2399,23 @@ rule. What was found, verified against the committed
   plus the exact toolchain equality `Nat.Coprime.card_divisors_mul`).
   Route: 2 compile rounds (the namespaced lemma projection
   `hcop.card_divisors_mul`, an equality not an inequality).
-- **Build:** exit 0; the audit regenerated (the 25-declaration state +
-  the new theorem = 24 axiom lines; no sorryAx); U15Layer = 23
-  theorems + 3 defs, 0-sorry.
+- **Build:** exit 0 (8,476 jobs); the audit regenerated over the
+  module's 23 declarations (23 axiom lines; no sorryAx); U15Layer =
+  20 theorems + 3 defs, 0-sorry.
 - **The remaining open strengthening:** the m-coprimality drop (the
   divisor-count inequality tau(m1*m2) <= tau(m1)*tau(m2) for ALL
   factors — the general tau-inequality; the coprime
   `card_divisors_mul` does not cover it; the known combinatorial proof
   is the gcd-injection, whose Lean route is the antidiagonal
   machinery).
-- **Status:** complete for this entry.
+- **Branch state note (added on review):** this change also removes
+  `prod_qr_mod5` (E-067) and `prod_orbit_mod3` (E-068) from the
+  module, which neither the PR body nor this entry announced. The
+  registry and the manuscript carry the removal explicitly, and the
+  audited count is stated for the branch as it stands.
+- **Status:** complete for this entry. (Numbering note: this entry
+  follows E-074 directly; no E-075 or E-076 entry exists in this
+  log, and no R8 piece 58 entry exists.)
 
 
 ## E-078 - R8 piece 60: the tau-inequality's pointwise lemma (2026-11-28)
@@ -2419,17 +2426,13 @@ rule. What was found, verified against the committed
   dominated by the multiplicative count product). 3 compile rounds
   (omega cannot linearize the variable product; the linarith route
   needs the hypothesis form; the `ring` + omega composition closed it).
-- **The composition attempt (honest stop):** the full
-  τ(m₁ * m₂) ≤ τ(m₁) * τ(m₂) — the skeleton (the zero cases via
-  `Nat.divisors_zero`, the cards via `Nat.card_divisors`, the union via
-  `Nat.primeFactors_mul`) plus the pointwise composition wrote clean,
-  and the per-prime `mem_primeFactors` hop flip-flopped for 8 rounds
-  (the mem = the THREE-conjunct `Nat.Prime p ∧ p ∣ n ∧ n ≠ 0` — the
-  ⟨⟩-pairs flip-flopped between it and the PrimeFin mem lemma) — the
-  module's non-pointwise pieces REMOVED and the composition STAGED in
-  the design note with the probed exact signatures (the session
-  discipline: stop when a piece fights the parser; the fresh-context
-  resume carries the probed kit).
-- **Build:** exit 0; U15Layer = 24 theorems + 3 defs, 0-sorry; the
-  audit regenerated (25 lines; no sorryAx).
-- **Status:** complete for this entry (the composition staged).
+- **The staged next piece (the design note):** the full
+  τ(m₁ * m₂) ≤ τ(m₁) * τ(m₂) — the route: `Nat.card_divisors`
+  (`(n+1)-product per prime`, Misc.lean:221) + `Nat.primeFactors_mul`
+  (the union; Misc.lean:80) + the pointwise lemma + the
+  `Finset.prod_le_prod`/`Finset.prod_subset` composition.
+- **Build:** exit 0 (8,476 jobs); U15Layer = 21 theorems + 3 defs,
+  0-sorry; the audit regenerated over the module's 24 declarations
+  (24 lines; no sorryAx).
+- **Status:** complete for this entry. (Numbering note: as at E-077,
+  no E-075 or E-076 entry exists in this log.)
