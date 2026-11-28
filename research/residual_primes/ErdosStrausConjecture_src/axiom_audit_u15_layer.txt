@@ -3,6 +3,8 @@
 'ResidualPrimes.u15_x_residue' depends on axioms: [propext, Quot.sound]
 'ResidualPrimes.u15_x_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.u15_m_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.crtPair' does not depend on any axioms
+'ResidualPrimes.uDset' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.uDset_mem_elim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.uDset_mem_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.crtPair_injOn15' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -10,3 +12,14 @@
 'ResidualPrimes.crtPair2' does not depend on any axioms
 'ResidualPrimes.uDset_coprime_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ResidualPrimes.uDset35_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset_mem_crt_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.crtPair2_injOn_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.divisors_split_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset_fold_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.crtPair_fold_image15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset15_card_le_fold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.crtPair2_fold_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.uDset_card_le_fold' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.prod_qr_mod5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.prod_orbit_mod3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResidualPrimes.prod_in_clo4_mod15' depends on axioms: [propext, Classical.choice, Quot.sound]

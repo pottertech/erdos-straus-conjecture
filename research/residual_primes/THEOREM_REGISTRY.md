@@ -185,6 +185,10 @@ The joint audited set: per the E-070 correction recount (Emily's NOT-COMPLIANT c
 per-file audit artifacts: 49 src theorem names pre-fix, 59 post-fix, +
 15 nano = 74), plus this fact: **75**; the 2e-window-count wording
 corrected to `∏ (e_q + 1)` (the divisor-product count).
+E-074: the audit regenerated at the merged main against the module's
+full 25-declaration state (the 22 theorems + the three defs; 23 axiom
+lines + 2 axiom-free defs; no sorryAx) — the recount basis confirmed:
+60 distinct src theorem names + 15 nano = **75**.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
