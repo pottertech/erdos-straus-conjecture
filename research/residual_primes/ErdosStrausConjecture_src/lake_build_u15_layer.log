@@ -1,1 +1,24 @@
+⚠ [8475/8476] Replayed ErdosStrausConjecture.ResidualPrimes.U11Layer
+warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:45:47: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:70:40: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:70:54: unused variable `hnp`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:85:38: unused variable `hx0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U11Layer.lean:85:52: unused variable `hnp`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8476/8476] Replayed ErdosStrausConjecture.ResidualPrimes.U15Layer
+warning: ErdosStrausConjecture/ResidualPrimes/U15Layer.lean:268:37: unused variable `ha0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ErdosStrausConjecture/ResidualPrimes/U15Layer.lean:268:51: unused variable `hb0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
 Build completed successfully (8476 jobs).

@@ -178,6 +178,10 @@ The mod-3 two-orbit closure (E-068): `prod_orbit_mod3` — a positive integer
 with all-prime-divisors in the mod-3 two-orbit lands in it (the
 divisor-status induction; first-try clean; trio). The joint audited set:
 15 + 35 + 5 + 5 + 5 + 3 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 82.
+The running sums in the entries above (70, 72, 74, 76, 78, 80, 82) are
+superseded by the E-070 correction recount (see the E-071 entry below):
+they were stated before the per-file audit recount, they overstate the
+audited set, and they must not be quoted as audited totals.
 The fail-shape window-cell fact (E-071, PR #86): `prod_in_clo4_mod15` — the mod-15
 2-power orbit {1, 2, 4, 8} of (ZMod 15)× is closed under multiplication
 (the exact cell set of the E-029 fail-shape census; first-try clean; trio).
@@ -185,6 +189,10 @@ The joint audited set: per the E-070 correction recount (Emily's NOT-COMPLIANT c
 per-file audit artifacts: 49 src theorem names pre-fix, 59 post-fix, +
 15 nano = 74), plus this fact: **75**; the 2e-window-count wording
 corrected to `∏ (e_q + 1)` (the divisor-product count).
+E-074: the audit regenerated at the merged main against the module's
+full 25-declaration state (the 22 theorems + the three defs; 23 axiom
+lines + 2 axiom-free defs; no sorryAx) — the recount basis confirmed:
+60 audited src theorem names + 15 nano = **75**.
 
 ## 4. Established in Paper 2 (R8 piece 3, module `ResidualPrimes.U3Boundary`)
 
