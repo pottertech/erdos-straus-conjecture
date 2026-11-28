@@ -2419,11 +2419,17 @@ rule. What was found, verified against the committed
   dominated by the multiplicative count product). 3 compile rounds
   (omega cannot linearize the variable product; the linarith route
   needs the hypothesis form; the `ring` + omega composition closed it).
-- **The staged next piece (the design note):** the full
-  τ(m₁ * m₂) ≤ τ(m₁) * τ(m₂) — the route: `Nat.card_divisors`
-  (`(n+1)-product per prime`, Misc.lean:221) + `Nat.primeFactors_mul`
-  (the union; Misc.lean:80) + the pointwise lemma + the
-  `Finset.prod_le_prod`/`Finset.prod_subset` composition.
+- **The composition attempt (honest stop):** the full
+  τ(m₁ * m₂) ≤ τ(m₁) * τ(m₂) — the skeleton (the zero cases via
+  `Nat.divisors_zero`, the cards via `Nat.card_divisors`, the union via
+  `Nat.primeFactors_mul`) plus the pointwise composition wrote clean,
+  and the per-prime `mem_primeFactors` hop flip-flopped for 8 rounds
+  (the mem = the THREE-conjunct `Nat.Prime p ∧ p ∣ n ∧ n ≠ 0` — the
+  ⟨⟩-pairs flip-flopped between it and the PrimeFin mem lemma) — the
+  module's non-pointwise pieces REMOVED and the composition STAGED in
+  the design note with the probed exact signatures (the session
+  discipline: stop when a piece fights the parser; the fresh-context
+  resume carries the probed kit).
 - **Build:** exit 0; U15Layer = 24 theorems + 3 defs, 0-sorry; the
   audit regenerated (25 lines; no sorryAx).
-- **Status:** complete for this entry.
+- **Status:** complete for this entry (the composition staged).
