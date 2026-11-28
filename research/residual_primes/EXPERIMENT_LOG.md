@@ -2313,18 +2313,26 @@ rule. What was found, verified against the committed
 - **What was done:** the Emily block on PR #87 (the audit's 21-theorem
   coverage vs the module's 22 at main) resolved by regenerating the
   committed audit artifacts against main's module.
-- **What is now committed:
+- **What is now committed:**
   - `print_axioms_u15.lean` covers **all 25 declarations** (the 22
     theorems + the three defs crtPair/uDset/crtPair2).
   - `axiom_audit_u15_layer.txt`: regenerated, 23 axiom lines + 2
     axiom-free defs — 22 theorem axiom lines (3 on
     `[propext, Quot.sound]`, 19 on the trio), `crtPair` and `crtPair2`
     axiom-free; **no sorryAx, no project axioms**.
-  - `lake_build_u15_layer.log`: freshly regenerated (the exit 0,
-    8,476 jobs line at the tail).
-- **The auditedcount basis:** 60 distinct src theorem names + the 15
+  - `lake_build_u15_layer.log`: regenerated (the exit 0, 8,476 jobs
+    line at the tail; both job lines read Replayed, so the run was a
+    cache replay of previously compiled sources, not a fresh
+    elaboration).
+- **The audited count basis:** 60 audited src theorem names + the 15
   nano theorems = **75** (the recount, per-file and name-by-name, per
   the E-070 correction convention: 60 = 59 at the #87 head + the new
-  prod_in_clo4_mod15).
-- **Status:** complete. The #87 blocking finding resolved: the audit
-  covers the module's full 22-theorem state at main plus the defs.
+  prod_in_clo4_mod15). The 60 counts the theorem names that appear in
+  the audit artifacts; the seven modules hold 62 theorems in all, and
+  CollisionReachability's isUnit_of_dvd and isUnit_neg_of are not
+  among the audited names.
+- **Status:** complete on this branch, pending merge. The #87
+  blocking finding is resolved on this branch: the audit covers the
+  module's full 22-theorem state at main plus the defs. (Numbering
+  note: this entry follows E-072 directly; no E-073 entry exists in
+  this log.)
