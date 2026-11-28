@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.22 (2026-11-28: the E-072 chain correction — the corrected sweep-wide chain through u = 83)
+**Version:** v1.23 (2026-11-28: the E-070/E-072 correction phase and the strengthening E-077/E-078 incorporated — the corrected audit, the count 74, the u-hypothesis drop, the tau pointwise lemma)
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
@@ -567,6 +567,25 @@ The per-link rescues fluctuate (15.4% to 82.5%) — the "asymptotic band" and
 every hard-case prime in [10^7, 10^9) has F(p) ≤ 83 (the standing banner
 untouched; computation never closes a universal claim). The per-layer span
 counts and the collision/cell observations stand as stated.
+
+*The audit, the count, and the strengthening (E-070/E-074–E-078, per the
+correction phase).* The U15Layer axiom audit is regener­ated and
+committed with its provenance header: **24 lines** (22 axiom lines + 2
+axiom-free defs; no `sorryAx`, no project axioms) covering the module's
+theorems plus the `crtPair`/`crtPair2` definitions. The count basis is
+the per-file name-by-name recount: **74** (59 audited src theorem names +
+the 15 nano theorems — the E-075 statement of 75 superseded when the two
+orbit-closure theorems were removed from the module at E-077, one for
+one against the fold corollary's restatement and the tau pointwise
+lemma). The strengthening program's first pieces: the fold deficit
+corollary in its strengthened form `uDset_card_le_fold'` (only the
+m-coprimality remains; the u-side hypotheses dropped — the image bound
+plus the toolchain divisor-count equality
+`Nat.Coprime.card_divisors_mul`), and the tau-inequality's pointwise
+lemma `count_add_le_count_mul` (`(a + b + 1) ≤ (a + 1) × (b + 1)`). The
+remaining open strengthenings, recorded in the log: the m-coprimality
+drop (the general divisor-count inequality; its finset-machinery route
+staged), and the deficit's positive characterization.
 
 *Independent validation (E-020, R9).* A standalone Pollard-rho +
 Miller-Rabin reimplementation (no shared code with the C engines)
