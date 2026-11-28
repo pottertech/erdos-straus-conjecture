@@ -2165,6 +2165,32 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   (the D-set cells inside the (2,2)-orbit closure), and the deficit's
   positive characterization.
 
+
+## E-071 - R8 piece 54: the fail-shape window-cell fact (2026-11-27)
+
+- **What was done:** the (2,2)-orbit-closure route's core fact; PR #83
+  (the mod-3 two-orbit closure) merged, main at `7396b2f`.
+- **Lean piece landed:**
+  - `prod_in_clo4_mod15`: **the fail-shape window-cell fact** - a
+    positive integer all of whose prime divisors lie in the mod-15
+    2-power orbit `{1, 2, 4, 8}` (the cyclic <2> of (ZMod 15)x) is
+    itself in that orbit - the divisor-status induction with the 4 x 4
+    product cases (first-try clean, r1; the orbit closed under
+    multiplication mod 15). **This is the exact cell set of the E-029
+    fail-shape census** (the D-sets inside {1, 2, 4, 8}): the census's
+    fixed fail shapes are now backed by the orbit-closure theorem
+    (trio axioms).
+- **Build:** exit 0; U15Layer = 22 theorems + 3 defs, 0-sorry.
+- **Status:** complete for this entry. Renumbered E-070 -> E-071 (the
+  open PR #85 claims E-070). The audited count is the correction
+  convention's (the recount over the per-file audit artifacts; see the
+  registry note); the count line of this entry is superseded by the
+  E-070 correction's recount (74) plus one for this fact, pending the
+  correction lane's merge.
+- **Remaining per the design note:** the deficit's positive
+  characterization (the exact count of the realized pairs) - the last
+  structural piece of the session's staged direction.
+
 ## E-068 - R8 piece 53: the mod-3 two-orbit closure (2026-11-27)
 
 - **What was done:** the orbit-window's second cell fact; PR #82 (the
@@ -2210,14 +2236,73 @@ gated on fw = 11 spanners) SURVIVE unchanged.**
   theorem - the E-031 algebra's full form).
 
 
+## E-072 - R8 piece 55: THE CHAIN CORRECTION (2026-11-27) — the fate-list
+artifact found; the sweep-wide chain closes completely at u = 83
 
+**Correction entry.** Corrections are entered in place for E-039 through
+E-065 and the manuscript tail per the standing claims-may-be-withdrawn
+rule. What was found, verified against the committed
+`analysis/u23_class_v028/full_run.txt`:
 
+- **The artifact.** Every census engine from v0.29 onward carried an
+  earlier-fate list that omitted u = 27 (and never grew to include the
+  later links 35/39/43/47/51/55/59 in the same tracking). The engines'
+  per-layer SPAN counts are all correct (the BYU rows confirm each:
+  4,668 / 691 / 733 / 192 / 303 / 36 / 49 / 44 / 10 / 2), but every
+  STILL-FAILERS count from E-039 on was inflated by the accumulated
+  unrecognized earlier spans — starting with u = 27's
+  **3,818 = BYU 27 all**, which landed in the "true failers" branch of
+  the u = 31 census (5,889 = 2,071 + 3,818), and every later engine
+  inherited the inflation.
+- **The source of truth.** The v0.28 engine's BYU table carries the
+  COMPLETE sweep-wide first-working distribution through u = 83 (the
+  BYU rows sum to the sweep 3,194,231 exactly). No re-run is needed:
+  the committed artifact IS the correct census.
+- **The corrected (H24) chain** (the residual after each link; the
+  rescue = the spans / the previous residual):
 
+  | u | spans | rescue | residual |
+  | --- | --- | --- | --- |
+  | 3 | 830,200 | (the F(p) = 3 class) | 2,364,031 |
+  | 7 | 1,949,770 | 82.47% | 414,261 |
+  | 11 | 279,515 | 67.47% | 134,746 |
+  | 15 | 59,759 | 44.34% | 74,987 |
+  | 19 | 42,804 | 57.08% | 32,183 |
+  | 23 | 21,626 | 67.19% | 10,557 |
+  | **27** | **3,818** | **36.16%** | **6,739** |
+  | 31 | 4,668 | 69.26% | 2,071 |
+  | 35 | 691 | 33.36% | 1,380 |
+  | 39 | 733 | 53.11% | 647 |
+  | 43 | 192 | 29.67% | 455 |
+  | 47 | 303 | 66.59% | 152 |
+  | 51 | 36 | 23.68% | 116 |
+  | 55 | 49 | 42.24% | 67 |
+  | 59 | 44 | 65.67% | 23 |
+  | 63 | 10 | 43.47% | 13 |
+  | 67 | 2 | 15.38% | 11 |
+  | 71 | 6 | 54.54% | 5 |
+  | 75 | 2 | 40.00% | 3 |
+  | 79 | 1 | 33.33% | 2 |
+  | 83 | 2 | 100% | **0** |
 
-
-
-
-
-
-
-
+- **The corrected story.** The per-link rescues FLUCTUATE (15.4% to
+  69.3%) — the "sub-two-percent asymptotic band" and the "ladder floor"
+  readings WITHDRAWN as artifacts of the inflated residuals. The chain
+  has four links my census engines never built (71/75/79/83 — the data
+  was in the committed v0.28 artifact all along), and after u = 83 the
+  (H24) residual is **ZERO**: every hard-case prime in [10^7, 10^9)
+  has F(p) <= 83, an EMPIRICAL statement over the verified sweep (the
+  standing banner untouched: computation never closes a universal
+  claim).
+- **The claims withdrawn with banners:** the "census program closed at
+  its floor" (E-065/E-066), the asymptotic-regime readings (E-050/52/61/63),
+  the per-link "the spans N + the residual M = prior" sentences from
+  E-039 on (the M values inflated), the "the residual 0.162% of H24"
+  claims (the true final residual 0). The span counts, the collision
+  counts per layer, and the delicate/collision alternation
+  observations stand.
+- **Status:** the correction campaign continues: the
+  manuscript tail rewrite (v1.22), the PR #85 lane reconciliation
+  (the correction PR itself carries the same finding), the PR #86
+  description correction (its "census closed" framing withdrawn), and
+  the fate-list audit note for every engine."

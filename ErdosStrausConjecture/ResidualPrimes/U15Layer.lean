@@ -352,8 +352,8 @@ theorem crtPair_fold_image15 (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
   rw [h3, h5]
 
 /-- **The fold's deficit corollary.** The composite layer's residues never
-exceed the FULL divisor-product count (the engine's window-mask count
-`∏ (2e + 1)`): the CRT decode is injective on the bounded residues, and the
+exceed the FULL divisor-product count
+`∏ (e_q + 1)`): the CRT decode is injective on the bounded residues, and the
 fold's pair form realizes the decode image exactly as the divisor-product's
 pair image, whose card is bounded by the product's own count. -/
 theorem uDset15_card_le_fold (m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
@@ -403,9 +403,8 @@ theorem crtPair2_fold_image (u₁ u₂ m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁
 
 /-- **The general fold deficit corollary.** The divisor-residue set at any
 composite layer `u₁ * u₂` (of nonzero coprime factors) never exceeds the
-full divisor-product count of the folded factorization — the general form
-of `uDset15_card_le_fold` (the engine's window-mask count
-`∏ (2e_q + 1)`). -/
+the divisor-product count
+`∏ (e_q + 1)`). -/
 theorem uDset_card_le_fold (u₁ u₂ m₁ m₂ : ℕ)
     (hu1 : u₁ ≠ 0) (hu2 : u₂ ≠ 0) (hup : Nat.Coprime u₁ u₂)
     (hcop : Nat.Coprime m₁ m₂) :
@@ -514,6 +513,66 @@ theorem prod_orbit_mod3 (T : ℕ) (hT0 : 0 < T)
             · rw [Nat.mul_mod, e, k]; norm_num
             · rw [Nat.mul_mod, e, k]; norm_num
           · rcases hqres with k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+  exact key T (Nat.le_refl T) hT0 hall
+
+/-- **The mod-15 2-power-orbit closure (the fail-shape window-cell fact).**
+A positive integer all of whose prime divisors lie in the mod-15
+2-power orbit `{1, 2, 4, 8}` (the cyclic `⟨2⟩ ⊂ (ZMod 15)×`) is itself in
+that orbit: the divisor-status induction, with the 4 × 4 product cases
+closing (the orbit is closed under multiplication mod 15). This is the
+exact cell set of the E-029 fail-shape census (`D`-sets inside
+`{1, 2, 4, 8}`). -/
+theorem prod_in_clo4_mod15 (T : ℕ) (hT0 : 0 < T)
+    (hall : ∀ q : ℕ, q.Prime → q ∣ T →
+      (q % 15 = 1 ∨ q % 15 = 2 ∨ q % 15 = 4 ∨ q % 15 = 8)) :
+    T % 15 = 1 ∨ T % 15 = 2 ∨ T % 15 = 4 ∨ T % 15 = 8 := by
+  have key : ∀ t : ℕ, t ≤ T → 0 < t →
+      (∀ q : ℕ, q.Prime → q ∣ t →
+        (q % 15 = 1 ∨ q % 15 = 2 ∨ q % 15 = 4 ∨ q % 15 = 8)) →
+      t % 15 = 1 ∨ t % 15 = 2 ∨ t % 15 = 4 ∨ t % 15 = 8 := by
+    intro t
+    induction t using Nat.strongRecOn with | ind t ih
+    · intro _hle ht0 hall'
+      by_cases h1 : t = 1
+      · subst h1; exact Or.inl rfl
+      · have htgt1 : 1 < t := by omega
+        by_cases hpr : Nat.Prime t
+        · exact hall' t hpr (dvd_refl t)
+        · obtain ⟨q, hqp, hqt⟩ := Nat.exists_prime_and_dvd (by omega)
+          have hqne : q ≠ t := by rintro rfl; exact hpr hqp
+          have hlq : q ≤ t := Nat.le_of_dvd ht0 hqt
+          have htdq : t / q ∣ t := Nat.div_dvd_of_dvd hqt
+          have hlt : t / q < t := Nat.div_lt_self ht0 hqp.one_lt
+          have hlqT : t / q ≤ T := Nat.le_trans (Nat.le_of_dvd ht0 htdq) _hle
+          have htq0 : 0 < t / q := Nat.div_pos hlq (by linarith [hqp.one_lt])
+          have hall2 : ∀ r : ℕ, r.Prime → r ∣ t / q →
+              (r % 15 = 1 ∨ r % 15 = 2 ∨ r % 15 = 4 ∨ r % 15 = 8) :=
+            fun r hr hrd => hall' r hr (hrd.trans htdq)
+          have hrec := ih (t / q) hlt hlqT htq0 hall2
+          have hqres := hall' q hqp hqt
+          have hdiv : t = (t / q) * q := (Nat.div_mul_cancel hqt).symm
+          rw [hdiv]
+          rcases hrec with e | e | e | e
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
+          · rcases hqres with k | k | k | k
+            · rw [Nat.mul_mod, e, k]; norm_num
+            · rw [Nat.mul_mod, e, k]; norm_num
             · rw [Nat.mul_mod, e, k]; norm_num
             · rw [Nat.mul_mod, e, k]; norm_num
   exact key T (Nat.le_refl T) hT0 hall
