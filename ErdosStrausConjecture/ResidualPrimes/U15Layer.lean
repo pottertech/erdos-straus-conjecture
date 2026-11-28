@@ -401,15 +401,15 @@ theorem crtPair2_fold_image (u₁ u₂ m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁
   rw [h1, h2]
 
 /-- **The strengthened general fold deficit corollary.** The divisor-residue
-set at **any** composite layer `u₁ * u₂` of coprime factors never exceeds
-the folded factorization's divisor-product count — with **no hypothesis on
-the u side** (the residue map is an image of the divisor set, so its card
-is bounded by the divisor count outright; the coprime composition route
-through `crtPair2_injOn_lt` is not needed for the count). This is the
-Emily-brute-force strengthening's first step: the remaining candidate
-drop is the `m`-coprimality (the divisor-count inequality
-`τ(m₁ * m₂) ≤ τ(m₁) · τ(m₂)` for all factors), recorded as the open
-strengthening. -/
+set at **any** layer `u` never exceeds the folded factorization's
+divisor-product count, with **no hypothesis on the u side**: the residue
+map is an image of the divisor set, so its card is bounded by the divisor
+count outright via `Finset.card_image_le`, and the exact equality
+`Nat.Coprime.card_divisors_mul` splits that count over the coprime
+factors. This is the Emily-brute-force strengthening's first step: the
+remaining candidate drop is the `m`-coprimality (the divisor-count
+inequality `τ(m₁ * m₂) ≤ τ(m₁) · τ(m₂)` for all factors), recorded
+as the remaining staged strengthening. -/
 theorem uDset_card_le_fold' (u m₁ m₂ : ℕ) (hcop : Nat.Coprime m₁ m₂) :
     (uDset u (m₁ * m₂)).card ≤
       (Nat.divisors m₁).card * (Nat.divisors m₂).card := by
