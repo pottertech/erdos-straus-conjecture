@@ -4,7 +4,7 @@
 
 **Author:** Brodie Foxworth
 **Status:** open research (living manuscript — grows as results are established)
-**Version:** v1.23 (2026-11-28: the E-070/E-072 correction phase and the strengthening E-077/E-078 incorporated — the corrected audit, the count 74, the u-hypothesis drop, the tau pointwise lemma)
+**Version:** v1.23 (2026-11-28: the E-070/E-072 correction phase and the strengthening E-077/E-078 incorporated — the corrected audit, the count 74, the u-hypothesis drop, the tau pointwise lemma) — released in this state
 **Relationship to Paper 1:** Paper 1 (`ROUTE2_CONDITIONAL_REDUCTION.md`, frozen at
 `paper-v1.12`) establishes the conditional reduction and the constructive
 framework; this paper investigates whether that framework can resolve the
